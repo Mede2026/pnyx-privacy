@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Politique de confidentialité — Pnyx</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 22px 80px;
+    color: #1c1c1e;
+    background: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { color: #e6e6e6; background: #1c1c1e; }
+    a { color: #6cb4ff; }
+    .meta { color: #9a9a9e; }
+    h3 { color: #cfcfd2; }
+  }
+  h1 { font-size: 1.7rem; margin-bottom: 4px; }
+  h2 { font-size: 1.3rem; margin-top: 2.4rem; padding-top: 1.4rem; border-top: 1px solid rgba(128,128,128,.25); }
+  h3 { font-size: 1.05rem; margin-top: 1.6rem; color: #3a3a3c; }
+  .meta { color: #6e6e73; font-size: .9rem; margin-top: 0; }
+  .lead { font-size: 1.05rem; }
+  ul { padding-left: 1.2rem; }
+  li { margin: .35rem 0; }
+  code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92em; }
+  a { color: #0a6cff; }
+</style>
+</head>
+<body>
+
+<h1>Politique de confidentialité — Pnyx</h1>
+<p class="meta">Dernière mise à jour : 8 juillet 2026</p>
+
+<!-- ============== FRANÇAIS ============== -->
+<p class="lead"><strong>Pnyx ne possède aucun serveur et ne collecte aucune donnée personnelle</strong> — à une seule exception, <strong>visible et volontaire</strong> : le classement mondial (un pseudo et un compte de mots), détaillé plus bas. Le développeur ne reçoit, ne stocke ni ne vend quoi que ce soit d'autre vous concernant.</p>
+
+<h3>Ce qui reste sur votre appareil</h3>
+<ul>
+  <li>Vos <strong>dictées, notes, modes, dictionnaire personnel</strong> et réglages sont stockés localement.</li>
+  <li>Vos <strong>clés d'API</strong> (Anthropic, OpenAI, Google, Groq) sont conservées dans le <strong>Trousseau iOS</strong>. Une sauvegarde <strong>chiffrée AES-256</strong> (protégée par un mot de passe que vous choisissez) peut être créée à votre demande.</li>
+  <li>Le <strong>modèle de prédiction du clavier</strong> : une base linguistique française est livrée avec l'app. Si vous activez « Apprendre de ce que j'écris » (désactivé par défaut), le texte que vous tapez et dictez sert à enrichir un modèle <strong>strictement local</strong>. <strong>Ce texte ne quitte jamais l'appareil</strong> et n'est envoyé à personne. Vous pouvez l'exporter vous-même ou tout effacer en désactivant l'option.</li>
+</ul>
+
+<h3>Ce qui part de votre appareil — à votre initiative</h3>
+<ul>
+  <li><strong>Transcription cloud</strong> : si vous choisissez un fournisseur cloud (Groq, OpenAI, Google), l'<strong>audio</strong> de votre dictée est envoyé <strong>directement</strong> à ce fournisseur avec <strong>votre propre clé d'API</strong>. Vous pouvez aussi choisir la transcription <strong>100 % sur l'appareil</strong> (Apple Speech, Whisper, Parakeet) — aucun envoi réseau.</li>
+  <li><strong>Traitement IA</strong> : si un mode active la réécriture/transformation, le <strong>texte</strong> transcrit est envoyé <strong>directement</strong> au fournisseur d'IA que vous avez choisi, avec votre clé. Vous pouvez aussi utiliser <strong>Apple Intelligence</strong> (sur l'appareil, sans réseau) sur les appareils compatibles.</li>
+</ul>
+<p>Dans tous les cas, ces échanges se font <strong>d'appareil à fournisseur</strong>, jamais via un serveur de Pnyx. L'usage de ces données est régi par la politique du fournisseur que vous avez choisi. Si un fournisseur cloud refuse la connexion (réseau filtré, VPN), l'app peut re-transcrire la dictée <strong>sur l'appareil</strong> — aucun envoi dans ce cas.</p>
+
+<h3>Classement mondial (facultatif)</h3>
+<p>Le classement compare le <strong>nombre total de mots dictés</strong> entre utilisateurs de Pnyx. Si vous l'utilisez :</p>
+<ul>
+  <li><strong>Ce qui est publié</strong> : votre <strong>pseudo</strong> (par défaut un nom générique de type « iPhone », modifiable à tout moment dans l'écran Classement), votre <strong>total de mots dictés</strong> et une date de mise à jour. <strong>Jamais le contenu de vos dictées.</strong></li>
+  <li><strong>Où</strong> : dans la base <strong>publique</strong> CloudKit de l'app, hébergée par Apple. Ces informations sont <strong>visibles par les autres utilisateurs</strong> de Pnyx.</li>
+  <li><strong>Quand</strong> : uniquement lorsque vous <strong>ouvrez l'écran Classement</strong>. Si vous ne l'ouvrez jamais, rien n'est publié.</li>
+  <li><strong>Identifiant</strong> : l'entrée est rattachée à un identifiant CloudKit <strong>opaque</strong> dérivé de votre compte iCloud — il ne révèle ni votre nom ni votre e-mail, ni au développeur ni aux autres utilisateurs.</li>
+  <li><strong>Retrait</strong> : changez votre pseudo à tout moment ; pour retirer complètement votre entrée, écrivez-nous (contact ci-dessous).</li>
+</ul>
+
+<h3>iCloud</h3>
+<p>Si la synchronisation est activée, vos données sont synchronisées via un fichier dans <strong>votre iCloud Drive privé</strong> ; vos clés d'API y voyagent à part, chiffrées. Tout reste dans votre compte iCloud ; le développeur n'y a pas accès.</p>
+
+<h3>Microphone</h3>
+<p>Le micro n'est utilisé que pendant une dictée que vous lancez, pour capter la voix à transcrire. Aucun enregistrement n'est conservé après la transcription.</p>
+
+<h3>Aucun pistage</h3>
+<p>Pnyx <strong>ne fait aucun suivi publicitaire</strong>, n'utilise <strong>aucun SDK d'analytique</strong> et ne partage rien avec des courtiers de données.</p>
+
+<h3>Enfants</h3>
+<p>Pnyx ne s'adresse pas spécifiquement aux enfants.</p>
+
+<h3>Contact</h3>
+<p>Pour toute question : <a href="mailto:dev.pnyx.appstore@gmail.com">dev.pnyx.appstore@gmail.com</a></p>
+
+<!-- ============== ENGLISH ============== -->
+<h2 id="english">English version</h2>
+
+<p class="lead"><strong>Pnyx has no server and collects no personal data</strong> — with one <strong>visible and voluntary</strong> exception: the world leaderboard (a nickname and a word count), detailed below. The developer never receives, stores, or sells anything else about you.</p>
+
+<h3>Stays on your device</h3>
+<ul>
+  <li>Your <strong>dictations, notes, modes, personal dictionary</strong>, and settings are stored locally.</li>
+  <li>Your <strong>API keys</strong> (Anthropic, OpenAI, Google, Groq) live in the <strong>iOS Keychain</strong>. An optional <strong>AES-256 encrypted backup</strong> (protected by a password you choose) can be created at your request.</li>
+  <li><strong>Keyboard prediction model:</strong> a French language base ships with the app. If you enable “Learn from what I type” (off by default), the text you type and dictate improves a <strong>strictly on-device</strong> model. <strong>This text never leaves the device</strong> and is sent to no one. You can export it yourself or erase everything by turning the option off.</li>
+</ul>
+
+<h3>Leaves your device — only at your initiative</h3>
+<ul>
+  <li><strong>Cloud transcription:</strong> if you pick a cloud provider (Groq, OpenAI, Google), your dictation <strong>audio</strong> is sent <strong>directly</strong> to that provider with <strong>your own API key</strong>. You can also choose <strong>fully on-device</strong> transcription (Apple Speech, Whisper, Parakeet) — no network.</li>
+  <li><strong>AI processing:</strong> if a mode enables rewriting/transformation, the transcribed <strong>text</strong> is sent <strong>directly</strong> to the AI provider you chose, with your key. You can also use <strong>Apple Intelligence</strong> (on-device, no network) on supported devices.</li>
+</ul>
+<p>These exchanges are <strong>device-to-provider</strong>, never through a Pnyx server. Use of that data is governed by the policy of the provider you chose. If a cloud provider refuses the connection (filtered network, VPN), the app may re-transcribe the dictation <strong>on-device</strong> — nothing is sent in that case.</p>
+
+<h3>World leaderboard (optional)</h3>
+<p>The leaderboard compares the <strong>total number of dictated words</strong> across Pnyx users. If you use it:</p>
+<ul>
+  <li><strong>What is published:</strong> your <strong>nickname</strong> (a generic name like “iPhone” by default, editable at any time on the Leaderboard screen), your <strong>total dictated word count</strong>, and an update date. <strong>Never the content of your dictations.</strong></li>
+  <li><strong>Where:</strong> in the app's <strong>public</strong> CloudKit database, hosted by Apple. This information is <strong>visible to other Pnyx users</strong>.</li>
+  <li><strong>When:</strong> only when you <strong>open the Leaderboard screen</strong>. If you never open it, nothing is published.</li>
+  <li><strong>Identifier:</strong> your entry is keyed to an <strong>opaque</strong> CloudKit identifier derived from your iCloud account — it reveals neither your name nor your e-mail, to the developer or to other users.</li>
+  <li><strong>Removal:</strong> change your nickname at any time; to remove your entry entirely, contact us (below).</li>
+</ul>
+
+<h3>iCloud</h3>
+<p>If sync is on, your data syncs through a file in <strong>your private iCloud Drive</strong>; your API keys travel separately, encrypted. Everything stays in your iCloud account; the developer has no access to it.</p>
+
+<h3>Microphone</h3>
+<p>Used only during a dictation you start, to capture the speech to transcribe. No recording is kept after transcription.</p>
+
+<h3>No tracking</h3>
+<p>Pnyx performs <strong>no advertising tracking</strong>, uses <strong>no analytics SDK</strong>, and shares nothing with data brokers.</p>
+
+<h3>Contact</h3>
+<p><a href="mailto:dev.pnyx.appstore@gmail.com">dev.pnyx.appstore@gmail.com</a></p>
+
+</body>
+</html>
