@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Appcast Sparkle de Pnyx pour Mac (distribution hors App Store).
+     Chaque release y ajoute un <item> généré par l'outil generate_appcast
+     de Sparkle (voir Scripts/release-mac.sh dans le repo Pnyx). -->
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>Pnyx pour Mac</title>
+    <link>https://mede2026.github.io/pnyx-privacy/appcast.xml</link>
+    <description>Mises à jour de Pnyx pour Mac</description>
+    <language>fr</language>
+  </channel>
+</rss>
