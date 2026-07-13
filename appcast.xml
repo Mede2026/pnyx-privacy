@@ -1,12 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!-- Appcast Sparkle de Pnyx pour Mac (distribution hors App Store).
      Chaque release y ajoute un <item> généré par l'outil generate_appcast
      de Sparkle (voir Scripts/release-mac.sh dans le repo Pnyx). -->
-<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
-  <channel>
-    <title>Pnyx pour Mac</title>
-    <link>https://mede2026.github.io/pnyx-privacy/appcast.xml</link>
-    <description>Mises à jour de Pnyx pour Mac</description>
-    <language>fr</language>
-  </channel>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Pnyx pour Mac</title>
+        <link>https://mede2026.github.io/pnyx-privacy/appcast.xml</link>
+        <description>Mises à jour de Pnyx pour Mac</description>
+        <language>fr</language>
+        <item>
+            <title>0.1</title>
+            <pubDate>Mon, 13 Jul 2026 14:12:48 -0400</pubDate>
+            <sparkle:version>1</sparkle:version>
+            <sparkle:shortVersionString>0.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://mede2026.github.io/pnyx-privacy/releases/Pnyx-Mac-0.1.zip" length="14875627" type="application/octet-stream" sparkle:edSignature="16GCW4FiOH2k8DMrtPTVcMusUd/rTZhe1YrF0OI2gexgipboN4wTQUuYzOeXVtr0uHCbNVYvxApuavj74gOBAQ=="/>
+        </item>
+    </channel>
 </rss>
