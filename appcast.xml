@@ -9,6 +9,17 @@
         <description>Mises à jour de Pnyx pour Mac</description>
         <language>fr</language>
         <item>
+            <title>0.2</title>
+            <pubDate>Mon, 13 Jul 2026 15:23:47 -0400</pubDate>
+            <sparkle:version>2</sparkle:version>
+            <sparkle:shortVersionString>0.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://mede2026.github.io/pnyx-privacy/releases/Pnyx-Mac-0.2.zip" length="14902990" type="application/octet-stream" sparkle:edSignature="vOb+5mYnhxFJ1PnkHDwO0CGVPfubNbda5gru7+GE0DgWOI3XM5e2lYcYfGhhH/wrySWQn8PH+8TniX7y1c4MCQ=="/>
+            <sparkle:deltas>
+                <enclosure url="https://mede2026.github.io/pnyx-privacy/releases/PnyxMac2-1.delta" sparkle:deltaFrom="1" length="1303030" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="aqh2YLbKuh1P0KOtgiwzXAen5yWqLhBuR5ANv2atkr0hWi3/4qIZsRZoo5pWduM7P94N/aQG5gY+w+gfmlFjAA=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>0.1</title>
             <pubDate>Mon, 13 Jul 2026 14:12:48 -0400</pubDate>
             <sparkle:version>1</sparkle:version>
