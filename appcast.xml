@@ -9,6 +9,19 @@
         <description>Mises à jour de Pnyx pour Mac</description>
         <language>fr</language>
         <item>
+            <title>0.2.2</title>
+            <pubDate>Wed, 15 Jul 2026 14:13:00 -0400</pubDate>
+            <sparkle:version>4</sparkle:version>
+            <sparkle:shortVersionString>0.2.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://mede2026.github.io/pnyx-privacy/releases/Pnyx-Mac-0.2.2.zip" length="15192483" type="application/octet-stream" sparkle:edSignature="zjSUxs92L2FJFXP6wCUDiPjjbHaxqWYzo3Qz6ajvrzibqKCi7UPxNvcKuFkwRQ8kdtqsiPbongGvtDYKHVxYBA=="/>
+            <sparkle:deltas>
+                <enclosure url="https://mede2026.github.io/pnyx-privacy/releases/PnyxMac4-3.delta" sparkle:deltaFrom="3" length="1812314" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="ymPRU/j4Oz1WA0k8lsYVahDoJHxf0dOSYFiR4+8hMgmdLoaVL8pAPeCiYhKNL3hQG0a59AVhihuHfchXBFmYCQ=="/>
+                <enclosure url="https://mede2026.github.io/pnyx-privacy/releases/PnyxMac4-2.delta" sparkle:deltaFrom="2" length="2053006" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="d0A/Db5/GqLGXxhd/NI4ftSZbuffQzhLY2owvC3HWh/CdGejRMeIgmis6RYQJYp5A6m7ntsl1711qYAMnd8XBg=="/>
+                <enclosure url="https://mede2026.github.io/pnyx-privacy/releases/PnyxMac4-1.delta" sparkle:deltaFrom="1" length="2149078" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="cMFyPMxJwUc5Nubb+TiF5z+A3LS40KMxq/i41fKPG5ApeJ+Ldh0IobxPETKF7FTeFfUKZuEeUCVxBzBilmEwCw=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>0.2.1</title>
             <pubDate>Mon, 13 Jul 2026 23:25:27 -0400</pubDate>
             <sparkle:version>3</sparkle:version>
