@@ -8,202 +8,323 @@
 <meta property="og:title" content="Pnyx — Dictée vocale intelligente">
 <meta property="og:description" content="Transcription 100 % locale ou cloud, amélioration IA du texte, clavier iOS avec dictée partout, app Mac avec raccourci global. Vos données restent chez vous.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://mede2026.github.io/pnyx-privacy/">
-<meta property="og:site_name" content="Pnyx">
-<meta property="og:locale" content="fr_CA">
-<meta property="og:image" content="https://mede2026.github.io/pnyx-privacy/icon-512.png">
-<meta property="og:image:width" content="512">
-<meta property="og:image:height" content="512">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pnyx — Dictée vocale intelligente">
-<meta name="twitter:description" content="Transcription 100 % locale ou cloud, amélioration IA du texte, clavier iOS avec dictée partout, app Mac avec raccourci global. Vos données restent chez vous.">
-<meta name="twitter:image" content="https://mede2026.github.io/pnyx-privacy/icon-512.png">
-<link rel="canonical" href="https://mede2026.github.io/pnyx-privacy/">
-<meta name="theme-color" content="#F1EDE3" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#16182B" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/png" href="icon-180.png">
 <link rel="apple-touch-icon" href="icon-180.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Pnyx",
-  "url": "https://mede2026.github.io/pnyx-privacy/",
-  "image": "https://mede2026.github.io/pnyx-privacy/icon-512.png",
-  "description": "Pnyx : dictée vocale intelligente pour iPhone, iPad et Mac. Transcription 100 % locale ou cloud, amélioration IA du texte, clavier iOS, raccourci global sur Mac, notes, synchro iCloud.",
-  "applicationCategory": "ProductivityApplication",
-  "operatingSystem": "iOS, iPadOS, macOS",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" },
-  "author": { "@type": "Person", "name": "Xuan Vien Do" }
-}
-</script>
 <style>
   :root {
     color-scheme: light dark;
     --cream: #F1EDE3;
-    --cream-soft: #F8F5EE;
     --navy: #2B3055;
     --navy-deep: #212542;
     --orange: #C96F4A;
-    --orange-strong: #A9532F;
+    --orange-deep: #A9532F;
     --text: #2B3055;
-    --text-soft: #5A5E7E;
+    --text-soft: #595E80;
     --bg: var(--cream);
-    --card: #FBF9F4;
-    --line: rgba(43, 48, 85, .14);
+    --card: #FAF8F2;
+    --card-border: rgba(43, 48, 85, .12);
+    --line: rgba(43, 48, 85, .13);
     --hero-ink: var(--navy);
+    --icon-tint: rgba(201, 111, 74, .13);
+    --shadow-card: 0 1px 2px rgba(43, 48, 85, .05);
+    --shadow-card-hover: 0 14px 30px rgba(43, 48, 85, .13), 0 3px 8px rgba(43, 48, 85, .07);
+    --shadow-icon: 0 18px 40px rgba(43, 48, 85, .25), 0 4px 12px rgba(43, 48, 85, .14);
+    --arc-opacity: .5;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --text: #EAE7DC;
-      --text-soft: #ABAEC6;
-      --bg: #16182B;
-      --card: #1E2140;
-      --line: rgba(234, 231, 220, .13);
+      --text-soft: #AEB1C9;
+      --bg: #15172A;
+      --card: #1D2040;
+      --card-border: rgba(234, 231, 220, .10);
+      --line: rgba(234, 231, 220, .12);
       --orange: #D98A63;
-      --orange-strong: #E09A73;
-      --hero-ink: #EAE7DC;
+      --orange-deep: #E09A73;
+      --hero-ink: #F1EDE3;
+      --icon-tint: rgba(217, 138, 99, .14);
+      --shadow-card: 0 1px 2px rgba(0, 0, 0, .25);
+      --shadow-card-hover: 0 14px 30px rgba(0, 0, 0, .45), 0 3px 8px rgba(0, 0, 0, .3);
+      --shadow-icon: 0 18px 44px rgba(0, 0, 0, .55), 0 4px 14px rgba(0, 0, 0, .4);
+      --arc-opacity: .3;
     }
   }
 
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
+    line-height: 1.65;
     color: var(--text);
     background: var(--bg);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
-  a { color: var(--orange-strong); }
-  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  a { color: var(--orange-deep); }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+  section { scroll-margin-top: 84px; }
 
   /* ---------- Nav ---------- */
   header.site {
     border-bottom: 1px solid var(--line);
     position: sticky; top: 0; z-index: 10;
-    background: color-mix(in srgb, var(--bg) 88%, transparent);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: color-mix(in srgb, var(--bg) 86%, transparent);
+    backdrop-filter: blur(12px) saturate(1.4);
+    -webkit-backdrop-filter: blur(12px) saturate(1.4);
   }
   .nav {
     display: flex; align-items: center; gap: 14px;
-    padding: 12px 24px; max-width: 960px; margin: 0 auto;
+    padding: 12px 24px; max-width: 980px; margin: 0 auto;
   }
   .nav .brand {
     display: flex; align-items: center; gap: 10px;
     font-weight: 700; font-size: 1.08rem; color: var(--text);
     text-decoration: none; letter-spacing: .01em;
   }
-  .nav .brand svg { display: block; }
-  .nav nav { margin-left: auto; display: flex; gap: 20px; }
+  .nav .brand img { display: block; width: 26px; height: 26px; border-radius: 22%; }
+  .nav nav { margin-left: auto; display: flex; gap: 4px; }
   .nav nav a {
-    color: var(--text-soft); text-decoration: none; font-size: .95rem;
+    color: var(--text-soft); text-decoration: none; font-size: .93rem;
+    padding: 6px 11px; border-radius: 999px;
+    transition: color .18s ease, background-color .18s ease;
   }
-  .nav nav a:hover { color: var(--orange-strong); }
+  .nav nav a:hover { color: var(--orange-deep); background: var(--icon-tint); }
 
-  /* ---------- Hero ---------- */
-  .hero { text-align: center; padding: 72px 24px 56px; }
-  .hero .mic {
-    display: block; margin: 0 auto 26px;
-    width: 116px; height: 116px;
-    border-radius: 22%;
-    box-shadow: 0 12px 32px rgba(43, 48, 85, .22), 0 2px 8px rgba(43, 48, 85, .12);
+  /* ---------- Boutons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 12px 24px; border-radius: 999px;
+    font-size: .98rem; font-weight: 650; line-height: 1.3;
+    text-decoration: none; border: 1.5px solid transparent;
+    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    will-change: transform;
   }
+  .btn svg { flex: none; }
+  .btn.primary {
+    color: #fff;
+    background: linear-gradient(160deg, #C96F4A, #AE5732);
+    box-shadow: 0 8px 20px rgba(169, 83, 47, .32), 0 2px 5px rgba(169, 83, 47, .22);
+  }
+  .btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(169, 83, 47, .38), 0 3px 8px rgba(169, 83, 47, .25);
+    filter: brightness(1.05);
+  }
+  .btn.primary:active { transform: translateY(0); filter: brightness(.97); }
   @media (prefers-color-scheme: dark) {
-    .hero .mic { box-shadow: 0 12px 32px rgba(0, 0, 0, .5), 0 2px 8px rgba(0, 0, 0, .35); }
+    .btn.primary {
+      box-shadow: 0 8px 22px rgba(0, 0, 0, .5), 0 2px 6px rgba(0, 0, 0, .35);
+    }
+    .btn.primary:hover { box-shadow: 0 14px 30px rgba(0, 0, 0, .6), 0 3px 9px rgba(0, 0, 0, .4); }
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 22px; border-radius: 999px;
+    font-size: .95rem; font-weight: 600; line-height: 1.3;
+    color: var(--text-soft);
+    border: 1.5px dashed var(--line);
+  }
+
+  /* ---------- Héros ---------- */
+  .hero {
+    position: relative; overflow: hidden;
+    text-align: center; padding: 84px 24px 96px;
+    background: radial-gradient(900px 480px at 50% -140px, var(--icon-tint), transparent 70%);
+  }
+  .hero-arcs {
+    position: absolute; left: 50%; bottom: -300px;
+    transform: translateX(-50%);
+    width: 1100px; height: 560px;
+    pointer-events: none; opacity: var(--arc-opacity);
+  }
+  .hero-inner { position: relative; }
+  .hero .mic {
+    display: block; margin: 0 auto 30px;
+    width: 122px; height: 122px;
+    border-radius: 22%;
+    box-shadow: var(--shadow-icon);
   }
   .hero h1 {
-    font-size: clamp(2rem, 5.5vw, 3rem);
-    line-height: 1.12; margin: 0 0 14px;
-    color: var(--hero-ink); letter-spacing: -.02em;
+    font-size: clamp(2.1rem, 5.6vw, 3.3rem);
+    line-height: 1.08; margin: 0 0 16px;
+    color: var(--hero-ink);
+    letter-spacing: -.03em; font-weight: 800;
+    text-wrap: balance;
   }
   .hero h1 .accent { color: var(--orange); }
   .hero p.tagline {
-    font-size: clamp(1.05rem, 2.4vw, 1.25rem);
-    color: var(--text-soft); max-width: 620px; margin: 0 auto 30px;
+    font-size: clamp(1.05rem, 2.4vw, 1.22rem);
+    color: var(--text-soft); max-width: 620px; margin: 0 auto 34px;
+    text-wrap: balance;
   }
-  .badges { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-  .badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 10px 20px; border-radius: 999px;
-    font-size: .95rem; font-weight: 600;
-    border: 1.5px solid var(--line);
+  .cta-row {
+    display: flex; gap: 14px; justify-content: center; align-items: center;
+    flex-wrap: wrap; margin-bottom: 16px;
   }
-  .badge.primary { background: var(--navy); color: #F1EDE3; border-color: transparent; }
-  @media (prefers-color-scheme: dark) { .badge.primary { background: #3A4070; } }
-  .badge.secondary { color: var(--orange-strong); border-color: var(--orange); text-decoration: none; }
-  .badge-store { display: inline-flex; transition: opacity .15s; }
-  .badge-store:hover, .badge-store:focus-visible { opacity: .82; }
-  .badge-store img { display: block; height: 46px; width: auto; }
+  .cta-note {
+    margin: 0; font-size: .84rem; color: var(--text-soft);
+    letter-spacing: .01em;
+  }
 
   /* ---------- Sections ---------- */
-  section.block { padding: 48px 0; }
+  section.block { padding: 64px 0; }
   section.block + section.block { border-top: 1px solid var(--line); }
-  h2.section-title {
-    font-size: clamp(1.4rem, 3vw, 1.8rem); letter-spacing: -.01em;
-    margin: 0 0 8px; color: var(--hero-ink);
+  .kicker {
+    display: inline-block; margin: 0 0 10px;
+    font-size: .8rem; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--orange-deep);
   }
-  p.section-sub { color: var(--text-soft); margin: 0 0 32px; max-width: 640px; }
+  h2.section-title {
+    font-size: clamp(1.5rem, 3.2vw, 2rem); letter-spacing: -.02em;
+    line-height: 1.2; margin: 0 0 10px; color: var(--hero-ink);
+    font-weight: 750; text-wrap: balance;
+  }
+  p.section-sub { color: var(--text-soft); margin: 0 0 36px; max-width: 640px; }
 
+  /* ---------- Cartes ---------- */
   .grid {
     display: grid; gap: 18px;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
   }
   .card {
     background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 22px 22px 20px;
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    padding: 24px 24px 22px;
+    box-shadow: var(--shadow-card);
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: color-mix(in srgb, var(--orange) 38%, var(--card-border));
   }
   .card .icon {
-    width: 42px; height: 42px; border-radius: 12px;
+    width: 44px; height: 44px; border-radius: 13px;
     display: flex; align-items: center; justify-content: center;
-    background: color-mix(in srgb, var(--orange) 14%, transparent);
-    margin-bottom: 14px;
+    background: var(--icon-tint);
+    margin-bottom: 16px;
   }
-  .card h3 { margin: 0 0 6px; font-size: 1.05rem; color: var(--hero-ink); }
+  .card h3 {
+    margin: 0 0 7px; font-size: 1.06rem; color: var(--hero-ink);
+    letter-spacing: -.01em; line-height: 1.3;
+  }
   .card p { margin: 0; font-size: .93rem; color: var(--text-soft); }
   .card p strong { color: var(--text); font-weight: 600; }
 
-  /* ---------- Privacy strip ---------- */
+  /* ---------- Bandeau confidentialité ---------- */
   .privacy-strip {
-    background: var(--navy); color: #EDE9DE;
-    border-radius: 20px; padding: 36px 32px;
-    display: flex; flex-wrap: wrap; gap: 24px; align-items: center;
+    position: relative; overflow: hidden;
+    background: linear-gradient(150deg, var(--navy), var(--navy-deep));
+    color: #EDE9DE;
+    border-radius: 22px; padding: 42px 38px;
+    display: flex; flex-wrap: wrap; gap: 28px; align-items: center;
   }
-  @media (prefers-color-scheme: dark) { .privacy-strip { background: var(--navy-deep); } }
-  .privacy-strip .txt { flex: 1 1 380px; }
-  .privacy-strip h2 { margin: 0 0 10px; font-size: 1.4rem; color: #F1EDE3; }
-  .privacy-strip p { margin: 0 0 14px; color: #C9CCE0; font-size: .97rem; }
-  .privacy-strip a.btn {
-    display: inline-block; padding: 9px 18px; border-radius: 999px;
-    background: var(--orange); color: #fff; text-decoration: none;
-    font-weight: 600; font-size: .93rem;
+  @media (prefers-color-scheme: dark) {
+    .privacy-strip { background: linear-gradient(150deg, #262B52, #1B1E3B); }
   }
-  .privacy-strip .lock { flex: 0 0 auto; margin: 0 auto; }
+  .privacy-strip .strip-arcs {
+    position: absolute; right: -70px; top: -70px;
+    width: 340px; height: 340px; pointer-events: none; opacity: .5;
+  }
+  .privacy-strip .txt { flex: 1 1 380px; position: relative; }
+  .privacy-strip h2 {
+    margin: 0 0 10px; font-size: 1.45rem; color: #F1EDE3;
+    letter-spacing: -.02em; font-weight: 750;
+  }
+  .privacy-strip p { margin: 0 0 18px; color: #C9CCE0; font-size: .97rem; max-width: 560px; }
+  .privacy-strip .btn.light {
+    color: var(--navy);
+    background: #F1EDE3;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .25);
+  }
+  .privacy-strip .btn.light:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0, 0, 0, .3); }
+  .privacy-strip .lock { flex: 0 0 auto; margin: 0 auto; position: relative; }
 
-  /* ---------- EN block ---------- */
-  .en-block {
-    border: 1px dashed var(--line); border-radius: 16px;
-    padding: 24px 26px; color: var(--text-soft); font-size: .95rem;
+  /* ---------- Téléchargement ---------- */
+  .dl-card {
+    position: relative; overflow: hidden;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 22px;
+    box-shadow: var(--shadow-card);
+    padding: 46px 32px;
+    text-align: center;
   }
-  .en-block h2 { margin: 0 0 8px; font-size: 1.1rem; color: var(--hero-ink); }
+  .dl-card::before {
+    content: "";
+    position: absolute; inset: 0 0 auto 0; height: 5px;
+    background: linear-gradient(90deg, var(--navy), var(--orange));
+    opacity: .85;
+  }
+  .dl-card .mini-icon {
+    width: 72px; height: 72px; border-radius: 22%;
+    box-shadow: 0 10px 26px rgba(43, 48, 85, .22), 0 2px 7px rgba(43, 48, 85, .12);
+    margin: 0 auto 20px; display: block;
+  }
+  @media (prefers-color-scheme: dark) {
+    .dl-card .mini-icon { box-shadow: 0 10px 28px rgba(0, 0, 0, .5), 0 2px 8px rgba(0, 0, 0, .35); }
+  }
+  .dl-card h2 {
+    margin: 0 0 8px; font-size: clamp(1.4rem, 3vw, 1.7rem);
+    color: var(--hero-ink); letter-spacing: -.02em; font-weight: 750;
+  }
+  .dl-card > p { margin: 0 auto 26px; color: var(--text-soft); max-width: 480px; font-size: .97rem; }
+  .dl-meta {
+    display: flex; gap: 8px 22px; justify-content: center; flex-wrap: wrap;
+    margin: 22px 0 0; padding: 0; list-style: none;
+    font-size: .87rem; color: var(--text-soft);
+  }
+  .dl-meta li { display: inline-flex; align-items: center; gap: 7px; }
+  .dl-meta svg { flex: none; }
+  .dl-ios { margin: 18px 0 0; font-size: .9rem; color: var(--text-soft); }
+
+  /* ---------- Bloc EN ---------- */
+  .en-block {
+    border: 1px dashed var(--line); border-radius: 18px;
+    padding: 26px 28px; color: var(--text-soft); font-size: .95rem;
+    background: color-mix(in srgb, var(--card) 55%, transparent);
+  }
+  .en-block h2 { margin: 0 0 8px; font-size: 1.1rem; color: var(--hero-ink); letter-spacing: -.01em; }
   .en-block p { margin: 0 0 8px; }
 
   /* ---------- Footer ---------- */
   footer.site {
     border-top: 1px solid var(--line);
-    margin-top: 48px; padding: 32px 24px 44px;
+    margin-top: 56px; padding: 36px 24px 46px;
     text-align: center; color: var(--text-soft); font-size: .9rem;
   }
-  footer.site .links { margin-bottom: 10px; display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
-  footer.site a { color: var(--text-soft); text-decoration: none; }
-  footer.site a:hover { color: var(--orange-strong); }
+  footer.site .f-brand {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-weight: 700; color: var(--text); margin-bottom: 14px;
+  }
+  footer.site .f-brand img { width: 22px; height: 22px; border-radius: 22%; }
+  footer.site .links {
+    margin-bottom: 12px; display: flex; gap: 6px 22px;
+    justify-content: center; flex-wrap: wrap;
+  }
+  footer.site a { color: var(--text-soft); text-decoration: none; transition: color .18s ease; }
+  footer.site a:hover { color: var(--orange-deep); }
 
   @media (max-width: 560px) {
-    .hero { padding-top: 52px; }
-    .nav nav { gap: 14px; }
+    .hero { padding: 56px 20px 72px; }
+    .nav { flex-wrap: wrap; row-gap: 0; padding: 10px 16px; }
+    .nav nav { flex-wrap: wrap; margin-left: 0; width: 100%; justify-content: center; }
+    .nav nav a { padding: 5px 9px; font-size: .9rem; }
+    section.block { padding: 48px 0; }
+    .privacy-strip { padding: 32px 24px; }
+    .dl-card { padding: 36px 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .btn, .card, .nav nav a, footer.site a { transition: none; }
+    .btn:hover, .card:hover { transform: none; }
   }
 </style>
 </head>
@@ -212,15 +333,12 @@
 <header class="site">
   <div class="nav">
     <a class="brand" href="index.html" aria-label="Pnyx — accueil">
-      <svg width="26" height="26" viewBox="0 0 100 100" aria-hidden="true">
-        <rect x="41" y="10" width="18" height="40" rx="9" fill="currentColor"/>
-        <path d="M31 43a19 19 0 0 0 38 0" fill="none" stroke="#C96F4A" stroke-width="7" stroke-linecap="round"/>
-        <path d="M40 43a10 10 0 0 0 20 0" fill="none" stroke="#C96F4A" stroke-width="7" stroke-linecap="round"/>
-        <path d="M50 66v16M38 86h24" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
-      </svg>
+      <img src="icon-180.png" alt="" width="180" height="180">
       Pnyx
     </a>
     <nav>
+      <a href="#fonctions">Fonctions</a>
+      <a href="#telecharger">Télécharger</a>
       <a href="privacy-policy.html">Confidentialité</a>
       <a href="support.html">Assistance</a>
     </nav>
@@ -229,23 +347,32 @@
 
 <main>
 
-  <!-- ============== HÉRO ============== -->
+  <!-- ============== HÉROS ============== -->
   <div class="hero">
-    <img class="mic" src="icon-512.png" width="512" height="512" alt="Icône de l'app Pnyx">
-    <h1>Votre voix, <span class="accent">parfaitement</span> écrite.</h1>
-    <p class="tagline">Pnyx — dictée vocale intelligente pour iPhone, iPad et Mac. Parlez naturellement : Pnyx transcrit, corrige et met en forme, sans jamais faire fuiter vos données.</p>
-    <div class="badges">
-      <a class="badge-store" href="https://apps.apple.com/ca/app/pnyx/id6783030642?l=fr-CA" aria-label="Télécharger Pnyx dans l'App Store">
-        <img src="appstore-badge-fr.svg" width="169" height="53" alt="Télécharger dans l'App Store">
-      </a>
-      <!-- ⚠️ Lien versionné : à mettre à jour à chaque release Mac (Scripts/release-mac.sh) -->
-      <a class="badge secondary" href="https://mede2026.github.io/pnyx-privacy/releases/Pnyx-Mac-0.2.2.zip">Pnyx pour Mac (bêta) — télécharger</a>
+    <svg class="hero-arcs" viewBox="0 0 1100 560" aria-hidden="true" focusable="false">
+      <path d="M170 0a380 380 0 0 0 760 0" fill="none" stroke="#C96F4A" stroke-opacity=".16" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M270 0a280 280 0 0 0 560 0" fill="none" stroke="#C96F4A" stroke-opacity=".22" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M370 0a180 180 0 0 0 360 0" fill="none" stroke="#C96F4A" stroke-opacity=".28" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+    <div class="hero-inner">
+      <img class="mic" src="icon-512.png" width="512" height="512" alt="Icône de l'app Pnyx">
+      <h1>Votre voix, <span class="accent">parfaitement</span> écrite.</h1>
+      <p class="tagline">Pnyx — dictée vocale intelligente pour iPhone, iPad et Mac. Parlez naturellement : Pnyx transcrit, corrige et met en forme, sans jamais faire fuiter vos données.</p>
+      <div class="cta-row">
+        <a class="btn primary" data-mac-download href="releases/Pnyx-Mac-0.2.1.zip">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 19h16"/></svg>
+          <span>Télécharger Pnyx pour Mac (<span data-mac-version>0.2.1</span>) · Bêta</span>
+        </a>
+        <span class="pill">Bientôt sur l'App&nbsp;Store</span>
+      </div>
+      <p class="cta-note">macOS 26+ · notariée par Apple · mises à jour automatiques intégrées (Sparkle)</p>
     </div>
   </div>
 
   <!-- ============== FONCTIONS ============== -->
   <div class="wrap">
     <section class="block" id="fonctions">
+      <span class="kicker">Fonctions</span>
       <h2 class="section-title">Tout ce qu'il faut pour dicter — et rien d'autre chez personne</h2>
       <p class="section-sub">Chaque fonction est pensée pour aller vite et rester privée : le local d'abord, le cloud seulement si vous le choisissez.</p>
       <div class="grid">
@@ -328,14 +455,46 @@
     <!-- ============== CONFIDENTIALITÉ ============== -->
     <section class="block" id="confidentialite">
       <div class="privacy-strip">
+        <svg class="strip-arcs" viewBox="0 0 340 340" aria-hidden="true" focusable="false">
+          <path d="M40 170a130 130 0 0 0 260 0" fill="none" stroke="#C96F4A" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/>
+          <path d="M90 170a80 80 0 0 0 160 0" fill="none" stroke="#C96F4A" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/>
+        </svg>
         <div class="txt">
           <h2>Aucun serveur. Aucune collecte.</h2>
           <p>Pnyx ne possède aucun serveur : vos dictées vont de votre appareil au fournisseur que <em>vous</em> choisissez — ou ne partent nulle part si vous restez en local. Le développeur ne voit jamais vos données.</p>
-          <a class="btn" href="privacy-policy.html">Lire la politique de confidentialité</a>
+          <a class="btn light" href="privacy-policy.html">Lire la politique de confidentialité</a>
         </div>
-        <svg class="lock" width="88" height="88" viewBox="0 0 24 24" fill="none" stroke="#C96F4A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <svg class="lock" width="86" height="86" viewBox="0 0 24 24" fill="none" stroke="#C96F4A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.4" fill="#C96F4A" stroke="none"/>
         </svg>
+      </div>
+    </section>
+
+    <!-- ============== TÉLÉCHARGER ============== -->
+    <section class="block" id="telecharger">
+      <div class="dl-card">
+        <img class="mini-icon" src="icon-512.png" width="512" height="512" alt="">
+        <h2>Pnyx pour Mac</h2>
+        <p>La dictée intelligente dans toutes vos apps Mac : appuyez sur le raccourci, parlez, le texte apparaît au curseur.</p>
+        <a class="btn primary" data-mac-download href="releases/Pnyx-Mac-0.2.1.zip">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 19h16"/></svg>
+          <span>Télécharger Pnyx pour Mac (<span data-mac-version>0.2.1</span>) · Bêta</span>
+        </a>
+        <ul class="dl-meta">
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C96F4A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>
+            macOS 26 ou plus récent
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C96F4A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>
+            Notariée par Apple
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C96F4A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>
+            Mises à jour automatiques intégrées (Sparkle)
+          </li>
+        </ul>
+        <p class="dl-ios">Sur iPhone et iPad : <strong>bientôt sur l'App&nbsp;Store</strong>.</p>
       </div>
     </section>
 
@@ -344,7 +503,7 @@
       <div class="en-block">
         <h2>English</h2>
         <p><strong>Pnyx — smart voice dictation for iPhone, iPad, and Mac.</strong> Fully on-device transcription (Whisper, Parakeet, Nemotron) or cloud (Groq, OpenAI, Gemini) with your own keys; AI text enhancement (Claude, GPT, Gemini, Apple Intelligence); an iOS keyboard to dictate anywhere; a Mac app with a global shortcut, paste-at-cursor, and per-app Power Mode rules; notes with an AI assistant; personal dictionary; iCloud sync; statistics.</p>
-        <p>No server, no tracking: your data stays on your device. <a href="privacy-policy.html#english">Privacy policy</a> · <a href="support.html#english">Support</a>. Available now on the <a href="https://apps.apple.com/ca/app/pnyx/id6783030642?l=fr-CA">App Store</a> — Pnyx for Mac (beta) available as a <a href="https://mede2026.github.io/pnyx-privacy/releases/Pnyx-Mac-0.2.2.zip">direct download</a>.</p>
+        <p>No server, no tracking: your data stays on your device. <a href="privacy-policy.html#english">Privacy policy</a> · <a href="support.html#english">Support</a>. <a href="#telecharger">Download Pnyx for Mac (beta)</a> — coming soon to the App&nbsp;Store for iPhone and iPad.</p>
       </div>
     </section>
   </div>
@@ -352,13 +511,58 @@
 </main>
 
 <footer class="site">
+  <div class="f-brand">
+    <img src="icon-180.png" alt="" width="180" height="180">
+    Pnyx
+  </div>
   <div class="links">
+    <a href="#telecharger">Télécharger pour Mac</a>
     <a href="privacy-policy.html">Politique de confidentialité</a>
     <a href="support.html">Assistance</a>
     <a href="mailto:dev.pnyx.appstore@gmail.com">Contact</a>
   </div>
   <div>© 2026 Xuan Vien Do · <a href="mailto:dev.pnyx.appstore@gmail.com">dev.pnyx.appstore@gmail.com</a></div>
 </footer>
+
+<script>
+/* Bouton de téléchargement Mac : lit appcast.xml (même origine) et pointe vers
+   la version la plus récente. Sans JS, le lien statique vers la dernière
+   release connue reste fonctionnel. */
+(function () {
+  function applique(url, version) {
+    var liens = document.querySelectorAll("[data-mac-download]");
+    for (var i = 0; i < liens.length; i++) {
+      liens[i].setAttribute("href", url);
+      var v = liens[i].querySelector("[data-mac-version]");
+      if (v && version) v.textContent = version;
+    }
+  }
+  fetch("appcast.xml", { cache: "no-cache" })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+    .then(function (xml) {
+      var doc = new DOMParser().parseFromString(xml, "text/xml");
+      if (doc.querySelector("parsererror")) return;
+      var items = doc.getElementsByTagName("item");
+      var meilleur = null, meilleurBuild = -1;
+      for (var i = 0; i < items.length; i++) {
+        var build = 0, versionCourte = "", enclosure = null, enfants = items[i].children;
+        for (var j = 0; j < enfants.length; j++) {
+          var e = enfants[j];
+          if (e.localName === "version") build = parseInt(e.textContent, 10) || 0;
+          else if (e.localName === "shortVersionString") versionCourte = e.textContent.trim();
+          else if (e.localName === "enclosure") enclosure = e; /* les deltas sont imbriqués, pas enfants directs */
+          else if (e.localName === "title" && !versionCourte) versionCourte = e.textContent.trim();
+        }
+        if (enclosure && enclosure.getAttribute("url") && build > meilleurBuild) {
+          meilleurBuild = build;
+          meilleur = { url: enclosure.getAttribute("url"), version: versionCourte };
+        }
+      }
+      if (meilleur) applique(meilleur.url, meilleur.version);
+    })
+    .catch(function () { /* le lien statique de secours reste en place */ });
+})();
+</script>
 
 </body>
 </html>
