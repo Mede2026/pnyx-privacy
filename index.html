@@ -8,8 +8,35 @@
 <meta property="og:title" content="Pnyx — Dictée vocale intelligente">
 <meta property="og:description" content="Transcription 100 % locale ou cloud, amélioration IA du texte, clavier iOS avec dictée partout, app Mac avec raccourci global. Vos données restent chez vous.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://mede2026.github.io/pnyx-privacy/">
+<meta property="og:site_name" content="Pnyx">
+<meta property="og:locale" content="fr_CA">
+<meta property="og:image" content="https://mede2026.github.io/pnyx-privacy/icon-512.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Pnyx — Dictée vocale intelligente">
+<meta name="twitter:description" content="Transcription 100 % locale ou cloud, amélioration IA du texte, clavier iOS avec dictée partout, app Mac avec raccourci global. Vos données restent chez vous.">
+<meta name="twitter:image" content="https://mede2026.github.io/pnyx-privacy/icon-512.png">
+<link rel="canonical" href="https://mede2026.github.io/pnyx-privacy/">
+<meta name="theme-color" content="#F1EDE3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16182B" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/png" href="icon-180.png">
 <link rel="apple-touch-icon" href="icon-180.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Pnyx",
+  "url": "https://mede2026.github.io/pnyx-privacy/",
+  "image": "https://mede2026.github.io/pnyx-privacy/icon-512.png",
+  "description": "Pnyx : dictée vocale intelligente pour iPhone, iPad et Mac. Transcription 100 % locale ou cloud, amélioration IA du texte, clavier iOS, raccourci global sur Mac, notes, synchro iCloud.",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "iOS, iPadOS, macOS",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" },
+  "author": { "@type": "Person", "name": "Xuan Vien Do" }
+}
+</script>
 <style>
   :root {
     color-scheme: light dark;
@@ -105,7 +132,10 @@
   }
   .badge.primary { background: var(--navy); color: #F1EDE3; border-color: transparent; }
   @media (prefers-color-scheme: dark) { .badge.primary { background: #3A4070; } }
-  .badge.secondary { color: var(--orange-strong); border-color: var(--orange); }
+  .badge.secondary { color: var(--orange-strong); border-color: var(--orange); text-decoration: none; }
+  .badge-store { display: inline-flex; transition: opacity .15s; }
+  .badge-store:hover, .badge-store:focus-visible { opacity: .82; }
+  .badge-store img { display: block; height: 46px; width: auto; }
 
   /* ---------- Sections ---------- */
   section.block { padding: 48px 0; }
@@ -205,8 +235,11 @@
     <h1>Votre voix, <span class="accent">parfaitement</span> écrite.</h1>
     <p class="tagline">Pnyx — dictée vocale intelligente pour iPhone, iPad et Mac. Parlez naturellement : Pnyx transcrit, corrige et met en forme, sans jamais faire fuiter vos données.</p>
     <div class="badges">
-      <span class="badge primary">Bientôt sur l'App&nbsp;Store</span>
-      <span class="badge secondary">Pnyx pour Mac (bêta)</span>
+      <a class="badge-store" href="https://apps.apple.com/ca/app/pnyx/id6783030642?l=fr-CA" aria-label="Télécharger Pnyx dans l'App Store">
+        <img src="appstore-badge-fr.svg" width="169" height="53" alt="Télécharger dans l'App Store">
+      </a>
+      <!-- ⚠️ Lien versionné : à mettre à jour à chaque release Mac (Scripts/release-mac.sh) -->
+      <a class="badge secondary" href="https://mede2026.github.io/pnyx-privacy/releases/Pnyx-Mac-0.2.2.zip">Pnyx pour Mac (bêta) — télécharger</a>
     </div>
   </div>
 
@@ -311,7 +344,7 @@
       <div class="en-block">
         <h2>English</h2>
         <p><strong>Pnyx — smart voice dictation for iPhone, iPad, and Mac.</strong> Fully on-device transcription (Whisper, Parakeet, Nemotron) or cloud (Groq, OpenAI, Gemini) with your own keys; AI text enhancement (Claude, GPT, Gemini, Apple Intelligence); an iOS keyboard to dictate anywhere; a Mac app with a global shortcut, paste-at-cursor, and per-app Power Mode rules; notes with an AI assistant; personal dictionary; iCloud sync; statistics.</p>
-        <p>No server, no tracking: your data stays on your device. <a href="privacy-policy.html#english">Privacy policy</a> · <a href="support.html#english">Support</a>. Coming soon to the App&nbsp;Store — Pnyx for Mac (beta).</p>
+        <p>No server, no tracking: your data stays on your device. <a href="privacy-policy.html#english">Privacy policy</a> · <a href="support.html#english">Support</a>. Available now on the <a href="https://apps.apple.com/ca/app/pnyx/id6783030642?l=fr-CA">App Store</a> — Pnyx for Mac (beta) available as a <a href="https://mede2026.github.io/pnyx-privacy/releases/Pnyx-Mac-0.2.2.zip">direct download</a>.</p>
       </div>
     </section>
   </div>

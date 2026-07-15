@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mede2026.github.io/pnyx-privacy/sitemap.xml
