@@ -9,6 +9,20 @@
         <description>Mises à jour de Pnyx pour Mac</description>
         <language>fr</language>
         <item>
+            <title>0.3</title>
+            <pubDate>Thu, 16 Jul 2026 12:39:47 -0400</pubDate>
+            <sparkle:version>5</sparkle:version>
+            <sparkle:shortVersionString>0.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://mede2026.github.io/pnyx-privacy/releases/Pnyx-Mac-0.3.zip" length="15291691" type="application/octet-stream" sparkle:edSignature="bzh8WTiNO/kQSWJBoMmkSTauQGslMqEocVq7osDZ7pIMrZjbDUM2N3rhIrhgbHYwgqKbzioUZzsAkvS1He6eCw=="/>
+            <sparkle:deltas>
+                <enclosure url="https://mede2026.github.io/pnyx-privacy/releases/PnyxMac5-4.delta" sparkle:deltaFrom="4" length="1537538" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="d5gMb4nv8y3R8gpEemICO5hkYPk4nmTkCfYMf4m6XFsAFtymgYlVh4kwZyDomsoRsSrX+fF5F89nvkybTFsNDg=="/>
+                <enclosure url="https://mede2026.github.io/pnyx-privacy/releases/PnyxMac5-3.delta" sparkle:deltaFrom="3" length="2027274" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="iWpyd63JM3nw6s/L+vJLj8/lL0kCo7hDvJ0RX1ZbHOsiraCBh4spGFf4ig7TVRihkW9CCJv6MdwFBV/xIxRtAA=="/>
+                <enclosure url="https://mede2026.github.io/pnyx-privacy/releases/PnyxMac5-2.delta" sparkle:deltaFrom="2" length="2191770" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="rl+YDPqPsDuSt+HDBM8PKSX3M5BaFkmtiuOQ5YKpw68cosaUhavmjPj2FfpJ6KmYucyNYm5fAzbS4RZ7FySUCg=="/>
+                <enclosure url="https://mede2026.github.io/pnyx-privacy/releases/PnyxMac5-1.delta" sparkle:deltaFrom="1" length="2283718" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="KHSyBP5uz3xrdSymlT/sAwlzb4uPml4iXR0UCzSuwZykZGHmi/fURWihmSGB/Qrh1/nF3H6sBYKYftae0mIjBA=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>0.2.2</title>
             <pubDate>Wed, 15 Jul 2026 14:13:00 -0400</pubDate>
             <sparkle:version>4</sparkle:version>
