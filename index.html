@@ -27,15 +27,41 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Pnyx",
-  "url": "https://mede2026.github.io/pnyx-privacy/",
-  "image": "https://mede2026.github.io/pnyx-privacy/icon-512.png",
-  "description": "Pnyx: smart voice dictation for iPhone, iPad, and Mac. Fully on-device or cloud transcription, AI text enhancement, iOS keyboard, global shortcut on Mac, notes, iCloud sync.",
-  "applicationCategory": "ProductivityApplication",
-  "operatingSystem": "iOS, iPadOS, macOS",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" },
-  "author": { "@type": "Person", "name": "Xuan Vien Do" }
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://mede2026.github.io/pnyx-privacy/#website",
+      "url": "https://mede2026.github.io/pnyx-privacy/",
+      "name": "Pnyx",
+      "inLanguage": ["fr", "en"],
+      "publisher": { "@id": "https://mede2026.github.io/pnyx-privacy/#author" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mede2026.github.io/pnyx-privacy/#author",
+      "name": "Xuan Vien Do"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://mede2026.github.io/pnyx-privacy/#app",
+      "name": "Pnyx",
+      "url": "https://mede2026.github.io/pnyx-privacy/",
+      "image": "https://mede2026.github.io/pnyx-privacy/icon-512.png",
+      "description": "Pnyx: smart voice dictation for iPhone, iPad, and Mac. Fully on-device or cloud transcription, AI text enhancement, iOS keyboard, global shortcut on Mac, notes, iCloud sync.",
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "iOS, iPadOS, macOS, Windows",
+      "softwareVersion": "0.3",
+      "downloadUrl": [
+        "https://apps.apple.com/ca/app/pnyx/id6783030642",
+        "https://mede2026.github.io/pnyx-privacy/releases/Pnyx-Mac-0.3.zip",
+        "https://mede2026.github.io/pnyx-privacy/releases/PnyxHelper-Windows-1.0.zip"
+      ],
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" },
+      "author": { "@id": "https://mede2026.github.io/pnyx-privacy/#author" },
+      "publisher": { "@id": "https://mede2026.github.io/pnyx-privacy/#author" },
+      "isPartOf": { "@id": "https://mede2026.github.io/pnyx-privacy/#website" }
+    }
+  ]
 }
 </script>
 <style>
