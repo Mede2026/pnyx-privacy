@@ -9,6 +9,21 @@
         <description>Mises à jour de Pnyx pour Mac</description>
         <language>fr</language>
         <item>
+            <title>0.3.1</title>
+            <pubDate>Thu, 16 Jul 2026 21:01:09 -0400</pubDate>
+            <sparkle:version>6</sparkle:version>
+            <sparkle:shortVersionString>0.3.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://mede2026.github.io/pnyx-privacy/releases/Pnyx-Mac-0.3.1.zip" length="15340667" type="application/octet-stream" sparkle:edSignature="ORvLbueCxQwF4o/wa9HSncpZUSNtNt1d1YO1zqPEGRVenvFzZjxf/QFLXUpJX1fn5rgoLa6/gHJ7EnP+EiCxCg=="/>
+            <sparkle:deltas>
+                <enclosure url="https://mede2026.github.io/pnyx-privacy/releases/PnyxMac6-5.delta" sparkle:deltaFrom="5" length="1462034" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="0n0aWVqivmRY7FuA2XTkjNEHCtqPPQpsKR9MVBqDM8b99HGm5EbpPoA25XcmnViiygCkDdj2N9TVEkrl+u/FDw=="/>
+                <enclosure url="https://mede2026.github.io/pnyx-privacy/releases/PnyxMac6-4.delta" sparkle:deltaFrom="4" length="1653738" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="7mjic5/oly/v5yXS1L9KysVdyBgtUnTySPXAlCN68CoPWVYC9JmiyB+s87ciUCEFpTgZilumNLGIGw6p0i1zBA=="/>
+                <enclosure url="https://mede2026.github.io/pnyx-privacy/releases/PnyxMac6-3.delta" sparkle:deltaFrom="3" length="2035738" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="N/KpyhoezFBLKJeVuztNBF6lTKnDCw2p8TkeVhIFEO0OH3Cc0vB/ELxiq6nUjZN6T9a1XbXmAyhESESk1mbSBg=="/>
+                <enclosure url="https://mede2026.github.io/pnyx-privacy/releases/PnyxMac6-2.delta" sparkle:deltaFrom="2" length="2254854" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="f1PrHpEgzVuA/F9wxH+j+ifyeo7aEXEeANIsDrwZ0nHMyjJbaQ9P4AetvbZsmsI1NkFObuG0MrA5pVU5+kQbDQ=="/>
+                <enclosure url="https://mede2026.github.io/pnyx-privacy/releases/PnyxMac6-1.delta" sparkle:deltaFrom="1" length="2361994" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="piFsk8E8b3AUGOz7sPED9IJp/Q7WRljBjgJeswgyEmZf5VXGJ8k8lfP43GY1uYgAiHSJw2tch2qr7v4wJGPtDQ=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>0.3</title>
             <pubDate>Thu, 16 Jul 2026 12:39:47 -0400</pubDate>
             <sparkle:version>5</sparkle:version>
