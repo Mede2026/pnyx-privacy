@@ -311,6 +311,10 @@ const T = {
     posted:"Publié ✓", replied:"Réponse envoyée ✓", voteErr:"Vote impossible.",
     checkEmail:"Compte créé ! Vérifie ton courriel pour confirmer, puis connecte-toi.",
     haveAccount:"Déjà un compte ? Connexion", noAccount:"Pas de compte ? Créer un compte",
+    forgot:"Mot de passe oublié ?", enterEmailReset:"Entre ton courriel : tu recevras un lien pour choisir un nouveau mot de passe.",
+    resetSent:"Courriel envoyé ✓ — vérifie ta boîte de réception.",
+    newPassword:"Nouveau mot de passe", setPassword:"Enregistrer le mot de passe",
+    pwChanged:"Mot de passe modifié ✓", changePw:"Changer le mot de passe", send:"Envoyer le lien",
     titlePh:"Résume ton idée ou ton bogue en une phrase",
     bodyPh:"Décris en détail : ce qui se passe, sur quel appareil, ce que tu attends…",
     commentsN:function(n){ return n+" "+(n===1?"réponse":"réponses"); }
@@ -330,6 +334,10 @@ const T = {
     posted:"Posted ✓", replied:"Reply sent ✓", voteErr:"Couldn't vote.",
     checkEmail:"Account created! Check your email to confirm, then log in.",
     haveAccount:"Already have an account? Log in", noAccount:"No account? Create one",
+    forgot:"Forgot password?", enterEmailReset:"Enter your email: you'll get a link to choose a new password.",
+    resetSent:"Email sent ✓ — check your inbox.",
+    newPassword:"New password", setPassword:"Save password",
+    pwChanged:"Password changed ✓", changePw:"Change password", send:"Send link",
     titlePh:"Summarize your idea or bug in one sentence",
     bodyPh:"Describe it: what happens, on which device, what you expect…",
     commentsN:function(n){ return n+" "+(n===1?"reply":"replies"); }
@@ -339,6 +347,9 @@ function tr(k){ return T[lang()][k]; }
 
 /* ---------- État ---------- */
 const configured = !/REMPLACER/.test(SUPABASE_URL) && !/REMPLACER/.test(SUPABASE_ANON_KEY);
+// Destination des liens de courriel (confirmation, réinitialisation de mot de
+// passe) : la page elle-même. Complète le « Site URL » réglé dans Supabase.
+const REDIRECT = location.origin + location.pathname;
 let sb = null, me = null, myProfile = null, myVotes = new Set(), openPostId = null;
 let filterTag = "all", sortBy = "top";
 
@@ -366,9 +377,16 @@ if (!configured) {
 }
 
 async function boot(){
+  // Lien de réinitialisation cliqué → Supabase émet PASSWORD_RECOVERY : on
+  // propose de choisir un nouveau mot de passe.
+  sb.auth.onAuthStateChange((event, s)=>{
+    if(event==="PASSWORD_RECOVERY"){ openPasswordSet(); }
+    onSession(s);
+  });
   const { data:{ session } } = await sb.auth.getSession();
   await onSession(session);
-  sb.auth.onAuthStateChange((_e, s)=>{ onSession(s); });
+  // Filet si l'événement est parti avant l'abonnement (jeton dans l'URL).
+  if(/type=recovery/.test(location.hash)) openPasswordSet();
   buildFilters();
   await loadBoard();
 }
@@ -397,8 +415,9 @@ function renderAccount(){
     if (myProfile.is_admin) who.appendChild(el("span",{class:"badge-dev", text:tr("dev")}));
     box.appendChild(who);
     box.appendChild(el("span",{class:"spacer"}));
+    box.appendChild(el("button",{class:"linklike", text:tr("changePw"), style:"margin-right:6px;", onclick:()=>openPasswordSet()}));
     box.appendChild(el("button",{class:"btn ghost sm", text:tr("logout"), onclick:async()=>{ await sb.auth.signOut(); toast(lang()==="en"?"Signed out":"Déconnecté"); }}));
-    $("auth-panel").hidden = true;
+    if(authMode!=="setpw") $("auth-panel").hidden = true;
   } else {
     box.appendChild(el("span",{class:"muted", text:(lang()==="en"?"Join the conversation:":"Rejoins la conversation :")}));
     box.appendChild(el("span",{class:"spacer"}));
@@ -415,10 +434,40 @@ function openAuth(mode){
     f.appendChild(field("au-pseudo","text",tr("pseudo"),"nickname"));
   }
   f.appendChild(field("au-email","email",tr("email"),"email"));
-  f.appendChild(field("au-pass","password",tr("password"),"current-password"));
+  f.appendChild(field("au-pass","password",tr("password"), mode==="signup"?"new-password":"current-password"));
+  if (mode==="login"){
+    f.appendChild(el("button",{class:"linklike", text:tr("forgot"), style:"margin-top:2px;", onclick:openForgot}));
+  }
   $("auth-error").hidden=true;
   $("auth-submit").textContent = mode==="signup" ? tr("signup") : tr("login");
+  $("auth-toggle").hidden=false;
   $("auth-toggle").textContent = mode==="signup" ? tr("haveAccount") : tr("noAccount");
+  p.scrollIntoView({behavior:"smooth", block:"center"});
+}
+/* Mot de passe oublié → envoi d'un lien de réinitialisation. */
+function openForgot(){
+  authMode="forgot";
+  const p=$("auth-panel"); p.hidden=false;
+  $("auth-title").textContent = tr("forgot");
+  const f=$("auth-fields"); f.textContent="";
+  f.appendChild(el("p",{class:"muted", text:tr("enterEmailReset"), style:"margin:0 0 10px;"}));
+  f.appendChild(field("au-email","email",tr("email"),"email"));
+  $("auth-error").hidden=true;
+  $("auth-submit").textContent = tr("send");
+  $("auth-toggle").hidden=false; $("auth-toggle").textContent = tr("login");
+  p.scrollIntoView({behavior:"smooth", block:"center"});
+}
+/* Choisir un nouveau mot de passe (après un lien de réinitialisation, ou via
+   « Changer le mot de passe » une fois connecté). */
+function openPasswordSet(){
+  authMode="setpw";
+  const p=$("auth-panel"); p.hidden=false;
+  $("auth-title").textContent = tr("newPassword");
+  const f=$("auth-fields"); f.textContent="";
+  f.appendChild(field("au-newpass","password",tr("newPassword"),"new-password"));
+  $("auth-error").hidden=true;
+  $("auth-submit").textContent = tr("setPassword");
+  $("auth-toggle").hidden=true;
   p.scrollIntoView({behavior:"smooth", block:"center"});
 }
 function field(id,type,label,ac){
@@ -426,17 +475,39 @@ function field(id,type,label,ac){
   const i=el("input",{type:type, id:id, autocomplete:ac, maxlength: type==="text"?"40":null});
   l.appendChild(i); return l;
 }
-$("auth-toggle").addEventListener("click",()=> openAuth(authMode==="signup"?"login":"signup"));
+$("auth-toggle").addEventListener("click",()=> openAuth(authMode==="login"?"signup":"login"));
 $("auth-submit").addEventListener("click", doAuth);
+function fillMsg(){ return lang()==="en"?"Fill in every field.":"Remplis tous les champs."; }
+function pwLenMsg(){ return lang()==="en"?"Password must be at least 6 characters.":"Le mot de passe doit faire au moins 6 caractères."; }
 async function doAuth(){
-  const errP=$("auth-error"); errP.hidden=true;
-  const email=($("au-email")||{}).value?.trim(), pass=($("au-pass")||{}).value||"";
-  if(!email || !pass){ return showAuthErr(lang()==="en"?"Fill in every field.":"Remplis tous les champs."); }
+  $("auth-error").hidden=true;
   $("auth-submit").disabled=true;
   try{
+    // Choisir un nouveau mot de passe (réinitialisation ou changement).
+    if(authMode==="setpw"){
+      const np=($("au-newpass")||{}).value||"";
+      if(np.length<6){ showAuthErr(pwLenMsg()); return; }
+      const { error } = await sb.auth.updateUser({ password:np });
+      if(error) throw error;
+      history.replaceState(null,"",location.pathname);   // retire le jeton de l'URL
+      $("auth-panel").hidden=true; toast(tr("pwChanged"));
+      return;
+    }
+    const email=($("au-email")||{}).value?.trim();
+    // Mot de passe oublié : envoi du lien.
+    if(authMode==="forgot"){
+      if(!email){ showAuthErr(fillMsg()); return; }
+      const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: REDIRECT });
+      if(error) throw error;
+      toast(tr("resetSent")); openAuth("login");
+      return;
+    }
+    // Connexion / inscription.
+    const pass=($("au-pass")||{}).value||"";
+    if(!email || !pass){ showAuthErr(fillMsg()); return; }
     if(authMode==="signup"){
       const pseudo=($("au-pseudo")||{}).value?.trim() || email.split("@")[0];
-      const { data, error } = await sb.auth.signUp({ email, password:pass, options:{ data:{ pseudo } } });
+      const { data, error } = await sb.auth.signUp({ email, password:pass, options:{ data:{ pseudo }, emailRedirectTo: REDIRECT } });
       if(error) throw error;
       if(!data.session){ toast(tr("checkEmail")); openAuth("login"); }
       else toast(lang()==="en"?"Welcome!":"Bienvenue !");
