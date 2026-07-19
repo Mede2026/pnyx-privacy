@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feedback Pnyx — Idées, bugs et questions</title>
+<meta name="description" content="Proposez des améliorations pour Pnyx, signalez des bugs et posez vos questions au développeur. Votez pour les idées, suivez leur statut et échangez directement.">
+<meta property="og:title" content="Feedback Pnyx — Idées, bugs et questions">
+<meta property="og:description" content="Proposez des améliorations, signalez des bugs, posez vos questions. Votez et suivez le statut.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mede2026.github.io/pnyx-privacy/feedback.html">
+<meta property="og:site_name" content="Pnyx">
+<meta property="og:locale" content="fr_CA">
+<meta property="og:image" content="https://mede2026.github.io/pnyx-privacy/icon-512.png">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://mede2026.github.io/pnyx-privacy/feedback.html">
+<meta name="theme-color" content="#F1EDE3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15172A" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="icon-180.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<style>
+  :root {
+    color-scheme: light dark;
+    --cream:#F1EDE3; --navy:#2B3055; --navy-deep:#212542;
+    --orange:#C96F4A; --orange-deep:#A9532F;
+    --text:#2B3055; --text-soft:#595E80;
+    --bg:var(--cream); --card:#FAF8F2; --card-border:rgba(43,48,85,.12); --line:rgba(43,48,85,.13);
+    --hero-ink:var(--navy); --icon-tint:rgba(201,111,74,.13);
+    --shadow-card:0 1px 2px rgba(43,48,85,.05);
+    --shadow-card-hover:0 14px 30px rgba(43,48,85,.13),0 3px 8px rgba(43,48,85,.07);
+    --field:#FFFFFF;
+    --red:#C0442E; --blue:#3B6EA5; --purple:#6A5AA9; --green:#3E8E5A; --amber:#B8791F;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text:#EAE7DC; --text-soft:#AEB1C9; --bg:#15172A; --card:#1D2040;
+      --card-border:rgba(234,231,220,.10); --line:rgba(234,231,220,.12);
+      --orange:#D98A63; --orange-deep:#E09A73; --hero-ink:#F1EDE3; --icon-tint:rgba(217,138,99,.14);
+      --shadow-card:0 1px 2px rgba(0,0,0,.25);
+      --shadow-card-hover:0 14px 30px rgba(0,0,0,.45),0 3px 8px rgba(0,0,0,.3);
+      --field:#12142A;
+      --red:#E08a78; --blue:#7FA8D4; --purple:#A99CE0; --green:#77C593; --amber:#E0B061;
+    }
+  }
+  html[data-lang="fr"] [data-t="en"] { display:none !important; }
+  html[data-lang="en"] [data-t="fr"] { display:none !important; }
+
+  * { box-sizing:border-box; }
+  /* Sans ceci, `display:flex` posé sur .account/.filters l'emporterait sur
+     l'attribut `hidden` (UA `[hidden]{display:none}`) → barres vides visibles. */
+  [hidden] { display:none !important; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+         line-height:1.6; color:var(--text); background:var(--bg); -webkit-font-smoothing:antialiased; }
+  a { color:var(--orange-deep); }
+  .wrap { max-width:820px; margin:0 auto; padding:0 22px; }
+
+  /* Nav */
+  header.site { border-bottom:1px solid var(--line); position:sticky; top:0; z-index:20;
+    background:color-mix(in srgb,var(--bg) 86%,transparent); backdrop-filter:blur(12px) saturate(1.4);
+    -webkit-backdrop-filter:blur(12px) saturate(1.4); }
+  .nav { display:flex; align-items:center; gap:14px; padding:12px 22px; max-width:980px; margin:0 auto; }
+  .nav .brand { display:flex; align-items:center; gap:10px; font-weight:700; font-size:1.08rem; color:var(--text); text-decoration:none; }
+  .nav .brand img { width:26px; height:26px; border-radius:22%; }
+  .nav nav { margin-left:auto; display:flex; gap:4px; align-items:center; }
+  .nav nav a { color:var(--text-soft); text-decoration:none; font-size:.93rem; padding:6px 11px; border-radius:999px; transition:.18s; }
+  .nav nav a:hover, .nav nav a[aria-current="page"] { color:var(--orange-deep); background:var(--icon-tint); }
+  .lang-switch { display:inline-flex; margin-left:6px; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .lang-switch button { appearance:none; border:0; background:transparent; cursor:pointer; font:inherit; font-size:.84rem; font-weight:650; color:var(--text-soft); padding:5px 12px; }
+  html[data-lang="fr"] .lang-switch button[data-set="fr"], html[data-lang="en"] .lang-switch button[data-set="en"] { background:var(--orange); color:#fff; }
+
+  /* En-tête */
+  .head { padding:44px 0 6px; }
+  .kicker { display:inline-block; margin:0 0 10px; font-size:.8rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--orange-deep); }
+  h1 { font-size:clamp(1.8rem,5vw,2.5rem); line-height:1.1; margin:0 0 12px; letter-spacing:-.02em; font-weight:800; color:var(--hero-ink); }
+  .sub { color:var(--text-soft); margin:0; font-size:1.03rem; max-width:620px; }
+
+  /* Boutons génériques */
+  .btn { appearance:none; cursor:pointer; font:inherit; font-weight:650; border-radius:999px; border:1.5px solid transparent; padding:10px 18px; display:inline-flex; align-items:center; gap:8px; text-decoration:none; transition:.18s; }
+  .btn.primary { color:#fff; background:linear-gradient(160deg,#C96F4A,#AE5732); box-shadow:0 6px 16px rgba(169,83,47,.28); }
+  .btn.primary:hover { filter:brightness(1.05); transform:translateY(-1px); }
+  .btn.ghost { color:var(--text); background:color-mix(in srgb,var(--card) 70%,transparent); border-color:var(--card-border); }
+  .btn.ghost:hover { color:var(--orange-deep); border-color:color-mix(in srgb,var(--orange) 45%,var(--card-border)); }
+  .btn:disabled { opacity:.5; cursor:default; transform:none; filter:none; }
+  .btn.sm { padding:6px 13px; font-size:.86rem; }
+
+  /* Barre de compte */
+  .account { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:22px 0 4px;
+    padding:12px 16px; background:var(--card); border:1px solid var(--card-border); border-radius:14px; box-shadow:var(--shadow-card); }
+  .account .who { font-weight:600; }
+  .account .who .badge-dev { margin-left:6px; }
+  .account .spacer { margin-left:auto; }
+
+  /* Champs & formulaires */
+  input, textarea, select { font:inherit; color:var(--text); background:var(--field); border:1.5px solid var(--card-border); border-radius:11px; padding:10px 13px; width:100%; }
+  input:focus, textarea:focus, select:focus { outline:none; border-color:var(--orange); }
+  textarea { resize:vertical; min-height:90px; }
+  label.fld { display:block; margin:0 0 12px; }
+  label.fld > span { display:block; font-size:.85rem; font-weight:600; color:var(--text-soft); margin:0 0 5px; }
+  .row { display:flex; gap:12px; flex-wrap:wrap; }
+  .row > * { flex:1; min-width:150px; }
+  .err { color:var(--red); font-size:.9rem; margin:6px 0 0; }
+  .muted { color:var(--text-soft); }
+
+  .panel { background:var(--card); border:1px solid var(--card-border); border-radius:16px; padding:20px; box-shadow:var(--shadow-card); margin:14px 0; }
+  .panel h2 { margin:0 0 14px; font-size:1.15rem; color:var(--hero-ink); }
+  details.compose > summary { cursor:pointer; list-style:none; }
+  details.compose > summary::-webkit-details-marker { display:none; }
+
+  /* Barre de filtres */
+  .filters { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin:20px 0 6px; }
+  .chip { appearance:none; cursor:pointer; font:inherit; font-size:.88rem; font-weight:600; color:var(--text-soft);
+    background:var(--card); border:1.5px solid var(--card-border); border-radius:999px; padding:6px 14px; transition:.15s; }
+  .chip:hover { color:var(--orange-deep); }
+  .chip[aria-pressed="true"] { background:var(--orange); border-color:var(--orange); color:#fff; }
+  .filters .sort { margin-left:auto; }
+  .filters .sort select { width:auto; padding:7px 12px; border-radius:999px; }
+
+  /* Cartes de post */
+  .post { display:flex; gap:14px; background:var(--card); border:1px solid var(--card-border); border-radius:14px;
+    padding:16px 18px; margin:0 0 12px; box-shadow:var(--shadow-card); transition:border-color .18s,box-shadow .18s; }
+  .post:hover { box-shadow:var(--shadow-card-hover); }
+  .post.pinned { border-color:color-mix(in srgb,var(--orange) 40%,var(--card-border)); }
+  .vote { flex:none; display:flex; flex-direction:column; align-items:center; gap:2px; width:52px;
+    border:1.5px solid var(--card-border); border-radius:12px; padding:8px 0; cursor:pointer; background:transparent; color:var(--text-soft); font:inherit; transition:.15s; }
+  .vote:hover { border-color:var(--orange); color:var(--orange-deep); }
+  .vote[aria-pressed="true"] { border-color:var(--orange); background:var(--icon-tint); color:var(--orange-deep); }
+  .vote .arrow { font-size:1rem; line-height:1; }
+  .vote .count { font-weight:750; font-size:1.05rem; color:var(--hero-ink); }
+  .vote[aria-pressed="true"] .count { color:var(--orange-deep); }
+  .post .main { flex:1; min-width:0; }
+  .post .ptitle { margin:0 0 4px; font-size:1.05rem; font-weight:700; color:var(--hero-ink); cursor:pointer; }
+  .post .ptitle:hover { color:var(--orange-deep); }
+  .post .pbody { margin:0; color:var(--text-soft); font-size:.95rem; overflow-wrap:anywhere; }
+  .post .meta { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:9px; font-size:.82rem; color:var(--text-soft); }
+
+  .tagchip, .statuschip { font-size:.76rem; font-weight:700; padding:3px 9px; border-radius:999px; letter-spacing:.01em; }
+  .tag-bug          { color:var(--red);    background:color-mix(in srgb,var(--red) 15%,transparent); }
+  .tag-amelioration { color:var(--blue);   background:color-mix(in srgb,var(--blue) 15%,transparent); }
+  .tag-question     { color:var(--purple); background:color-mix(in srgb,var(--purple) 16%,transparent); }
+  .tag-autre        { color:var(--text-soft); background:color-mix(in srgb,var(--text-soft) 14%,transparent); }
+  .st-ouvert   { color:var(--text-soft); background:color-mix(in srgb,var(--text-soft) 13%,transparent); }
+  .st-prevu    { color:var(--purple); background:color-mix(in srgb,var(--purple) 15%,transparent); }
+  .st-encours  { color:var(--amber);  background:color-mix(in srgb,var(--amber) 16%,transparent); }
+  .st-termine  { color:var(--green);  background:color-mix(in srgb,var(--green) 16%,transparent); }
+  .st-refuse   { color:var(--red);    background:color-mix(in srgb,var(--red) 13%,transparent); }
+  .badge-dev { font-size:.72rem; font-weight:700; color:#fff; background:var(--orange); padding:2px 7px; border-radius:999px; }
+  .comments-n { display:inline-flex; align-items:center; gap:4px; }
+
+  /* Détail (comments) */
+  .detail { margin:10px 0 0; padding:14px 0 0; border-top:1px dashed var(--line); }
+  .comment { display:flex; gap:10px; padding:11px 0; border-bottom:1px solid var(--line); }
+  .comment:last-child { border-bottom:0; }
+  .comment .cwho { font-weight:650; font-size:.9rem; color:var(--hero-ink); }
+  .comment .cbody { margin:3px 0 0; color:var(--text); font-size:.94rem; overflow-wrap:anywhere; }
+  .comment .cdate { font-size:.78rem; color:var(--text-soft); }
+  .comment.dev { background:color-mix(in srgb,var(--orange) 7%,transparent); border-radius:10px; padding:11px 12px; }
+  .admin-row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:10px; }
+  .admin-row select { width:auto; padding:6px 10px; border-radius:9px; font-size:.85rem; }
+  .linklike { appearance:none; border:0; background:none; cursor:pointer; font:inherit; font-size:.82rem; color:var(--text-soft); padding:0; text-decoration:underline; }
+  .linklike:hover { color:var(--red); }
+
+  .notice { padding:14px 16px; border-radius:12px; background:color-mix(in srgb,var(--amber) 12%,transparent); border:1px solid color-mix(in srgb,var(--amber) 40%,transparent); color:var(--text); margin:16px 0; }
+  .empty { text-align:center; color:var(--text-soft); padding:40px 0; }
+  .toast { position:fixed; left:50%; bottom:22px; transform:translateX(-50%); background:var(--navy); color:#F1EDE3; padding:11px 18px; border-radius:999px; box-shadow:0 10px 30px rgba(0,0,0,.3); font-size:.92rem; opacity:0; pointer-events:none; transition:opacity .25s; z-index:50; }
+  .toast.show { opacity:1; }
+
+  footer.site { border-top:1px solid var(--line); margin-top:44px; padding:30px 22px; max-width:980px; margin-left:auto; margin-right:auto; display:flex; flex-wrap:wrap; gap:14px 24px; align-items:center; color:var(--text-soft); font-size:.9rem; }
+  footer.site .f-brand { display:flex; align-items:center; gap:9px; font-weight:700; color:var(--text); }
+  footer.site .f-brand img { width:22px; height:22px; border-radius:22%; }
+  footer.site .links { display:flex; flex-wrap:wrap; gap:16px; margin-left:auto; }
+  footer.site a { color:var(--text-soft); text-decoration:none; }
+  footer.site a:hover { color:var(--orange-deep); }
+
+  @media (max-width:640px){
+    .nav { flex-wrap:wrap; } .nav nav { flex-wrap:wrap; margin-left:0; width:100%; justify-content:center; }
+    footer.site .links { margin-left:0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a class="brand" href="index.html" aria-label="Pnyx — accueil"><img src="icon-180.png" alt="" width="180" height="180">Pnyx</a>
+    <nav>
+      <a href="index.html#fonctions"><span data-t="fr">Fonctions</span><span data-t="en">Features</span></a>
+      <a href="index.html#telecharger"><span data-t="fr">Télécharger</span><span data-t="en">Download</span></a>
+      <a href="faq.html">FAQ</a>
+      <a href="feedback.html" aria-current="page">Feedback</a>
+      <a href="support.html"><span data-t="fr">Assistance</span><span data-t="en">Support</span></a>
+      <span class="lang-switch" role="group" aria-label="Language / Langue">
+        <button type="button" data-set="fr" aria-label="Français">FR</button>
+        <button type="button" data-set="en" aria-label="English">EN</button>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="head">
+    <span class="kicker"><span data-t="fr">Idées, bugs et questions</span><span data-t="en">Ideas, bugs and questions</span></span>
+    <h1><span data-t="fr">Aidez à façonner Pnyx</span><span data-t="en">Help shape Pnyx</span></h1>
+    <p class="sub">
+      <span data-t="fr">Proposez une amélioration, signalez un bogue ou posez une question. Votez pour ce qui compte le plus — le développeur lit tout et répond ici même.</span>
+      <span data-t="en">Suggest an improvement, report a bug or ask a question. Vote for what matters most — the developer reads everything and replies right here.</span>
+    </p>
+  </div>
+
+  <div id="config-notice" class="notice" hidden>
+    <span data-t="fr"><strong>Le tableau de feedback est en cours d'activation.</strong> Reviens très bientôt !</span>
+    <span data-t="en"><strong>The feedback board is being set up.</strong> Please check back very soon!</span>
+  </div>
+
+  <!-- Barre de compte (connexion / déconnexion) -->
+  <div id="account" class="account" hidden></div>
+
+  <!-- Formulaire d'authentification -->
+  <div id="auth-panel" class="panel" hidden>
+    <h2 id="auth-title"></h2>
+    <div id="auth-fields"></div>
+    <p id="auth-error" class="err" hidden></p>
+    <div class="row" style="align-items:center; margin-top:4px;">
+      <button id="auth-submit" class="btn primary" type="button" style="flex:none;"></button>
+      <button id="auth-toggle" class="linklike" type="button" style="flex:none;"></button>
+    </div>
+  </div>
+
+  <!-- Nouveau post (connecté) -->
+  <details id="compose" class="panel compose" hidden>
+    <summary class="btn ghost" style="width:100%; justify-content:center;">
+      <span data-t="fr">＋ Nouvelle demande</span><span data-t="en">＋ New request</span>
+    </summary>
+    <div style="margin-top:16px;">
+      <label class="fld"><span data-t="fr">Titre</span><span data-t="en">Title</span>
+        <input id="np-title" type="text" maxlength="140" placeholder="…">
+      </label>
+      <label class="fld"><span data-t="fr">Détails</span><span data-t="en">Details</span>
+        <textarea id="np-body" maxlength="4000" placeholder="…"></textarea>
+      </label>
+      <label class="fld" style="max-width:220px;"><span data-t="fr">Catégorie</span><span data-t="en">Category</span>
+        <select id="np-tag"></select>
+      </label>
+      <p id="np-error" class="err" hidden></p>
+      <button id="np-submit" class="btn primary" type="button"><span data-t="fr">Publier</span><span data-t="en">Post</span></button>
+    </div>
+  </details>
+
+  <!-- Filtres -->
+  <div id="filters" class="filters" hidden></div>
+
+  <!-- Liste -->
+  <div id="board" aria-live="polite"></div>
+</main>
+
+<footer class="site">
+  <div class="f-brand"><img src="icon-180.png" alt="" width="180" height="180">Pnyx</div>
+  <div class="links">
+    <a href="index.html"><span data-t="fr">Accueil</span><span data-t="en">Home</span></a>
+    <a href="faq.html">FAQ</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="privacy-policy.html"><span data-t="fr">Confidentialité</span><span data-t="en">Privacy</span></a>
+    <a href="support.html"><span data-t="fr">Assistance</span><span data-t="en">Support</span></a>
+  </div>
+</footer>
+
+<div id="toast" class="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/* =========================================================================
+   CONFIGURATION — REMPLACE ces deux valeurs par celles de TON projet Supabase
+   (Project Settings → API). La clé « anon public » est FAITE pour être
+   publique : la sécurité vient des règles RLS (voir supabase-feedback-setup.sql),
+   jamais du secret. NE JAMAIS mettre ici la clé « service_role ».
+   ========================================================================= */
+const SUPABASE_URL      = "https://wdxjlbsnqmybcdpzwnhs.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_F9beVTRpaUTKtZNjYHrhSw_hq4Obiv7";
+
+/* ---------- Langue (mémorisée, comme le reste du site) ---------- */
+(function () {
+  var KEY = "pnyx-lang";
+  function setLang(l){ if(l!=="en") l="fr";
+    document.documentElement.setAttribute("data-lang",l);
+    document.documentElement.setAttribute("lang",l);
+    try{ localStorage.setItem(KEY,l);}catch(e){}
+    if (window.__rerender) window.__rerender();
+  }
+  var s=null; try{ s=localStorage.getItem(KEY);}catch(e){}
+  setLang(s || ((navigator.language||"fr").toLowerCase().indexOf("en")===0?"en":"fr"));
+  document.querySelectorAll(".lang-switch button[data-set]").forEach(function(b){
+    b.addEventListener("click",function(){ setLang(this.getAttribute("data-set")); });
+  });
+})();
+function lang(){ return document.documentElement.getAttribute("data-lang")==="en" ? "en":"fr"; }
+
+/* ---------- Traductions des libellés dynamiques ---------- */
+const T = {
+  fr: {
+    tags:{bug:"Bogue",amelioration:"Amélioration",question:"Question",autre:"Autre"},
+    statuses:{ouvert:"Ouvert",prevu:"Prévu",encours:"En cours",termine:"Terminé",refuse:"Hors périmètre"},
+    all:"Tous", sortTop:"Plus votés", sortNew:"Récents",
+    login:"Connexion", signup:"Créer un compte", logout:"Déconnexion",
+    email:"Courriel", password:"Mot de passe", pseudo:"Pseudo (affiché publiquement)",
+    needAccountPost:"Connecte-toi pour publier une demande.",
+    needAccountVote:"Connecte-toi pour voter.",
+    reply:"Répondre", comment:"Commenter", send:"Envoyer",
+    yourReply:"Ta réponse…", yourComment:"Ton commentaire…",
+    noPosts:"Aucune demande pour l'instant. Sois le premier à proposer une idée !",
+    by:"par", dev:"Développeur", del:"Supprimer", confirmDel:"Supprimer définitivement ?",
+    posted:"Publié ✓", replied:"Réponse envoyée ✓", voteErr:"Vote impossible.",
+    checkEmail:"Compte créé ! Vérifie ton courriel pour confirmer, puis connecte-toi.",
+    haveAccount:"Déjà un compte ? Connexion", noAccount:"Pas de compte ? Créer un compte",
+    titlePh:"Résume ton idée ou ton bogue en une phrase",
+    bodyPh:"Décris en détail : ce qui se passe, sur quel appareil, ce que tu attends…",
+    commentsN:function(n){ return n+" "+(n===1?"réponse":"réponses"); }
+  },
+  en: {
+    tags:{bug:"Bug",amelioration:"Improvement",question:"Question",autre:"Other"},
+    statuses:{ouvert:"Open",prevu:"Planned",encours:"In progress",termine:"Done",refuse:"Not planned"},
+    all:"All", sortTop:"Most voted", sortNew:"Recent",
+    login:"Log in", signup:"Create account", logout:"Log out",
+    email:"Email", password:"Password", pseudo:"Nickname (shown publicly)",
+    needAccountPost:"Sign in to post a request.",
+    needAccountVote:"Sign in to vote.",
+    reply:"Reply", comment:"Comment", send:"Send",
+    yourReply:"Your reply…", yourComment:"Your comment…",
+    noPosts:"No requests yet. Be the first to suggest an idea!",
+    by:"by", dev:"Developer", del:"Delete", confirmDel:"Delete permanently?",
+    posted:"Posted ✓", replied:"Reply sent ✓", voteErr:"Couldn't vote.",
+    checkEmail:"Account created! Check your email to confirm, then log in.",
+    haveAccount:"Already have an account? Log in", noAccount:"No account? Create one",
+    titlePh:"Summarize your idea or bug in one sentence",
+    bodyPh:"Describe it: what happens, on which device, what you expect…",
+    commentsN:function(n){ return n+" "+(n===1?"reply":"replies"); }
+  }
+};
+function tr(k){ return T[lang()][k]; }
+
+/* ---------- État ---------- */
+const configured = !/REMPLACER/.test(SUPABASE_URL) && !/REMPLACER/.test(SUPABASE_ANON_KEY);
+let sb = null, me = null, myProfile = null, myVotes = new Set(), openPostId = null;
+let filterTag = "all", sortBy = "top";
+
+const $ = (id) => document.getElementById(id);
+function toast(msg){ const t=$("toast"); t.textContent=msg; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),2200); }
+function el(tag, attrs, ...kids){
+  const n=document.createElement(tag);
+  if(attrs) for(const k in attrs){
+    if(k==="class") n.className=attrs[k];
+    else if(k==="text") n.textContent=attrs[k];        // contenu utilisateur = TOUJOURS textContent (anti-injection)
+    else if(k.startsWith("on")) n.addEventListener(k.slice(2), attrs[k]);
+    else if(attrs[k]!==null && attrs[k]!==undefined) n.setAttribute(k, attrs[k]);
+  }
+  for(const c of kids){ if(c==null) continue; n.appendChild(typeof c==="string"?document.createTextNode(c):c); }
+  return n;
+}
+function fmtDate(iso){ try{ return new Date(iso).toLocaleDateString(lang()==="en"?"en-CA":"fr-CA",{day:"numeric",month:"short",year:"numeric"}); }catch(e){ return ""; } }
+
+/* ---------- Démarrage ---------- */
+if (!configured) {
+  $("config-notice").hidden = false;
+} else {
+  sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  boot();
+}
+
+async function boot(){
+  const { data:{ session } } = await sb.auth.getSession();
+  await onSession(session);
+  sb.auth.onAuthStateChange((_e, s)=>{ onSession(s); });
+  buildFilters();
+  await loadBoard();
+}
+
+async function onSession(session){
+  me = session ? session.user : null;
+  myProfile = null; myVotes = new Set();
+  if (me) {
+    const { data } = await sb.from("profiles").select("id,pseudo,is_admin").eq("id", me.id).maybeSingle();
+    myProfile = data || { id:me.id, pseudo:(me.email||"").split("@")[0], is_admin:false };
+    const { data:v } = await sb.from("votes").select("post_id").eq("user_id", me.id);
+    myVotes = new Set((v||[]).map(r=>r.post_id));
+  }
+  renderAccount();
+  renderComposeVisibility();
+}
+
+/* ---------- Barre de compte + auth ---------- */
+let authMode = "login"; // "login" | "signup"
+function renderAccount(){
+  const box=$("account"); box.hidden=false; box.textContent="";
+  if (me && myProfile){
+    const who = el("span",{class:"who"});
+    who.appendChild(document.createTextNode((lang()==="en"?"Signed in as ":"Connecté : ")));
+    who.appendChild(el("strong",{text:myProfile.pseudo}));
+    if (myProfile.is_admin) who.appendChild(el("span",{class:"badge-dev", text:tr("dev")}));
+    box.appendChild(who);
+    box.appendChild(el("span",{class:"spacer"}));
+    box.appendChild(el("button",{class:"btn ghost sm", text:tr("logout"), onclick:async()=>{ await sb.auth.signOut(); toast(lang()==="en"?"Signed out":"Déconnecté"); }}));
+    $("auth-panel").hidden = true;
+  } else {
+    box.appendChild(el("span",{class:"muted", text:(lang()==="en"?"Join the conversation:":"Rejoins la conversation :")}));
+    box.appendChild(el("span",{class:"spacer"}));
+    box.appendChild(el("button",{class:"btn ghost sm", text:tr("login"), onclick:()=>openAuth("login")}));
+    box.appendChild(el("button",{class:"btn primary sm", text:tr("signup"), onclick:()=>openAuth("signup")}));
+  }
+}
+function openAuth(mode){
+  authMode=mode;
+  const p=$("auth-panel"); p.hidden=false;
+  $("auth-title").textContent = mode==="signup" ? tr("signup") : tr("login");
+  const f=$("auth-fields"); f.textContent="";
+  if (mode==="signup"){
+    f.appendChild(field("au-pseudo","text",tr("pseudo"),"nickname"));
+  }
+  f.appendChild(field("au-email","email",tr("email"),"email"));
+  f.appendChild(field("au-pass","password",tr("password"),"current-password"));
+  $("auth-error").hidden=true;
+  $("auth-submit").textContent = mode==="signup" ? tr("signup") : tr("login");
+  $("auth-toggle").textContent = mode==="signup" ? tr("haveAccount") : tr("noAccount");
+  p.scrollIntoView({behavior:"smooth", block:"center"});
+}
+function field(id,type,label,ac){
+  const l=el("label",{class:"fld"}); l.appendChild(el("span",{text:label}));
+  const i=el("input",{type:type, id:id, autocomplete:ac, maxlength: type==="text"?"40":null});
+  l.appendChild(i); return l;
+}
+$("auth-toggle").addEventListener("click",()=> openAuth(authMode==="signup"?"login":"signup"));
+$("auth-submit").addEventListener("click", doAuth);
+async function doAuth(){
+  const errP=$("auth-error"); errP.hidden=true;
+  const email=($("au-email")||{}).value?.trim(), pass=($("au-pass")||{}).value||"";
+  if(!email || !pass){ return showAuthErr(lang()==="en"?"Fill in every field.":"Remplis tous les champs."); }
+  $("auth-submit").disabled=true;
+  try{
+    if(authMode==="signup"){
+      const pseudo=($("au-pseudo")||{}).value?.trim() || email.split("@")[0];
+      const { data, error } = await sb.auth.signUp({ email, password:pass, options:{ data:{ pseudo } } });
+      if(error) throw error;
+      if(!data.session){ toast(tr("checkEmail")); openAuth("login"); }
+      else toast(lang()==="en"?"Welcome!":"Bienvenue !");
+    } else {
+      const { error } = await sb.auth.signInWithPassword({ email, password:pass });
+      if(error) throw error;
+      toast(lang()==="en"?"Welcome back!":"Content de te revoir !");
+    }
+  }catch(e){ showAuthErr(humanAuthError(e)); }
+  finally{ $("auth-submit").disabled=false; }
+}
+function showAuthErr(m){ const e=$("auth-error"); e.textContent=m; e.hidden=false; }
+function humanAuthError(e){
+  const m=(e&&e.message||"").toLowerCase();
+  if(m.includes("already registered")) return lang()==="en"?"This email already has an account.":"Ce courriel a déjà un compte.";
+  if(m.includes("invalid login")) return lang()==="en"?"Wrong email or password.":"Courriel ou mot de passe incorrect.";
+  if(m.includes("at least 6")||m.includes("password")) return lang()==="en"?"Password must be at least 6 characters.":"Le mot de passe doit faire au moins 6 caractères.";
+  return e&&e.message ? e.message : (lang()==="en"?"Something went wrong.":"Une erreur est survenue.");
+}
+
+/* ---------- Nouveau post ---------- */
+function renderComposeVisibility(){
+  const c=$("compose");
+  if (me){ c.hidden=false; fillTagSelect($("np-tag")); }
+  else c.hidden=true;
+}
+function fillTagSelect(sel, withAll){
+  sel.textContent="";
+  if(withAll) sel.appendChild(el("option",{value:"all", text:tr("all")}));
+  ["bug","amelioration","question","autre"].forEach(k=> sel.appendChild(el("option",{value:k, text:T[lang()].tags[k]})));
+}
+$("np-submit").addEventListener("click", async ()=>{
+  if(!me) return;
+  const title=$("np-title").value.trim(), body=$("np-body").value.trim(), tag=$("np-tag").value;
+  const errP=$("np-error"); errP.hidden=true;
+  if(title.length<3 || body.length<1){ errP.textContent=lang()==="en"?"Add a title (3+ chars) and details.":"Ajoute un titre (3+ caractères) et des détails."; errP.hidden=false; return; }
+  $("np-submit").disabled=true;
+  const { error } = await sb.from("posts").insert({ author_id:me.id, title, body, tag });
+  $("np-submit").disabled=false;
+  if(error){ errP.textContent=error.message; errP.hidden=false; return; }
+  $("np-title").value=""; $("np-body").value=""; $("compose").open=false;
+  toast(tr("posted")); await loadBoard();
+});
+
+/* ---------- Filtres ---------- */
+function buildFilters(){
+  const bar=$("filters"); bar.hidden=false; bar.textContent="";
+  window.__filterChips=[];
+  const mk=(key,label)=>{ const b=el("button",{class:"chip", "aria-pressed": String(filterTag===key), text:label,
+      onclick:()=>{ filterTag=key; syncChips(); renderBoard(); }}); b.dataset.key=key; window.__filterChips.push(b); bar.appendChild(b); };
+  mk("all", tr("all"));
+  ["bug","amelioration","question","autre"].forEach(k=> mk(k, T[lang()].tags[k]));
+  const sortWrap=el("span",{class:"sort"});
+  const sel=el("select",{onchange:(e)=>{ sortBy=e.target.value; renderBoard(); }});
+  sel.appendChild(el("option",{value:"top", text:tr("sortTop")}));
+  sel.appendChild(el("option",{value:"new", text:tr("sortNew")}));
+  sel.value=sortBy; sortWrap.appendChild(sel); bar.appendChild(sortWrap);
+}
+function syncChips(){ (window.__filterChips||[]).forEach(b=> b.setAttribute("aria-pressed", String(b.dataset.key===filterTag))); }
+
+/* ---------- Chargement + rendu du tableau ---------- */
+let allPosts = [];
+async function loadBoard(){
+  const { data, error } = await sb.from("posts")
+    .select("*, author:profiles(pseudo,is_admin), votes(count), comments(count)")
+    .order("pinned",{ascending:false}).order("created_at",{ascending:false});
+  if(error){ $("board").innerHTML=""; $("board").appendChild(el("p",{class:"empty", text:error.message})); return; }
+  allPosts = (data||[]).map(p=>({
+    ...p,
+    vote_count: (p.votes && p.votes[0] ? p.votes[0].count : 0),
+    comment_count: (p.comments && p.comments[0] ? p.comments[0].count : 0)
+  }));
+  renderBoard();
+}
+function renderBoard(){
+  const board=$("board"); board.textContent="";
+  let list = allPosts.slice();
+  if(filterTag!=="all") list=list.filter(p=>p.tag===filterTag);
+  list.sort((a,b)=>{
+    if(a.pinned!==b.pinned) return a.pinned?-1:1;
+    if(sortBy==="top" && b.vote_count!==a.vote_count) return b.vote_count-a.vote_count;
+    return new Date(b.created_at)-new Date(a.created_at);
+  });
+  if(list.length===0){ board.appendChild(el("p",{class:"empty", text:tr("noPosts")})); return; }
+  list.forEach(p=> board.appendChild(renderPost(p)));
+}
+function renderPost(p){
+  const voted = myVotes.has(p.id);
+  const voteBtn = el("button",{class:"vote", "aria-pressed":String(voted), title:tr("all"),
+    onclick:()=>toggleVote(p)},
+    el("span",{class:"arrow", text:"▲"}), el("span",{class:"count", text:String(p.vote_count)}));
+  const title = el("h3",{class:"ptitle", text:p.title, onclick:()=>toggleDetail(p.id)});
+  const body = el("p",{class:"pbody", text:p.body});
+  const meta = el("div",{class:"meta"});
+  meta.appendChild(el("span",{class:"tagchip tag-"+p.tag, text:T[lang()].tags[p.tag]||p.tag}));
+  meta.appendChild(el("span",{class:"statuschip st-"+p.status, text:T[lang()].statuses[p.status]||p.status}));
+  const author = p.author ? p.author.pseudo : "?";
+  meta.appendChild(el("span",{}, tr("by")+" ", el("strong",{text:author}), " · "+fmtDate(p.created_at)));
+  const cbtn = el("button",{class:"linklike comments-n", onclick:()=>toggleDetail(p.id)}, "💬 "+T[lang()].commentsN(p.comment_count));
+  meta.appendChild(cbtn);
+
+  const main = el("div",{class:"main"}, title, body, meta);
+  if (openPostId===p.id) main.appendChild(renderDetail(p));
+
+  const card = el("div",{class:"post"+(p.pinned?" pinned":"")}, voteBtn, main);
+  return card;
+}
+
+/* ---------- Vote ---------- */
+async function toggleVote(p){
+  if(!me){ toast(tr("needAccountVote")); openAuth("login"); return; }
+  const voted = myVotes.has(p.id);
+  try{
+    if(voted){ await sb.from("votes").delete().eq("post_id",p.id).eq("user_id",me.id); myVotes.delete(p.id); p.vote_count=Math.max(0,p.vote_count-1); }
+    else { await sb.from("votes").insert({ post_id:p.id, user_id:me.id }); myVotes.add(p.id); p.vote_count++; }
+    renderBoard();
+  }catch(e){ toast(tr("voteErr")); }
+}
+
+/* ---------- Détail + commentaires ---------- */
+function toggleDetail(id){ openPostId = (openPostId===id? null : id); renderBoard(); if(openPostId===id) loadComments(id); }
+let commentsCache = {};
+async function loadComments(postId){
+  const { data } = await sb.from("comments").select("*, author:profiles(pseudo,is_admin)").eq("post_id",postId).order("created_at",{ascending:true});
+  commentsCache[postId]=data||[]; renderBoard();
+}
+function renderDetail(p){
+  const wrap = el("div",{class:"detail"});
+  const list = commentsCache[p.id];
+  if(list){
+    list.forEach(c=>{
+      const dev = c.author && c.author.is_admin;
+      const head = el("div",{class:"cwho"});
+      head.appendChild(document.createTextNode((c.author?c.author.pseudo:"?")));
+      if(dev) head.appendChild(el("span",{class:"badge-dev", text:tr("dev")}));
+      const cm = el("div",{class:"comment"+(dev?" dev":"")},
+        el("div",{style:"flex:1;min-width:0;"},
+          head,
+          el("div",{class:"cbody", text:c.body}),
+          el("div",{class:"cdate", text:fmtDate(c.created_at)})
+        ));
+      if(me && (myProfile.is_admin || c.author_id===me.id)){
+        cm.appendChild(el("button",{class:"linklike", text:tr("del"), onclick:()=>delComment(c,p.id)}));
+      }
+      wrap.appendChild(cm);
+    });
+  } else {
+    wrap.appendChild(el("p",{class:"muted", text:"…"}));
+  }
+  // zone de réponse
+  if(me){
+    const ta = el("textarea",{placeholder: myProfile.is_admin? tr("yourReply"):tr("yourComment"), style:"min-height:70px;margin-top:10px;"});
+    const send = el("button",{class:"btn primary sm", text: myProfile.is_admin?tr("reply"):tr("send"), style:"margin-top:8px;",
+      onclick:async()=>{ const b=ta.value.trim(); if(!b) return; send.disabled=true;
+        const { error } = await sb.from("comments").insert({ post_id:p.id, author_id:me.id, body:b });
+        send.disabled=false; if(error){ toast(error.message); return; }
+        ta.value=""; toast(tr("replied")); await refreshCounts(); await loadComments(p.id); }});
+    wrap.appendChild(ta); wrap.appendChild(send);
+  } else {
+    wrap.appendChild(el("p",{class:"muted", text:tr("needAccountPost")}));
+  }
+  // contrôles admin
+  if(me && myProfile.is_admin){
+    const row = el("div",{class:"admin-row"});
+    const sel = el("select",{onchange:async(e)=>{ await sb.from("posts").update({status:e.target.value}).eq("id",p.id); p.status=e.target.value; toast("✓"); await refreshCounts(); }});
+    ["ouvert","prevu","encours","termine","refuse"].forEach(s=> sel.appendChild(el("option",{value:s, text:T[lang()].statuses[s]})));
+    sel.value=p.status;
+    const pin = el("button",{class:"btn ghost sm", text:(p.pinned?"📌 ✓":"📌"), onclick:async()=>{ await sb.from("posts").update({pinned:!p.pinned}).eq("id",p.id); p.pinned=!p.pinned; await refreshCounts(); }});
+    const del = el("button",{class:"linklike", text:tr("del"), onclick:async()=>{ if(!confirm(tr("confirmDel"))) return; await sb.from("posts").delete().eq("id",p.id); openPostId=null; toast("🗑"); await loadBoard(); }});
+    row.appendChild(sel); row.appendChild(pin); row.appendChild(del);
+    wrap.appendChild(row);
+  }
+  return wrap;
+}
+async function delComment(c, postId){
+  if(!confirm(tr("confirmDel"))) return;
+  await sb.from("comments").delete().eq("id",c.id);
+  await refreshCounts(); await loadComments(postId);
+}
+async function refreshCounts(){
+  // recharge les compteurs (votes/commentaires) sans perdre le détail ouvert
+  const { data } = await sb.from("posts").select("id, status, pinned, votes(count), comments(count)");
+  if(!data) return;
+  const map={}; data.forEach(d=> map[d.id]=d);
+  allPosts.forEach(p=>{ const d=map[p.id]; if(d){ p.status=d.status; p.pinned=d.pinned;
+    p.vote_count=d.votes&&d.votes[0]?d.votes[0].count:0; p.comment_count=d.comments&&d.comments[0]?d.comments[0].count:0; }});
+  renderBoard();
+}
+
+/* ---------- Re-rendu au changement de langue ---------- */
+window.__rerender = function(){
+  if(!configured) return;
+  renderAccount(); renderComposeVisibility();
+  if(document.getElementById("np-tag")) fillTagSelect($("np-tag"));
+  buildFilters(); renderBoard();
+};
+</script>
+</body>
+</html>
