@@ -25,6 +25,7 @@
 <meta name="theme-color" content="#15172A" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/png" href="icon-180.png">
 <link rel="apple-touch-icon" href="icon-180.png">
+<link rel="stylesheet" href="account.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -284,6 +285,7 @@
       <a href="feedback.html">Feedback</a>
       <a href="privacy-policy.html"><span data-t="fr">Confidentialité</span><span data-t="en">Privacy</span></a>
       <a href="support.html"><span data-t="fr">Assistance</span><span data-t="en">Support</span></a>
+      <span id="nav-account" class="nav-account"></span>
       <span class="lang-switch" role="group" aria-label="Language / Langue">
         <button type="button" data-set="fr" aria-label="Français">FR</button>
         <button type="button" data-set="en" aria-label="English">EN</button>
@@ -612,5 +614,7 @@
 })();
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="account.js"></script>
 </body>
 </html>

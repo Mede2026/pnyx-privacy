@@ -1,0 +1,61 @@
+/* Pnyx — styles du compte partagé (nav + menu + fenêtre de connexion).
+   Utilise les variables CSS déjà définies par la page (--card, --orange, …). */
+
+.nav-account { display:inline-flex; align-items:center; gap:6px; position:relative; }
+.acct-btn { appearance:none; cursor:pointer; font:inherit; font-size:.88rem; font-weight:650; color:var(--text);
+  background:var(--card); border:1.5px solid var(--card-border); border-radius:999px; padding:5px 13px;
+  display:inline-flex; align-items:center; gap:5px; transition:.15s; }
+.acct-btn:hover { border-color:var(--orange); color:var(--orange-deep); }
+.acct-btn.primary { color:#fff; background:linear-gradient(160deg,#C96F4A,#AE5732); border-color:transparent; }
+.acct-badge-dev { font-size:.72rem; font-weight:700; color:#fff; background:var(--orange); padding:2px 7px; border-radius:999px; }
+
+.acct-menu { position:absolute; top:calc(100% + 8px); right:0; min-width:216px; background:var(--card);
+  border:1px solid var(--card-border); border-radius:14px; box-shadow:0 14px 34px rgba(0,0,0,.28); padding:6px; z-index:1001; }
+.acct-menu[hidden]{ display:none; }
+.acct-menu button { display:block; width:100%; text-align:left; appearance:none; cursor:pointer; font:inherit;
+  font-size:.92rem; color:var(--text); background:none; border:0; border-radius:9px; padding:9px 12px; }
+.acct-menu button:hover { background:var(--icon-tint); color:var(--orange-deep); }
+.acct-menu button.danger { color:#C0442E; }
+.acct-menu button.danger:hover { background:rgba(192,68,46,.12); }
+.acct-menu .sep { height:1px; background:var(--line); margin:4px 6px; }
+.acct-stats { padding:8px 12px 4px; }
+.acct-stats div { font-size:.9rem; color:var(--text-soft); padding:2px 0; }
+.acct-stats strong { color:var(--hero-ink); font-size:1.02rem; margin-right:3px; }
+
+/* Fenêtre de connexion (modale, centrée) */
+.pnyx-modal { position:fixed; inset:0; z-index:2000; background:rgba(10,12,26,.5);
+  display:flex; align-items:center; justify-content:center; padding:20px;
+  -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); }
+.pnyx-modal[hidden]{ display:none; }
+.pnyx-modal-card { background:var(--card); border:1px solid var(--card-border); border-radius:18px;
+  padding:24px 22px; width:100%; max-width:410px; box-shadow:0 24px 70px rgba(0,0,0,.4); }
+.pnyx-modal-card h2 { margin:0 0 16px; font-size:1.25rem; color:var(--hero-ink); }
+.pnyx-modal-x { float:right; appearance:none; border:0; background:none; cursor:pointer; font-size:1.3rem; line-height:1; color:var(--text-soft); }
+.pnyx-modal-x:hover { color:var(--orange-deep); }
+
+.acct-fld { display:block; margin:0 0 12px; }
+.acct-fld > span { display:block; font-size:.85rem; font-weight:600; color:var(--text-soft); margin:0 0 5px; }
+.acct-fld input { font:inherit; color:var(--text); background:var(--field, #fff); border:1.5px solid var(--card-border);
+  border-radius:11px; padding:10px 13px; width:100%; }
+.acct-fld input:focus { outline:none; border-color:var(--orange); }
+@media (prefers-color-scheme: dark) { .acct-fld input { background:rgba(0,0,0,.2); } }
+.pw-wrap { position:relative; }
+.pw-wrap input { padding-right:46px; }
+.pw-eye { position:absolute; right:4px; top:0; height:100%; width:40px; display:flex; align-items:center; justify-content:center;
+  border:0; background:none; cursor:pointer; font-size:1.1rem; opacity:.6; }
+.pw-eye:hover { opacity:1; }
+.acct-err { color:#C0442E; font-size:.9rem; margin:6px 0 0; }
+.acct-muted { color:var(--text-soft); font-size:.9rem; margin:0 0 10px; }
+.acct-actions { display:flex; align-items:center; gap:14px; margin-top:4px; }
+.acct-submit { appearance:none; cursor:pointer; font:inherit; font-weight:650; color:#fff; border:0;
+  background:linear-gradient(160deg,#C96F4A,#AE5732); border-radius:999px; padding:11px 22px; }
+.acct-submit:hover { filter:brightness(1.05); }
+.acct-submit:disabled { opacity:.5; cursor:default; }
+.acct-link { appearance:none; border:0; background:none; cursor:pointer; font:inherit; font-size:.86rem;
+  color:var(--text-soft); text-decoration:underline; padding:0; }
+.acct-link:hover { color:var(--orange-deep); }
+
+.pnyx-toast { position:fixed; left:50%; bottom:22px; transform:translateX(-50%); background:var(--navy,#2B3055); color:#F1EDE3;
+  padding:11px 18px; border-radius:999px; box-shadow:0 10px 30px rgba(0,0,0,.3); font-size:.92rem; opacity:0;
+  pointer-events:none; transition:opacity .25s; z-index:2100; }
+.pnyx-toast.show { opacity:1; }
