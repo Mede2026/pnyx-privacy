@@ -135,6 +135,16 @@
   .chip[aria-pressed="true"] { background:var(--orange); border-color:var(--orange); color:#fff; }
   .filters .sort { margin-left:auto; }
   .filters .sort select { width:auto; padding:7px 12px; border-radius:999px; }
+  .filters-row2 { flex-basis:100%; display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:2px; }
+  .search-inp { flex:1 1 180px; padding:7px 14px; border-radius:999px; }
+  .sort-sel { width:auto; padding:7px 12px; border-radius:999px; }
+  /* Feuille de route : 3 colonnes (Prévu / En cours / Terminé) */
+  .roadmap { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; align-items:start; }
+  @media (max-width:720px){ .roadmap { grid-template-columns:1fr; } }
+  .rm-col-title { margin:0 0 10px; padding:0 2px; }
+  .rm-empty { color:var(--text-soft); font-size:.86rem; padding:8px 2px; }
+  .roadmap .post { flex-direction:column; gap:10px; }
+  .roadmap .vote { flex-direction:row; width:auto; align-self:flex-start; gap:7px; padding:5px 11px; }
 
   /* Cartes de post */
   .post { display:flex; gap:14px; background:var(--card); border:1px solid var(--card-border); border-radius:14px;
@@ -335,6 +345,8 @@ const T = {
     changePseudo:"Changer le pseudo", delProfile:"Supprimer mon profil", save:"Enregistrer", saved:"Enregistré ✓",
     profileDeleted:"Profil supprimé. À bientôt !",
     confirmDelProfile:"Supprimer ton compte et TOUTES tes demandes, réponses et votes ? C'est irréversible.",
+    edit:"Modifier", cancel:"Annuler", mine:"Mes demandes", searchPh:"Rechercher…",
+    viewList:"Vue liste", viewRoadmap:"Feuille de route", rmEmpty:"Rien ici pour l'instant.",
     titlePh:"Résume ton idée ou ton bogue en une phrase",
     bodyPh:"Décris en détail : ce qui se passe, sur quel appareil, ce que tu attends…",
     commentsN:function(n){ return n+" "+(n===1?"réponse":"réponses"); }
@@ -361,6 +373,8 @@ const T = {
     changePseudo:"Change nickname", delProfile:"Delete my account", save:"Save", saved:"Saved ✓",
     profileDeleted:"Account deleted. See you soon!",
     confirmDelProfile:"Delete your account and ALL your posts, replies and votes? This cannot be undone.",
+    edit:"Edit", cancel:"Cancel", mine:"My requests", searchPh:"Search…",
+    viewList:"List view", viewRoadmap:"Roadmap", rmEmpty:"Nothing here yet.",
     titlePh:"Summarize your idea or bug in one sentence",
     bodyPh:"Describe it: what happens, on which device, what you expect…",
     commentsN:function(n){ return n+" "+(n===1?"reply":"replies"); }
@@ -374,7 +388,7 @@ const configured = !/REMPLACER/.test(SUPABASE_URL) && !/REMPLACER/.test(SUPABASE
 // passe) : la page elle-même. Complète le « Site URL » réglé dans Supabase.
 const REDIRECT = location.origin + location.pathname;
 let sb = null, me = null, myProfile = null, myVotes = new Set(), openPostId = null;
-let filterTag = "all", sortBy = "top";
+let filterTag = "all", sortBy = "top", searchQuery = "", mineOnly = false, viewMode = "list", editingPostId = null;
 
 const $ = (id) => document.getElementById(id);
 function toast(msg){ const t=$("toast"); t.textContent=msg; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),2200); }
@@ -634,11 +648,25 @@ function buildFilters(){
       onclick:()=>{ filterTag=key; syncChips(); renderBoard(); }}); b.dataset.key=key; window.__filterChips.push(b); bar.appendChild(b); };
   mk("all", tr("all"));
   ["bug","amelioration","question","autre"].forEach(k=> mk(k, T[lang()].tags[k]));
-  const sortWrap=el("span",{class:"sort"});
-  const sel=el("select",{onchange:(e)=>{ sortBy=e.target.value; renderBoard(); }});
+  // « Mes demandes » (seulement connecté)
+  if(me){
+    const mine=el("button",{class:"chip", "aria-pressed":String(mineOnly), text:tr("mine"),
+      onclick:()=>{ mineOnly=!mineOnly; mine.setAttribute("aria-pressed",String(mineOnly)); renderBoard(); }});
+    bar.appendChild(mine);
+  }
+  // 2e rangée : recherche · tri · bascule de vue
+  const row2=el("div",{class:"filters-row2"});
+  const search=el("input",{class:"search-inp", type:"search", placeholder:tr("searchPh"), value:searchQuery,
+    oninput:(e)=>{ searchQuery=e.target.value; renderBoard(); }});
+  row2.appendChild(search);
+  const sel=el("select",{class:"sort-sel", onchange:(e)=>{ sortBy=e.target.value; renderBoard(); }});
   sel.appendChild(el("option",{value:"top", text:tr("sortTop")}));
   sel.appendChild(el("option",{value:"new", text:tr("sortNew")}));
-  sel.value=sortBy; sortWrap.appendChild(sel); bar.appendChild(sortWrap);
+  sel.value=sortBy; row2.appendChild(sel);
+  const viewBtn=el("button",{class:"chip", text:(viewMode==="list"?tr("viewRoadmap"):tr("viewList")),
+    onclick:()=>{ viewMode=(viewMode==="list"?"roadmap":"list"); buildFilters(); renderBoard(); }});
+  row2.appendChild(viewBtn);
+  bar.appendChild(row2);
 }
 function syncChips(){ (window.__filterChips||[]).forEach(b=> b.setAttribute("aria-pressed", String(b.dataset.key===filterTag))); }
 
@@ -660,15 +688,58 @@ function renderBoard(){
   const board=$("board"); board.textContent="";
   let list = allPosts.slice();
   if(filterTag!=="all") list=list.filter(p=>p.tag===filterTag);
+  if(mineOnly && me) list=list.filter(p=>p.author_id===me.id);
+  const q=searchQuery.trim().toLowerCase();
+  if(q) list=list.filter(p=> (p.title+" "+p.body).toLowerCase().includes(q));
   list.sort((a,b)=>{
     if(a.pinned!==b.pinned) return a.pinned?-1:1;
     if(sortBy==="top" && b.vote_count!==a.vote_count) return b.vote_count-a.vote_count;
     return new Date(b.created_at)-new Date(a.created_at);
   });
+  if(viewMode==="roadmap"){ renderRoadmap(board, list); return; }
   if(list.length===0){ board.appendChild(el("p",{class:"empty", text:tr("noPosts")})); return; }
   list.forEach(p=> board.appendChild(renderPost(p)));
 }
+/* Feuille de route : colonnes Prévu / En cours / Terminé. */
+function renderRoadmap(board, list){
+  const grid=el("div",{class:"roadmap"});
+  ["prevu","encours","termine"].forEach(st=>{
+    const col=el("div",{class:"rm-col"});
+    col.appendChild(el("div",{class:"rm-col-title"}, el("span",{class:"statuschip st-"+st, text:T[lang()].statuses[st]})));
+    const items=list.filter(p=>p.status===st);
+    if(items.length===0) col.appendChild(el("p",{class:"rm-empty", text:tr("rmEmpty")}));
+    else items.forEach(p=> col.appendChild(renderPost(p)));
+    grid.appendChild(col);
+  });
+  board.appendChild(grid);
+}
+/* Modifier sa propre demande (ou n'importe laquelle en admin). */
+function openEditPost(p){ editingPostId=p.id; renderBoard(); }
+function renderEditCard(p){
+  const main=el("div",{class:"main"});
+  const tl=el("label",{class:"fld"}); tl.appendChild(el("span",{text:(lang()==="en"?"Title":"Titre")}));
+  const ti=el("input",{type:"text", maxlength:"140"}); ti.value=p.title; tl.appendChild(ti);
+  const bl=el("label",{class:"fld"}); bl.appendChild(el("span",{text:(lang()==="en"?"Details":"Détails")}));
+  const ta=el("textarea",{maxlength:"4000"}); ta.value=p.body; bl.appendChild(ta);
+  const gl=el("label",{class:"fld", style:"max-width:220px;"}); gl.appendChild(el("span",{text:(lang()==="en"?"Category":"Catégorie")}));
+  const sel=el("select"); fillTagSelect(sel); sel.value=p.tag; gl.appendChild(sel);
+  const save=el("button",{class:"btn primary sm", text:tr("save"), onclick:async()=>{
+    const title=ti.value.trim(), body=ta.value.trim(), tag=sel.value;
+    if(title.length<3 || body.length<1){ toast(lang()==="en"?"Add a title and details.":"Ajoute un titre et des détails."); return; }
+    save.disabled=true;
+    const { error } = await sb.from("posts").update({ title, body, tag }).eq("id", p.id);
+    save.disabled=false;
+    if(error){ toast(error.message); return; }
+    editingPostId=null; toast(tr("saved")); await loadBoard();
+  }});
+  const cancel=el("button",{class:"linklike", text:tr("cancel"), style:"margin-left:14px;",
+    onclick:()=>{ editingPostId=null; renderBoard(); }});
+  main.appendChild(tl); main.appendChild(bl); main.appendChild(gl);
+  main.appendChild(el("div",{style:"display:flex; align-items:center;"}, save, cancel));
+  return el("div",{class:"post"}, main);
+}
 function renderPost(p){
+  if(editingPostId===p.id) return renderEditCard(p);
   const voted = myVotes.has(p.id);
   const voteBtn = el("button",{class:"vote", "aria-pressed":String(voted), title:tr("all"),
     onclick:()=>toggleVote(p)},
@@ -682,9 +753,10 @@ function renderPost(p){
   meta.appendChild(el("span",{}, tr("by")+" ", el("strong",{text:author}), " · "+fmtDate(p.created_at)));
   const cbtn = el("button",{class:"linklike comments-n", onclick:()=>toggleDetail(p.id)}, "💬 "+T[lang()].commentsN(p.comment_count));
   meta.appendChild(cbtn);
-  // Suppression admin visible directement sur la carte (les gens comme toi).
-  if(me && myProfile && myProfile.is_admin){
-    meta.appendChild(el("button",{class:"linklike", text:"🗑 "+tr("del"), onclick:(e)=>{ e.stopPropagation(); adminDeletePost(p); }}));
+  // Modifier / supprimer : l'auteur sur SA demande, l'admin sur toutes.
+  if(me && myProfile && (myProfile.is_admin || p.author_id===me.id)){
+    meta.appendChild(el("button",{class:"linklike", text:"✎ "+tr("edit"), onclick:(e)=>{ e.stopPropagation(); openEditPost(p); }}));
+    meta.appendChild(el("button",{class:"linklike", text:"🗑 "+tr("del"), onclick:(e)=>{ e.stopPropagation(); deletePost(p); }}));
   }
 
   const main = el("div",{class:"main"}, title, body, meta);
@@ -705,8 +777,8 @@ async function toggleVote(p){
   }catch(e){ toast(tr("voteErr")); }
 }
 
-/* ---------- Suppression d'un post par l'admin ---------- */
-async function adminDeletePost(p){
+/* ---------- Suppression d'un post (auteur sur le sien, admin sur tous) ---------- */
+async function deletePost(p){
   if(!confirm(tr("confirmDel"))) return;
   const { error } = await sb.from("posts").delete().eq("id", p.id);
   if(error){ toast(error.message); return; }
