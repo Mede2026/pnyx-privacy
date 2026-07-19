@@ -695,7 +695,7 @@ function syncChips(){ (window.__filterChips||[]).forEach(b=> b.setAttribute("ari
 let allPosts = [];
 async function loadBoard(){
   const { data, error } = await sb.from("posts")
-    .select("*, author:profiles(pseudo,is_admin), votes(count), comments(count)")
+    .select("*, author:profiles!posts_author_id_fkey(pseudo,is_admin), votes(count), comments(count)")
     .order("pinned",{ascending:false}).order("created_at",{ascending:false});
   if(error){ $("board").innerHTML=""; $("board").appendChild(el("p",{class:"empty", text:error.message})); return; }
   allPosts = (data||[]).map(p=>({
@@ -812,7 +812,7 @@ async function deletePost(p){
 function toggleDetail(id){ openPostId = (openPostId===id? null : id); renderBoard(); if(openPostId===id) loadComments(id); }
 let commentsCache = {};
 async function loadComments(postId){
-  const { data } = await sb.from("comments").select("*, author:profiles(pseudo,is_admin)").eq("post_id",postId).order("created_at",{ascending:true});
+  const { data } = await sb.from("comments").select("*, author:profiles!comments_author_id_fkey(pseudo,is_admin)").eq("post_id",postId).order("created_at",{ascending:true});
   commentsCache[postId]=data||[]; renderBoard();
 }
 function renderDetail(p){
