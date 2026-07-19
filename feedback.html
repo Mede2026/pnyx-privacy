@@ -84,6 +84,9 @@
   .acct-menu button.danger { color:var(--red); }
   .acct-menu button.danger:hover { background:color-mix(in srgb,var(--red) 14%,transparent); color:var(--red); }
   .acct-menu .sep { height:1px; background:var(--line); margin:4px 6px; }
+  .acct-menu .acct-stats { padding:8px 12px 4px; }
+  .acct-menu .acct-stats div { font-size:.9rem; color:var(--text-soft); padding:2px 0; }
+  .acct-menu .acct-stats strong { color:var(--hero-ink); font-size:1.02rem; margin-right:3px; }
 
   /* En-tête */
   .head { padding:44px 0 6px; }
@@ -345,6 +348,7 @@ const T = {
     changePseudo:"Changer le pseudo", delProfile:"Supprimer mon profil", save:"Enregistrer", saved:"Enregistré ✓",
     profileDeleted:"Profil supprimé. À bientôt !",
     confirmDelProfile:"Supprimer ton compte et TOUTES tes demandes, réponses et votes ? C'est irréversible.",
+    statPosts:"demandes publiées", statReceived:"votes reçus ❤", statGiven:"votes donnés",
     edit:"Modifier", cancel:"Annuler", mine:"Mes demandes", searchPh:"Rechercher…",
     viewList:"Vue liste", viewRoadmap:"Feuille de route", rmEmpty:"Rien ici pour l'instant.",
     titlePh:"Résume ton idée ou ton bogue en une phrase",
@@ -373,6 +377,7 @@ const T = {
     changePseudo:"Change nickname", delProfile:"Delete my account", save:"Save", saved:"Saved ✓",
     profileDeleted:"Account deleted. See you soon!",
     confirmDelProfile:"Delete your account and ALL your posts, replies and votes? This cannot be undone.",
+    statPosts:"requests posted", statReceived:"votes received ❤", statGiven:"votes given",
     edit:"Edit", cancel:"Cancel", mine:"My requests", searchPh:"Search…",
     viewList:"List view", viewRoadmap:"Roadmap", rmEmpty:"Nothing here yet.",
     titlePh:"Summarize your idea or bug in one sentence",
@@ -443,6 +448,12 @@ async function onSession(session){
 
 /* ---------- Barre de compte + auth ---------- */
 let authMode = "login"; // "login" | "signup" | "forgot" | "setpw" | "pseudo"
+/* Statistiques du compte : demandes publiées, ❤ reçus, votes donnés. */
+function myStats(){
+  const mine = me ? allPosts.filter(p=> p.author_id===me.id) : [];
+  const received = mine.reduce((sum,p)=> sum + (p.vote_count||0), 0);
+  return { posts: mine.length, received, given: myVotes.size };
+}
 function renderAccount(){
   const box=$("nav-account"); box.textContent="";
   if (me && myProfile){
@@ -453,6 +464,14 @@ function renderAccount(){
     btn.appendChild(document.createTextNode(" ▾"));
     box.appendChild(btn);
     const menu = el("div",{class:"acct-menu", id:"acct-menu", hidden:true});
+    // Petites statistiques du compte (calculées depuis les demandes chargées).
+    const s=myStats();
+    const stats=el("div",{class:"acct-stats"});
+    stats.appendChild(el("div",{}, el("strong",{text:String(s.posts)}), tr("statPosts")));
+    stats.appendChild(el("div",{}, el("strong",{text:String(s.received)}), tr("statReceived")));
+    stats.appendChild(el("div",{}, el("strong",{text:String(s.given)}), tr("statGiven")));
+    menu.appendChild(stats);
+    menu.appendChild(el("div",{class:"sep"}));
     menu.appendChild(el("button",{text:tr("changePseudo"), onclick:()=>{ closeAcctMenu(); openPseudoEdit(); }}));
     menu.appendChild(el("button",{text:tr("changePw"),     onclick:()=>{ closeAcctMenu(); openPasswordSet(); }}));
     menu.appendChild(el("div",{class:"sep"}));
@@ -683,6 +702,7 @@ async function loadBoard(){
     comment_count: (p.comments && p.comments[0] ? p.comments[0].count : 0)
   }));
   renderBoard();
+  if(me) renderAccount();   // rafraîchit les stats du menu de compte
 }
 function renderBoard(){
   const board=$("board"); board.textContent="";
