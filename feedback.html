@@ -395,7 +395,7 @@ const configured = !/REMPLACER/.test(SUPABASE_URL) && !/REMPLACER/.test(SUPABASE
 // passe) : la page elle-même. Complète le « Site URL » réglé dans Supabase.
 const REDIRECT = location.origin + location.pathname;
 let sb = null, me = null, myProfile = null, myVotes = new Set(), openPostId = null;
-let filterTag = "all", sortBy = "top", searchQuery = "", mineOnly = false, viewMode = "list", editingPostId = null;
+let filterTag = "all", sortBy = "top", searchQuery = "", mineOnly = false, viewMode = "list", editingPostId = null, editingCommentId = null;
 
 const $ = (id) => document.getElementById(id);
 function toast(msg){ const t=$("toast"); t.textContent=msg; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),2200); }
@@ -834,6 +834,22 @@ function renderDetail(p){
   if(list){
     list.forEach(c=>{
       const dev = c.author && c.author.is_admin;
+      const canEdit = me && myProfile && (myProfile.is_admin || c.author_id===me.id);
+      // Mode édition inline de ce commentaire.
+      if(editingCommentId===c.id){
+        const ta = el("textarea",{maxlength:"4000", style:"min-height:70px;width:100%;"}); ta.value=c.body;
+        const save = el("button",{class:"btn primary sm", text:tr("save"), onclick:async()=>{
+          const b=ta.value.trim(); if(!b) return; save.disabled=true;
+          const { error } = await sb.from("comments").update({ body:b }).eq("id",c.id);
+          save.disabled=false; if(error){ toast(error.message); return; }
+          editingCommentId=null; toast(tr("saved")); await loadComments(p.id);
+        }});
+        const cancel = el("button",{class:"linklike", text:tr("cancel"), style:"margin-left:12px;",
+          onclick:()=>{ editingCommentId=null; renderBoard(); }});
+        wrap.appendChild(el("div",{class:"comment"+(dev?" dev":"")},
+          el("div",{style:"flex:1;min-width:0;"}, ta, el("div",{style:"margin-top:8px;"}, save, cancel))));
+        return;
+      }
       const head = el("div",{class:"cwho"});
       head.appendChild(document.createTextNode((c.author?c.author.pseudo:"?")));
       if(dev) head.appendChild(el("span",{class:"badge-dev", text:tr("dev")}));
@@ -843,7 +859,8 @@ function renderDetail(p){
           el("div",{class:"cbody", text:c.body}),
           el("div",{class:"cdate", text:fmtDate(c.created_at)})
         ));
-      if(me && (myProfile.is_admin || c.author_id===me.id)){
+      if(canEdit){
+        cm.appendChild(el("button",{class:"linklike", text:"✎ "+tr("edit"), onclick:()=>{ editingCommentId=c.id; renderBoard(); }}));
         cm.appendChild(el("button",{class:"linklike", text:tr("del"), onclick:()=>delComment(c,p.id)}));
       }
       wrap.appendChild(cm);
