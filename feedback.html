@@ -433,6 +433,19 @@ async function boot(){
   if(/type=recovery/.test(location.hash)) openPasswordSet();
   buildFilters();
   await loadBoard();
+  openDeepLink();   // ?post=<id> → ouvre directement la demande (lien du MP Discord)
+}
+
+/* Lien direct vers une demande (ex. depuis le MP Discord). */
+function openDeepLink(){
+  const id = new URLSearchParams(location.search).get("post");
+  if(!id || !allPosts.some(p=>p.id===id)) return;   // rien, ou demande supprimée
+  // On lève les filtres pour être certain que la demande soit visible.
+  filterTag="all"; mineOnly=false; searchQuery=""; viewMode="list";
+  buildFilters();
+  openPostId=id; renderBoard(); loadComments(id);
+  const node = document.getElementById("post-"+id);
+  if(node) node.scrollIntoView({behavior:"smooth", block:"center"});
 }
 
 async function onSession(session){
@@ -784,7 +797,7 @@ function renderPost(p){
   const main = el("div",{class:"main"}, title, body, meta);
   if (openPostId===p.id) main.appendChild(renderDetail(p));
 
-  const card = el("div",{class:"post"+(p.pinned?" pinned":"")}, voteBtn, main);
+  const card = el("div",{class:"post"+(p.pinned?" pinned":""), id:"post-"+p.id}, voteBtn, main);
   return card;
 }
 
