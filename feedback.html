@@ -328,6 +328,7 @@ function lang(){ return document.documentElement.getAttribute("data-lang")==="en
 const T = {
   fr: {
     tags:{bug:"Bogue",amelioration:"Amélioration",question:"Question",autre:"Autre"},
+    tagsPlural:{bug:"Bogues",amelioration:"Améliorations",question:"Questions",autre:"Autres"},
     statuses:{ouvert:"Ouvert",prevu:"Prévu",encours:"En cours",termine:"Terminé",refuse:"Hors périmètre"},
     all:"Tous", sortTop:"Plus votés", sortNew:"Récents",
     login:"Connexion", signup:"Créer un compte", logout:"Déconnexion",
@@ -357,6 +358,7 @@ const T = {
   },
   en: {
     tags:{bug:"Bug",amelioration:"Improvement",question:"Question",autre:"Other"},
+    tagsPlural:{bug:"Bugs",amelioration:"Improvements",question:"Questions",autre:"Other"},
     statuses:{ouvert:"Open",prevu:"Planned",encours:"In progress",termine:"Done",refuse:"Not planned"},
     all:"All", sortTop:"Most voted", sortNew:"Recent",
     login:"Log in", signup:"Create account", logout:"Log out",
@@ -666,7 +668,7 @@ function buildFilters(){
   const mk=(key,label)=>{ const b=el("button",{class:"chip", "aria-pressed": String(filterTag===key), text:label,
       onclick:()=>{ filterTag=key; syncChips(); renderBoard(); }}); b.dataset.key=key; window.__filterChips.push(b); bar.appendChild(b); };
   mk("all", tr("all"));
-  ["bug","amelioration","question","autre"].forEach(k=> mk(k, T[lang()].tags[k]));
+  ["bug","amelioration","question","autre"].forEach(k=> mk(k, T[lang()].tagsPlural[k]));
   // « Mes demandes » (seulement connecté)
   if(me){
     const mine=el("button",{class:"chip", "aria-pressed":String(mineOnly), text:tr("mine"),
