@@ -111,6 +111,10 @@
   input, textarea, select { font:inherit; color:var(--text); background:var(--field); border:1.5px solid var(--card-border); border-radius:11px; padding:10px 13px; width:100%; }
   input:focus, textarea:focus, select:focus { outline:none; border-color:var(--orange); }
   textarea { resize:vertical; min-height:90px; }
+  .pw-wrap { position:relative; }
+  .pw-wrap input { padding-right:46px; }
+  .pw-eye { position:absolute; right:4px; top:0; height:100%; width:40px; display:flex; align-items:center; justify-content:center; border:0; background:none; cursor:pointer; font-size:1.1rem; line-height:1; opacity:.6; }
+  .pw-eye:hover { opacity:1; }
   label.fld { display:block; margin:0 0 12px; }
   label.fld > span { display:block; font-size:.85rem; font-weight:600; color:var(--text-soft); margin:0 0 5px; }
   .row { display:flex; gap:12px; flex-wrap:wrap; }
@@ -522,7 +526,18 @@ function openPasswordSet(){
 function field(id,type,label,ac){
   const l=el("label",{class:"fld"}); l.appendChild(el("span",{text:label}));
   const i=el("input",{type:type, id:id, autocomplete:ac, maxlength: type==="text"?"40":null});
-  l.appendChild(i); return l;
+  if(type==="password"){
+    // Œil « afficher / masquer » pour relire le mot de passe saisi.
+    const wrap=el("div",{class:"pw-wrap"});
+    wrap.appendChild(i);
+    const eye=el("button",{class:"pw-eye", type:"button", "aria-label":(lang()==="en"?"Show / hide password":"Afficher / masquer le mot de passe"),
+      onclick:()=>{ const hidden=i.type==="password"; i.type=hidden?"text":"password"; eye.textContent=hidden?"🙈":"👁"; }}, "👁");
+    wrap.appendChild(eye);
+    l.appendChild(wrap);
+  } else {
+    l.appendChild(i);
+  }
+  return l;
 }
 $("auth-toggle").addEventListener("click",()=> openAuth(authMode==="login"?"signup":"login"));
 $("auth-submit").addEventListener("click", doAuth);
