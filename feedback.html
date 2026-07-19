@@ -69,6 +69,22 @@
   .lang-switch button { appearance:none; border:0; background:transparent; cursor:pointer; font:inherit; font-size:.84rem; font-weight:650; color:var(--text-soft); padding:5px 12px; }
   html[data-lang="fr"] .lang-switch button[data-set="fr"], html[data-lang="en"] .lang-switch button[data-set="en"] { background:var(--orange); color:#fff; }
 
+  /* Compte dans la barre du haut (à côté de FR/EN) */
+  .nav-account { display:inline-flex; align-items:center; gap:6px; position:relative; }
+  .acct-btn { appearance:none; cursor:pointer; font:inherit; font-size:.88rem; font-weight:650; color:var(--text);
+    background:var(--card); border:1.5px solid var(--card-border); border-radius:999px; padding:5px 13px;
+    display:inline-flex; align-items:center; gap:5px; transition:.15s; }
+  .acct-btn:hover { border-color:var(--orange); color:var(--orange-deep); }
+  .acct-btn.primary { color:#fff; background:linear-gradient(160deg,#C96F4A,#AE5732); border-color:transparent; }
+  .acct-menu { position:absolute; top:calc(100% + 8px); right:0; min-width:216px; background:var(--card);
+    border:1px solid var(--card-border); border-radius:14px; box-shadow:var(--shadow-card-hover); padding:6px; z-index:40; }
+  .acct-menu button { display:block; width:100%; text-align:left; appearance:none; cursor:pointer; font:inherit;
+    font-size:.92rem; color:var(--text); background:none; border:0; border-radius:9px; padding:9px 12px; }
+  .acct-menu button:hover { background:var(--icon-tint); color:var(--orange-deep); }
+  .acct-menu button.danger { color:var(--red); }
+  .acct-menu button.danger:hover { background:color-mix(in srgb,var(--red) 14%,transparent); color:var(--red); }
+  .acct-menu .sep { height:1px; background:var(--line); margin:4px 6px; }
+
   /* En-tête */
   .head { padding:44px 0 6px; }
   .kicker { display:inline-block; margin:0 0 10px; font-size:.8rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--orange-deep); }
@@ -184,11 +200,11 @@
   <div class="nav">
     <a class="brand" href="index.html" aria-label="Pnyx — accueil"><img src="icon-180.png" alt="" width="180" height="180">Pnyx</a>
     <nav>
-      <a href="index.html#fonctions"><span data-t="fr">Fonctions</span><span data-t="en">Features</span></a>
-      <a href="index.html#telecharger"><span data-t="fr">Télécharger</span><span data-t="en">Download</span></a>
+      <a href="index.html"><span data-t="fr">Accueil</span><span data-t="en">Home</span></a>
       <a href="faq.html">FAQ</a>
       <a href="feedback.html" aria-current="page">Feedback</a>
       <a href="support.html"><span data-t="fr">Assistance</span><span data-t="en">Support</span></a>
+      <span id="nav-account" class="nav-account"></span>
       <span class="lang-switch" role="group" aria-label="Language / Langue">
         <button type="button" data-set="fr" aria-label="Français">FR</button>
         <button type="button" data-set="en" aria-label="English">EN</button>
@@ -212,10 +228,7 @@
     <span data-t="en"><strong>The feedback board is being set up.</strong> Please check back very soon!</span>
   </div>
 
-  <!-- Barre de compte (connexion / déconnexion) -->
-  <div id="account" class="account" hidden></div>
-
-  <!-- Formulaire d'authentification -->
+  <!-- Formulaire d'authentification (connexion, inscription, mot de passe, pseudo) -->
   <div id="auth-panel" class="panel" hidden>
     <h2 id="auth-title"></h2>
     <div id="auth-fields"></div>
@@ -315,6 +328,9 @@ const T = {
     resetSent:"Courriel envoyé ✓ — vérifie ta boîte de réception.",
     newPassword:"Nouveau mot de passe", setPassword:"Enregistrer le mot de passe",
     pwChanged:"Mot de passe modifié ✓", changePw:"Changer le mot de passe", send:"Envoyer le lien",
+    changePseudo:"Changer le pseudo", delProfile:"Supprimer mon profil", save:"Enregistrer", saved:"Enregistré ✓",
+    profileDeleted:"Profil supprimé. À bientôt !",
+    confirmDelProfile:"Supprimer ton compte et TOUTES tes demandes, réponses et votes ? C'est irréversible.",
     titlePh:"Résume ton idée ou ton bogue en une phrase",
     bodyPh:"Décris en détail : ce qui se passe, sur quel appareil, ce que tu attends…",
     commentsN:function(n){ return n+" "+(n===1?"réponse":"réponses"); }
@@ -338,6 +354,9 @@ const T = {
     resetSent:"Email sent ✓ — check your inbox.",
     newPassword:"New password", setPassword:"Save password",
     pwChanged:"Password changed ✓", changePw:"Change password", send:"Send link",
+    changePseudo:"Change nickname", delProfile:"Delete my account", save:"Save", saved:"Saved ✓",
+    profileDeleted:"Account deleted. See you soon!",
+    confirmDelProfile:"Delete your account and ALL your posts, replies and votes? This cannot be undone.",
     titlePh:"Summarize your idea or bug in one sentence",
     bodyPh:"Describe it: what happens, on which device, what you expect…",
     commentsN:function(n){ return n+" "+(n===1?"reply":"replies"); }
@@ -405,25 +424,55 @@ async function onSession(session){
 }
 
 /* ---------- Barre de compte + auth ---------- */
-let authMode = "login"; // "login" | "signup"
+let authMode = "login"; // "login" | "signup" | "forgot" | "setpw" | "pseudo"
 function renderAccount(){
-  const box=$("account"); box.hidden=false; box.textContent="";
+  const box=$("nav-account"); box.textContent="";
   if (me && myProfile){
-    const who = el("span",{class:"who"});
-    who.appendChild(document.createTextNode((lang()==="en"?"Signed in as ":"Connecté : ")));
-    who.appendChild(el("strong",{text:myProfile.pseudo}));
-    if (myProfile.is_admin) who.appendChild(el("span",{class:"badge-dev", text:tr("dev")}));
-    box.appendChild(who);
-    box.appendChild(el("span",{class:"spacer"}));
-    box.appendChild(el("button",{class:"linklike", text:tr("changePw"), style:"margin-right:6px;", onclick:()=>openPasswordSet()}));
-    box.appendChild(el("button",{class:"btn ghost sm", text:tr("logout"), onclick:async()=>{ await sb.auth.signOut(); toast(lang()==="en"?"Signed out":"Déconnecté"); }}));
-    if(authMode!=="setpw") $("auth-panel").hidden = true;
+    const btn = el("button",{class:"acct-btn", "aria-haspopup":"true",
+      onclick:(e)=>{ e.stopPropagation(); toggleAcctMenu(); }});
+    btn.appendChild(el("strong",{text:myProfile.pseudo}));
+    if (myProfile.is_admin) btn.appendChild(el("span",{class:"badge-dev", text:tr("dev")}));
+    btn.appendChild(document.createTextNode(" ▾"));
+    box.appendChild(btn);
+    const menu = el("div",{class:"acct-menu", id:"acct-menu", hidden:true});
+    menu.appendChild(el("button",{text:tr("changePseudo"), onclick:()=>{ closeAcctMenu(); openPseudoEdit(); }}));
+    menu.appendChild(el("button",{text:tr("changePw"),     onclick:()=>{ closeAcctMenu(); openPasswordSet(); }}));
+    menu.appendChild(el("div",{class:"sep"}));
+    menu.appendChild(el("button",{text:tr("logout"),       onclick:async()=>{ closeAcctMenu(); await sb.auth.signOut(); toast(lang()==="en"?"Signed out":"Déconnecté"); }}));
+    menu.appendChild(el("button",{class:"danger", text:tr("delProfile"), onclick:()=>{ closeAcctMenu(); deleteMyProfile(); }}));
+    box.appendChild(menu);
+    if(authMode!=="setpw" && authMode!=="pseudo") $("auth-panel").hidden = true;
   } else {
-    box.appendChild(el("span",{class:"muted", text:(lang()==="en"?"Join the conversation:":"Rejoins la conversation :")}));
-    box.appendChild(el("span",{class:"spacer"}));
-    box.appendChild(el("button",{class:"btn ghost sm", text:tr("login"), onclick:()=>openAuth("login")}));
-    box.appendChild(el("button",{class:"btn primary sm", text:tr("signup"), onclick:()=>openAuth("signup")}));
+    box.appendChild(el("button",{class:"acct-btn", text:tr("login"), onclick:()=>openAuth("login")}));
+    box.appendChild(el("button",{class:"acct-btn primary", text:tr("signup"), onclick:()=>openAuth("signup")}));
   }
+}
+function toggleAcctMenu(){ const m=$("acct-menu"); if(m) m.hidden=!m.hidden; }
+function closeAcctMenu(){ const m=$("acct-menu"); if(m) m.hidden=true; }
+document.addEventListener("click", closeAcctMenu);   // clic ailleurs → referme le menu
+
+/* Changer son pseudo (affiché publiquement). */
+function openPseudoEdit(){
+  authMode="pseudo";
+  const p=$("auth-panel"); p.hidden=false;
+  $("auth-title").textContent = tr("changePseudo");
+  const f=$("auth-fields"); f.textContent="";
+  f.appendChild(field("au-pseudo2","text",tr("pseudo"),"nickname"));
+  const inp=$("au-pseudo2"); if(inp) inp.value = myProfile.pseudo || "";
+  $("auth-error").hidden=true;
+  $("auth-submit").textContent = tr("save");
+  $("auth-toggle").hidden=true;
+  p.scrollIntoView({behavior:"smooth", block:"center"});
+}
+
+/* Supprimer son compte (via la fonction SQL delete_my_account). */
+async function deleteMyProfile(){
+  if(!confirm(tr("confirmDelProfile"))) return;
+  const { error } = await sb.rpc("delete_my_account");
+  if(error){ toast(error.message); return; }
+  await sb.auth.signOut();
+  toast(tr("profileDeleted"));
+  await loadBoard();
 }
 function openAuth(mode){
   authMode=mode;
@@ -491,6 +540,16 @@ async function doAuth(){
       if(error) throw error;
       history.replaceState(null,"",location.pathname);   // retire le jeton de l'URL
       $("auth-panel").hidden=true; toast(tr("pwChanged"));
+      return;
+    }
+    // Changer son pseudo.
+    if(authMode==="pseudo"){
+      const np=($("au-pseudo2")||{}).value?.trim()||"";
+      if(np.length<1){ showAuthErr(fillMsg()); return; }
+      const { error } = await sb.from("profiles").update({ pseudo:np }).eq("id", me.id);
+      if(error) throw error;
+      myProfile.pseudo=np; $("auth-panel").hidden=true;
+      renderAccount(); toast(tr("saved")); await loadBoard();
       return;
     }
     const email=($("au-email")||{}).value?.trim();
@@ -608,6 +667,10 @@ function renderPost(p){
   meta.appendChild(el("span",{}, tr("by")+" ", el("strong",{text:author}), " · "+fmtDate(p.created_at)));
   const cbtn = el("button",{class:"linklike comments-n", onclick:()=>toggleDetail(p.id)}, "💬 "+T[lang()].commentsN(p.comment_count));
   meta.appendChild(cbtn);
+  // Suppression admin visible directement sur la carte (les gens comme toi).
+  if(me && myProfile && myProfile.is_admin){
+    meta.appendChild(el("button",{class:"linklike", text:"🗑 "+tr("del"), onclick:(e)=>{ e.stopPropagation(); adminDeletePost(p); }}));
+  }
 
   const main = el("div",{class:"main"}, title, body, meta);
   if (openPostId===p.id) main.appendChild(renderDetail(p));
@@ -625,6 +688,15 @@ async function toggleVote(p){
     else { await sb.from("votes").insert({ post_id:p.id, user_id:me.id }); myVotes.add(p.id); p.vote_count++; }
     renderBoard();
   }catch(e){ toast(tr("voteErr")); }
+}
+
+/* ---------- Suppression d'un post par l'admin ---------- */
+async function adminDeletePost(p){
+  if(!confirm(tr("confirmDel"))) return;
+  const { error } = await sb.from("posts").delete().eq("id", p.id);
+  if(error){ toast(error.message); return; }
+  if(openPostId===p.id) openPostId=null;
+  toast("🗑"); await loadBoard();
 }
 
 /* ---------- Détail + commentaires ---------- */
