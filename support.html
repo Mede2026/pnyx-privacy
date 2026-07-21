@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,22 +50,25 @@
       <a href="privacy-policy.html">Confidentialité</a>
       <a href="support.html" class="current">Assistance</a>
       <span id="nav-account" class="nav-account"></span>
+      <span class="lang-switch" role="group" aria-label="Language / Langue">
+        <button type="button" data-set="fr" aria-label="Français">FR</button>
+        <button type="button" data-set="en" aria-label="English">EN</button>
+      </span>
     </nav>
   </div>
 </header>
 
 <main>
+<h1><span data-t="fr">Assistance — Pnyx</span><span data-t="en">Support — Pnyx</span></h1>
+<p class="meta"><span data-t="fr">Dictée et clavier intelligents</span><span data-t="en">Smart dictation and keyboard</span></p>
 
-<h1>Assistance — Pnyx</h1>
-<p class="meta">Dictée et clavier intelligents</p>
-
-<!-- ============== FRANÇAIS ============== -->
-<p class="lead">Besoin d'aide avec Pnyx ? Écris-nous, nous répondons généralement sous 2 à 3 jours ouvrables.</p>
+<p class="lead" data-t="fr">Besoin d'aide avec Pnyx ? Écris-nous, nous répondons généralement sous 2 à 3 jours ouvrables.</p>
+<p class="lead" data-t="en">Need help with Pnyx? Email us — we usually reply within 2–3 business days.</p>
 
 <p class="contact">📧 <a href="mailto:dev.pnyx.appstore@gmail.com">dev.pnyx.appstore@gmail.com</a></p>
 
-<h3>Questions fréquentes</h3>
-<ul>
+<h3><span data-t="fr">Questions fréquentes</span><span data-t="en">Frequently asked questions</span></h3>
+<ul data-t="fr">
   <li><strong>Faut-il une clé d'API pour dicter ?</strong> Les fournisseurs cloud (Groq, OpenAI, Google) demandent <strong>votre propre clé d'API</strong>. Vous pouvez aussi tout faire <strong>100&nbsp;% sur l'appareil</strong>, sans clé : choisissez la transcription <strong>Apple Speech</strong> et l'IA <strong>Apple Intelligence</strong> dans un mode.</li>
   <li><strong>Pourquoi le clavier demande-t-il l'« Accès complet » ?</strong> Pour relier le clavier à l'app (dicter sans changer d'app) et appliquer les transformations IA à la sélection avec votre clé. <strong>Aucune frappe n'est enregistrée ni envoyée à un serveur.</strong></li>
   <li><strong>Où sont stockées mes données ?</strong> Vos dictées, notes et réglages restent sur l'appareil ; vos clés d'API dans le Trousseau iOS. Voir la <a href="privacy-policy.html">politique de confidentialité</a>.</li>
@@ -73,18 +76,7 @@
   <li><strong>J'ai supprimé un prompt par erreur ?</strong> Il reste dans la <strong>Corbeille</strong> (Réglages → Prompts → Corbeille) pendant 30 jours : vous pouvez le restaurer à tout moment avant la suppression définitive.</li>
   <li><strong>Retirer mon entrée du classement mondial ?</strong> Changez votre pseudo à tout moment dans l'écran Classement ; pour un retrait complet, écrivez-nous à l'adresse ci-dessus.</li>
 </ul>
-
-<p>Politique de confidentialité : <a href="privacy-policy.html">consulter ici</a>.</p>
-
-<!-- ============== ENGLISH ============== -->
-<h2 id="english">English</h2>
-
-<p class="lead">Need help with Pnyx? Email us — we usually reply within 2–3 business days.</p>
-
-<p class="contact">📧 <a href="mailto:dev.pnyx.appstore@gmail.com">dev.pnyx.appstore@gmail.com</a></p>
-
-<h3>Frequently asked questions</h3>
-<ul>
+<ul data-t="en">
   <li><strong>Do I need an API key to dictate?</strong> Cloud providers (Groq, OpenAI, Google) require <strong>your own API key</strong>. You can also do everything <strong>fully on-device</strong>, with no key: pick <strong>Apple Speech</strong> transcription and <strong>Apple Intelligence</strong> in a mode.</li>
   <li><strong>Why does the keyboard ask for "Full Access"?</strong> To bridge the keyboard to the app (dictate without switching apps) and run AI transforms on your selection with your key. <strong>No keystroke is logged or sent to a server.</strong></li>
   <li><strong>Where is my data stored?</strong> Your dictations, notes, and settings stay on your device; your API keys in the iOS Keychain. See the <a href="privacy-policy.html">privacy policy</a>.</li>
@@ -93,7 +85,8 @@
   <li><strong>Remove my entry from the world leaderboard?</strong> Change your nickname anytime on the Leaderboard screen; for full removal, email us at the address above.</li>
 </ul>
 
-<p>Privacy policy: <a href="privacy-policy.html">read here</a>.</p>
+<p data-t="fr">Politique de confidentialité : <a href="privacy-policy.html">consulter ici</a>.</p>
+<p data-t="en">Privacy policy: <a href="privacy-policy.html">read here</a>.</p>
 
 </main>
 
@@ -111,6 +104,29 @@
   </div>
   <div>© 2026 Xuan Vien Do · <a href="mailto:dev.pnyx.appstore@gmail.com">dev.pnyx.appstore@gmail.com</a></div>
 </footer>
+
+<script>
+/* Bascule FR/EN : masque/affiche les paires [data-t] via data-lang sur <html>.
+   Choix mémorisé (localStorage), sinon déduit de la langue du navigateur. */
+(function () {
+  var KEY = "pnyx-lang";
+  var titles = { fr: "Assistance — Pnyx", en: "Support — Pnyx" };
+  function setLang(lang) {
+    if (lang !== "en") lang = "fr";
+    document.documentElement.setAttribute("data-lang", lang);
+    document.documentElement.setAttribute("lang", lang);
+    if (titles[lang]) document.title = titles[lang];
+    try { localStorage.setItem(KEY, lang); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (e) {}
+  setLang(saved || ((navigator.language || "fr").toLowerCase().indexOf("en") === 0 ? "en" : "fr"));
+  var b = document.querySelectorAll(".lang-switch button[data-set]");
+  for (var i = 0; i < b.length; i++) {
+    b[i].addEventListener("click", function () { setLang(this.getAttribute("data-set")); });
+  }
+})();
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="account.js"></script>
