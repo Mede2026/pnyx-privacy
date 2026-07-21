@@ -856,31 +856,56 @@
     return;
   }
 
-  /* 1. Marque les éléments à révéler, avec une cascade par rangée (--i). */
   var cibles = document.querySelectorAll(
     ".band-head, .band-title, .band-sub, .card, .phone, .ba-card, .discord-card, .dl-card, .privacy-inner"
   );
-  for (var i = 0; i < cibles.length; i++) cibles[i].classList.add("reveal");
 
-  var grilles = document.querySelectorAll(".grid, .ba");
-  for (var g = 0; g < grilles.length; g++) {
-    var enfants = grilles[g].children;
-    for (var k = 0; k < enfants.length; k++) enfants[k].style.setProperty("--i", k);
-  }
+  /* 1. On construit l'observateur AVANT de masquer quoi que ce soit.
+     Règle de sûreté : `.reveal` (opacity 0) n'est posé QUE si l'observateur
+     existe vraiment. Sinon la page resterait blanche sous le héros — un
+     échec ici doit dégrader vers « tout visible », jamais vers « rien ». */
+  var obs = null;
+  try {
+    if ("IntersectionObserver" in window) {
+      obs = new IntersectionObserver(function (entrees) {
+        entrees.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.classList.add("in");
+          obs.unobserve(e.target);
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    }
+  } catch (e) { obs = null; }
+  if (obs) {
+    /* 2. Cascade par rangée (--i), puis masquage + observation. */
+    var grilles = document.querySelectorAll(".grid, .ba");
+    for (var g = 0; g < grilles.length; g++) {
+      var enfants = grilles[g].children;
+      for (var k = 0; k < enfants.length; k++) enfants[k].style.setProperty("--i", k);
+    }
+    for (var i = 0; i < cibles.length; i++) {
+      cibles[i].classList.add("reveal");
+      obs.observe(cibles[i]);
+    }
 
-  /* 2. Observe : dès qu'un élément entre à l'écran, il apparaît — une fois. */
-  if ("IntersectionObserver" in window) {
-    var obs = new IntersectionObserver(function (entrees) {
-      entrees.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        e.target.classList.add("in");
-        obs.unobserve(e.target);
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
-    for (var j = 0; j < cibles.length; j++) obs.observe(cibles[j]);
-  } else {
-    for (var m = 0; m < cibles.length; m++) cibles[m].classList.add("in");
+    /* 3. Filet de sécurité : on ne déclenche QUE si un élément est réellement
+       à l'écran tout en restant masqué (= observateur inerte). Tester « rien
+       n'est encore apparu » ne suffirait pas : c'est l'état NORMAL tant que
+       le visiteur lit le héros, et ça tuerait toutes les animations. */
+    setTimeout(function () {
+      for (var n = 0; n < cibles.length; n++) {
+        var r = cibles[n].getBoundingClientRect();
+        var aLEcran = r.top < window.innerHeight && r.bottom > 0;
+        if (aLEcran && !cibles[n].classList.contains("in")) {
+          for (var p = 0; p < cibles.length; p++) cibles[p].classList.add("in");
+          return;
+        }
+      }
+    }, 5000);
   }
+  /* Si obs est null : aucune classe .reveal n'a été posée → tout reste
+     visible. Un échec dégrade vers « pas d'animation », jamais vers « page
+     blanche ». La parallaxe ci-dessous reste active dans les deux cas. */
 
   /* 3. Parallaxe du téléphone du héros : léger glissement + réduction. */
   var device = document.querySelector(".hero .device");
