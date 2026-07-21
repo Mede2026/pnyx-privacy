@@ -24,6 +24,7 @@
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/png" href="icon-180.png">
 <link rel="apple-touch-icon" href="icon-180.png">
+<link rel="stylesheet" href="theme.css">
 <link rel="stylesheet" href="account.css">
 <script type="application/ld+json">
 {
@@ -66,129 +67,7 @@
 }
 </script>
 <style>
-  /* ===================================================================
-     PALETTE — neutres Apple (blanc / #fafafa / noir), accent bleu Apple.
-     L'ORANGE de marque (#C96F4A) est conservé UNIQUEMENT là où il porte
-     l'identité : icônes liées à la dictée et petits repères. Il assure la
-     cohérence avec l'icône de l'app et l'interface de Pnyx.
-     =================================================================== */
-  :root {
-    color-scheme: light dark;
-    --bg: #ffffff;
-    --bg-alt: #fafafa;
-    --ink: #1d1d1f;
-    --sub: #6e6e73;
-    --accent: #0071e3;
-    --accent-hover: #0077ed;
-    --brand: #C96F4A;          /* orange de marque — accents seulement */
-    --card: #ffffff;
-    --card-shadow: 0 2px 20px rgba(0, 0, 0, .06);
-    --line: rgba(0, 0, 0, .06);
-    --nav-bg: rgba(255, 255, 255, .72);
-    --radius: 22px;
-    /* Alias de compatibilité : account.css est PARTAGÉ avec les autres pages
-       (restées sur l'ancienne palette) et référence ces noms. Sans eux, le
-       menu du compte et la fenêtre de connexion s'affichent sans bordures
-       ni couleurs de texte. On les mappe sur la nouvelle palette. */
-    --text: var(--ink);
-    --text-soft: var(--sub);
-    --card-border: var(--line);
-    --hero-ink: var(--ink);
-    --icon-tint: rgba(0, 0, 0, .05);
-    --orange: var(--brand);
-    --orange-deep: #AE5732;
-    --field: var(--card);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #000000;
-      --bg-alt: #0a0a0a;
-      --ink: #f5f5f7;
-      --sub: #a1a1a6;
-      --accent: #2997ff;          /* bleu Apple éclairci : lisible sur noir */
-      --accent-hover: #47a6ff;
-      --card: #1c1c1e;
-      --card-shadow: 0 2px 20px rgba(0, 0, 0, .5);
-      --line: rgba(255, 255, 255, .1);
-      --nav-bg: rgba(0, 0, 0, .72);
-      --icon-tint: rgba(255, 255, 255, .08);
-      --orange-deep: #e08a63;
-    }
-  }
-
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: var(--bg);
-    color: var(--ink);
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.5;
-  }
-  img, video { max-width: 100%; display: block; }
-  .wrap { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
-
-  /* ---------- Barre de navigation translucide (façon Apple) ---------- */
-  header.site {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-    background: var(--nav-bg);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav {
-    max-width: 1060px; margin: 0 auto;
-    display: flex; align-items: center; gap: 18px;
-    padding: 11px 24px;
-  }
-  .brand {
-    display: inline-flex; align-items: center; gap: 9px;
-    font-weight: 650; font-size: 1.06rem; letter-spacing: -.02em;
-    color: var(--ink); text-decoration: none;
-  }
-  .brand img { width: 26px; height: 26px; border-radius: 24%; }
-  .nav nav { margin-left: auto; display: flex; align-items: center; gap: 4px; }
-  .nav nav > a {
-    color: var(--sub); text-decoration: none; font-size: .92rem;
-    padding: 6px 11px; border-radius: 980px; transition: color .18s ease, background .18s ease;
-  }
-  .nav nav > a:hover { color: var(--ink); background: var(--line); }
-  .lang-switch {
-    display: inline-flex; margin-left: 6px;
-    border: 1px solid var(--line); border-radius: 980px; overflow: hidden;
-  }
-  .lang-switch button {
-    border: 0; background: transparent; color: var(--sub);
-    font: inherit; font-size: .82rem; padding: 5px 11px; cursor: pointer;
-  }
-  html[data-lang="fr"] .lang-switch button[data-set="fr"],
-  html[data-lang="en"] .lang-switch button[data-set="en"] {
-    background: var(--accent); color: #fff;
-  }
-
-  /* ---------- Bilingue : une seule langue visible à la fois ---------- */
-  html[data-lang="fr"] [data-t="en"] { display: none; }
-  html[data-lang="en"] [data-t="fr"] { display: none; }
-
-  /* ---------- Boutons pilule ---------- */
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
-    border-radius: 980px; padding: 13px 26px;
-    font-size: 1rem; font-weight: 500; text-decoration: none;
-    transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
-  }
-  .btn svg { flex: none; }
-  .btn.primary { background: var(--accent); color: #fff; }
-  .btn.primary:hover { background: var(--accent-hover); transform: scale(1.03); }
-  .btn.ghost {
-    background: transparent; color: var(--accent);
-    border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
-  }
-  .btn.ghost:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); transform: scale(1.03); }
-  .btn.light { background: #fff; color: #1d1d1f; }
-  .btn.light:hover { transform: scale(1.03); }
-  .btn:active { transform: scale(.99); }
+  /* Palette, menu, boutons, pied de page et révélations : theme.css. */
 
   /* ===================================================================
      HÉROS — spécification exacte du brief (dégradé, titre en dégradé,
@@ -383,35 +262,8 @@
   .dl-ios a { color: var(--accent); text-decoration: none; }
   .dl-ios a:hover { text-decoration: underline; }
 
-  /* ---------- Pied de page ---------- */
-  footer.site {
-    border-top: 1px solid var(--line); background: var(--bg-alt);
-    padding: 44px 24px; text-align: center; color: var(--sub); font-size: .9rem;
-  }
-  footer.site .f-brand {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-weight: 650; color: var(--ink); margin-bottom: 14px;
-  }
-  footer.site .f-brand img { width: 22px; height: 22px; border-radius: 22%; }
-  footer.site .links {
-    margin-bottom: 12px; display: flex; gap: 6px 22px;
-    justify-content: center; flex-wrap: wrap;
-  }
-  footer.site a { color: var(--sub); text-decoration: none; }
-  footer.site a:hover { color: var(--accent); }
 
-  /* ===================================================================
-     RÉVÉLATIONS AU DÉFILEMENT
-     .reveal → état de départ ; .reveal.in → état final.
-     --i = position dans la rangée (cascade de ~70 ms).
-     =================================================================== */
-  .reveal {
-    opacity: 0; transform: translateY(34px);
-    transition: opacity .8s cubic-bezier(.22, .61, .36, 1),
-                transform .8s cubic-bezier(.22, .61, .36, 1);
-    transition-delay: calc(var(--i, 0) * 70ms);
-  }
-  .reveal.in { opacity: 1; transform: none; }
+  /* Complément aux révélations de theme.css : les gros titres arrivent aussi en échelle. */
   .band-title.reveal { transform: translateY(34px) scale(.98); }
   .band-title.reveal.in { transform: none; }
 

@@ -1,0 +1,182 @@
+/* ===================================================================
+   Pnyx — THÈME PARTAGÉ (toutes les pages).
+   Source UNIQUE de la palette, du menu, des boutons et du pied de page.
+   → Modifier ici, jamais dans chaque page.
+
+   À charger AVANT le <style> de la page, pour que les règles spécifiques
+   à une page puissent encore surcharger le thème.
+
+   Palette : neutres Apple (blanc / #fafafa / noir), accent bleu Apple.
+   L'ORANGE de marque (#C96F4A) ne sert qu'aux accents portant l'identité
+   (icônes liées à la dictée), pour rester cohérent avec l'icône de l'app.
+   =================================================================== */
+
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --bg-alt: #fafafa;
+  --ink: #1d1d1f;
+  --sub: #6e6e73;
+  --accent: #0071e3;
+  --accent-hover: #0077ed;
+  --brand: #C96F4A;
+  --card: #ffffff;
+  --card-shadow: 0 2px 20px rgba(0, 0, 0, .06);
+  --line: rgba(0, 0, 0, .06);
+  --nav-bg: rgba(255, 255, 255, .72);
+  --radius: 22px;
+  /* Alias historiques : account.css et les pages document (Assistance,
+     Confidentialité, FAQ) utilisent ces noms. On les mappe sur la palette. */
+  --text: var(--ink);
+  --text-soft: var(--sub);
+  --card-border: var(--line);
+  --hero-ink: var(--ink);
+  --icon-tint: rgba(0, 0, 0, .05);
+  --orange: var(--brand);
+  --orange-deep: #AE5732;
+  --field: var(--card);
+  /* Bandeaux sombres et bulles de notification (FAQ, tableau de feedback). */
+  --navy: #1d1d1f;
+  --navy-deep: #000000;
+  --shadow-card: var(--card-shadow);
+  --shadow-card-hover: 0 14px 30px rgba(0, 0, 0, .13), 0 3px 8px rgba(0, 0, 0, .07);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --bg-alt: #0a0a0a;
+    --ink: #f5f5f7;
+    --sub: #a1a1a6;
+    --accent: #2997ff;          /* bleu Apple éclairci : lisible sur noir */
+    --accent-hover: #47a6ff;
+    --card: #1c1c1e;
+    --card-shadow: 0 2px 20px rgba(0, 0, 0, .5);
+    --line: rgba(255, 255, 255, .1);
+    --nav-bg: rgba(0, 0, 0, .72);
+    --icon-tint: rgba(255, 255, 255, .08);
+    --orange-deep: #e08a63;
+    /* Sur fond noir, un bandeau « navy » pur serait invisible : on l'éclaircit. */
+    --navy: #2c2c2e;
+    --navy-deep: #1c1c1e;
+    --shadow-card-hover: 0 14px 30px rgba(0, 0, 0, .45), 0 3px 8px rgba(0, 0, 0, .3);
+  }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+img, video { max-width: 100%; display: block; }
+a { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
+
+/* ---------- Barre de navigation translucide ---------- */
+header.site {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--nav-bg);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  max-width: 1060px; margin: 0 auto;
+  display: flex; align-items: center; gap: 18px;
+  padding: 11px 24px;
+}
+.nav .brand, .brand {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-weight: 650; font-size: 1.06rem; letter-spacing: -.02em;
+  color: var(--ink); text-decoration: none;
+}
+.nav .brand img, .brand img { width: 26px; height: 26px; border-radius: 24%; display: block; }
+.nav nav { margin-left: auto; display: flex; align-items: center; gap: 4px; }
+.nav nav > a {
+  color: var(--sub); text-decoration: none; font-size: .92rem;
+  padding: 6px 11px; border-radius: 980px;
+  transition: color .18s ease, background .18s ease;
+}
+.nav nav > a:hover { color: var(--ink); background: var(--line); }
+.nav nav > a.current { color: var(--accent); }
+
+.lang-switch {
+  display: inline-flex; margin-left: 6px;
+  border: 1px solid var(--line); border-radius: 980px; overflow: hidden;
+}
+.lang-switch button {
+  border: 0; background: transparent; color: var(--sub);
+  font: inherit; font-size: .82rem; padding: 5px 11px; cursor: pointer;
+}
+html[data-lang="fr"] .lang-switch button[data-set="fr"],
+html[data-lang="en"] .lang-switch button[data-set="en"] {
+  background: var(--accent); color: #fff;
+}
+
+/* ---------- Bilingue : une seule langue visible à la fois ---------- */
+html[data-lang="fr"] [data-t="en"] { display: none; }
+html[data-lang="en"] [data-t="fr"] { display: none; }
+
+/* ---------- Boutons pilule ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  border-radius: 980px; padding: 13px 26px;
+  font-size: 1rem; font-weight: 500; text-decoration: none;
+  transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.btn svg { flex: none; }
+.btn.primary { background: var(--accent); color: #fff; }
+.btn.primary:hover { background: var(--accent-hover); transform: scale(1.03); }
+.btn.ghost {
+  background: transparent; color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+}
+.btn.ghost:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); transform: scale(1.03); }
+.btn.light { background: #fff; color: #1d1d1f; }
+.btn.light:hover { transform: scale(1.03); }
+.btn:active { transform: scale(.99); }
+
+/* ---------- Pied de page ---------- */
+footer.site {
+  border-top: 1px solid var(--line); background: var(--bg-alt);
+  padding: 44px 24px; text-align: center; color: var(--sub); font-size: .9rem;
+}
+footer.site .f-brand {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-weight: 650; color: var(--ink); margin-bottom: 14px;
+}
+footer.site .f-brand img { width: 22px; height: 22px; border-radius: 22%; }
+footer.site .links {
+  margin-bottom: 12px; display: flex; gap: 6px 22px;
+  justify-content: center; flex-wrap: wrap;
+}
+footer.site a { color: var(--sub); text-decoration: none; }
+footer.site a:hover { color: var(--accent); }
+
+/* ---------- Révélations au défilement (posées par JS) ---------- */
+.reveal {
+  opacity: 0; transform: translateY(34px);
+  transition: opacity .8s cubic-bezier(.22, .61, .36, 1),
+              transform .8s cubic-bezier(.22, .61, .36, 1);
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+@media (max-width: 560px) {
+  .nav { flex-wrap: wrap; row-gap: 8px; padding: 10px 16px; }
+  .nav nav { margin-left: 0; width: 100%; justify-content: center; flex-wrap: wrap; }
+}
+
+/* ---------- Accessibilité : aucun mouvement si l'utilisateur le refuse ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .btn, .nav nav > a, footer.site a { transition: none; }
+  .btn:hover, .btn.primary:hover, .btn.ghost:hover { transform: none; }
+}
