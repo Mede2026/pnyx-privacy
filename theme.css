@@ -123,6 +123,13 @@ html[data-lang="en"] .lang-switch button[data-set="en"] {
 html[data-lang="fr"] [data-t="en"] { display: none; }
 html[data-lang="en"] [data-t="fr"] { display: none; }
 
+/* ---------- Sur-titre de section (identique sur toutes les pages) ---------- */
+.kicker {
+  display: inline-block; margin: 0 0 10px;
+  font-size: .82rem; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--accent);
+}
+
 /* ---------- Boutons pilule ---------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 9px;
