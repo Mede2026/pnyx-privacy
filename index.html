@@ -20,8 +20,8 @@
 <meta name="twitter:description" content="Transcription 100 % locale ou cloud, amélioration IA du texte, clavier iOS avec dictée partout, app Mac avec raccourci global. Vos données restent chez vous.">
 <meta name="twitter:image" content="https://mede2026.github.io/pnyx-privacy/icon-512.png">
 <link rel="canonical" href="https://mede2026.github.io/pnyx-privacy/">
-<meta name="theme-color" content="#F1EDE3" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#15172A" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/png" href="icon-180.png">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="stylesheet" href="account.css">
@@ -66,374 +66,363 @@
 }
 </script>
 <style>
+  /* ===================================================================
+     PALETTE — neutres Apple (blanc / #fafafa / noir), accent bleu Apple.
+     L'ORANGE de marque (#C96F4A) est conservé UNIQUEMENT là où il porte
+     l'identité : icônes liées à la dictée et petits repères. Il assure la
+     cohérence avec l'icône de l'app et l'interface de Pnyx.
+     =================================================================== */
   :root {
     color-scheme: light dark;
-    --cream: #F1EDE3;
-    --navy: #2B3055;
-    --navy-deep: #212542;
-    --orange: #C96F4A;
-    --orange-deep: #A9532F;
-    --text: #2B3055;
-    --text-soft: #595E80;
-    --bg: var(--cream);
-    --card: #FAF8F2;
-    --card-border: rgba(43, 48, 85, .12);
-    --line: rgba(43, 48, 85, .13);
-    --hero-ink: var(--navy);
-    --icon-tint: rgba(201, 111, 74, .13);
-    --shadow-card: 0 1px 2px rgba(43, 48, 85, .05);
-    --shadow-card-hover: 0 14px 30px rgba(43, 48, 85, .13), 0 3px 8px rgba(43, 48, 85, .07);
-    --shadow-icon: 0 18px 40px rgba(43, 48, 85, .25), 0 4px 12px rgba(43, 48, 85, .14);
-    --arc-opacity: .5;
+    --bg: #ffffff;
+    --bg-alt: #fafafa;
+    --ink: #1d1d1f;
+    --sub: #6e6e73;
+    --accent: #0071e3;
+    --accent-hover: #0077ed;
+    --brand: #C96F4A;          /* orange de marque — accents seulement */
+    --card: #ffffff;
+    --card-shadow: 0 2px 20px rgba(0, 0, 0, .06);
+    --line: rgba(0, 0, 0, .06);
+    --nav-bg: rgba(255, 255, 255, .72);
+    --radius: 22px;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --text: #EAE7DC;
-      --text-soft: #AEB1C9;
-      --bg: #15172A;
-      --card: #1D2040;
-      --card-border: rgba(234, 231, 220, .10);
-      --line: rgba(234, 231, 220, .12);
-      --orange: #D98A63;
-      --orange-deep: #E09A73;
-      --hero-ink: #F1EDE3;
-      --icon-tint: rgba(217, 138, 99, .14);
-      --shadow-card: 0 1px 2px rgba(0, 0, 0, .25);
-      --shadow-card-hover: 0 14px 30px rgba(0, 0, 0, .45), 0 3px 8px rgba(0, 0, 0, .3);
-      --shadow-icon: 0 18px 44px rgba(0, 0, 0, .55), 0 4px 14px rgba(0, 0, 0, .4);
-      --arc-opacity: .3;
+      --bg: #000000;
+      --bg-alt: #0a0a0a;
+      --ink: #f5f5f7;
+      --sub: #a1a1a6;
+      --accent: #2997ff;          /* bleu Apple éclairci : lisible sur noir */
+      --accent-hover: #47a6ff;
+      --card: #1c1c1e;
+      --card-shadow: 0 2px 20px rgba(0, 0, 0, .5);
+      --line: rgba(255, 255, 255, .1);
+      --nav-bg: rgba(0, 0, 0, .72);
     }
   }
-
-  /* Bascule de langue : on masque les éléments de la langue non active. */
-  html[data-lang="fr"] [data-t="en"] { display: none !important; }
-  html[data-lang="en"] [data-t="fr"] { display: none !important; }
 
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.65;
-    color: var(--text);
     background: var(--bg);
+    color: var(--ink);
     -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+    line-height: 1.5;
   }
-  a { color: var(--orange-deep); }
-  a:focus-visible, button:focus-visible {
-    outline: 2px solid var(--orange);
-    outline-offset: 3px;
-    border-radius: 6px;
-  }
-  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
-  section { scroll-margin-top: 84px; }
+  img, video { max-width: 100%; display: block; }
+  .wrap { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
 
-  /* ---------- Nav ---------- */
+  /* ---------- Barre de navigation translucide (façon Apple) ---------- */
   header.site {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: var(--nav-bg);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
     border-bottom: 1px solid var(--line);
-    position: sticky; top: 0; z-index: 10;
-    background: color-mix(in srgb, var(--bg) 86%, transparent);
-    backdrop-filter: blur(12px) saturate(1.4);
-    -webkit-backdrop-filter: blur(12px) saturate(1.4);
   }
   .nav {
-    display: flex; align-items: center; gap: 14px;
-    padding: 12px 24px; max-width: 980px; margin: 0 auto;
+    max-width: 1060px; margin: 0 auto;
+    display: flex; align-items: center; gap: 18px;
+    padding: 11px 24px;
   }
-  .nav .brand {
-    display: flex; align-items: center; gap: 10px;
-    font-weight: 700; font-size: 1.08rem; color: var(--text);
-    text-decoration: none; letter-spacing: .01em;
+  .brand {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-weight: 650; font-size: 1.06rem; letter-spacing: -.02em;
+    color: var(--ink); text-decoration: none;
   }
-  .nav .brand img { display: block; width: 26px; height: 26px; border-radius: 22%; }
-  .nav nav { margin-left: auto; display: flex; gap: 4px; align-items: center; }
-  .nav nav a {
-    color: var(--text-soft); text-decoration: none; font-size: .93rem;
-    padding: 6px 11px; border-radius: 999px;
-    transition: color .18s ease, background-color .18s ease;
+  .brand img { width: 26px; height: 26px; border-radius: 24%; }
+  .nav nav { margin-left: auto; display: flex; align-items: center; gap: 4px; }
+  .nav nav > a {
+    color: var(--sub); text-decoration: none; font-size: .92rem;
+    padding: 6px 11px; border-radius: 980px; transition: color .18s ease, background .18s ease;
   }
-  .nav nav a:hover { color: var(--orange-deep); background: var(--icon-tint); }
-
-  /* ---------- Sélecteur de langue ---------- */
+  .nav nav > a:hover { color: var(--ink); background: var(--line); }
   .lang-switch {
     display: inline-flex; margin-left: 6px;
-    border: 1px solid var(--line); border-radius: 999px; overflow: hidden;
+    border: 1px solid var(--line); border-radius: 980px; overflow: hidden;
   }
   .lang-switch button {
-    appearance: none; border: 0; background: transparent; cursor: pointer;
-    font: inherit; font-size: .84rem; font-weight: 650;
-    color: var(--text-soft); padding: 5px 12px; line-height: 1.2;
-    transition: color .18s ease, background-color .18s ease;
+    border: 0; background: transparent; color: var(--sub);
+    font: inherit; font-size: .82rem; padding: 5px 11px; cursor: pointer;
   }
-  .lang-switch button:hover { color: var(--orange-deep); }
   html[data-lang="fr"] .lang-switch button[data-set="fr"],
   html[data-lang="en"] .lang-switch button[data-set="en"] {
-    background: var(--orange); color: #fff;
+    background: var(--accent); color: #fff;
   }
 
-  /* ---------- Boutons ---------- */
+  /* ---------- Bilingue : une seule langue visible à la fois ---------- */
+  html[data-lang="fr"] [data-t="en"] { display: none; }
+  html[data-lang="en"] [data-t="fr"] { display: none; }
+
+  /* ---------- Boutons pilule ---------- */
   .btn {
-    display: inline-flex; align-items: center; gap: 9px;
-    padding: 12px 24px; border-radius: 999px;
-    font-size: .98rem; font-weight: 650; line-height: 1.3;
-    text-decoration: none; border: 1.5px solid transparent;
-    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
-    will-change: transform;
+    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+    border-radius: 980px; padding: 13px 26px;
+    font-size: 1rem; font-weight: 500; text-decoration: none;
+    transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
   }
   .btn svg { flex: none; }
-  .btn.primary {
-    color: #fff;
-    background: linear-gradient(160deg, #C96F4A, #AE5732);
-    box-shadow: 0 8px 20px rgba(169, 83, 47, .32), 0 2px 5px rgba(169, 83, 47, .22);
-  }
-  .btn.primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 14px 28px rgba(169, 83, 47, .38), 0 3px 8px rgba(169, 83, 47, .25);
-    filter: brightness(1.05);
-  }
-  .btn.primary:active { transform: translateY(0); filter: brightness(.97); }
-  @media (prefers-color-scheme: dark) {
-    .btn.primary {
-      box-shadow: 0 8px 22px rgba(0, 0, 0, .5), 0 2px 6px rgba(0, 0, 0, .35);
-    }
-    .btn.primary:hover { box-shadow: 0 14px 30px rgba(0, 0, 0, .6), 0 3px 9px rgba(0, 0, 0, .4); }
-  }
+  .btn.primary { background: var(--accent); color: #fff; }
+  .btn.primary:hover { background: var(--accent-hover); transform: scale(1.03); }
   .btn.ghost {
-    color: var(--text);
-    background: color-mix(in srgb, var(--card) 70%, transparent);
-    border-color: var(--card-border);
-    font-weight: 600;
+    background: transparent; color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
   }
-  .btn.ghost:hover {
-    transform: translateY(-2px);
-    border-color: color-mix(in srgb, var(--orange) 45%, var(--card-border));
-    color: var(--orange-deep);
-    box-shadow: var(--shadow-card-hover);
-  }
-  .btn.ghost:active { transform: translateY(0); }
-  .btn.ghost svg { color: var(--orange); }
-  .cta-secondary { margin-top: -2px; margin-bottom: 14px; }
-  .store-badge {
-    display: inline-flex; align-items: center;
-    transition: transform .18s ease, filter .18s ease;
-  }
-  .store-badge:hover { transform: translateY(-2px); filter: brightness(1.05); }
-  .store-badge:active { transform: translateY(0); }
-  .store-badge img { display: block; height: 46px; width: auto; }
+  .btn.ghost:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); transform: scale(1.03); }
+  .btn.light { background: #fff; color: #1d1d1f; }
+  .btn.light:hover { transform: scale(1.03); }
+  .btn:active { transform: scale(.99); }
 
-  /* ---------- Héros ---------- */
+  /* ===================================================================
+     HÉROS — spécification exacte du brief (dégradé, titre en dégradé,
+     maquette de téléphone). Le téléphone contient une VRAIE capture de
+     l'app plutôt qu'un placeholder.
+     =================================================================== */
   .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 120px 24px 60px;
+    background: radial-gradient(120% 90% at 50% -10%,
+                #2a3a7a 0%, #1a2450 40%, #0b1020 100%);
+    color: #fff;
     position: relative; overflow: hidden;
-    text-align: center; padding: 84px 24px 96px;
-    background: radial-gradient(900px 480px at 50% -140px, var(--icon-tint), transparent 70%);
   }
-  .hero-arcs {
-    position: absolute; left: 50%; bottom: -300px;
-    transform: translateX(-50%);
-    width: 1100px; height: 560px;
-    pointer-events: none; opacity: var(--arc-opacity);
+  .hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(60% 40% at 50% 120%,
+                rgba(0, 113, 227, .35), transparent 70%);
+    pointer-events: none;
   }
-  .hero-inner { position: relative; }
-  .hero .mic {
-    display: block; margin: 0 auto 30px;
-    width: 122px; height: 122px;
-    border-radius: 22%;
-    box-shadow: var(--shadow-icon);
-  }
+  .hero > * { position: relative; z-index: 1; }
   .hero h1 {
-    font-size: clamp(2.1rem, 5.6vw, 3.3rem);
-    line-height: 1.08; margin: 0 0 16px;
-    color: var(--hero-ink);
-    letter-spacing: -.03em; font-weight: 800;
-    text-wrap: balance;
+    margin: 0;
+    font-size: clamp(48px, 9vw, 104px);
+    font-weight: 700; letter-spacing: -0.03em; line-height: 1.02;
+    background: linear-gradient(180deg, #ffffff 30%, #b9c6ff 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .hero h1 .accent { color: var(--orange); }
-  .hero p.tagline {
-    font-size: clamp(1.05rem, 2.4vw, 1.22rem);
-    color: var(--text-soft); max-width: 620px; margin: 0 auto 34px;
-    text-wrap: balance;
+  .hero .tagline {
+    font-size: clamp(20px, 3.5vw, 30px);
+    font-weight: 500; margin: 14px 0 0; color: #e6ebff;
+    letter-spacing: -0.01em; max-width: 40ch;
   }
-  .cta-row {
-    display: flex; gap: 14px; justify-content: center; align-items: center;
-    flex-wrap: wrap; margin-bottom: 16px;
+  .hero .links { margin-top: 30px; display: flex; gap: 26px; font-size: 19px; flex-wrap: wrap; justify-content: center; }
+  .hero .links a { color: #63a4ff; text-decoration: none; }
+  .hero .links a:hover { text-decoration: underline; }
+
+  .hero .device {
+    margin-top: 60px;
+    width: clamp(200px, 42vw, 300px);
+    aspect-ratio: 9 / 19.5;
+    border-radius: 40px;
+    background: linear-gradient(160deg, #0f1530, #232f66);
+    border: 2px solid rgba(255, 255, 255, .14);
+    box-shadow: 0 40px 90px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .1);
+    position: relative; display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
   }
-  .cta-note {
-    margin: 0; font-size: .84rem; color: var(--text-soft);
-    letter-spacing: .01em;
+  .hero .device img { width: 100%; height: 100%; object-fit: cover; }
+  .hero .device .notch {
+    position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+    width: 34%; height: 20px; background: #05070f; border-radius: 12px; z-index: 2;
   }
 
-  /* ---------- Sections ---------- */
-  section.block { padding: 64px 0; }
-  section.block + section.block { border-top: 1px solid var(--line); }
+  /* Appels à l'action conservés sous le héros (ne pas perdre la conversion). */
+  .hero .cta-row {
+    margin-top: 34px; display: flex; gap: 14px;
+    align-items: center; justify-content: center; flex-wrap: wrap;
+  }
+  .hero .cta-row.secondary { margin-top: 12px; }
+  .hero .btn.primary { box-shadow: 0 10px 30px rgba(0, 113, 227, .35); }
+  .hero .btn.ghost { color: #cfe0ff; border-color: rgba(255, 255, 255, .28); }
+  .hero .btn.ghost:hover { background: rgba(255, 255, 255, .1); }
+  .store-badge img { height: 47px; width: auto; }
+  .hero .cta-note {
+    margin: 18px auto 0; max-width: 62ch;
+    font-size: .85rem; color: #9fb0d6; line-height: 1.6;
+  }
+
+  /* ---------- Bandes thématiques ---------- */
+  .band { padding: 100px 0; background: var(--bg); }
+  .band.alt { background: var(--bg-alt); }
+  .band.dark { background: #000; color: #f5f5f7; }
+  .band.dark .band-sub, .band.dark .card p { color: #a1a1a6; }
+  .band.dark .card { background: #1c1c1e; box-shadow: none; border: 1px solid rgba(255, 255, 255, .1); }
+  .band.dark .card h3 { color: #f5f5f7; }
   .kicker {
-    display: inline-block; margin: 0 0 10px;
-    font-size: .8rem; font-weight: 700; letter-spacing: .12em;
-    text-transform: uppercase; color: var(--orange-deep);
+    display: inline-block; font-size: .82rem; font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase; color: var(--accent);
+    margin-bottom: 12px;
   }
-  h2.section-title {
-    font-size: clamp(1.5rem, 3.2vw, 2rem); letter-spacing: -.02em;
-    line-height: 1.2; margin: 0 0 10px; color: var(--hero-ink);
-    font-weight: 750; text-wrap: balance;
+  .band-title {
+    margin: 0;
+    font-size: clamp(36px, 6vw, 68px);
+    font-weight: 700; letter-spacing: -0.03em; line-height: 1.06;
   }
-  p.section-sub { color: var(--text-soft); margin: 0 0 36px; max-width: 640px; }
+  .band-sub {
+    margin: 18px 0 0; max-width: 62ch;
+    font-size: clamp(17px, 2vw, 21px); color: var(--sub); line-height: 1.55;
+  }
+  .band-head { text-align: center; margin: 0 auto 56px; max-width: 760px; }
+  .band-head .band-sub { margin-left: auto; margin-right: auto; }
 
-  /* ---------- Cartes ---------- */
-  .grid {
-    display: grid; gap: 18px;
-    grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
-  }
+  .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
   .card {
-    background: var(--card);
-    border: 1px solid var(--card-border);
-    border-radius: 18px;
-    padding: 24px 24px 22px;
-    box-shadow: var(--shadow-card);
-    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-  }
-  .card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-card-hover);
-    border-color: color-mix(in srgb, var(--orange) 38%, var(--card-border));
+    background: var(--card); border-radius: var(--radius);
+    padding: 38px; box-shadow: var(--card-shadow);
+    border: 1px solid var(--line);
   }
   .card .icon {
-    width: 44px; height: 44px; border-radius: 13px;
-    display: flex; align-items: center; justify-content: center;
-    background: var(--icon-tint);
-    margin-bottom: 16px;
+    width: 46px; height: 46px; border-radius: 14px;
+    display: grid; place-items: center; margin-bottom: 18px;
+    background: linear-gradient(160deg, #0071e3, #0a84ff);
   }
-  .card h3 {
-    margin: 0 0 7px; font-size: 1.06rem; color: var(--hero-ink);
-    letter-spacing: -.01em; line-height: 1.3;
-  }
-  .card p { margin: 0; font-size: .93rem; color: var(--text-soft); }
-  .card p strong { color: var(--text); font-weight: 600; }
+  .card .icon.brand { background: linear-gradient(160deg, #C96F4A, #e08a63); }
+  .card h3 { margin: 0 0 9px; font-size: 1.16rem; letter-spacing: -.01em; }
+  .card p { margin: 0; color: var(--sub); font-size: .97rem; line-height: 1.6; }
 
-  /* ---------- Bandeau confidentialité ---------- */
-  .privacy-strip {
-    position: relative; overflow: hidden;
-    background: linear-gradient(150deg, var(--navy), var(--navy-deep));
-    color: #EDE9DE;
-    border-radius: 22px; padding: 42px 38px;
-    display: flex; flex-wrap: wrap; gap: 28px; align-items: center;
+  /* ---------- Duo texte + capture ---------- */
+  .showcase {
+    display: grid; gap: 48px; align-items: center;
+    grid-template-columns: 1fr minmax(220px, 300px);
+    margin-bottom: 56px;
   }
-  @media (prefers-color-scheme: dark) {
-    .privacy-strip { background: linear-gradient(150deg, #262B52, #1B1E3B); }
+  .showcase.reverse { grid-template-columns: minmax(220px, 300px) 1fr; }
+  .showcase.reverse .showcase-txt { order: 2; }
+  .phone {
+    border-radius: 38px; overflow: hidden; position: relative;
+    border: 2px solid var(--line);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, .18);
+    background: #000; aspect-ratio: 9 / 19.5;
   }
-  .privacy-strip .strip-arcs {
-    position: absolute; right: -70px; top: -70px;
-    width: 340px; height: 340px; pointer-events: none; opacity: .5;
+  .phone img, .phone video { width: 100%; height: 100%; object-fit: cover; }
+  .band.dark .phone { border-color: rgba(255, 255, 255, .14); }
+
+  /* ---------- Avant / après (nettoyage IA) ---------- */
+  .ba {
+    display: grid; gap: 18px; grid-template-columns: 1fr auto 1fr;
+    align-items: center; margin-top: 48px;
   }
-  .privacy-strip .txt { flex: 1 1 380px; position: relative; }
-  .privacy-strip h2 {
-    margin: 0 0 10px; font-size: 1.45rem; color: #F1EDE3;
-    letter-spacing: -.02em; font-weight: 750;
+  .ba-card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 28px 26px; box-shadow: var(--card-shadow);
   }
-  .privacy-strip p { margin: 0 0 18px; color: #C9CCE0; font-size: .97rem; max-width: 560px; }
-  .privacy-strip .btn.light {
-    color: var(--navy);
-    background: #F1EDE3;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, .25);
+  .ba-card .ba-label {
+    font-size: .74rem; font-weight: 700; letter-spacing: .09em;
+    text-transform: uppercase; margin-bottom: 12px;
   }
-  .privacy-strip .btn.light:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0, 0, 0, .3); }
-  .privacy-strip .lock { flex: 0 0 auto; margin: 0 auto; position: relative; }
+  .ba-card.before .ba-label { color: var(--sub); }
+  .ba-card.after .ba-label { color: var(--accent); }
+  .ba-card.after { border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
+  .ba-card p { margin: 0; font-size: 1.04rem; line-height: 1.65; }
+  .ba-card.before p { color: var(--sub); }
+  .ba-arrow { color: var(--brand); flex: none; }
+  @media (max-width: 720px) {
+    .ba { grid-template-columns: 1fr; }
+    .ba-arrow { transform: rotate(90deg); margin: 0 auto; }
+  }
+
+  /* ---------- Bande confidentialité ---------- */
+  .privacy-inner { text-align: center; max-width: 720px; margin: 0 auto; }
+  .privacy-inner .lock { margin: 0 auto 22px; color: var(--brand); }
+
+  /* ---------- Discord ---------- */
+  .discord-card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius); box-shadow: var(--card-shadow);
+    padding: 52px 32px; text-align: center; position: relative; overflow: hidden;
+  }
+  .discord-card::before {
+    content: ""; position: absolute; inset: 0 0 auto 0; height: 4px;
+    background: linear-gradient(90deg, #5865F2, var(--brand));
+  }
+  .discord-card .dc-logo { color: #5865F2; margin: 0 auto 8px; }
+  .discord-card h2 { margin: 0 0 10px; font-size: clamp(26px, 4vw, 38px); letter-spacing: -.02em; }
+  .discord-card p { margin: 0 auto 26px; max-width: 54ch; color: var(--sub); }
+  .btn.discord {
+    background: #5865F2; color: #fff; font-size: 1.06rem; padding: 15px 30px;
+    box-shadow: 0 10px 26px rgba(88, 101, 242, .35);
+  }
+  .btn.discord:hover { background: #4752C4; transform: scale(1.03); }
 
   /* ---------- Téléchargement ---------- */
   .dl-card {
-    position: relative; overflow: hidden;
-    background: var(--card);
-    border: 1px solid var(--card-border);
-    border-radius: 22px;
-    box-shadow: var(--shadow-card);
-    padding: 46px 32px;
-    text-align: center;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius); box-shadow: var(--card-shadow);
+    padding: 52px 32px; text-align: center;
   }
-  /* Carte communauté Discord (même gabarit que .dl-card, liseré Discord). */
-  .discord-card {
-    position: relative; overflow: hidden;
-    background: var(--card);
-    border: 1px solid var(--card-border);
-    border-radius: 22px;
-    box-shadow: var(--shadow-card);
-    padding: 46px 32px;
-    text-align: center;
-  }
-  .discord-card::before {
-    content: "";
-    position: absolute; inset: 0 0 auto 0; height: 5px;
-    background: linear-gradient(90deg, #5865F2, var(--orange));
-  }
-  .discord-card .dc-logo { color: #5865F2; margin-bottom: 6px; }
-  .btn.discord {
-    background: #5865F2; color: #fff; border: none;
-    font-size: 1.08rem; padding: 15px 30px;
-    box-shadow: 0 10px 26px rgba(88, 101, 242, .38);
-  }
-  .btn.discord:hover {
-    background: #4752C4;
-    transform: translateY(-1px);
-    box-shadow: 0 14px 32px rgba(88, 101, 242, .46);
-  }
-  .btn.discord:active { transform: translateY(0); filter: brightness(.97); }
-  .dl-card::before {
-    content: "";
-    position: absolute; inset: 0 0 auto 0; height: 5px;
-    background: linear-gradient(90deg, var(--navy), var(--orange));
-    opacity: .85;
-  }
-  .dl-card .mini-icon {
-    width: 72px; height: 72px; border-radius: 22%;
-    box-shadow: 0 10px 26px rgba(43, 48, 85, .22), 0 2px 7px rgba(43, 48, 85, .12);
-    margin: 0 auto 20px; display: block;
-  }
-  @media (prefers-color-scheme: dark) {
-    .dl-card .mini-icon { box-shadow: 0 10px 28px rgba(0, 0, 0, .5), 0 2px 8px rgba(0, 0, 0, .35); }
-  }
-  .dl-card h2 {
-    margin: 0 0 8px; font-size: clamp(1.4rem, 3vw, 1.7rem);
-    color: var(--hero-ink); letter-spacing: -.02em; font-weight: 750;
-  }
-  .dl-card > p { margin: 0 auto 26px; color: var(--text-soft); max-width: 480px; font-size: .97rem; }
+  .dl-card .mini-icon { width: 76px; height: 76px; border-radius: 22%; margin: 0 auto 18px; }
+  .dl-card h2 { margin: 0 0 10px; font-size: clamp(28px, 4.5vw, 44px); letter-spacing: -.02em; }
+  .dl-card > p { margin: 0 auto 26px; max-width: 56ch; color: var(--sub); }
   .dl-meta {
-    display: flex; gap: 8px 22px; justify-content: center; flex-wrap: wrap;
-    margin: 22px 0 0; padding: 0; list-style: none;
-    font-size: .87rem; color: var(--text-soft);
+    list-style: none; margin: 26px auto 0; padding: 0; max-width: 480px;
+    display: grid; gap: 9px; text-align: left; color: var(--sub); font-size: .93rem;
   }
-  .dl-meta li { display: inline-flex; align-items: center; gap: 7px; }
-  .dl-meta svg { flex: none; }
-  .dl-ios { margin: 18px 0 0; font-size: .9rem; color: var(--text-soft); }
+  .dl-meta li { display: flex; gap: 10px; align-items: center; }
+  .dl-ios { margin: 22px 0 0; color: var(--sub); font-size: .93rem; }
+  .dl-ios a { color: var(--accent); text-decoration: none; }
+  .dl-ios a:hover { text-decoration: underline; }
 
-  /* ---------- Footer ---------- */
+  /* ---------- Pied de page ---------- */
   footer.site {
-    border-top: 1px solid var(--line);
-    margin-top: 56px; padding: 36px 24px 46px;
-    text-align: center; color: var(--text-soft); font-size: .9rem;
+    border-top: 1px solid var(--line); background: var(--bg-alt);
+    padding: 44px 24px; text-align: center; color: var(--sub); font-size: .9rem;
   }
   footer.site .f-brand {
-    display: inline-flex; align-items: center; gap: 9px;
-    font-weight: 700; color: var(--text); margin-bottom: 14px;
+    display: inline-flex; align-items: center; gap: 8px;
+    font-weight: 650; color: var(--ink); margin-bottom: 14px;
   }
   footer.site .f-brand img { width: 22px; height: 22px; border-radius: 22%; }
   footer.site .links {
     margin-bottom: 12px; display: flex; gap: 6px 22px;
     justify-content: center; flex-wrap: wrap;
   }
-  footer.site a { color: var(--text-soft); text-decoration: none; transition: color .18s ease; }
-  footer.site a:hover { color: var(--orange-deep); }
+  footer.site a { color: var(--sub); text-decoration: none; }
+  footer.site a:hover { color: var(--accent); }
 
-  @media (max-width: 560px) {
-    .hero { padding: 56px 20px 72px; }
-    .nav { flex-wrap: wrap; row-gap: 0; padding: 10px 16px; }
-    .nav nav { flex-wrap: wrap; margin-left: 0; width: 100%; justify-content: center; }
-    .nav nav a { padding: 5px 9px; font-size: .9rem; }
-    section.block { padding: 48px 0; }
-    .privacy-strip { padding: 32px 24px; }
-    .dl-card { padding: 36px 20px; }
+  /* ===================================================================
+     RÉVÉLATIONS AU DÉFILEMENT
+     .reveal → état de départ ; .reveal.in → état final.
+     --i = position dans la rangée (cascade de ~70 ms).
+     =================================================================== */
+  .reveal {
+    opacity: 0; transform: translateY(34px);
+    transition: opacity .8s cubic-bezier(.22, .61, .36, 1),
+                transform .8s cubic-bezier(.22, .61, .36, 1);
+    transition-delay: calc(var(--i, 0) * 70ms);
   }
+  .reveal.in { opacity: 1; transform: none; }
+  .band-title.reveal { transform: translateY(34px) scale(.98); }
+  .band-title.reveal.in { transform: none; }
+
+  /* ---------- Réactif ---------- */
+  @media (max-width: 860px) {
+    .showcase, .showcase.reverse { grid-template-columns: 1fr; justify-items: center; }
+    .showcase.reverse .showcase-txt { order: 0; }
+    .showcase-txt { text-align: center; }
+    .band-sub { margin-left: auto; margin-right: auto; }
+    .phone { width: min(280px, 72vw); }
+  }
+  @media (max-width: 560px) {
+    .band { padding: 68px 0; }
+    .card { padding: 30px 24px; }
+    .nav { flex-wrap: wrap; row-gap: 8px; padding: 10px 16px; }
+    .nav nav { margin-left: 0; width: 100%; justify-content: center; flex-wrap: wrap; }
+    .hero { padding: 104px 20px 56px; }
+  }
+
+  /* ---------- Accessibilité : aucun mouvement si l'utilisateur le refuse ---------- */
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .btn, .card, .nav nav a, footer.site a { transition: none; }
-    .btn:hover, .card:hover { transform: none; }
+    .reveal, .band-title.reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .btn, .nav nav > a, footer.site a { transition: none; }
+    .btn:hover, .btn.primary:hover, .btn.ghost:hover, .btn.discord:hover { transform: none; }
   }
 </style>
 </head>
@@ -462,56 +451,279 @@
 <main>
 
   <!-- ============== HÉROS ============== -->
-  <div class="hero">
-    <svg class="hero-arcs" viewBox="0 0 1100 560" aria-hidden="true" focusable="false">
-      <path d="M170 0a380 380 0 0 0 760 0" fill="none" stroke="#C96F4A" stroke-opacity=".16" stroke-width="2.5" stroke-linecap="round"/>
-      <path d="M270 0a280 280 0 0 0 560 0" fill="none" stroke="#C96F4A" stroke-opacity=".22" stroke-width="2.5" stroke-linecap="round"/>
-      <path d="M370 0a180 180 0 0 0 360 0" fill="none" stroke="#C96F4A" stroke-opacity=".28" stroke-width="2.5" stroke-linecap="round"/>
-    </svg>
-    <div class="hero-inner">
-      <img class="mic" src="icon-512.png" width="512" height="512" alt="Icône de l'app Pnyx">
-      <h1>
-        <span data-t="fr">Votre voix, <span class="accent">parfaitement</span> écrite.</span>
-        <span data-t="en">Your voice, <span class="accent">perfectly</span> written.</span>
-      </h1>
-      <p class="tagline">
-        <span data-t="fr">Pnyx — dictée vocale intelligente pour iPhone, iPad et Mac. Parlez naturellement : Pnyx transcrit, corrige et met en forme, sans jamais faire fuiter vos données.</span>
-        <span data-t="en">Pnyx — smart voice dictation for iPhone, iPad, and Mac. Speak naturally: Pnyx transcribes, corrects, and formats — without ever leaking your data.</span>
-      </p>
-      <div class="cta-row">
-        <a class="btn primary" data-mac-download href="releases/Pnyx-Mac-0.3.zip">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 19h16"/></svg>
-          <span>
-            <span data-t="fr">Télécharger Pnyx pour Mac (<span data-mac-version>0.3</span>) · Bêta</span>
-            <span data-t="en">Download Pnyx for Mac (<span data-mac-version>0.3</span>) · Beta</span>
-          </span>
-        </a>
-        <a class="store-badge" href="https://apps.apple.com/ca/app/pnyx/id6783030642" aria-label="Download Pnyx on the App Store">
-          <img data-t="fr" src="appstore-badge-fr.svg" width="169" height="53" alt="Télécharger dans l'App Store">
-          <img data-t="en" src="appstore-badge-en.svg" width="159" height="53" alt="Download on the App Store">
-        </a>
-      </div>
-      <div class="cta-row cta-secondary">
-        <a class="btn ghost" href="releases/PnyxHelper-Windows-1.3.zip">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.7 10.3 4.7v6.6H3zM11.3 4.5 21 3v8.3h-9.7zM3 12.3h7.3v6.6L3 17.9zM11.3 12.3H21V21l-9.7-1.4z"/></svg>
-          <span>
-            <span data-t="fr">Télécharger Pnyx Helper pour Windows (1.3)</span>
-            <span data-t="en">Download Pnyx Helper for Windows (1.3)</span>
-          </span>
-        </a>
-      </div>
-      <p class="cta-note">
-        <span data-t="fr">macOS 26+ · notariée par Apple · mises à jour automatiques intégrées (Sparkle). Le Helper Windows reçoit vos dictées iPhone/iPad — nécessite la dernière version de Pnyx.</span>
-        <span data-t="en">macOS 26+ · notarized by Apple · built-in automatic updates (Sparkle). The Windows Helper receives your iPhone/iPad dictations — requires the latest version of Pnyx.</span>
-      </p>
+  <header class="hero">
+    <h1>Pnyx</h1>
+    <p class="tagline">
+      <span data-t="fr">Votre voix, parfaitement écrite.</span>
+      <span data-t="en">Your voice, perfectly written.</span>
+    </p>
+    <div class="links">
+      <a href="#transcription"><span data-t="fr">En savoir plus ›</span><span data-t="en">Learn more ›</span></a>
+      <a href="#telecharger"><span data-t="fr">Télécharger ›</span><span data-t="en">Download ›</span></a>
     </div>
-  </div>
+
+    <div class="cta-row">
+      <a class="btn primary" data-mac-download href="releases/Pnyx-Mac-0.3.zip">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 19h16"/></svg>
+        <span>
+          <span data-t="fr">Télécharger Pnyx pour Mac (<span data-mac-version>0.3</span>) · Bêta</span>
+          <span data-t="en">Download Pnyx for Mac (<span data-mac-version>0.3</span>) · Beta</span>
+        </span>
+      </a>
+      <a class="store-badge" href="https://apps.apple.com/ca/app/pnyx/id6783030642" aria-label="Download Pnyx on the App Store">
+        <img data-t="fr" src="appstore-badge-fr.svg" width="169" height="53" alt="Télécharger dans l'App Store">
+        <img data-t="en" src="appstore-badge-en.svg" width="159" height="53" alt="Download on the App Store">
+      </a>
+    </div>
+    <div class="cta-row secondary">
+      <a class="btn ghost" href="releases/PnyxHelper-Windows-1.3.zip">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.7 10.3 4.7v6.6H3zM11.3 4.5 21 3v8.3h-9.7zM3 12.3h7.3v6.6L3 17.9zM11.3 12.3H21V21l-9.7-1.4z"/></svg>
+        <span>
+          <span data-t="fr">Télécharger Pnyx Helper pour Windows (1.3)</span>
+          <span data-t="en">Download Pnyx Helper for Windows (1.3)</span>
+        </span>
+      </a>
+    </div>
+    <p class="cta-note">
+      <span data-t="fr">macOS 26+ · notariée par Apple · mises à jour automatiques intégrées (Sparkle). Le Helper Windows reçoit vos dictées iPhone/iPad — nécessite la dernière version de Pnyx.</span>
+      <span data-t="en">macOS 26+ · notarized by Apple · built-in automatic updates (Sparkle). The Windows Helper receives your iPhone/iPad dictations — requires the latest version of Pnyx.</span>
+    </p>
+
+    <div class="device">
+      <div class="notch"></div>
+      <img src="shots/shot-clavier.jpg" width="600" height="1300" alt="Le clavier Pnyx en pleine dictée dans un nouveau message">
+    </div>
+  </header>
+
+  <!-- ============== BANDE 1 — TRANSCRIPTION ============== -->
+  <section class="band" id="transcription">
+    <div class="wrap">
+      <div class="band-head">
+        <span class="kicker"><span data-t="fr">Transcription</span><span data-t="en">Transcription</span></span>
+        <h2 class="band-title">
+          <span data-t="fr">Sur l'appareil. Ou dans le cloud.</span>
+          <span data-t="en">On your device. Or in the cloud.</span>
+        </h2>
+        <p class="band-sub">
+          <span data-t="fr">Chaque fonction est pensée pour aller vite et rester privée : le local d'abord, le cloud seulement si vous le choisissez.</span>
+          <span data-t="en">Every feature is built to be fast and private: on-device first, cloud only if you choose it.</span>
+        </p>
+      </div>
+
+      <div class="showcase">
+        <div class="showcase-txt">
+          <div class="grid">
+            <div class="card">
+              <div class="icon brand" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 17v4"/></svg>
+              </div>
+              <h3><span data-t="fr">Transcription 100 % locale… ou cloud</span><span data-t="en">Fully on-device… or cloud transcription</span></h3>
+              <p>
+                <span data-t="fr">Sur l'appareil avec <strong>Whisper, Parakeet ou Nemotron (NVIDIA)</strong> — aucun envoi réseau. Ou en cloud (<strong>Groq, OpenAI, Gemini</strong>) avec vos propres clés, pour une vitesse maximale.</span>
+                <span data-t="en">On-device with <strong>Whisper, Parakeet, or Nemotron (NVIDIA)</strong> — nothing leaves your device. Or in the cloud (<strong>Groq, OpenAI, Gemini</strong>) with your own keys, for maximum speed.</span>
+              </p>
+            </div>
+            <div class="card">
+              <div class="icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg>
+              </div>
+              <h3><span data-t="fr">Amélioration IA du texte</span><span data-t="en">AI text enhancement</span></h3>
+              <p>
+                <span data-t="fr">Reformulation, correction, ton, format : confiez le texte à <strong>Claude, GPT, Gemini ou Apple Intelligence</strong> (sur l'appareil), selon le mode choisi.</span>
+                <span data-t="en">Rephrase, correct, adjust tone and format: hand the text to <strong>Claude, GPT, Gemini, or Apple Intelligence</strong> (on-device), depending on the mode you pick.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="phone">
+          <img src="shots/shot-modeles.jpg" width="600" height="1300" loading="lazy"
+               alt="Écran Modèles de Pnyx : fournisseurs infonuagiques et modèles sur l'appareil">
+        </div>
+      </div>
+
+      <!-- Avant / après : ce que l'amélioration IA change concrètement. -->
+      <div class="ba">
+        <div class="ba-card before">
+          <div class="ba-label"><span data-t="fr">Ce que vous dites</span><span data-t="en">What you say</span></div>
+          <p>
+            <span data-t="fr">« euh donc en fait je voulais dire que le truc là il marche pas quand je suis dans le métro »</span>
+            <span data-t="en">“um so actually i wanted to say that the thing doesn't work when i'm on the subway”</span>
+          </p>
+        </div>
+        <svg class="ba-arrow" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        <div class="ba-card after">
+          <div class="ba-label"><span data-t="fr">Ce que Pnyx écrit</span><span data-t="en">What Pnyx writes</span></div>
+          <p>
+            <span data-t="fr">« Je voulais signaler que la fonctionnalité ne fonctionne pas dans le métro. »</span>
+            <span data-t="en">“I wanted to report that the feature doesn't work on the subway.”</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== BANDE 2 — PARTOUT ============== -->
+  <section class="band alt" id="partout">
+    <div class="wrap">
+      <div class="band-head">
+        <span class="kicker"><span data-t="fr">Partout</span><span data-t="en">Everywhere</span></span>
+        <h2 class="band-title">
+          <span data-t="fr">Dictez dans n'importe quelle app.</span>
+          <span data-t="en">Dictate in any app.</span>
+        </h2>
+        <p class="band-sub">
+          <span data-t="fr">Sur iPhone, sur iPad, sur Mac — et même vers votre PC Windows.</span>
+          <span data-t="en">On iPhone, iPad, Mac — and even to your Windows PC.</span>
+        </p>
+      </div>
+
+      <div class="showcase reverse">
+        <div class="phone">
+          <!-- Démo réelle : le clavier Pnyx en train de dicter. -->
+          <video src="shots/demo-clavier.mp4" poster="shots/shot-clavier.jpg"
+                 autoplay muted loop playsinline preload="metadata"
+                 aria-label="Démonstration : dictée avec le clavier Pnyx"></video>
+        </div>
+        <div class="showcase-txt">
+          <div class="grid">
+            <div class="card">
+              <div class="icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>
+              </div>
+              <h3><span data-t="fr">Clavier iOS : dictez partout</span><span data-t="en">iOS keyboard: dictate anywhere</span></h3>
+              <p>
+                <span data-t="fr">Un clavier complet avec la dictée intégrée — dans Messages, Mail, Safari, n'importe quelle app, <strong>sans changer d'application</strong>.</span>
+                <span data-t="en">A full keyboard with built-in dictation — in Messages, Mail, Safari, any app, <strong>without switching apps</strong>.</span>
+              </p>
+            </div>
+            <div class="card">
+              <div class="icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              </div>
+              <h3><span data-t="fr">Pnyx pour Mac</span><span data-t="en">Pnyx for Mac</span></h3>
+              <p>
+                <span data-t="fr"><strong>Raccourci global</strong>, dictée dans n'importe quelle app avec <strong>collage au curseur</strong>, et <strong>Power Mode</strong> : des règles automatiques par application ou par site web.</span>
+                <span data-t="en"><strong>Global shortcut</strong>, dictation in any app with <strong>paste-at-cursor</strong>, and <strong>Power Mode</strong>: automatic rules per app or per website.</span>
+              </p>
+            </div>
+            <div class="card">
+              <div class="icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8l4 4-4 4M13 12h8"/><rect x="2" y="4" width="9" height="16" rx="2"/></svg>
+              </div>
+              <h3><span data-t="fr">Pnyx Helper : dictez vers vos ordinateurs</span><span data-t="en">Pnyx Helper: dictate to your computers</span></h3>
+              <p>
+                <span data-t="fr">Dictez sur l'iPhone ou l'iPad : le texte arrive <strong>instantanément sur votre Mac ou PC</strong> (presse-papier ou collage au curseur), par le réseau local, <strong>chiffré</strong>, sans aucun serveur.</span>
+                <span data-t="en">Dictate on your iPhone or iPad: the text lands <strong>instantly on your Mac or PC</strong> (clipboard or paste-at-cursor), over the local network, <strong>encrypted</strong>, with no server involved.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== BANDE 3 — ORGANISATION ============== -->
+  <section class="band" id="organisation">
+    <div class="wrap">
+      <div class="band-head">
+        <span class="kicker"><span data-t="fr">Organisation</span><span data-t="en">Organization</span></span>
+        <h2 class="band-title">
+          <span data-t="fr">Vos mots, bien rangés.</span>
+          <span data-t="en">Your words, well organized.</span>
+        </h2>
+        <p class="band-sub">
+          <span data-t="fr">Notes, vocabulaire, synchronisation et statistiques : tout suit, d'un appareil à l'autre.</span>
+          <span data-t="en">Notes, vocabulary, sync, and statistics: everything follows you across devices.</span>
+        </p>
+      </div>
+
+      <div class="showcase">
+        <div class="showcase-txt">
+          <div class="grid">
+            <div class="card">
+              <div class="icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg>
+              </div>
+              <h3><span data-t="fr">Notes avec assistant IA</span><span data-t="en">Notes with an AI assistant</span></h3>
+              <p>
+                <span data-t="fr">Capturez vos idées à la voix, puis résumez, structurez ou développez-les avec l'<strong>assistant intégré</strong>.</span>
+                <span data-t="en">Capture your ideas by voice, then summarize, structure, or expand them with the <strong>built-in assistant</strong>.</span>
+              </p>
+            </div>
+            <div class="card">
+              <div class="icon brand" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4a2 2 0 0 0-2-2H6.5A2.5 2.5 0 0 0 4 4.5z"/><path d="M20 17v5H6.5a2.5 2.5 0 0 1 0-5"/></svg>
+              </div>
+              <h3><span data-t="fr">Dictionnaire personnel</span><span data-t="en">Personal dictionary</span></h3>
+              <p>
+                <span data-t="fr">Noms propres, jargon, sigles : Pnyx apprend <strong>vos mots</strong> et les écrit correctement à chaque dictée.</span>
+                <span data-t="en">Proper names, jargon, acronyms: Pnyx learns <strong>your words</strong> and writes them correctly every time.</span>
+              </p>
+            </div>
+            <div class="card">
+              <div class="icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 1 0-.9-8.9 6 6 0 1 0-11.3 2.4A3.5 3.5 0 0 0 6.5 19z"/></svg>
+              </div>
+              <h3><span data-t="fr">Synchro iCloud</span><span data-t="en">iCloud sync</span></h3>
+              <p>
+                <span data-t="fr">Modes, notes, dictionnaire et statistiques suivent d'un appareil à l'autre — via <strong>votre iCloud privé</strong>, jamais un serveur tiers.</span>
+                <span data-t="en">Modes, notes, dictionary, and statistics follow you across devices — through <strong>your private iCloud</strong>, never a third-party server.</span>
+              </p>
+            </div>
+            <div class="card">
+              <div class="icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M6 21V11M12 21V4M18 21v-9"/></svg>
+              </div>
+              <h3><span data-t="fr">Statistiques</span><span data-t="en">Statistics</span></h3>
+              <p>
+                <span data-t="fr">Mots dictés, temps gagné, séries : suivez votre usage — et comparez-vous, si vous voulez, au <strong>classement mondial</strong>.</span>
+                <span data-t="en">Words dictated, time saved, streaks: track your usage — and compare yourself, if you like, on the <strong>world leaderboard</strong>.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="phone">
+          <img src="shots/shot-stats.jpg" width="600" height="1300" loading="lazy"
+               alt="Écran Statistiques de Pnyx : temps économisé, mots dictés, frappes économisées">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== BANDE 4 — CONFIDENTIALITÉ (fond noir) ============== -->
+  <section class="band dark" id="confidentialite">
+    <div class="wrap">
+      <div class="privacy-inner">
+        <svg class="lock" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/>
+        </svg>
+        <h2 class="band-title">
+          <span data-t="fr">Aucun serveur. Aucune collecte.</span>
+          <span data-t="en">No server. No data collection.</span>
+        </h2>
+        <p class="band-sub">
+          <span data-t="fr">Pnyx ne possède aucun serveur : vos dictées vont de votre appareil au fournisseur que <em>vous</em> choisissez — ou ne partent nulle part si vous restez en local. Le développeur ne voit jamais vos données.</span>
+          <span data-t="en">Pnyx has no server of its own: your dictations go from your device to the provider <em>you</em> choose — or nowhere at all if you stay on-device. The developer never sees your data.</span>
+        </p>
+        <p style="margin-top:14px;">
+          <span data-t="fr">Vos données restent <strong>sur votre appareil</strong>, vos clés API sont <strong>chiffrées dans le Trousseau</strong>. Pas de serveur Pnyx, pas de pistage, pas d'analytique.</span>
+          <span data-t="en">Your data stays <strong>on your device</strong>, your API keys are <strong>encrypted in the Keychain</strong>. No Pnyx server, no tracking, no analytics.</span>
+        </p>
+        <p style="margin-top:30px;">
+          <a class="btn light" href="privacy-policy.html">
+            <span data-t="fr">Lire la politique de confidentialité</span>
+            <span data-t="en">Read the privacy policy</span>
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
 
   <!-- ============== DISCORD ============== -->
-  <div class="wrap">
-    <section class="block" id="discord">
+  <section class="band alt" id="discord">
+    <div class="wrap">
       <div class="discord-card">
-        <svg class="dc-logo" width="56" height="56" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.445.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .079.009c.12.099.245.198.372.292a.077.077 0 0 1-.006.127c-.598.349-1.22.645-1.873.891a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.029 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.056c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 0 0-.031-.028ZM8.02 15.331c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.956-2.418 2.157-2.418 1.21 0 2.176 1.095 2.157 2.418 0 1.334-.956 2.419-2.157 2.419Zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.176 1.095 2.157 2.418 0 1.334-.946 2.419-2.157 2.419Z"/></svg>
+        <svg class="dc-logo" width="52" height="52" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.445.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .079.009c.12.099.245.198.372.292a.077.077 0 0 1-.006.127c-.598.349-1.22.645-1.873.891a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.029 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.056c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 0 0-.031-.028ZM8.02 15.331c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.956-2.418 2.157-2.418 1.21 0 2.176 1.095 2.157 2.418 0 1.334-.956 2.419-2.157 2.419Zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.176 1.095 2.157 2.418 0 1.334-.946 2.419-2.157 2.419Z"/></svg>
         <h2><span data-t="fr">Rejoignez la communauté</span><span data-t="en">Join the community</span></h2>
         <p>
           <span data-t="fr">Posez vos questions, proposez vos idées, suivez les nouveautés et échangez avec les autres utilisateurs de Pnyx.</span>
@@ -522,162 +734,12 @@
           <span><span data-t="fr">Rejoindre le Discord</span><span data-t="en">Join the Discord</span></span>
         </a>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
-  <!-- ============== FONCTIONS ============== -->
-  <div class="wrap">
-    <section class="block" id="fonctions">
-      <span class="kicker"><span data-t="fr">Fonctions</span><span data-t="en">Features</span></span>
-      <h2 class="section-title">
-        <span data-t="fr">Tout ce qu'il faut pour dicter.</span>
-        <span data-t="en">Everything you need to dictate.</span>
-      </h2>
-      <p class="section-sub">
-        <span data-t="fr">Chaque fonction est pensée pour aller vite et rester privée : le local d'abord, le cloud seulement si vous le choisissez.</span>
-        <span data-t="en">Every feature is built to be fast and private: on-device first, cloud only if you choose it.</span>
-      </p>
-      <div class="grid">
-
-        <div class="card">
-          <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C96F4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 17v4"/></svg>
-          </div>
-          <h3><span data-t="fr">Transcription 100 % locale… ou cloud</span><span data-t="en">Fully on-device… or cloud transcription</span></h3>
-          <p>
-            <span data-t="fr">Sur l'appareil avec <strong>Whisper, Parakeet ou Nemotron (NVIDIA)</strong> — aucun envoi réseau. Ou en cloud (<strong>Groq, OpenAI, Gemini</strong>) avec vos propres clés, pour une vitesse maximale.</span>
-            <span data-t="en">On-device with <strong>Whisper, Parakeet, or Nemotron (NVIDIA)</strong> — nothing leaves your device. Or in the cloud (<strong>Groq, OpenAI, Gemini</strong>) with your own keys, for maximum speed.</span>
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C96F4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg>
-          </div>
-          <h3><span data-t="fr">Amélioration IA du texte</span><span data-t="en">AI text enhancement</span></h3>
-          <p>
-            <span data-t="fr">Reformulation, correction, ton, format : confiez le texte à <strong>Claude, GPT, Gemini ou Apple Intelligence</strong> (sur l'appareil), selon le mode choisi.</span>
-            <span data-t="en">Rephrase, correct, adjust tone and format: hand the text to <strong>Claude, GPT, Gemini, or Apple Intelligence</strong> (on-device), depending on the mode you pick.</span>
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C96F4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>
-          </div>
-          <h3><span data-t="fr">Clavier iOS : dictez partout</span><span data-t="en">iOS keyboard: dictate anywhere</span></h3>
-          <p>
-            <span data-t="fr">Un clavier complet avec la dictée intégrée — dans Messages, Mail, Safari, n'importe quelle app, <strong>sans changer d'application</strong>.</span>
-            <span data-t="en">A full keyboard with built-in dictation — in Messages, Mail, Safari, any app, <strong>without switching apps</strong>.</span>
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C96F4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          </div>
-          <h3><span data-t="fr">Pnyx pour Mac</span><span data-t="en">Pnyx for Mac</span></h3>
-          <p>
-            <span data-t="fr"><strong>Raccourci global</strong>, dictée dans n'importe quelle app avec <strong>collage au curseur</strong>, et <strong>Power Mode</strong> : des règles automatiques par application ou par site web.</span>
-            <span data-t="en"><strong>Global shortcut</strong>, dictation in any app with <strong>paste-at-cursor</strong>, and <strong>Power Mode</strong>: automatic rules per app or per website.</span>
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C96F4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="5" width="12" height="18" rx="2" transform="rotate(-90 12 12)"/><path d="M17 8l4 4-4 4M13 12h8"/></svg>
-          </div>
-          <h3><span data-t="fr">Pnyx Helper : dictez vers vos ordinateurs</span><span data-t="en">Pnyx Helper: dictate to your computers</span></h3>
-          <p>
-            <span data-t="fr">Dictez sur l'iPhone ou l'iPad : le texte arrive <strong>instantanément sur votre Mac ou PC</strong> (presse-papier ou collage au curseur), par le réseau local, <strong>chiffré</strong>, sans aucun serveur.</span>
-            <span data-t="en">Dictate on your iPhone or iPad: the text lands <strong>instantly on your Mac or PC</strong> (clipboard or paste-at-cursor), over the local network, <strong>encrypted</strong>, with no server involved.</span>
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C96F4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg>
-          </div>
-          <h3><span data-t="fr">Notes avec assistant IA</span><span data-t="en">Notes with an AI assistant</span></h3>
-          <p>
-            <span data-t="fr">Capturez vos idées à la voix, puis résumez, structurez ou développez-les avec l'<strong>assistant intégré</strong>.</span>
-            <span data-t="en">Capture your ideas by voice, then summarize, structure, or expand them with the <strong>built-in assistant</strong>.</span>
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C96F4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4a2 2 0 0 0-2-2H6.5A2.5 2.5 0 0 0 4 4.5z"/><path d="M20 17v5H6.5a2.5 2.5 0 0 1 0-5"/></svg>
-          </div>
-          <h3><span data-t="fr">Dictionnaire personnel</span><span data-t="en">Personal dictionary</span></h3>
-          <p>
-            <span data-t="fr">Noms propres, jargon, sigles : Pnyx apprend <strong>vos mots</strong> et les écrit correctement à chaque dictée.</span>
-            <span data-t="en">Proper names, jargon, acronyms: Pnyx learns <strong>your words</strong> and writes them correctly every time.</span>
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C96F4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 1 0-.9-8.9 6 6 0 1 0-11.3 2.4A3.5 3.5 0 0 0 6.5 19z"/></svg>
-          </div>
-          <h3><span data-t="fr">Synchro iCloud</span><span data-t="en">iCloud sync</span></h3>
-          <p>
-            <span data-t="fr">Modes, notes, dictionnaire et statistiques suivent d'un appareil à l'autre — via <strong>votre iCloud privé</strong>, jamais un serveur tiers.</span>
-            <span data-t="en">Modes, notes, dictionary, and statistics follow you across devices — through <strong>your private iCloud</strong>, never a third-party server.</span>
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C96F4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M6 21V11M12 21V4M18 21v-9"/></svg>
-          </div>
-          <h3><span data-t="fr">Statistiques</span><span data-t="en">Statistics</span></h3>
-          <p>
-            <span data-t="fr">Mots dictés, temps gagné, séries : suivez votre usage — et comparez-vous, si vous voulez, au <strong>classement mondial</strong>.</span>
-            <span data-t="en">Words dictated, time saved, streaks: track your usage — and compare yourself, if you like, on the <strong>world leaderboard</strong>.</span>
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C96F4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
-          </div>
-          <h3><span data-t="fr">Confidentialité d'abord</span><span data-t="en">Privacy first</span></h3>
-          <p>
-            <span data-t="fr">Vos données restent <strong>sur votre appareil</strong>, vos clés API sont <strong>chiffrées dans le Trousseau</strong>. Pas de serveur Pnyx, pas de pistage, pas d'analytique.</span>
-            <span data-t="en">Your data stays <strong>on your device</strong>, your API keys are <strong>encrypted in the Keychain</strong>. No Pnyx server, no tracking, no analytics.</span>
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ============== CONFIDENTIALITÉ ============== -->
-    <section class="block" id="confidentialite">
-      <div class="privacy-strip">
-        <svg class="strip-arcs" viewBox="0 0 340 340" aria-hidden="true" focusable="false">
-          <path d="M40 170a130 130 0 0 0 260 0" fill="none" stroke="#C96F4A" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/>
-          <path d="M90 170a80 80 0 0 0 160 0" fill="none" stroke="#C96F4A" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/>
-        </svg>
-        <div class="txt">
-          <h2><span data-t="fr">Aucun serveur. Aucune collecte.</span><span data-t="en">No server. No data collection.</span></h2>
-          <p>
-            <span data-t="fr">Pnyx ne possède aucun serveur : vos dictées vont de votre appareil au fournisseur que <em>vous</em> choisissez — ou ne partent nulle part si vous restez en local. Le développeur ne voit jamais vos données.</span>
-            <span data-t="en">Pnyx has no server of its own: your dictations go from your device to the provider <em>you</em> choose — or nowhere at all if you stay on-device. The developer never sees your data.</span>
-          </p>
-          <a class="btn light" href="privacy-policy.html">
-            <span data-t="fr">Lire la politique de confidentialité</span>
-            <span data-t="en">Read the privacy policy</span>
-          </a>
-        </div>
-        <svg class="lock" width="86" height="86" viewBox="0 0 24 24" fill="none" stroke="#C96F4A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.4" fill="#C96F4A" stroke="none"/>
-        </svg>
-      </div>
-    </section>
-
-    <!-- ============== TÉLÉCHARGER ============== -->
-    <section class="block" id="telecharger">
+  <!-- ============== TÉLÉCHARGER ============== -->
+  <section class="band" id="telecharger">
+    <div class="wrap">
       <div class="dl-card">
         <img class="mini-icon" src="icon-512.png" width="512" height="512" alt="">
         <h2><span data-t="fr">Pnyx pour Mac</span><span data-t="en">Pnyx for Mac</span></h2>
@@ -685,24 +747,24 @@
           <span data-t="fr">La dictée intelligente dans toutes vos apps Mac : appuyez sur le raccourci, parlez, le texte apparaît au curseur.</span>
           <span data-t="en">Smart dictation across all your Mac apps: press the shortcut, speak, and the text appears at your cursor.</span>
         </p>
-        <a class="btn primary" data-mac-download href="releases/Pnyx-Mac-0.2.1.zip">
+        <a class="btn primary" data-mac-download href="releases/Pnyx-Mac-0.3.zip">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 19h16"/></svg>
           <span>
-            <span data-t="fr">Télécharger Pnyx pour Mac (<span data-mac-version>0.2.1</span>) · Bêta</span>
-            <span data-t="en">Download Pnyx for Mac (<span data-mac-version>0.2.1</span>) · Beta</span>
+            <span data-t="fr">Télécharger Pnyx pour Mac (<span data-mac-version>0.3</span>) · Bêta</span>
+            <span data-t="en">Download Pnyx for Mac (<span data-mac-version>0.3</span>) · Beta</span>
           </span>
         </a>
         <ul class="dl-meta">
           <li>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C96F4A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>
             <span data-t="fr">macOS 26 ou plus récent</span><span data-t="en">macOS 26 or later</span>
           </li>
           <li>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C96F4A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>
             <span data-t="fr">Notariée par Apple</span><span data-t="en">Notarized by Apple</span>
           </li>
           <li>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C96F4A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>
             <span data-t="fr">Mises à jour automatiques intégrées (Sparkle)</span><span data-t="en">Built-in automatic updates (Sparkle)</span>
           </li>
         </ul>
@@ -715,9 +777,8 @@
           <span data-t="en">On iPhone and iPad: <a href="https://apps.apple.com/ca/app/pnyx/id6783030642"><strong>available on the App&nbsp;Store</strong></a>.</span>
         </p>
       </div>
-    </section>
-
-  </div>
+    </div>
+  </section>
 
 </main>
 
@@ -763,6 +824,58 @@
     buttons[i].addEventListener("click", function () {
       setLang(this.getAttribute("data-set"));
     });
+  }
+})();
+
+/* ---------------------------------------------------------------------
+   RÉVÉLATIONS AU DÉFILEMENT + PARALLAXE DU TÉLÉPHONE
+   Entièrement désactivées si l'utilisateur demande moins d'animations.
+   --------------------------------------------------------------------- */
+(function () {
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Vidéo de démo : on ne la lit pas automatiquement si l'utilisateur a
+     désactivé les animations (une boucle vidéo EST du mouvement). */
+  if (reduce) {
+    var v = document.querySelector(".phone video");
+    if (v) { v.removeAttribute("autoplay"); v.pause(); }
+    return;
+  }
+
+  /* 1. Marque les éléments à révéler, avec une cascade par rangée (--i). */
+  var cibles = document.querySelectorAll(
+    ".band-head, .band-title, .band-sub, .card, .phone, .ba-card, .discord-card, .dl-card, .privacy-inner"
+  );
+  for (var i = 0; i < cibles.length; i++) cibles[i].classList.add("reveal");
+
+  var grilles = document.querySelectorAll(".grid, .ba");
+  for (var g = 0; g < grilles.length; g++) {
+    var enfants = grilles[g].children;
+    for (var k = 0; k < enfants.length; k++) enfants[k].style.setProperty("--i", k);
+  }
+
+  /* 2. Observe : dès qu'un élément entre à l'écran, il apparaît — une fois. */
+  if ("IntersectionObserver" in window) {
+    var obs = new IntersectionObserver(function (entrees) {
+      entrees.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add("in");
+        obs.unobserve(e.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    for (var j = 0; j < cibles.length; j++) obs.observe(cibles[j]);
+  } else {
+    for (var m = 0; m < cibles.length; m++) cibles[m].classList.add("in");
+  }
+
+  /* 3. Parallaxe du téléphone du héros : léger glissement + réduction. */
+  var device = document.querySelector(".hero .device");
+  if (device) {
+    window.addEventListener("scroll", function () {
+      var y = window.scrollY;
+      if (y >= window.innerHeight) return;   // hors du héros : on ne calcule plus
+      device.style.transform = "translateY(" + (y * 0.15) + "px) scale(" + (1 - y * 0.0002) + ")";
+    }, { passive: true });
   }
 })();
 
