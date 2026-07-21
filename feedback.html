@@ -14,8 +14,8 @@
 <meta property="og:image" content="https://mede2026.github.io/pnyx-privacy/icon-512.png">
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://mede2026.github.io/pnyx-privacy/feedback.html">
-<meta name="theme-color" content="#F1EDE3" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#15172A" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/png" href="icon-180.png">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="stylesheet" href="theme.css">
@@ -50,7 +50,7 @@
     background:var(--card); border:1.5px solid var(--card-border); border-radius:999px; padding:5px 13px;
     display:inline-flex; align-items:center; gap:5px; transition:.15s; }
   .acct-btn:hover { border-color:var(--orange); color:var(--orange-deep); }
-  .acct-btn.primary { color:#fff; background:linear-gradient(160deg,#C96F4A,#AE5732); border-color:transparent; }
+  .acct-btn.primary { color:#fff; background:var(--accent); border-color:transparent; }
   .acct-menu { position:absolute; top:calc(100% + 8px); right:0; min-width:216px; background:var(--card);
     border:1px solid var(--card-border); border-radius:14px; box-shadow:var(--shadow-card-hover); padding:6px; z-index:40; }
   .acct-menu button { display:block; width:100%; text-align:left; appearance:none; cursor:pointer; font:inherit;
@@ -70,7 +70,7 @@
 
   /* Boutons génériques */
   .btn { appearance:none; cursor:pointer; font:inherit; font-weight:650; border-radius:999px; border:1.5px solid transparent; padding:10px 18px; display:inline-flex; align-items:center; gap:8px; text-decoration:none; transition:.18s; }
-  .btn.primary { color:#fff; background:linear-gradient(160deg,#C96F4A,#AE5732); box-shadow:0 6px 16px rgba(169,83,47,.28); }
+  .btn.primary { color:#fff; background:var(--accent); box-shadow:0 6px 16px rgba(0,113,227,.28); }
   .btn.primary:hover { filter:brightness(1.05); transform:translateY(-1px); }
   .btn.ghost { color:var(--text); background:color-mix(in srgb,var(--card) 70%,transparent); border-color:var(--card-border); }
   .btn.ghost:hover { color:var(--orange-deep); border-color:color-mix(in srgb,var(--orange) 45%,var(--card-border)); }
@@ -169,7 +169,7 @@
 
   .notice { padding:14px 16px; border-radius:12px; background:color-mix(in srgb,var(--amber) 12%,transparent); border:1px solid color-mix(in srgb,var(--amber) 40%,transparent); color:var(--text); margin:16px 0; }
   .empty { text-align:center; color:var(--text-soft); padding:40px 0; }
-  .toast { position:fixed; left:50%; bottom:22px; transform:translateX(-50%); background:var(--navy); color:#F1EDE3; padding:11px 18px; border-radius:999px; box-shadow:0 10px 30px rgba(0,0,0,.3); font-size:.92rem; opacity:0; pointer-events:none; transition:opacity .25s; z-index:50; }
+  .toast { position:fixed; left:50%; bottom:22px; transform:translateX(-50%); background:var(--navy); color:#fff; padding:11px 18px; border-radius:999px; box-shadow:0 10px 30px rgba(0,0,0,.3); font-size:.92rem; opacity:0; pointer-events:none; transition:opacity .25s; z-index:50; }
   .toast.show { opacity:1; }
 
   footer.site { border-top:1px solid var(--line); margin-top:44px; padding:30px 22px; max-width:980px; margin-left:auto; margin-right:auto; display:flex; flex-wrap:wrap; gap:14px 24px; align-items:center; color:var(--text-soft); font-size:.9rem; }

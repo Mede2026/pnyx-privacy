@@ -6,7 +6,7 @@
   background:var(--card); border:1.5px solid var(--card-border); border-radius:999px; padding:5px 13px;
   display:inline-flex; align-items:center; gap:5px; transition:.15s; }
 .acct-btn:hover { border-color:var(--orange); color:var(--orange-deep); }
-.acct-btn.primary { color:#fff; background:linear-gradient(160deg,#C96F4A,#AE5732); border-color:transparent; }
+.acct-btn.primary { color:#fff; background:var(--accent); border-color:transparent; }
 .acct-badge-dev { font-size:.72rem; font-weight:700; color:#fff; background:var(--orange); padding:2px 7px; border-radius:999px; }
 
 .acct-menu { position:absolute; top:calc(100% + 8px); right:0; min-width:216px; background:var(--card);
@@ -48,14 +48,14 @@
 .acct-muted { color:var(--text-soft); font-size:.9rem; margin:0 0 10px; }
 .acct-actions { display:flex; align-items:center; gap:14px; margin-top:4px; }
 .acct-submit { appearance:none; cursor:pointer; font:inherit; font-weight:650; color:#fff; border:0;
-  background:linear-gradient(160deg,#C96F4A,#AE5732); border-radius:999px; padding:11px 22px; }
+  background:var(--accent); border-radius:999px; padding:11px 22px; }
 .acct-submit:hover { filter:brightness(1.05); }
 .acct-submit:disabled { opacity:.5; cursor:default; }
 .acct-link { appearance:none; border:0; background:none; cursor:pointer; font:inherit; font-size:.86rem;
   color:var(--text-soft); text-decoration:underline; padding:0; }
 .acct-link:hover { color:var(--orange-deep); }
 
-.pnyx-toast { position:fixed; left:50%; bottom:22px; transform:translateX(-50%); background:var(--navy,#2B3055); color:#F1EDE3;
+.pnyx-toast { position:fixed; left:50%; bottom:22px; transform:translateX(-50%); background:var(--navy,#1d1d1f); color:#fff;
   padding:11px 18px; border-radius:999px; box-shadow:0 10px 30px rgba(0,0,0,.3); font-size:.92rem; opacity:0;
   pointer-events:none; transition:opacity .25s; z-index:2100; }
 .pnyx-toast.show { opacity:1; }

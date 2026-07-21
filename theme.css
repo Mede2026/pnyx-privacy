@@ -7,8 +7,9 @@
    à une page puissent encore surcharger le thème.
 
    Palette : neutres Apple (blanc / #fafafa / noir), accent bleu Apple.
-   L'ORANGE de marque (#C96F4A) ne sert qu'aux accents portant l'identité
-   (icônes liées à la dictée), pour rester cohérent avec l'icône de l'app.
+   UNE SEULE couleur d'accent sur tout le site. Les anciens noms --orange /
+   --orange-deep / --brand sont conservés comme ALIAS de l'accent, pour ne
+   pas devoir réécrire toutes les pages : plus rien n'est orange.
    =================================================================== */
 
 :root {
@@ -19,7 +20,7 @@
   --sub: #6e6e73;
   --accent: #0071e3;
   --accent-hover: #0077ed;
-  --brand: #C96F4A;
+  --brand: var(--accent);
   --card: #ffffff;
   --card-shadow: 0 2px 20px rgba(0, 0, 0, .06);
   --line: rgba(0, 0, 0, .06);
@@ -33,7 +34,7 @@
   --hero-ink: var(--ink);
   --icon-tint: rgba(0, 0, 0, .05);
   --orange: var(--brand);
-  --orange-deep: #AE5732;
+  --orange-deep: var(--accent-hover);
   --field: var(--card);
   /* Bandeaux sombres et bulles de notification (FAQ, tableau de feedback). */
   --navy: #1d1d1f;
@@ -55,7 +56,6 @@
     --line: rgba(255, 255, 255, .1);
     --nav-bg: rgba(0, 0, 0, .72);
     --icon-tint: rgba(255, 255, 255, .08);
-    --orange-deep: #e08a63;
     /* Sur fond noir, un bandeau « navy » pur serait invisible : on l'éclaircit. */
     --navy: #2c2c2e;
     --navy-deep: #1c1c1e;
