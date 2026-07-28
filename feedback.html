@@ -675,7 +675,12 @@ async function loadBoard(){
     ...p,
     vote_count: (p.votes && p.votes[0] ? p.votes[0].count : 0),
     comment_count: (p.comments && p.comments[0] ? p.comments[0].count : 0)
-  }));
+  }))
+  // Demandes MASQUÉES (fil supprimé côté Discord → hidden=true via la synchro
+  // du bot). Filtre CLIENT volontairement : tant que la colonne n'existe pas
+  // en base, `p.hidden` vaut undefined et rien n'est filtré — l'ordre de
+  // déploiement (SQL avant ou après le site) est donc sans importance.
+  .filter(p=>!p.hidden);
   renderBoard();
   if(me) renderAccount();   // rafraîchit les stats du menu de compte
 }
