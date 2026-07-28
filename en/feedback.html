@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html lang="fr" data-lang="fr">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Feedback Pnyx — Idées, bugs et questions</title>
-<meta name="description" content="Proposez des améliorations pour Pnyx, signalez des bugs et posez vos questions au développeur. Votez pour les idées, suivez leur statut et échangez directement.">
-<meta property="og:title" content="Feedback Pnyx — Idées, bugs et questions">
-<meta property="og:description" content="Proposez des améliorations, signalez des bugs, posez vos questions. Votez et suivez le statut.">
+<title>Pnyx Feedback — Ideas, bugs, and questions</title>
+<meta name="description" content="Suggest improvements for Pnyx, report bugs, and ask the developer questions. Vote for ideas, follow their status, and talk with the developer directly.">
+<meta property="og:title" content="Pnyx Feedback — Ideas, bugs, and questions">
+<meta property="og:description" content="Suggest improvements, report bugs, ask questions. Vote and follow status.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://mede2026.github.io/pnyx-privacy/feedback.html">
+<meta property="og:url" content="https://mede2026.github.io/pnyx-privacy/en/feedback.html">
 <meta property="og:site_name" content="Pnyx">
-<meta property="og:locale" content="fr_CA">
-<meta property="og:locale:alternate" content="en">
+<meta property="og:locale" content="en">
+<meta property="og:locale:alternate" content="fr_CA">
 <meta property="og:image" content="https://mede2026.github.io/pnyx-privacy/icon-512.png">
 <meta name="robots" content="noindex">
-<link rel="canonical" href="https://mede2026.github.io/pnyx-privacy/feedback.html">
+<link rel="canonical" href="https://mede2026.github.io/pnyx-privacy/en/feedback.html">
 <link rel="alternate" hreflang="fr" href="https://mede2026.github.io/pnyx-privacy/feedback.html">
 <link rel="alternate" hreflang="en" href="https://mede2026.github.io/pnyx-privacy/en/feedback.html">
 <link rel="alternate" hreflang="x-default" href="https://mede2026.github.io/pnyx-privacy/feedback.html">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-<link rel="icon" type="image/png" href="icon-180.png">
-<link rel="apple-touch-icon" href="icon-180.png">
-<link rel="stylesheet" href="theme.css">
+<link rel="icon" type="image/png" href="../icon-180.png">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<link rel="stylesheet" href="../theme.css">
 <style>
   /* Palette, menu, boutons, bilingue : theme.css.
      Ici, uniquement ce qui est PROPRE au tableau de feedback : les couleurs
@@ -191,16 +191,16 @@
 
 <header class="site">
   <div class="nav">
-    <a class="brand" href="index.html" aria-label="Pnyx — accueil"><img src="icon-180.png" alt="" width="180" height="180">Pnyx</a>
+    <a class="brand" href="index.html" aria-label="Pnyx — accueil"><img src="../icon-180.png" alt="" width="180" height="180">Pnyx</a>
     <nav>
-      <a href="index.html"><span data-t="fr">Accueil</span></a>
+      <a href="index.html"><span data-t="en">Home</span></a>
       <a href="faq.html">FAQ</a>
       <a href="feedback.html" aria-current="page">Feedback</a>
-      <a href="support.html"><span data-t="fr">Assistance</span></a>
+      <a href="support.html"><span data-t="en">Support</span></a>
       <span id="nav-account" class="nav-account"></span>
       <span class="lang-switch" role="group" aria-label="Language / Langue">
-        <strong aria-current="true">FR</strong>
-        <a href="en/feedback.html" hreflang="en" lang="en">EN</a>
+        <a href="../feedback.html" hreflang="fr" lang="fr">FR</a>
+        <strong aria-current="true">EN</strong>
       </span>
     </nav>
   </div>
@@ -208,17 +208,17 @@
 
 <main class="wrap">
   <div class="head">
-    <span class="kicker"><span data-t="fr">Idées, bugs et questions</span></span>
-    <h1><span data-t="fr">Aidez à façonner Pnyx</span></h1>
+    <span class="kicker"><span data-t="en">Ideas, bugs and questions</span></span>
+    <h1><span data-t="en">Help shape Pnyx</span></h1>
     <p class="sub">
-      <span data-t="fr">Proposez une amélioration, signalez un bogue ou posez une question. Votez pour ce qui compte le plus — le développeur lit tout et répond ici même.</span>
       
+      <span data-t="en">Suggest an improvement, report a bug or ask a question. Vote for what matters most — the developer reads everything and replies right here.</span>
     </p>
   </div>
 
   <div id="config-notice" class="notice" hidden>
-    <span data-t="fr"><strong>Le tableau de feedback est en cours d'activation.</strong> Reviens très bientôt !</span>
     
+    <span data-t="en"><strong>The feedback board is being set up.</strong> Please check back very soon!</span>
   </div>
 
   <!-- Formulaire d'authentification (connexion, inscription, mot de passe, pseudo) -->
@@ -235,20 +235,20 @@
   <!-- Nouveau post (connecté) -->
   <details id="compose" class="panel compose" hidden>
     <summary class="btn ghost" style="width:100%; justify-content:center;">
-      <span data-t="fr">＋ Nouvelle demande</span>
+      <span data-t="en">＋ New request</span>
     </summary>
     <div style="margin-top:16px;">
-      <label class="fld"><span data-t="fr">Titre</span>
+      <label class="fld"><span data-t="en">Title</span>
         <input id="np-title" type="text" maxlength="140" placeholder="…">
       </label>
-      <label class="fld"><span data-t="fr">Détails</span>
+      <label class="fld"><span data-t="en">Details</span>
         <textarea id="np-body" maxlength="4000" placeholder="…"></textarea>
       </label>
-      <label class="fld" style="max-width:220px;"><span data-t="fr">Catégorie</span>
+      <label class="fld" style="max-width:220px;"><span data-t="en">Category</span>
         <select id="np-tag"></select>
       </label>
       <p id="np-error" class="err" hidden></p>
-      <button id="np-submit" class="btn primary" type="button"><span data-t="fr">Publier</span></button>
+      <button id="np-submit" class="btn primary" type="button"><span data-t="en">Post</span></button>
     </div>
   </details>
 
@@ -260,13 +260,13 @@
 </main>
 
 <footer class="site">
-  <div class="f-brand"><img src="icon-180.png" alt="" width="180" height="180">Pnyx</div>
+  <div class="f-brand"><img src="../icon-180.png" alt="" width="180" height="180">Pnyx</div>
   <div class="links">
-    <a href="index.html"><span data-t="fr">Accueil</span></a>
+    <a href="index.html"><span data-t="en">Home</span></a>
     <a href="faq.html">FAQ</a>
     <a href="feedback.html">Feedback</a>
-    <a href="privacy-policy.html"><span data-t="fr">Confidentialité</span></a>
-    <a href="support.html"><span data-t="fr">Assistance</span></a>
+    <a href="privacy-policy.html"><span data-t="en">Privacy</span></a>
+    <a href="support.html"><span data-t="en">Support</span></a>
   </div>
 </footer>
 

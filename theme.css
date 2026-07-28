@@ -118,6 +118,18 @@ html[data-lang="fr"] .lang-switch button[data-set="fr"],
 html[data-lang="en"] .lang-switch button[data-set="en"] {
   background: var(--accent); color: #fff;
 }
+/* Pages GÉNÉRÉES par langue : le sélecteur est fait de LIENS (l'autre langue)
+   et d'un <strong aria-current> (langue courante) — même look que les
+   anciens boutons. */
+.lang-switch a, .lang-switch strong {
+  display: inline-block; border: 0; background: transparent; color: var(--sub);
+  font: inherit; font-size: .82rem; font-weight: 400; padding: 5px 11px;
+  text-decoration: none; cursor: pointer;
+}
+.lang-switch a:hover { color: var(--ink); }
+.lang-switch strong, .lang-switch [aria-current="true"] {
+  background: var(--accent); color: #fff;
+}
 
 /* ---------- Bilingue : une seule langue visible à la fois ---------- */
 html[data-lang="fr"] [data-t="en"] { display: none; }

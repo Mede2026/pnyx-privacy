@@ -1,27 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://mede2026.github.io/pnyx-privacy/</loc>
-    <lastmod>2026-07-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mede2026.github.io/pnyx-privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mede2026.github.io/pnyx-privacy/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mede2026.github.io/pnyx-privacy/"/>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://mede2026.github.io/pnyx-privacy/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mede2026.github.io/pnyx-privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mede2026.github.io/pnyx-privacy/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mede2026.github.io/pnyx-privacy/"/>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://mede2026.github.io/pnyx-privacy/faq.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mede2026.github.io/pnyx-privacy/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mede2026.github.io/pnyx-privacy/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mede2026.github.io/pnyx-privacy/faq.html"/>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mede2026.github.io/pnyx-privacy/privacy-policy.html</loc>
-    <lastmod>2026-07-15</lastmod>
+    <loc>https://mede2026.github.io/pnyx-privacy/en/faq.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mede2026.github.io/pnyx-privacy/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mede2026.github.io/pnyx-privacy/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mede2026.github.io/pnyx-privacy/faq.html"/>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mede2026.github.io/pnyx-privacy/support.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mede2026.github.io/pnyx-privacy/support.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mede2026.github.io/pnyx-privacy/en/support.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mede2026.github.io/pnyx-privacy/support.html"/>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mede2026.github.io/pnyx-privacy/support.html</loc>
-    <lastmod>2026-07-15</lastmod>
+    <loc>https://mede2026.github.io/pnyx-privacy/en/support.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mede2026.github.io/pnyx-privacy/support.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mede2026.github.io/pnyx-privacy/en/support.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mede2026.github.io/pnyx-privacy/support.html"/>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://mede2026.github.io/pnyx-privacy/privacy-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mede2026.github.io/pnyx-privacy/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mede2026.github.io/pnyx-privacy/en/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mede2026.github.io/pnyx-privacy/privacy-policy.html"/>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://mede2026.github.io/pnyx-privacy/en/privacy-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mede2026.github.io/pnyx-privacy/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mede2026.github.io/pnyx-privacy/en/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mede2026.github.io/pnyx-privacy/privacy-policy.html"/>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://mede2026.github.io/pnyx-privacy/feedback.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mede2026.github.io/pnyx-privacy/feedback.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mede2026.github.io/pnyx-privacy/en/feedback.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mede2026.github.io/pnyx-privacy/feedback.html"/>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://mede2026.github.io/pnyx-privacy/en/feedback.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mede2026.github.io/pnyx-privacy/feedback.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mede2026.github.io/pnyx-privacy/en/feedback.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mede2026.github.io/pnyx-privacy/feedback.html"/>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
 </urlset>
