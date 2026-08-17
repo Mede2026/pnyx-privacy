@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Journaux des appareils — Pnyx (dev)</title>
+<!-- Page PRIVÉE du développeur : non liée depuis le site, accès par URL
+     directe. La VRAIE protection n'est pas l'obscurité de l'URL mais le
+     jeton d'administration (ADMIN_LOGS_TOKEN) exigé par l'Edge Function
+     download-device-logs — rien n'est lisible sans lui. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="icon-180.png">
+<link rel="stylesheet" href="theme.css">
+<style>
+  .wrap { max-width: 780px; }
+  .head { padding: 44px 0 6px; }
+  h1 { font-size: clamp(1.6rem, 5vw, 2.2rem); margin: 0 0 10px; font-weight: 800; color: var(--hero-ink); letter-spacing: -.02em; }
+  .sub { color: var(--text-soft); margin: 0 0 8px; }
+  .panel { background: var(--card); border: 1px solid var(--card-border); border-radius: 16px; padding: 20px; box-shadow: var(--shadow-card); margin: 14px 0; }
+  .btn { appearance: none; cursor: pointer; font: inherit; font-weight: 650; border-radius: 999px; border: 1.5px solid transparent; padding: 10px 18px; display: inline-flex; align-items: center; gap: 8px; transition: .18s; }
+  .btn.primary { color: #fff; background: var(--accent); box-shadow: 0 6px 16px rgba(0,113,227,.28); }
+  .btn.primary:hover { filter: brightness(1.05); }
+  .btn.ghost { color: var(--text); background: color-mix(in srgb, var(--card) 70%, transparent); border-color: var(--card-border); }
+  .btn.ghost:hover { color: var(--orange-deep); border-color: var(--orange); }
+  .btn:disabled { opacity: .45; cursor: default; filter: none; }
+  .btn.sm { padding: 6px 13px; font-size: .86rem; }
+  input[type=password], input[type=text] { font: inherit; color: var(--text); background: var(--field); border: 1.5px solid var(--card-border); border-radius: 11px; padding: 10px 13px; width: 100%; }
+  input:focus { outline: none; border-color: var(--accent); }
+  .toolbar { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .toolbar label { display: inline-flex; align-items: center; gap: 7px; font-size: .92rem; color: var(--text-soft); cursor: pointer; }
+  .device { display: flex; align-items: center; gap: 14px; padding: 13px 4px; border-top: 1px solid var(--line); flex-wrap: wrap; }
+  .device:first-child { border-top: 0; }
+  .device .who { flex: 1 1 220px; min-width: 0; }
+  .device .who b { display: block; }
+  .device .who small { color: var(--text-soft); }
+  .device .meta { text-align: right; font-size: .88rem; color: var(--text-soft); flex: 0 1 auto; }
+  .device .meta .stale { color: #c0442e; font-weight: 650; }
+  .badge { display: inline-block; font-size: .78rem; font-weight: 700; border-radius: 999px; padding: 2px 9px; background: var(--icon-tint); color: var(--text-soft); }
+  .badge.pending { background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent); }
+  .note { font-size: .86rem; color: var(--text-soft); }
+  .err { color: #c0442e; margin: 8px 0 0; font-size: .92rem; }
+  .status { font-size: .92rem; color: var(--text-soft); min-height: 1.3em; margin-top: 10px; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="head">
+    <h1>Journaux des appareils</h1>
+    <p class="sub">Dépôts quotidiens des iPhone, iPad et Mac (opt-in « Envoyer automatiquement chaque jour »). Télécharger = consommer : les fichiers inclus sont supprimés du serveur (case décochable ci-dessous).</p>
+    <p class="note">Filet de sécurité : chaque appareil garde de toute façon ses journaux 7 jours et les réenverra au besoin — un ZIP perdu n'est pas une perte définitive. Le serveur purge de lui-même tout journal non consommé après 30 jours.</p>
+  </div>
+
+  <!-- Porte : jeton d'administration (gardé en localStorage) -->
+  <section id="gate" class="panel" hidden>
+    <p style="margin:0 0 10px;"><b>Jeton d'administration</b> — la valeur du secret <code>ADMIN_LOGS_TOKEN</code> (Supabase → Edge Functions → Secrets).</p>
+    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+      <input id="token-input" type="password" placeholder="Jeton…" style="flex:1; min-width:220px;" autocomplete="off">
+      <button id="token-save" class="btn primary" type="button">Entrer</button>
+    </div>
+    <p id="gate-error" class="err" hidden></p>
+  </section>
+
+  <!-- Contenu (une fois le jeton accepté) -->
+  <section id="content" hidden>
+    <div class="panel toolbar">
+      <button id="dl-all" class="btn primary" type="button">Tout télécharger (ZIP)</button>
+      <label><input id="delete-after" type="checkbox" checked> Supprimer du serveur après téléchargement</label>
+      <button id="refresh" class="btn ghost sm" type="button">Rafraîchir</button>
+      <button id="logout" class="btn ghost sm" type="button" title="Oublier le jeton sur ce navigateur">Changer de jeton</button>
+    </div>
+    <div class="panel">
+      <div id="devices"></div>
+      <p id="empty" class="note" hidden>Aucun journal en attente sur le serveur.</p>
+    </div>
+    <p id="status" class="status" aria-live="polite"></p>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script>
+/* =========================================================================
+   Consommateur canonique des journaux : liste via l'Edge Function
+   download-device-logs (jeton admin), ZIP construit CÔTÉ NAVIGATEUR (JSZip),
+   puis suppression des .log inclus (sauf case décochée). La clé service-role
+   reste dans la fonction — cette page ne voit que le jeton.
+   ========================================================================= */
+const FN = "https://wdxjlbsnqmybcdpzwnhs.supabase.co/functions/v1/download-device-logs";
+const TOKEN_KEY = "pnyx-logs-admin-token";
+
+const $ = (id) => document.getElementById(id);
+let devices = [];   // [{deviceId, device:{deviceName,model,platform,appVersion,lastUploadAt}|null, logs:[{day,path,size}]}]
+
+function token() { return localStorage.getItem(TOKEN_KEY) || ""; }
+
+async function api(params, opts = {}) {
+  const r = await fetch(FN + "?" + new URLSearchParams(params), {
+    ...opts,
+    headers: { "x-admin-token": token(), ...(opts.headers || {}) },
+  });
+  if (r.status === 401) { throw new Error("401"); }
+  if (!r.ok) {
+    let msg = "HTTP " + r.status;
+    try { msg = (await r.json()).error || msg; } catch {}
+    throw new Error(msg);
+  }
+  return r;
+}
+
+/* ---------- Porte (jeton) ---------- */
+function showGate(message) {
+  $("gate").hidden = false;
+  $("content").hidden = true;
+  const err = $("gate-error");
+  err.hidden = !message;
+  err.textContent = message || "";
+}
+$("token-save").onclick = async () => {
+  const value = $("token-input").value.trim();
+  if (!value) return;
+  localStorage.setItem(TOKEN_KEY, value);
+  $("token-input").value = "";
+  await boot();
+};
+$("token-input").addEventListener("keydown", (e) => { if (e.key === "Enter") $("token-save").click(); });
+$("logout").onclick = () => { localStorage.removeItem(TOKEN_KEY); showGate(); };
+
+/* ---------- Liste ---------- */
+function sanitize(name) {
+  return String(name || "").replace(/[\\/:*?"<>|]+/g, "-").replace(/\s+/g, " ").trim() || "appareil";
+}
+function label(d) {
+  const name = d.device?.deviceName || d.deviceId.slice(0, 8);
+  const model = d.device?.model ? ` (${d.device.model})` : "";
+  return sanitize(name + model);
+}
+function fmtLocal(iso) {
+  if (!iso) return "—";
+  const d = new Date(iso);
+  if (isNaN(d)) return "—";
+  return d.toLocaleString("fr-CA", { dateStyle: "medium", timeStyle: "short" });
+}
+/* « 2026-08-17 14h32 » (heure LOCALE du navigateur) pour les noms de fichiers. */
+function fileStamp(iso, withTime) {
+  const d = iso ? new Date(iso) : new Date();
+  const p = (n) => String(n).padStart(2, "0");
+  const day = `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+  return withTime ? `${day} ${p(d.getHours())}h${p(d.getMinutes())}` : day;
+}
+
+async function loadList() {
+  $("status").textContent = "Chargement…";
+  const r = await api({ action: "list" });
+  devices = (await r.json()).devices || [];
+  render();
+  $("status").textContent = "";
+}
+
+function render() {
+  const host = $("devices");
+  host.innerHTML = "";
+  const withLogs = devices.filter((d) => d.logs.length > 0);
+  $("empty").hidden = devices.length > 0;
+  $("dl-all").disabled = withLogs.length === 0;
+  for (const d of devices) {
+    const row = document.createElement("div");
+    row.className = "device";
+    const stale = d.device?.lastUploadAt &&
+      (Date.now() - new Date(d.device.lastUploadAt).getTime()) > 48 * 3600 * 1000;
+    row.innerHTML = `
+      <div class="who">
+        <b></b>
+        <small></small>
+      </div>
+      <div class="meta">
+        Dernier envoi : <span class="${stale ? "stale" : ""}"></span><br>
+        <span class="badge ${d.logs.length ? "pending" : ""}"></span>
+      </div>`;
+    row.querySelector("b").textContent = d.device?.deviceName || d.deviceId.slice(0, 12) + "…";
+    row.querySelector("small").textContent =
+      [d.device?.model, d.device?.platform, d.device?.appVersion].filter(Boolean).join(" · ") || "fiche absente";
+    row.querySelector(".meta span:first-child").textContent = fmtLocal(d.device?.lastUploadAt);
+    row.querySelector(".badge").textContent =
+      d.logs.length === 0 ? "rien en attente"
+        : d.logs.length === 1 ? "1 jour en attente" : `${d.logs.length} jours en attente`;
+    const btn = document.createElement("button");
+    btn.className = "btn ghost sm";
+    btn.type = "button";
+    btn.textContent = "Télécharger";
+    btn.disabled = d.logs.length === 0;
+    btn.onclick = () => downloadDevice(d, btn);
+    row.appendChild(btn);
+    host.appendChild(row);
+  }
+}
+
+/* ---------- Téléchargements ---------- */
+function saveBlob(blob, filename) {
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 30_000);
+}
+
+async function fetchLog(path) {
+  const r = await api({ action: "file", path });
+  return r.text();
+}
+
+async function deleteFromServer(paths) {
+  if (!$("delete-after").checked || paths.length === 0) return;
+  await api({ action: "delete" }, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ paths }),
+  });
+}
+
+/* Un appareil : .log direct s'il n'y a qu'un jour, ZIP sinon. */
+async function downloadDevice(d, btn) {
+  btn.disabled = true;
+  $("status").textContent = `Téléchargement de « ${d.device?.deviceName || d.deviceId} »…`;
+  try {
+    const name = label(d);
+    if (d.logs.length === 1) {
+      const text = await fetchLog(d.logs[0].path);
+      saveBlob(new Blob([text], { type: "text/plain" }),
+               `${name} ${fileStamp(d.device?.lastUploadAt, true)}.log`);
+    } else {
+      const zip = new JSZip();
+      for (const log of d.logs) {
+        zip.file(`${name}/${log.day}.log`, await fetchLog(log.path));
+      }
+      const blob = await zip.generateAsync({ type: "blob" });
+      saveBlob(blob, `${name} ${fileStamp(d.device?.lastUploadAt, false)}.zip`);
+    }
+    await deleteFromServer(d.logs.map((l) => l.path));
+    $("status").textContent = $("delete-after").checked
+      ? "Téléchargé et supprimé du serveur." : "Téléchargé (laissé sur le serveur).";
+    await loadList();
+  } catch (e) {
+    handleError(e);
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+/* Tout le bucket dans un seul ZIP (un dossier par appareil). */
+$("dl-all").onclick = async () => {
+  const btn = $("dl-all");
+  btn.disabled = true;
+  $("status").textContent = "Construction du ZIP…";
+  try {
+    const zip = new JSZip();
+    const paths = [];
+    for (const d of devices) {
+      const name = label(d);
+      for (const log of d.logs) {
+        zip.file(`${name}/${log.day}.log`, await fetchLog(log.path));
+        paths.push(log.path);
+      }
+    }
+    if (paths.length === 0) { $("status").textContent = "Rien à télécharger."; return; }
+    const blob = await zip.generateAsync({ type: "blob" });
+    saveBlob(blob, `pnyx-journaux-${fileStamp(null, false)}.zip`);
+    await deleteFromServer(paths);
+    $("status").textContent = $("delete-after").checked
+      ? `${paths.length} fichier(s) téléchargé(s) et supprimé(s) du serveur.`
+      : `${paths.length} fichier(s) téléchargé(s) (laissés sur le serveur).`;
+    await loadList();
+  } catch (e) {
+    handleError(e);
+  } finally {
+    btn.disabled = false;
+  }
+};
+
+$("refresh").onclick = () => loadList().catch(handleError);
+
+function handleError(e) {
+  if (String(e.message) === "401") {
+    localStorage.removeItem(TOKEN_KEY);
+    showGate("Jeton refusé — entre-le à nouveau.");
+    return;
+  }
+  $("status").textContent = "Erreur : " + e.message;
+}
+
+/* ---------- Démarrage ---------- */
+async function boot() {
+  if (!token()) { showGate(); return; }
+  $("gate").hidden = true;
+  $("content").hidden = false;
+  try {
+    await loadList();
+  } catch (e) {
+    handleError(e);
+  }
+}
+boot();
+</script>
+</body>
+</html>
