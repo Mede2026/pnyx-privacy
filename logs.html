@@ -11,6 +11,7 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/png" href="icon-180.png">
 <link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="account.css">
 <style>
   .wrap { max-width: 780px; }
   .head { padding: 44px 0 6px; }
@@ -44,6 +45,22 @@
 </style>
 </head>
 <body>
+
+<header class="site">
+  <div class="nav">
+    <a class="brand" href="index.html" aria-label="Pnyx — accueil">
+      <img src="icon-180.png" alt="" width="180" height="180">
+      Pnyx
+    </a>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="faq.html">FAQ</a>
+      <a href="feedback.html">Feedback</a>
+      <span id="nav-account" class="nav-account"></span>
+    </nav>
+  </div>
+</header>
+
 <main class="wrap">
   <div class="head">
     <h1>Journaux des appareils</h1>
@@ -322,6 +339,9 @@ async function adoptDeveloperSession() {
 
 async function boot() {
   if (!sessionJWT) await adoptDeveloperSession();
+  // « Changer de jeton » n'a de sens QUE dans le mode repli : avec la session
+  // développeur, il n'y a pas de jeton à changer (déconnexion = menu du compte).
+  $("logout").hidden = !!sessionJWT;
   if (!sessionJWT && !token()) { showGate(); return; }
   $("gate").hidden = true;
   $("content").hidden = false;
@@ -333,5 +353,8 @@ async function boot() {
 }
 boot();
 </script>
+<!-- Barre du haut : même widget de compte que le reste du site (il crée son
+     propre client sur la MÊME session — chargé après supabase-js ci-dessus). -->
+<script src="account.js"></script>
 </body>
 </html>
