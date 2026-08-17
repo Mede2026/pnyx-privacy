@@ -12,9 +12,10 @@
 .acct-menu { position:absolute; top:calc(100% + 8px); right:0; min-width:216px; background:var(--card);
   border:1px solid var(--card-border); border-radius:14px; box-shadow:0 14px 34px rgba(0,0,0,.28); padding:6px; z-index:1001; }
 .acct-menu[hidden]{ display:none; }
-.acct-menu button { display:block; width:100%; text-align:left; appearance:none; cursor:pointer; font:inherit;
-  font-size:.92rem; color:var(--text); background:none; border:0; border-radius:9px; padding:9px 12px; }
-.acct-menu button:hover { background:var(--icon-tint); color:var(--orange-deep); }
+.acct-menu button, .acct-menu a { display:block; width:100%; text-align:left; appearance:none; cursor:pointer; font:inherit;
+  font-size:.92rem; color:var(--text); background:none; border:0; border-radius:9px; padding:9px 12px;
+  box-sizing:border-box; text-decoration:none; }
+.acct-menu button:hover, .acct-menu a:hover { background:var(--icon-tint); color:var(--orange-deep); }
 .acct-menu button.danger { color:#C0442E; }
 .acct-menu button.danger:hover { background:rgba(192,68,46,.12); }
 .acct-menu .sep { height:1px; background:var(--line); margin:4px 6px; }

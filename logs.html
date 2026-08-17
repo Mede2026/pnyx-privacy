@@ -51,9 +51,10 @@
     <p class="note">Filet de sécurité : chaque appareil garde de toute façon ses journaux 7 jours et les réenverra au besoin — un ZIP perdu n'est pas une perte définitive. Le serveur purge de lui-même tout journal non consommé après 30 jours.</p>
   </div>
 
-  <!-- Porte : jeton d'administration (gardé en localStorage) -->
+  <!-- Porte : normalement JAMAIS vue — la session du compte développeur ouvre
+       la page d'elle-même. Repli quand on n'est pas connecté sur ce navigateur. -->
   <section id="gate" class="panel" hidden>
-    <p style="margin:0 0 10px;"><b>Jeton d'administration</b> — la valeur du secret <code>ADMIN_LOGS_TOKEN</code> (Supabase → Edge Functions → Secrets).</p>
+    <p style="margin:0 0 10px;">Connecte-toi au site avec le <b>compte développeur</b> (bouton du haut, sur n'importe quelle page) et la page s'ouvrira d'elle-même. Sinon, entre le <b>jeton d'administration</b> — la valeur du secret <code>ADMIN_LOGS_TOKEN</code> (Supabase → Edge Functions → Secrets).</p>
     <div style="display:flex; gap:10px; flex-wrap:wrap;">
       <input id="token-input" type="password" placeholder="Jeton…" style="flex:1; min-width:220px;" autocomplete="off">
       <button id="token-save" class="btn primary" type="button">Entrer</button>
@@ -78,6 +79,7 @@
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 /* =========================================================================
    Consommateur canonique des journaux : liste via l'Edge Function
@@ -85,18 +87,28 @@
    puis suppression des .log inclus (sauf case décochée). La clé service-role
    reste dans la fonction — cette page ne voit que le jeton.
    ========================================================================= */
-const FN = "https://wdxjlbsnqmybcdpzwnhs.supabase.co/functions/v1/download-device-logs";
+const SUPABASE_URL = "https://wdxjlbsnqmybcdpzwnhs.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_F9beVTRpaUTKtZNjYHrhSw_hq4Obiv7";
+const FN = SUPABASE_URL + "/functions/v1/download-device-logs";
 const TOKEN_KEY = "pnyx-logs-admin-token";
 
 const $ = (id) => document.getElementById(id);
+const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 let devices = [];   // [{deviceId, device:{deviceName,model,platform,appVersion,lastUploadAt}|null, logs:[{day,path,size}]}]
+/* JWT de la session quand le compte connecté est le développeur (is_admin).
+   Non vide = la page est ouverte SANS jeton ; l'Edge Function revérifie
+   is_admin en base à chaque appel — ce drapeau n'accorde rien par lui-même. */
+let sessionJWT = "";
 
 function token() { return localStorage.getItem(TOKEN_KEY) || ""; }
 
 async function api(params, opts = {}) {
+  const auth = sessionJWT
+    ? { "Authorization": "Bearer " + sessionJWT, "apikey": SUPABASE_ANON_KEY }
+    : { "x-admin-token": token() };
   const r = await fetch(FN + "?" + new URLSearchParams(params), {
     ...opts,
-    headers: { "x-admin-token": token(), ...(opts.headers || {}) },
+    headers: { ...auth, ...(opts.headers || {}) },
   });
   if (r.status === 401) { throw new Error("401"); }
   if (!r.ok) {
@@ -123,7 +135,7 @@ $("token-save").onclick = async () => {
   await boot();
 };
 $("token-input").addEventListener("keydown", (e) => { if (e.key === "Enter") $("token-save").click(); });
-$("logout").onclick = () => { localStorage.removeItem(TOKEN_KEY); showGate(); };
+$("logout").onclick = () => { localStorage.removeItem(TOKEN_KEY); sessionJWT = ""; showGate(); };
 
 /* ---------- Liste ---------- */
 function sanitize(name) {
@@ -282,6 +294,11 @@ $("refresh").onclick = () => loadList().catch(handleError);
 
 function handleError(e) {
   if (String(e.message) === "401") {
+    if (sessionJWT) {   // session présente mais refusée : compte non développeur
+      sessionJWT = "";
+      showGate("Ce compte n'a pas l'accès développeur. Connecte-toi avec le bon compte, ou entre le jeton.");
+      return;
+    }
     localStorage.removeItem(TOKEN_KEY);
     showGate("Jeton refusé — entre-le à nouveau.");
     return;
@@ -290,8 +307,22 @@ function handleError(e) {
 }
 
 /* ---------- Démarrage ---------- */
+/* Session du site : si le compte connecté porte is_admin, la page s'ouvre
+   sans jeton. Silencieux en cas d'échec (hors ligne, pas de session) — on
+   retombe simplement sur la porte à jeton. */
+async function adoptDeveloperSession() {
+  try {
+    const { data } = await sb.auth.getSession();
+    if (!data.session) return;
+    const p = await sb.from("profiles")
+      .select("is_admin").eq("id", data.session.user.id).maybeSingle();
+    if (p.data && p.data.is_admin) sessionJWT = data.session.access_token;
+  } catch (e) { /* pas de session exploitable : porte à jeton */ }
+}
+
 async function boot() {
-  if (!token()) { showGate(); return; }
+  if (!sessionJWT) await adoptDeveloperSession();
+  if (!sessionJWT && !token()) { showGate(); return; }
   $("gate").hidden = true;
   $("content").hidden = false;
   try {

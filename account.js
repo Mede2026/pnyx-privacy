@@ -34,7 +34,8 @@
       confirmDelProfile: "Supprimer ton compte et TOUTES tes demandes, réponses et votes ? C'est irréversible.",
       haveAccount: "Déjà un compte ? Connexion", noAccount: "Pas de compte ? Créer un compte",
       checkEmail: "Compte créé ! Vérifie ton courriel pour confirmer, puis connecte-toi.",
-      dev: "Développeur", fill: "Remplis tous les champs.", pwLen: "Le mot de passe doit faire au moins 6 caractères.",
+      dev: "Développeur", devLogs: "Journaux des appareils",
+      fill: "Remplis tous les champs.", pwLen: "Le mot de passe doit faire au moins 6 caractères.",
       statPosts: "demandes publiées", statReceived: "votes reçus ❤", statGiven: "votes donnés",
       welcome: "Bienvenue !", welcomeBack: "Content de te revoir !", signedOut: "Déconnecté" },
     en: { login: "Log in", signup: "Create account", logout: "Log out",
@@ -48,7 +49,8 @@
       confirmDelProfile: "Delete your account and ALL your posts, replies and votes? This cannot be undone.",
       haveAccount: "Already have an account? Log in", noAccount: "No account? Create one",
       checkEmail: "Account created! Check your email to confirm, then log in.",
-      dev: "Developer", fill: "Fill in every field.", pwLen: "Password must be at least 6 characters.",
+      dev: "Developer", devLogs: "Device logs",
+      fill: "Fill in every field.", pwLen: "Password must be at least 6 characters.",
       statPosts: "requests posted", statReceived: "votes received ❤", statGiven: "votes given",
       welcome: "Welcome!", welcomeBack: "Welcome back!", signedOut: "Signed out" }
   };
@@ -221,6 +223,19 @@
       menu.appendChild(el("div", { class: "sep" }));
       menu.appendChild(el("button", { text: tr("changePseudo"), onclick: function () { closeMenu(); mode = "pseudo"; renderForm(); openModal(); } }));
       menu.appendChild(el("button", { text: tr("changePw"), onclick: function () { closeMenu(); mode = "setpw"; renderForm(); openModal(); } }));
+      // Compte DÉVELOPPEUR seulement : accès direct aux journaux des appareils.
+      // La page s'ouvre déverrouillée — elle reconnaît cette même session et
+      // l'Edge Function revérifie `is_admin` côté serveur (voir logs.html).
+      // Chemin relatif : les pages EN vivent dans /en/.
+      if (profile.is_admin) {
+        menu.appendChild(el("div", { class: "sep" }));
+        menu.appendChild(el("a", {
+          class: "acct-menu-link",
+          href: location.pathname.indexOf("/en/") >= 0 ? "../logs.html" : "logs.html",
+          text: tr("devLogs"),
+          onclick: closeMenu
+        }));
+      }
       menu.appendChild(el("div", { class: "sep" }));
       menu.appendChild(el("button", { text: tr("logout"), onclick: async function () { closeMenu(); await sb.auth.signOut(); toast(tr("signedOut")); } }));
       menu.appendChild(el("button", { class: "danger", text: tr("delProfile"), onclick: function () { closeMenu(); deleteMyProfile(); } }));
