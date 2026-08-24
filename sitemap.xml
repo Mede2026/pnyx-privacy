@@ -115,4 +115,12 @@
     <loc>https://mede2026.github.io/pnyx-privacy/speedmeter/en/support.html</loc>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://mede2026.github.io/pnyx-privacy/apps/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mede2026.github.io/pnyx-privacy/apps/en/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>

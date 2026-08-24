@@ -1,30 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Speed Meter Pro">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="Speed Meter Pro">
   <defs>
-    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#4a4f57"/>
-      <stop offset="1" stop-color="#22262c"/>
-    </linearGradient>
-    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#5a606a"/>
-      <stop offset="1" stop-color="#2b2f35"/>
+    <linearGradient id="smp-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a515c"/>
+      <stop offset="1" stop-color="#252a31"/>
     </linearGradient>
   </defs>
-  <rect width="512" height="512" rx="112" fill="url(#body)"/>
-  <circle cx="256" cy="256" r="172" fill="#0d0f12"/>
-  <path d="M256 84 a172 172 0 1 1 -0.1 0" fill="none" stroke="url(#rim)" stroke-width="26"/>
-  <!-- Zone rouge : le haut de l'échelle -->
-  <path d="M 118 340 A 168 168 0 0 1 104 226" fill="none" stroke="#e03a34" stroke-width="30" stroke-linecap="round"/>
-  <!-- Graduations -->
-  <g stroke="#ffffff" stroke-width="7" stroke-linecap="round" opacity=".85">
-    <line x1="256" y1="112" x2="256" y2="140"/>
-    <line x1="357" y1="141" x2="342" y2="165"/>
-    <line x1="399" y1="256" x2="371" y2="256"/>
-    <line x1="155" y1="141" x2="170" y2="165"/>
-    <line x1="113" y1="256" x2="141" y2="256"/>
-    <line x1="343" y1="347" x2="325" y2="326"/>
-    <line x1="169" y1="347" x2="187" y2="326"/>
+  <rect width="1024" height="1024" rx="228" fill="url(#smp-bg)"/>
+  <circle cx="512" cy="512" r="404" fill="#0e1013"/>
+  <g>
+<path d="M 96.82 416.64 A 432 432 0 0 1 201.04 236.12 L 267.26 299.98 A 340 340 0 0 0 185.23 442.06 Z" fill="#5A6270"></path>
+  <path d="M 212.12 225.04 A 432 432 0 0 1 392.64 120.82 L 418.06 209.23 A 340 340 0 0 0 275.98 291.26 Z" fill="#5A6270"></path>
+  <path d="M 407.77 116.76 A 432 432 0 0 1 616.23 116.76 L 594.03 206.04 A 340 340 0 0 0 429.97 206.04 Z" fill="#5A6270"></path>
+  <path d="M 631.36 120.82 A 432 432 0 0 1 811.88 225.04 L 748.02 291.26 A 340 340 0 0 0 605.94 209.23 Z" fill="#5A6270"></path>
+  <path d="M 822.96 236.12 A 432 432 0 0 1 927.18 416.64 L 838.77 442.06 A 340 340 0 0 0 756.74 299.98 Z" fill="#5A6270"></path>
+  <path d="M 931.24 431.77 A 432 432 0 0 1 931.24 640.23 L 841.96 618.03 A 340 340 0 0 0 841.96 453.97 Z" fill="#5A6270"></path>
+  <path d="M 927.18 655.36 A 432 432 0 0 1 817.47 841.47 L 752.42 776.42 A 340 340 0 0 0 838.77 629.94 Z" fill="#5A6270"></path>
   </g>
-  <!-- Aiguille -->
-  <path d="M256 256 L 349 199" stroke="#f5f5f7" stroke-width="16" stroke-linecap="round"/>
-  <circle cx="256" cy="256" r="26" fill="#2b2f35" stroke="#6b7280" stroke-width="5"/>
+  <g>
+<path d="M 206.53 841.47 A 432 432 0 0 1 96.82 655.36 L 185.23 629.94 A 340 340 0 0 0 271.58 776.42 Z" fill="#ff453a"></path>
+  <path d="M 92.76 640.23 A 432 432 0 0 1 92.76 431.77 L 182.04 453.97 A 340 340 0 0 0 182.04 618.03 Z" fill="#ff453a"></path>
+  </g>
+  <g>
+<path d="M 258.15 779.95 L 210.07 828.04 L 219.96 837.93 L 268.05 789.85 Z" fill="#0e1013"></path>
+  <path d="M 170.18 620.34 L 104.50 637.94 L 108.12 651.47 L 173.81 633.87 Z" fill="#0e1013"></path>
+  <path d="M 173.81 438.13 L 108.12 420.53 L 104.50 434.06 L 170.18 451.66 Z" fill="#0e1013"></path>
+  <path d="M 268.05 282.15 L 219.96 234.07 L 210.07 243.96 L 258.15 292.05 Z" fill="#0e1013"></path>
+  <path d="M 427.66 194.18 L 410.06 128.50 L 396.53 132.12 L 414.13 197.81 Z" fill="#0e1013"></path>
+  <path d="M 609.87 197.81 L 627.47 132.12 L 613.94 128.50 L 596.34 194.18 Z" fill="#0e1013"></path>
+  <path d="M 765.85 292.05 L 813.93 243.96 L 804.04 234.07 L 755.95 282.15 Z" fill="#0e1013"></path>
+  <path d="M 853.82 451.66 L 919.50 434.06 L 915.88 420.53 L 850.19 438.13 Z" fill="#0e1013"></path>
+  <path d="M 850.19 633.87 L 915.88 651.47 L 919.50 637.94 L 853.82 620.34 Z" fill="#0e1013"></path>
+  <path d="M 755.95 789.85 L 804.04 837.93 L 813.93 828.04 L 765.85 779.95 Z" fill="#0e1013"></path>
+  </g>
+  <g>
+<path d="M -96 -26 L 292 -13 Q 312 0 292 13 L -96 26 Q -118 0 -96 -26 Z" fill="#ffffff" transform="translate(512 536) rotate(195.00)"></path>
+  </g>
+  <g>
+<circle cx="512" cy="536" r="72" fill="#8b9099"></circle>
+  <circle cx="512" cy="536" r="28" fill="#0e1013"></circle>
+  </g>
 </svg>
