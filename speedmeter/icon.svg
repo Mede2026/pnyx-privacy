@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Speed Meter Pro">
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a4f57"/>
+      <stop offset="1" stop-color="#22262c"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5a606a"/>
+      <stop offset="1" stop-color="#2b2f35"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#body)"/>
+  <circle cx="256" cy="256" r="172" fill="#0d0f12"/>
+  <path d="M256 84 a172 172 0 1 1 -0.1 0" fill="none" stroke="url(#rim)" stroke-width="26"/>
+  <!-- Zone rouge : le haut de l'échelle -->
+  <path d="M 118 340 A 168 168 0 0 1 104 226" fill="none" stroke="#e03a34" stroke-width="30" stroke-linecap="round"/>
+  <!-- Graduations -->
+  <g stroke="#ffffff" stroke-width="7" stroke-linecap="round" opacity=".85">
+    <line x1="256" y1="112" x2="256" y2="140"/>
+    <line x1="357" y1="141" x2="342" y2="165"/>
+    <line x1="399" y1="256" x2="371" y2="256"/>
+    <line x1="155" y1="141" x2="170" y2="165"/>
+    <line x1="113" y1="256" x2="141" y2="256"/>
+    <line x1="343" y1="347" x2="325" y2="326"/>
+    <line x1="169" y1="347" x2="187" y2="326"/>
+  </g>
+  <!-- Aiguille -->
+  <path d="M256 256 L 349 199" stroke="#f5f5f7" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="256" cy="256" r="26" fill="#2b2f35" stroke="#6b7280" stroke-width="5"/>
+</svg>

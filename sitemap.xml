@@ -91,4 +91,28 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://mede2026.github.io/pnyx-privacy/speedmeter/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mede2026.github.io/pnyx-privacy/speedmeter/privacy-policy.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mede2026.github.io/pnyx-privacy/speedmeter/support.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mede2026.github.io/pnyx-privacy/speedmeter/en/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mede2026.github.io/pnyx-privacy/speedmeter/en/privacy-policy.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mede2026.github.io/pnyx-privacy/speedmeter/en/support.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
