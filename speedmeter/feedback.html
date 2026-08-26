@@ -3,26 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Feedback Pnyx — Idées, bugs et questions</title>
-<meta name="description" content="Proposez des améliorations pour Pnyx, signalez des bugs et posez vos questions au développeur. Votez pour les idées, suivez leur statut et échangez directement.">
-<meta property="og:title" content="Feedback Pnyx — Idées, bugs et questions">
+<title>Feedback Speed-Do-Meter — Idées, bugs et questions</title>
+<meta name="description" content="Proposez des améliorations pour Speed-Do-Meter, signalez des bugs et posez vos questions au développeur. Votez pour les idées, suivez leur statut et échangez directement.">
+<meta property="og:title" content="Feedback Speed-Do-Meter — Idées, bugs et questions">
 <meta property="og:description" content="Proposez des améliorations, signalez des bugs, posez vos questions. Votez et suivez le statut.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://mede2026.github.io/pnyx-privacy/feedback.html">
-<meta property="og:site_name" content="Pnyx">
+<meta property="og:url" content="https://mede2026.github.io/pnyx-privacy/speedmeter/feedback.html">
+<meta property="og:site_name" content="Speed-Do-Meter">
 <meta property="og:locale" content="fr_CA">
 <meta property="og:locale:alternate" content="en">
-<meta property="og:image" content="https://mede2026.github.io/pnyx-privacy/icon-512.png">
+<meta property="og:image" content="https://mede2026.github.io/pnyx-privacy/speedmeter/og-image.png">
 <meta name="robots" content="noindex">
-<link rel="canonical" href="https://mede2026.github.io/pnyx-privacy/feedback.html">
-<link rel="alternate" hreflang="fr" href="https://mede2026.github.io/pnyx-privacy/feedback.html">
-<link rel="alternate" hreflang="en" href="https://mede2026.github.io/pnyx-privacy/en/feedback.html">
-<link rel="alternate" hreflang="x-default" href="https://mede2026.github.io/pnyx-privacy/feedback.html">
+<link rel="canonical" href="https://mede2026.github.io/pnyx-privacy/speedmeter/feedback.html">
+<link rel="alternate" hreflang="fr" href="https://mede2026.github.io/pnyx-privacy/speedmeter/feedback.html">
+<link rel="alternate" hreflang="en" href="https://mede2026.github.io/pnyx-privacy/speedmeter/en/feedback.html">
+<link rel="alternate" hreflang="x-default" href="https://mede2026.github.io/pnyx-privacy/speedmeter/feedback.html">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-<link rel="icon" type="image/png" href="icon-180.png">
-<link rel="apple-touch-icon" href="icon-180.png">
-<link rel="stylesheet" href="theme.css">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="../theme.css">
 <style>
   /* Palette, menu, boutons, bilingue : theme.css.
      Ici, uniquement ce qui est PROPRE au tableau de feedback : les couleurs
@@ -191,13 +191,13 @@
 
 <header class="site">
   <div class="nav">
-    <a class="brand" href="index.html" aria-label="Pnyx — accueil"><img src="icon-180.png" alt="" width="180" height="180">Pnyx</a>
+    <a class="brand" href="index.html" aria-label="Speed-Do-Meter — accueil"><img src="icon.svg" alt="" width="180" height="180">Speed-Do-Meter</a>
     <nav>
-      <a href="apps/index.html" data-home-link>Applications</a>
-      <a href="index.html"><span data-t="fr">Accueil</span></a>
-      <a href="faq.html">FAQ</a>
+      <a href="../apps/index.html" data-home-link>Applications</a>
+      <a href="index.html">Accueil</a>
       <a href="feedback.html" aria-current="page">Feedback</a>
-      <a href="support.html"><span data-t="fr">Assistance</span></a>
+      <a href="privacy-policy.html">Confidentialité</a>
+      <a href="support.html">Assistance</a>
       <span id="nav-account" class="nav-account"></span>
       <span class="lang-switch" role="group" aria-label="Language / Langue">
         <strong aria-current="true">FR</strong>
@@ -210,7 +210,7 @@
 <main class="wrap">
   <div class="head">
     <span class="kicker"><span data-t="fr">Idées, bugs et questions</span></span>
-    <h1><span data-t="fr">Aidez à façonner Pnyx</span></h1>
+    <h1><span data-t="fr">Aidez à façonner Speed-Do-Meter</span></h1>
     <p class="sub">
       <span data-t="fr">Proposez une amélioration, signalez un bogue ou posez une question. Votez pour ce qui compte le plus — le développeur lit tout et répond ici même.</span>
       
@@ -261,7 +261,7 @@
 </main>
 
 <footer class="site">
-  <div class="f-brand"><img src="icon-180.png" alt="" width="180" height="180">Pnyx</div>
+  <div class="f-brand"><img src="icon.svg" alt="" width="180" height="180">Speed-Do-Meter</div>
   <div class="links">
     <a href="index.html"><span data-t="fr">Accueil</span></a>
     <a href="faq.html">FAQ</a>
@@ -284,7 +284,7 @@
 // Les deux applications partagent la même base : sans ce filtre, les
 // demandes de Pnyx et celles de Speed-Do-Meter se mélangeraient sur le même
 // tableau. Chaque page ne lit et n'écrit que son produit.
-const PRODUCT = "pnyx";
+const PRODUCT = "speedmeter";
 
 const SUPABASE_URL      = "https://wdxjlbsnqmybcdpzwnhs.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_F9beVTRpaUTKtZNjYHrhSw_hq4Obiv7";
