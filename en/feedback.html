@@ -193,7 +193,7 @@
   <div class="nav">
     <a class="brand" href="index.html" aria-label="Pnyx — accueil"><img src="../icon-180.png" alt="" width="180" height="180">Pnyx</a>
     <nav>
-      <a href="../apps/en/index.html" data-home-link>Apps</a>
+      <a href="../apps/index.html" data-home-link><span data-t="en">Apps</span></a>
       <a href="index.html"><span data-t="en">Home</span></a>
       <a href="faq.html">FAQ</a>
       <a href="feedback.html" aria-current="page">Feedback</a>
@@ -281,11 +281,6 @@
    publique : la sécurité vient des règles RLS (voir supabase-feedback-setup.sql),
    jamais du secret. NE JAMAIS mettre ici la clé « service_role ».
    ========================================================================= */
-// Les deux applications partagent la même base : sans ce filtre, les
-// demandes de Pnyx et celles de Speed-Do-Meter se mélangeraient sur le même
-// tableau. Chaque page ne lit et n'écrit que son produit.
-const PRODUCT = "pnyx";
-
 const SUPABASE_URL      = "https://wdxjlbsnqmybcdpzwnhs.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_F9beVTRpaUTKtZNjYHrhSw_hq4Obiv7";
 function lang(){ return document.documentElement.getAttribute("data-lang")==="en" ? "en":"fr"; }
@@ -387,10 +382,15 @@ if (!configured) {
 }
 
 
-// La colonne `product` peut ne pas encore exister dans la base : tant qu'elle
-// est absente, on retombe sur l'ancien comportement au lieu d'afficher une
-// erreur. L'ordre des opérations devient sans importance — le site fonctionne
-// avant comme après la migration.
+// Les deux applications partagent la même base. Sans ce filtre, les demandes de
+// Pnyx et celles de Speed-Do-Meter atterriraient sur le même tableau : chaque
+// page ne lit et n'écrit donc que son produit.
+const PRODUCT = "pnyx";
+
+// La colonne `product` peut ne pas encore exister : tant qu'elle est absente,
+// on retombe sur l'ancien comportement au lieu d'afficher une erreur. L'ordre
+// des opérations devient sans importance — le site marche avant comme après la
+// migration de la base.
 let hasProduct = true;
 
 async function probeProduct(){
