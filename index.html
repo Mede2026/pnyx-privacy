@@ -55,10 +55,10 @@
       "description": "Pnyx: smart voice dictation for iPhone, iPad, and Mac. Fully on-device or cloud transcription, AI text enhancement, iOS keyboard, global shortcut on Mac, notes, iCloud sync.",
       "applicationCategory": "ProductivityApplication",
       "operatingSystem": "iOS, iPadOS, macOS, Windows",
-      "softwareVersion": "0.4",
+      "softwareVersion": "0.5",
       "downloadUrl": [
         "https://apps.apple.com/ca/app/pnyx/id6783030642",
-        "https://mede2026.github.io/pnyx-privacy/releases/Pnyx-Mac-0.4.zip",
+        "https://mede2026.github.io/pnyx-privacy/releases/Pnyx-Mac-0.5.zip",
         "https://mede2026.github.io/pnyx-privacy/releases/PnyxHelper-Windows-1.7.zip"
       ],
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" },
@@ -327,10 +327,10 @@
     </div>
 
     <div class="cta-row">
-      <a class="btn primary" data-mac-download href="releases/Pnyx-Mac-0.4.zip">
+      <a class="btn primary" data-mac-download href="releases/Pnyx-Mac-0.5.zip">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 19h16"/></svg>
         <span>
-          <span data-t="fr">Télécharger Pnyx pour Mac (<span data-mac-version>0.4</span>) · Bêta</span>
+          <span data-t="fr">Télécharger Pnyx pour Mac (<span data-mac-version>0.5</span>) · Bêta</span>
           
         </span>
       </a>
@@ -340,10 +340,10 @@
       </a>
     </div>
     <div class="cta-row secondary">
-      <a class="btn ghost" href="releases/PnyxHelper-Windows-1.7.zip">
+      <a class="btn ghost" data-helper-download href="releases/PnyxHelper-Windows-1.7.zip">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.7 10.3 4.7v6.6H3zM11.3 4.5 21 3v8.3h-9.7zM3 12.3h7.3v6.6L3 17.9zM11.3 12.3H21V21l-9.7-1.4z"/></svg>
         <span>
-          <span data-t="fr">Télécharger Pnyx Helper pour Windows (1.5)</span>
+          <span data-t="fr">Télécharger Pnyx Helper pour Windows (<span data-helper-version>1.7</span>)</span>
           
         </span>
       </a>
@@ -611,10 +611,10 @@
           <span data-t="fr">La dictée intelligente dans toutes vos apps Mac : appuyez sur le raccourci, parlez, le texte apparaît au curseur.</span>
           
         </p>
-        <a class="btn primary" data-mac-download href="releases/Pnyx-Mac-0.4.zip">
+        <a class="btn primary" data-mac-download href="releases/Pnyx-Mac-0.5.zip">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 19h16"/></svg>
           <span>
-            <span data-t="fr">Télécharger Pnyx pour Mac (<span data-mac-version>0.4</span>) · Bêta</span>
+            <span data-t="fr">Télécharger Pnyx pour Mac (<span data-mac-version>0.5</span>) · Bêta</span>
             
           </span>
         </a>
@@ -633,7 +633,7 @@
           </li>
         </ul>
         <p class="dl-ios">
-          <span data-t="fr">Sur PC Windows : <a href="releases/PnyxHelper-Windows-1.7.zip"><strong>télécharger Pnyx Helper pour Windows (1.5)</strong></a> (portable — recevez vos dictées iPhone/iPad sur le PC, se met à jour tout seul ; nécessite la dernière version de Pnyx).</span>
+          <span data-t="fr">Sur PC Windows : <a data-helper-download href="releases/PnyxHelper-Windows-1.7.zip"><strong>télécharger Pnyx Helper pour Windows (<span data-helper-version>1.7</span>)</strong></a> (portable — recevez vos dictées iPhone/iPad sur le PC, se met à jour tout seul ; nécessite la dernière version de Pnyx).</span>
           
         </p>
         <p class="dl-ios">
@@ -774,6 +774,34 @@
         }
       }
       if (meilleur) applique(meilleur.url, meilleur.version);
+    })
+    .catch(function () { /* le lien statique de secours reste en place */ });
+})();
+
+/* Bouton de téléchargement du Helper Windows : lit helper-latest.json (le MÊME
+   manifeste que la mise à jour automatique du Helper) et pointe vers le zip de
+   la version courante. Sans ça, ces liens et le numéro affiché sont écrits en
+   dur et se démodent à chaque version — c'est arrivé (page en 1.5 alors que le
+   manifeste annonçait déjà 1.7). Le lien statique reste le repli sans JS. */
+(function () {
+  fetch("helper-latest.json", { cache: "no-cache" })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (info) {
+      var version = (info && info.version || "").trim();
+      if (!/^[0-9][0-9.]*$/.test(version)) return;   // rien d'inattendu dans une URL
+      // ⚠️ L'URL doit être ABSOLUE : les pages anglaises vivent sous /en/, donc un
+      // chemin relatif « releases/… » y pointerait sur /en/releases/… (404). On la
+      // dérive de celle du manifeste, qui est absolue, comme le fait l'appcast Mac.
+      var exe = (info && info.url || "").trim();
+      var i = exe.lastIndexOf("/");
+      if (i < 0) return;
+      var url = exe.slice(0, i + 1) + "PnyxHelper-Windows-" + version + ".zip";
+      var liens = document.querySelectorAll("[data-helper-download]");
+      for (var i = 0; i < liens.length; i++) {
+        liens[i].setAttribute("href", url);
+        var vs = liens[i].querySelectorAll("[data-helper-version]");
+        for (var k = 0; k < vs.length; k++) { vs[k].textContent = version; }
+      }
     })
     .catch(function () { /* le lien statique de secours reste en place */ });
 })();
