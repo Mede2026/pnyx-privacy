@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sports Counter Feedback — Ideas, bugs and questions</title>
+<meta name="description" content="Suggest improvements for Sports Counter, report bugs, and ask the developer questions. Vote for ideas, follow their status, and talk with the developer directly.">
+<meta property="og:title" content="Sports Counter Feedback — Ideas, bugs, and questions">
+<meta property="og:description" content="Suggest improvements, report bugs, ask questions. Vote and follow status.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mede2026.github.io/pnyx-privacy/sports-counter/en/feedback.html">
+<meta property="og:site_name" content="Sports Counter">
+<meta property="og:locale" content="en">
+<meta property="og:locale:alternate" content="fr_CA">
+<meta property="og:image" content="https://mede2026.github.io/pnyx-privacy/sports-counter/og-image.png">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://mede2026.github.io/pnyx-privacy/sports-counter/en/feedback.html">
+<link rel="alternate" hreflang="fr" href="https://mede2026.github.io/pnyx-privacy/sports-counter/feedback.html">
+<link rel="alternate" hreflang="en" href="https://mede2026.github.io/pnyx-privacy/sports-counter/en/feedback.html">
+<link rel="alternate" hreflang="x-default" href="https://mede2026.github.io/pnyx-privacy/sports-counter/feedback.html">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="../icon-256.png">
+<link rel="apple-touch-icon" href="../icon-256.png">
+<link rel="stylesheet" href="../../theme.css">
+<style>
+  /* Palette, menu, boutons, bilingue : theme.css.
+     Ici, uniquement ce qui est PROPRE au tableau de feedback : les couleurs
+     de catégories/statuts et les ombres des cartes. */
+  :root {
+    --shadow-card: 0 1px 2px rgba(0,0,0,.05);
+    --shadow-card-hover: 0 14px 30px rgba(0,0,0,.13), 0 3px 8px rgba(0,0,0,.07);
+    --red:#C0442E; --blue:#3B6EA5; --purple:#6A5AA9; --green:#3E8E5A; --amber:#B8791F;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --shadow-card: 0 1px 2px rgba(0,0,0,.25);
+      --shadow-card-hover: 0 14px 30px rgba(0,0,0,.45), 0 3px 8px rgba(0,0,0,.3);
+      --red:#E08a78; --blue:#7FA8D4; --purple:#A99CE0; --green:#77C593; --amber:#E0B061;
+    }
+  }
+
+  /* Sans ceci, `display:flex` posé sur .account/.filters l'emporterait sur
+     l'attribut `hidden` (UA `[hidden]{display:none}`) → barres vides visibles. */
+  [hidden] { display:none !important; }
+  /* Le tableau est plus étroit que les autres pages. */
+  .wrap { max-width:820px; }
+
+  /* Compte dans la barre du haut (à côté de FR/EN) */
+  .nav-account { display:inline-flex; align-items:center; gap:6px; position:relative; }
+  .acct-btn { appearance:none; cursor:pointer; font:inherit; font-size:.88rem; font-weight:650; color:var(--text);
+    background:var(--card); border:1.5px solid var(--card-border); border-radius:999px; padding:5px 13px;
+    display:inline-flex; align-items:center; gap:5px; transition:.15s; }
+  .acct-btn:hover { border-color:var(--orange); color:var(--orange-deep); }
+  .acct-btn.primary { color:#fff; background:var(--accent); border-color:transparent; }
+  .acct-menu { position:absolute; top:calc(100% + 8px); right:0; min-width:216px; background:var(--card);
+    border:1px solid var(--card-border); border-radius:14px; box-shadow:var(--shadow-card-hover); padding:6px; z-index:40; }
+  .acct-menu button { display:block; width:100%; text-align:left; appearance:none; cursor:pointer; font:inherit;
+    font-size:.92rem; color:var(--text); background:none; border:0; border-radius:9px; padding:9px 12px; }
+  .acct-menu button:hover { background:var(--icon-tint); color:var(--orange-deep); }
+  .acct-menu button.danger { color:var(--red); }
+  .acct-menu button.danger:hover { background:color-mix(in srgb,var(--red) 14%,transparent); color:var(--red); }
+  .acct-menu .sep { height:1px; background:var(--line); margin:4px 6px; }
+  .acct-menu .acct-stats { padding:8px 12px 4px; }
+  .acct-menu .acct-stats div { font-size:.9rem; color:var(--text-soft); padding:2px 0; }
+  .acct-menu .acct-stats strong { color:var(--hero-ink); font-size:1.02rem; margin-right:3px; }
+
+  /* En-tête */
+  .head { padding:44px 0 6px; }
+  h1 { font-size:clamp(1.8rem,5vw,2.5rem); line-height:1.1; margin:0 0 12px; letter-spacing:-.02em; font-weight:800; color:var(--hero-ink); }
+  .sub { color:var(--text-soft); margin:0; font-size:1.03rem; max-width:620px; }
+
+  /* Boutons génériques */
+  .btn { appearance:none; cursor:pointer; font:inherit; font-weight:650; border-radius:999px; border:1.5px solid transparent; padding:10px 18px; display:inline-flex; align-items:center; gap:8px; text-decoration:none; transition:.18s; }
+  .btn.primary { color:#fff; background:var(--accent); box-shadow:0 6px 16px rgba(0,113,227,.28); }
+  .btn.primary:hover { filter:brightness(1.05); transform:translateY(-1px); }
+  .btn.ghost { color:var(--text); background:color-mix(in srgb,var(--card) 70%,transparent); border-color:var(--card-border); }
+  .btn.ghost:hover { color:var(--orange-deep); border-color:color-mix(in srgb,var(--orange) 45%,var(--card-border)); }
+  .btn:disabled { opacity:.5; cursor:default; transform:none; filter:none; }
+  .btn.sm { padding:6px 13px; font-size:.86rem; }
+
+  /* Barre de compte */
+  .account { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:22px 0 4px;
+    padding:12px 16px; background:var(--card); border:1px solid var(--card-border); border-radius:14px; box-shadow:var(--shadow-card); }
+  .account .who { font-weight:600; }
+  .account .who .badge-dev { margin-left:6px; }
+  .account .spacer { margin-left:auto; }
+
+  /* Champs & formulaires */
+  input, textarea, select { font:inherit; color:var(--text); background:var(--field); border:1.5px solid var(--card-border); border-radius:11px; padding:10px 13px; width:100%; }
+  input:focus, textarea:focus, select:focus { outline:none; border-color:var(--orange); }
+  textarea { resize:vertical; min-height:90px; }
+  .pw-wrap { position:relative; }
+  .pw-wrap input { padding-right:46px; }
+  .pw-eye { position:absolute; right:4px; top:0; height:100%; width:40px; display:flex; align-items:center; justify-content:center; border:0; background:none; cursor:pointer; font-size:1.1rem; line-height:1; opacity:.6; }
+  .pw-eye:hover { opacity:1; }
+  label.fld { display:block; margin:0 0 12px; }
+  label.fld > span { display:block; font-size:.85rem; font-weight:600; color:var(--text-soft); margin:0 0 5px; }
+  .row { display:flex; gap:12px; flex-wrap:wrap; }
+  .row > * { flex:1; min-width:150px; }
+  .err { color:var(--red); font-size:.9rem; margin:6px 0 0; }
+  .muted { color:var(--text-soft); }
+
+  .panel { background:var(--card); border:1px solid var(--card-border); border-radius:16px; padding:20px; box-shadow:var(--shadow-card); margin:14px 0; }
+  .panel h2 { margin:0 0 14px; font-size:1.15rem; color:var(--hero-ink); }
+  details.compose > summary { cursor:pointer; list-style:none; }
+  details.compose > summary::-webkit-details-marker { display:none; }
+
+  /* Barre de filtres */
+  .filters { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin:20px 0 6px; }
+  .chip { appearance:none; cursor:pointer; font:inherit; font-size:.88rem; font-weight:600; color:var(--text-soft);
+    background:var(--card); border:1.5px solid var(--card-border); border-radius:999px; padding:6px 14px; transition:.15s; }
+  .chip:hover { color:var(--orange-deep); }
+  .chip[aria-pressed="true"] { background:var(--orange); border-color:var(--orange); color:#fff; }
+  .filters .sort { margin-left:auto; }
+  .filters .sort select { width:auto; padding:7px 12px; border-radius:999px; }
+  .filters-row2 { flex-basis:100%; display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:2px; }
+  .search-inp { flex:1 1 180px; padding:7px 14px; border-radius:999px; }
+  .sort-sel { width:auto; padding:7px 12px; border-radius:999px; }
+  /* Feuille de route : 3 colonnes (Prévu / En cours / Terminé) */
+  .roadmap { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; align-items:start; }
+  @media (max-width:720px){ .roadmap { grid-template-columns:1fr; } }
+  .rm-col-title { margin:0 0 10px; padding:0 2px; }
+  .rm-empty { color:var(--text-soft); font-size:.86rem; padding:8px 2px; }
+  .roadmap .post { flex-direction:column; gap:10px; }
+  .roadmap .vote { flex-direction:row; width:auto; align-self:flex-start; gap:7px; padding:5px 11px; }
+
+  /* Cartes de post */
+  .post { display:flex; gap:14px; background:var(--card); border:1px solid var(--card-border); border-radius:14px;
+    padding:16px 18px; margin:0 0 12px; box-shadow:var(--shadow-card); transition:border-color .18s,box-shadow .18s; }
+  .post:hover { box-shadow:var(--shadow-card-hover); }
+  .post.pinned { border-color:color-mix(in srgb,var(--orange) 40%,var(--card-border)); }
+  .vote { flex:none; display:flex; flex-direction:column; align-items:center; gap:2px; width:52px;
+    border:1.5px solid var(--card-border); border-radius:12px; padding:8px 0; cursor:pointer; background:transparent; color:var(--text-soft); font:inherit; transition:.15s; }
+  .vote:hover { border-color:var(--orange); color:var(--orange-deep); }
+  .vote[aria-pressed="true"] { border-color:var(--orange); background:var(--icon-tint); color:var(--orange-deep); }
+  .vote .arrow { font-size:1rem; line-height:1; }
+  .vote .count { font-weight:750; font-size:1.05rem; color:var(--hero-ink); }
+  .vote[aria-pressed="true"] .count { color:var(--orange-deep); }
+  .post .main { flex:1; min-width:0; }
+  .post .ptitle { margin:0 0 4px; font-size:1.05rem; font-weight:700; color:var(--hero-ink); cursor:pointer; }
+  .post .ptitle:hover { color:var(--orange-deep); }
+  .post .pbody { margin:0; color:var(--text-soft); font-size:.95rem; overflow-wrap:anywhere; }
+  .post .meta { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:9px; font-size:.82rem; color:var(--text-soft); }
+
+  .tagchip, .statuschip { font-size:.76rem; font-weight:700; padding:3px 9px; border-radius:999px; letter-spacing:.01em; }
+  .tag-bug          { color:var(--red);    background:color-mix(in srgb,var(--red) 15%,transparent); }
+  .tag-amelioration { color:var(--blue);   background:color-mix(in srgb,var(--blue) 15%,transparent); }
+  .tag-question     { color:var(--purple); background:color-mix(in srgb,var(--purple) 16%,transparent); }
+  .tag-autre        { color:var(--text-soft); background:color-mix(in srgb,var(--text-soft) 14%,transparent); }
+  .st-ouvert   { color:var(--text-soft); background:color-mix(in srgb,var(--text-soft) 13%,transparent); }
+  .st-prevu    { color:var(--purple); background:color-mix(in srgb,var(--purple) 15%,transparent); }
+  .st-encours  { color:var(--amber);  background:color-mix(in srgb,var(--amber) 16%,transparent); }
+  .st-termine  { color:var(--green);  background:color-mix(in srgb,var(--green) 16%,transparent); }
+  .st-refuse   { color:var(--red);    background:color-mix(in srgb,var(--red) 13%,transparent); }
+  .badge-dev { font-size:.72rem; font-weight:700; color:#fff; background:var(--orange); padding:2px 7px; border-radius:999px; }
+  .comments-n { display:inline-flex; align-items:center; gap:4px; }
+
+  /* Détail (comments) */
+  .detail { margin:10px 0 0; padding:14px 0 0; border-top:1px dashed var(--line); }
+  .comment { display:flex; gap:10px; padding:11px 0; border-bottom:1px solid var(--line); }
+  .comment:last-child { border-bottom:0; }
+  .comment .cwho { font-weight:650; font-size:.9rem; color:var(--hero-ink); }
+  .comment .cbody { margin:3px 0 0; color:var(--text); font-size:.94rem; overflow-wrap:anywhere; }
+  .comment .cdate { font-size:.78rem; color:var(--text-soft); }
+  .comment.dev { background:color-mix(in srgb,var(--orange) 7%,transparent); border-radius:10px; padding:11px 12px; }
+  .admin-row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:10px; }
+  .admin-row select { width:auto; padding:6px 10px; border-radius:9px; font-size:.85rem; }
+  .linklike { appearance:none; border:0; background:none; cursor:pointer; font:inherit; font-size:.82rem; color:var(--text-soft); padding:0; text-decoration:underline; }
+  .linklike:hover { color:var(--red); }
+
+  .notice { padding:14px 16px; border-radius:12px; background:color-mix(in srgb,var(--amber) 12%,transparent); border:1px solid color-mix(in srgb,var(--amber) 40%,transparent); color:var(--text); margin:16px 0; }
+  .empty { text-align:center; color:var(--text-soft); padding:40px 0; }
+  .toast { position:fixed; left:50%; bottom:22px; transform:translateX(-50%); background:var(--navy); color:#fff; padding:11px 18px; border-radius:999px; box-shadow:0 10px 30px rgba(0,0,0,.3); font-size:.92rem; opacity:0; pointer-events:none; transition:opacity .25s; z-index:50; }
+  .toast.show { opacity:1; }
+
+  footer.site { border-top:1px solid var(--line); margin-top:44px; padding:30px 22px; max-width:980px; margin-left:auto; margin-right:auto; display:flex; flex-wrap:wrap; gap:14px 24px; align-items:center; color:var(--text-soft); font-size:.9rem; }
+  footer.site .f-brand { display:flex; align-items:center; gap:9px; font-weight:700; color:var(--text); }
+  footer.site .f-brand img { width:22px; height:22px; border-radius:22%; }
+  footer.site .links { display:flex; flex-wrap:wrap; gap:16px; margin-left:auto; }
+  footer.site a { color:var(--text-soft); text-decoration:none; }
+  footer.site a:hover { color:var(--orange-deep); }
+
+  @media (max-width:640px){
+    .nav { flex-wrap:wrap; } .nav nav { flex-wrap:wrap; margin-left:0; width:100%; justify-content:center; }
+    footer.site .links { margin-left:0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a class="brand" href="index.html" aria-label="Sports Counter — home"><img src="../icon-256.png" alt="" width="180" height="180">Sports Counter</a>
+    <nav>
+      <a href="../../apps/en/index.html" data-home-link>Apps</a>
+      <a href="index.html">Home</a>
+      <a href="feedback.html" aria-current="page">Feedback</a>
+      <a href="privacy-policy.html">Privacy</a>
+      <a href="support.html">Support</a>
+      <span id="nav-account" class="nav-account"></span>
+      <span class="lang-switch" role="group" aria-label="Language / Langue">
+        <a href="../feedback.html" hreflang="fr" lang="fr">FR</a>
+        <strong aria-current="true">EN</strong>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="head">
+    <span class="kicker"><span data-t="en">Ideas, bugs and questions</span></span>
+    <h1><span data-t="en">Help shape Sports Counter</span></h1>
+    <p class="sub">
+      
+      <span data-t="en">Suggest an improvement, report a bug or ask a question. Vote for what matters most — the developer reads everything and replies right here.</span>
+    </p>
+  </div>
+
+  <div id="config-notice" class="notice" hidden>
+    
+    <span data-t="en"><strong>The feedback board is being set up.</strong> Please check back very soon!</span>
+  </div>
+
+  <!-- Formulaire d'authentification (connexion, inscription, mot de passe, pseudo) -->
+  <div id="auth-panel" class="panel" hidden>
+    <h2 id="auth-title"></h2>
+    <div id="auth-fields"></div>
+    <p id="auth-error" class="err" hidden></p>
+    <div class="row" style="align-items:center; margin-top:4px;">
+      <button id="auth-submit" class="btn primary" type="button" style="flex:none;"></button>
+      <button id="auth-toggle" class="linklike" type="button" style="flex:none;"></button>
+    </div>
+  </div>
+
+  <!-- Nouveau post (connecté) -->
+  <details id="compose" class="panel compose" hidden>
+    <summary class="btn ghost" style="width:100%; justify-content:center;">
+      <span data-t="en">＋ New request</span>
+    </summary>
+    <div style="margin-top:16px;">
+      <label class="fld"><span data-t="en">Title</span>
+        <input id="np-title" type="text" maxlength="140" placeholder="…">
+      </label>
+      <label class="fld"><span data-t="en">Details</span>
+        <textarea id="np-body" maxlength="4000" placeholder="…"></textarea>
+      </label>
+      <label class="fld" style="max-width:220px;"><span data-t="en">Category</span>
+        <select id="np-tag"></select>
+      </label>
+      <p id="np-error" class="err" hidden></p>
+      <button id="np-submit" class="btn primary" type="button"><span data-t="en">Post</span></button>
+    </div>
+  </details>
+
+  <!-- Filtres -->
+  <div id="filters" class="filters" hidden></div>
+
+  <!-- Liste -->
+  <div id="board" aria-live="polite"></div>
+</main>
+
+<footer class="site">
+  <div class="f-brand"><img src="../icon-256.png" alt="" width="180" height="180">Sports Counter</div>
+  <div class="links">
+    <a href="index.html"><span data-t="en">Home</span></a>
+    <a href="feedback.html">Feedback</a>
+    <a href="privacy-policy.html"><span data-t="en">Privacy</span></a>
+    <a href="support.html"><span data-t="en">Support</span></a>
+  </div>
+</footer>
+
+<div id="toast" class="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/* =========================================================================
+   CONFIGURATION — REMPLACE ces deux valeurs par celles de TON projet Supabase
+   (Project Settings → API). La clé « anon public » est FAITE pour être
+   publique : la sécurité vient des règles RLS (voir supabase-feedback-setup.sql),
+   jamais du secret. NE JAMAIS mettre ici la clé « service_role ».
+   ========================================================================= */
+// Les deux applications partagent la même base : sans ce filtre, les
+// demandes de Pnyx et celles de Sports Counter se mélangeraient sur le même
+// tableau. Chaque page ne lit et n'écrit que son produit.
+const PRODUCT = "sports-counter";
+
+const SUPABASE_URL      = "https://wdxjlbsnqmybcdpzwnhs.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_F9beVTRpaUTKtZNjYHrhSw_hq4Obiv7";
+function lang(){ return document.documentElement.getAttribute("data-lang")==="en" ? "en":"fr"; }
+
+/* ---------- Traductions des libellés dynamiques ---------- */
+const T = {
+  fr: {
+    tags:{bug:"Bogue",amelioration:"Amélioration",question:"Question",autre:"Autre"},
+    tagsPlural:{bug:"Bogues",amelioration:"Améliorations",question:"Questions",autre:"Autres"},
+    statuses:{ouvert:"Ouvert",prevu:"Prévu",encours:"En cours",termine:"Terminé",refuse:"Hors périmètre"},
+    all:"Tous", sortTop:"Plus votés", sortNew:"Récents",
+    login:"Connexion", signup:"Créer un compte", logout:"Déconnexion",
+    email:"Courriel", password:"Mot de passe", pseudo:"Pseudo (affiché publiquement)",
+    needAccountPost:"Connecte-toi pour publier une demande.",
+    needAccountVote:"Connecte-toi pour voter.",
+    reply:"Répondre", comment:"Commenter", send:"Envoyer",
+    yourReply:"Ta réponse…", yourComment:"Ton commentaire…",
+    noPosts:"Aucune demande pour l'instant. Sois le premier à proposer une idée !",
+    by:"par", dev:"Développeur", del:"Supprimer", confirmDel:"Supprimer définitivement ?",
+    posted:"Publié ✓", replied:"Réponse envoyée ✓", voteErr:"Vote impossible.",
+    checkEmail:"Compte créé ! Vérifie ton courriel pour confirmer, puis connecte-toi.",
+    haveAccount:"Déjà un compte ? Connexion", noAccount:"Pas de compte ? Créer un compte",
+    forgot:"Mot de passe oublié ?", enterEmailReset:"Entre ton courriel : tu recevras un lien pour choisir un nouveau mot de passe.",
+    resetSent:"Courriel envoyé ✓ — vérifie ta boîte de réception.",
+    newPassword:"Nouveau mot de passe", setPassword:"Enregistrer le mot de passe",
+    pwChanged:"Mot de passe modifié ✓", changePw:"Changer le mot de passe", send:"Envoyer le lien",
+    changePseudo:"Changer le pseudo", delProfile:"Supprimer mon profil", save:"Enregistrer", saved:"Enregistré ✓",
+    profileDeleted:"Profil supprimé. À bientôt !",
+    confirmDelProfile:"Supprimer ton compte et TOUTES tes demandes, réponses et votes ? C'est irréversible.",
+    statPosts:"demandes publiées", statReceived:"votes reçus ❤", statGiven:"votes donnés",
+    edit:"Modifier", cancel:"Annuler", mine:"Mes demandes", searchPh:"Rechercher…",
+    viewList:"Vue liste", viewRoadmap:"Feuille de route", rmEmpty:"Rien ici pour l'instant.",
+    titlePh:"Résume ton idée ou ton bogue en une phrase",
+    bodyPh:"Décris en détail : ce qui se passe, sur quel appareil, ce que tu attends…",
+    commentsN:function(n){ return n+" "+(n===1?"réponse":"réponses"); }
+  },
+  en: {
+    tags:{bug:"Bug",amelioration:"Improvement",question:"Question",autre:"Other"},
+    tagsPlural:{bug:"Bugs",amelioration:"Improvements",question:"Questions",autre:"Other"},
+    statuses:{ouvert:"Open",prevu:"Planned",encours:"In progress",termine:"Done",refuse:"Not planned"},
+    all:"All", sortTop:"Most voted", sortNew:"Recent",
+    login:"Log in", signup:"Create account", logout:"Log out",
+    email:"Email", password:"Password", pseudo:"Nickname (shown publicly)",
+    needAccountPost:"Sign in to post a request.",
+    needAccountVote:"Sign in to vote.",
+    reply:"Reply", comment:"Comment", send:"Send",
+    yourReply:"Your reply…", yourComment:"Your comment…",
+    noPosts:"No requests yet. Be the first to suggest an idea!",
+    by:"by", dev:"Developer", del:"Delete", confirmDel:"Delete permanently?",
+    posted:"Posted ✓", replied:"Reply sent ✓", voteErr:"Couldn't vote.",
+    checkEmail:"Account created! Check your email to confirm, then log in.",
+    haveAccount:"Already have an account? Log in", noAccount:"No account? Create one",
+    forgot:"Forgot password?", enterEmailReset:"Enter your email: you'll get a link to choose a new password.",
+    resetSent:"Email sent ✓ — check your inbox.",
+    newPassword:"New password", setPassword:"Save password",
+    pwChanged:"Password changed ✓", changePw:"Change password", send:"Send link",
+    changePseudo:"Change nickname", delProfile:"Delete my account", save:"Save", saved:"Saved ✓",
+    profileDeleted:"Account deleted. See you soon!",
+    confirmDelProfile:"Delete your account and ALL your posts, replies and votes? This cannot be undone.",
+    statPosts:"requests posted", statReceived:"votes received ❤", statGiven:"votes given",
+    edit:"Edit", cancel:"Cancel", mine:"My requests", searchPh:"Search…",
+    viewList:"List view", viewRoadmap:"Roadmap", rmEmpty:"Nothing here yet.",
+    titlePh:"Summarize your idea or bug in one sentence",
+    bodyPh:"Describe it: what happens, on which device, what you expect…",
+    commentsN:function(n){ return n+" "+(n===1?"reply":"replies"); }
+  }
+};
+function tr(k){ return T[lang()][k]; }
+
+/* ---------- État ---------- */
+const configured = !/REMPLACER/.test(SUPABASE_URL) && !/REMPLACER/.test(SUPABASE_ANON_KEY);
+// Destination des liens de courriel (confirmation, réinitialisation de mot de
+// passe) : la page elle-même. Complète le « Site URL » réglé dans Supabase.
+const REDIRECT = location.origin + location.pathname;
+let sb = null, me = null, myProfile = null, myVotes = new Set(), openPostId = null;
+let filterTag = "all", sortBy = "top", searchQuery = "", mineOnly = false, viewMode = "list", editingPostId = null, editingCommentId = null;
+
+const $ = (id) => document.getElementById(id);
+function toast(msg){ const t=$("toast"); t.textContent=msg; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),2200); }
+function el(tag, attrs, ...kids){
+  const n=document.createElement(tag);
+  if(attrs) for(const k in attrs){
+    if(k==="class") n.className=attrs[k];
+    else if(k==="text") n.textContent=attrs[k];        // contenu utilisateur = TOUJOURS textContent (anti-injection)
+    else if(k.startsWith("on")) n.addEventListener(k.slice(2), attrs[k]);
+    else if(attrs[k]!==null && attrs[k]!==undefined) n.setAttribute(k, attrs[k]);
+  }
+  for(const c of kids){ if(c==null) continue; n.appendChild(typeof c==="string"?document.createTextNode(c):c); }
+  return n;
+}
+function fmtDate(iso){ try{ return new Date(iso).toLocaleDateString(lang()==="en"?"en-CA":"fr-CA",{day:"numeric",month:"short",year:"numeric"}); }catch(e){ return ""; } }
+
+/* ---------- Démarrage ---------- */
+if (!configured) {
+  $("config-notice").hidden = false;
+} else {
+  sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  boot();
+}
+
+
+// La colonne `product` peut ne pas encore exister dans la base : tant qu'elle
+// est absente, on retombe sur l'ancien comportement au lieu d'afficher une
+// erreur. L'ordre des opérations devient sans importance — le site fonctionne
+// avant comme après la migration.
+let hasProduct = true;
+
+async function probeProduct(){
+  const { error } = await sb.from("posts").select("product").limit(1);
+  hasProduct = !error;
+  if(error) console.info("Colonne 'product' absente : filtrage par produit inactif.");
+}
+
+/// Restreint une requête au produit de la page, quand c'est possible.
+function byProduct(q){ return hasProduct ? q.eq("product", PRODUCT) : q; }
+
+async function boot(){
+  // Lien de réinitialisation cliqué → Supabase émet PASSWORD_RECOVERY : on
+  // propose de choisir un nouveau mot de passe.
+  sb.auth.onAuthStateChange((event, s)=>{
+    if(event==="PASSWORD_RECOVERY"){ openPasswordSet(); }
+    onSession(s);
+  });
+  const { data:{ session } } = await sb.auth.getSession();
+  await onSession(session);
+  // Filet si l'événement est parti avant l'abonnement (jeton dans l'URL).
+  if(/type=recovery/.test(location.hash)) openPasswordSet();
+  await probeProduct();
+  buildFilters();
+  await loadBoard();
+  openDeepLink();   // ?post=<id> → ouvre directement la demande (lien du MP Discord)
+}
+
+/* Lien direct vers une demande (ex. depuis le MP Discord). */
+function openDeepLink(){
+  const id = new URLSearchParams(location.search).get("post");
+  if(!id || !allPosts.some(p=>p.id===id)) return;   // rien, ou demande supprimée
+  // On lève les filtres pour être certain que la demande soit visible.
+  filterTag="all"; mineOnly=false; searchQuery=""; viewMode="list";
+  buildFilters();
+  openPostId=id; renderBoard(); loadComments(id);
+  const node = document.getElementById("post-"+id);
+  if(node) node.scrollIntoView({behavior:"smooth", block:"center"});
+}
+
+async function onSession(session){
+  me = session ? session.user : null;
+  myProfile = null; myVotes = new Set();
+  if (me) {
+    const { data } = await sb.from("profiles").select("id,pseudo,is_admin").eq("id", me.id).maybeSingle();
+    myProfile = data || { id:me.id, pseudo:(me.email||"").split("@")[0], is_admin:false };
+    const { data:v } = await sb.from("votes").select("post_id").eq("user_id", me.id);
+    myVotes = new Set((v||[]).map(r=>r.post_id));
+  }
+  renderAccount();
+  renderComposeVisibility();
+}
+
+/* ---------- Barre de compte + auth ---------- */
+let authMode = "login"; // "login" | "signup" | "forgot" | "setpw" | "pseudo"
+/* Statistiques du compte : demandes publiées, ❤ reçus, votes donnés. */
+function myStats(){
+  const mine = me ? allPosts.filter(p=> p.author_id===me.id) : [];
+  const received = mine.reduce((sum,p)=> sum + (p.vote_count||0), 0);
+  return { posts: mine.length, received, given: myVotes.size };
+}
+function renderAccount(){
+  const box=$("nav-account"); box.textContent="";
+  if (me && myProfile){
+    const btn = el("button",{class:"acct-btn", "aria-haspopup":"true",
+      onclick:(e)=>{ e.stopPropagation(); toggleAcctMenu(); }});
+    btn.appendChild(el("strong",{text:myProfile.pseudo}));
+    if (myProfile.is_admin) btn.appendChild(el("span",{class:"badge-dev", text:tr("dev")}));
+    btn.appendChild(document.createTextNode(" ▾"));
+    box.appendChild(btn);
+    const menu = el("div",{class:"acct-menu", id:"acct-menu", hidden:true});
+    // Petites statistiques du compte (calculées depuis les demandes chargées).
+    const s=myStats();
+    const stats=el("div",{class:"acct-stats"});
+    stats.appendChild(el("div",{}, el("strong",{text:String(s.posts)}), tr("statPosts")));
+    stats.appendChild(el("div",{}, el("strong",{text:String(s.received)}), tr("statReceived")));
+    stats.appendChild(el("div",{}, el("strong",{text:String(s.given)}), tr("statGiven")));
+    menu.appendChild(stats);
+    menu.appendChild(el("div",{class:"sep"}));
+    menu.appendChild(el("button",{text:tr("changePseudo"), onclick:()=>{ closeAcctMenu(); openPseudoEdit(); }}));
+    menu.appendChild(el("button",{text:tr("changePw"),     onclick:()=>{ closeAcctMenu(); openPasswordSet(); }}));
+    menu.appendChild(el("div",{class:"sep"}));
+    menu.appendChild(el("button",{text:tr("logout"),       onclick:async()=>{ closeAcctMenu(); await sb.auth.signOut(); toast(lang()==="en"?"Signed out":"Déconnecté"); }}));
+    menu.appendChild(el("button",{class:"danger", text:tr("delProfile"), onclick:()=>{ closeAcctMenu(); deleteMyProfile(); }}));
+    box.appendChild(menu);
+    if(authMode!=="setpw" && authMode!=="pseudo") $("auth-panel").hidden = true;
+  } else {
+    box.appendChild(el("button",{class:"acct-btn", text:tr("login"), onclick:()=>openAuth("login")}));
+    box.appendChild(el("button",{class:"acct-btn primary", text:tr("signup"), onclick:()=>openAuth("signup")}));
+  }
+}
+function toggleAcctMenu(){ const m=$("acct-menu"); if(m) m.hidden=!m.hidden; }
+function closeAcctMenu(){ const m=$("acct-menu"); if(m) m.hidden=true; }
+document.addEventListener("click", closeAcctMenu);   // clic ailleurs → referme le menu
+
+/* Changer son pseudo (affiché publiquement). */
+function openPseudoEdit(){
+  authMode="pseudo";
+  const p=$("auth-panel"); p.hidden=false;
+  $("auth-title").textContent = tr("changePseudo");
+  const f=$("auth-fields"); f.textContent="";
+  f.appendChild(field("au-pseudo2","text",tr("pseudo"),"nickname"));
+  const inp=$("au-pseudo2"); if(inp) inp.value = myProfile.pseudo || "";
+  $("auth-error").hidden=true;
+  $("auth-submit").textContent = tr("save");
+  $("auth-toggle").hidden=true;
+  p.scrollIntoView({behavior:"smooth", block:"center"});
+}
+
+/* Supprimer son compte (via la fonction SQL delete_my_account). */
+async function deleteMyProfile(){
+  if(!confirm(tr("confirmDelProfile"))) return;
+  const { error } = await sb.rpc("delete_my_account");
+  if(error){ toast(error.message); return; }
+  await sb.auth.signOut();
+  toast(tr("profileDeleted"));
+  await loadBoard();
+}
+function openAuth(mode){
+  authMode=mode;
+  const p=$("auth-panel"); p.hidden=false;
+  $("auth-title").textContent = mode==="signup" ? tr("signup") : tr("login");
+  const f=$("auth-fields"); f.textContent="";
+  if (mode==="signup"){
+    f.appendChild(field("au-pseudo","text",tr("pseudo"),"nickname"));
+  }
+  f.appendChild(field("au-email","email",tr("email"),"email"));
+  f.appendChild(field("au-pass","password",tr("password"), mode==="signup"?"new-password":"current-password"));
+  if (mode==="login"){
+    f.appendChild(el("button",{class:"linklike", text:tr("forgot"), style:"margin-top:2px;", onclick:openForgot}));
+  }
+  $("auth-error").hidden=true;
+  $("auth-submit").textContent = mode==="signup" ? tr("signup") : tr("login");
+  $("auth-toggle").hidden=false;
+  $("auth-toggle").textContent = mode==="signup" ? tr("haveAccount") : tr("noAccount");
+  p.scrollIntoView({behavior:"smooth", block:"center"});
+}
+/* Mot de passe oublié → envoi d'un lien de réinitialisation. */
+function openForgot(){
+  authMode="forgot";
+  const p=$("auth-panel"); p.hidden=false;
+  $("auth-title").textContent = tr("forgot");
+  const f=$("auth-fields"); f.textContent="";
+  f.appendChild(el("p",{class:"muted", text:tr("enterEmailReset"), style:"margin:0 0 10px;"}));
+  f.appendChild(field("au-email","email",tr("email"),"email"));
+  $("auth-error").hidden=true;
+  $("auth-submit").textContent = tr("send");
+  $("auth-toggle").hidden=false; $("auth-toggle").textContent = tr("login");
+  p.scrollIntoView({behavior:"smooth", block:"center"});
+}
+/* Choisir un nouveau mot de passe (après un lien de réinitialisation, ou via
+   « Changer le mot de passe » une fois connecté). */
+function openPasswordSet(){
+  authMode="setpw";
+  const p=$("auth-panel"); p.hidden=false;
+  $("auth-title").textContent = tr("newPassword");
+  const f=$("auth-fields"); f.textContent="";
+  f.appendChild(field("au-newpass","password",tr("newPassword"),"new-password"));
+  $("auth-error").hidden=true;
+  $("auth-submit").textContent = tr("setPassword");
+  $("auth-toggle").hidden=true;
+  p.scrollIntoView({behavior:"smooth", block:"center"});
+}
+function field(id,type,label,ac){
+  const l=el("label",{class:"fld"}); l.appendChild(el("span",{text:label}));
+  const i=el("input",{type:type, id:id, autocomplete:ac, maxlength: type==="text"?"40":null});
+  if(type==="password"){
+    // Œil « afficher / masquer » pour relire le mot de passe saisi.
+    const wrap=el("div",{class:"pw-wrap"});
+    wrap.appendChild(i);
+    const eye=el("button",{class:"pw-eye", type:"button", "aria-label":(lang()==="en"?"Show / hide password":"Afficher / masquer le mot de passe"),
+      onclick:()=>{ const hidden=i.type==="password"; i.type=hidden?"text":"password"; eye.textContent=hidden?"🙈":"👁"; }}, "👁");
+    wrap.appendChild(eye);
+    l.appendChild(wrap);
+  } else {
+    l.appendChild(i);
+  }
+  return l;
+}
+$("auth-toggle").addEventListener("click",()=> openAuth(authMode==="login"?"signup":"login"));
+$("auth-submit").addEventListener("click", doAuth);
+function fillMsg(){ return lang()==="en"?"Fill in every field.":"Remplis tous les champs."; }
+function pwLenMsg(){ return lang()==="en"?"Password must be at least 6 characters.":"Le mot de passe doit faire au moins 6 caractères."; }
+async function doAuth(){
+  $("auth-error").hidden=true;
+  $("auth-submit").disabled=true;
+  try{
+    // Choisir un nouveau mot de passe (réinitialisation ou changement).
+    if(authMode==="setpw"){
+      const np=($("au-newpass")||{}).value||"";
+      if(np.length<6){ showAuthErr(pwLenMsg()); return; }
+      const { error } = await sb.auth.updateUser({ password:np });
+      if(error) throw error;
+      history.replaceState(null,"",location.pathname);   // retire le jeton de l'URL
+      $("auth-panel").hidden=true; toast(tr("pwChanged"));
+      return;
+    }
+    // Changer son pseudo.
+    if(authMode==="pseudo"){
+      const np=($("au-pseudo2")||{}).value?.trim()||"";
+      if(np.length<1){ showAuthErr(fillMsg()); return; }
+      const { error } = await sb.from("profiles").update({ pseudo:np }).eq("id", me.id);
+      if(error) throw error;
+      myProfile.pseudo=np; $("auth-panel").hidden=true;
+      renderAccount(); toast(tr("saved")); await loadBoard();
+      return;
+    }
+    const email=($("au-email")||{}).value?.trim();
+    // Mot de passe oublié : envoi du lien.
+    if(authMode==="forgot"){
+      if(!email){ showAuthErr(fillMsg()); return; }
+      const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: REDIRECT });
+      if(error) throw error;
+      toast(tr("resetSent")); openAuth("login");
+      return;
+    }
+    // Connexion / inscription.
+    const pass=($("au-pass")||{}).value||"";
+    if(!email || !pass){ showAuthErr(fillMsg()); return; }
+    if(authMode==="signup"){
+      const pseudo=($("au-pseudo")||{}).value?.trim() || email.split("@")[0];
+      const { data, error } = await sb.auth.signUp({ email, password:pass, options:{ data:{ pseudo }, emailRedirectTo: REDIRECT } });
+      if(error) throw error;
+      if(!data.session){ toast(tr("checkEmail")); openAuth("login"); }
+      else toast(lang()==="en"?"Welcome!":"Bienvenue !");
+    } else {
+      const { error } = await sb.auth.signInWithPassword({ email, password:pass });
+      if(error) throw error;
+      toast(lang()==="en"?"Welcome back!":"Content de te revoir !");
+    }
+  }catch(e){ showAuthErr(humanAuthError(e)); }
+  finally{ $("auth-submit").disabled=false; }
+}
+function showAuthErr(m){ const e=$("auth-error"); e.textContent=m; e.hidden=false; }
+function humanAuthError(e){
+  const m=(e&&e.message||"").toLowerCase();
+  if(m.includes("already registered")) return lang()==="en"?"This email already has an account.":"Ce courriel a déjà un compte.";
+  if(m.includes("invalid login")) return lang()==="en"?"Wrong email or password.":"Courriel ou mot de passe incorrect.";
+  if(m.includes("at least 6")||m.includes("password")) return lang()==="en"?"Password must be at least 6 characters.":"Le mot de passe doit faire au moins 6 caractères.";
+  return e&&e.message ? e.message : (lang()==="en"?"Something went wrong.":"Une erreur est survenue.");
+}
+
+/* ---------- Nouveau post ---------- */
+function renderComposeVisibility(){
+  const c=$("compose");
+  if (me){ c.hidden=false; fillTagSelect($("np-tag")); }
+  else c.hidden=true;
+}
+function fillTagSelect(sel, withAll){
+  sel.textContent="";
+  if(withAll) sel.appendChild(el("option",{value:"all", text:tr("all")}));
+  ["bug","amelioration","question","autre"].forEach(k=> sel.appendChild(el("option",{value:k, text:T[lang()].tags[k]})));
+}
+$("np-submit").addEventListener("click", async ()=>{
+  if(!me) return;
+  const title=$("np-title").value.trim(), body=$("np-body").value.trim(), tag=$("np-tag").value;
+  const errP=$("np-error"); errP.hidden=true;
+  if(title.length<3 || body.length<1){ errP.textContent=lang()==="en"?"Add a title (3+ chars) and details.":"Ajoute un titre (3+ caractères) et des détails."; errP.hidden=false; return; }
+  $("np-submit").disabled=true;
+  const { error } = await sb.from("posts").insert(hasProduct
+    ? { author_id:me.id, title, body, tag, product:PRODUCT }
+    : { author_id:me.id, title, body, tag });
+  $("np-submit").disabled=false;
+  if(error){ errP.textContent=error.message; errP.hidden=false; return; }
+  $("np-title").value=""; $("np-body").value=""; $("compose").open=false;
+  toast(tr("posted")); await loadBoard();
+});
+
+/* ---------- Filtres ---------- */
+function buildFilters(){
+  const bar=$("filters"); bar.hidden=false; bar.textContent="";
+  window.__filterChips=[];
+  const mk=(key,label)=>{ const b=el("button",{class:"chip", "aria-pressed": String(filterTag===key), text:label,
+      onclick:()=>{ filterTag=key; syncChips(); renderBoard(); }}); b.dataset.key=key; window.__filterChips.push(b); bar.appendChild(b); };
+  mk("all", tr("all"));
+  ["bug","amelioration","question","autre"].forEach(k=> mk(k, T[lang()].tagsPlural[k]));
+  // « Mes demandes » (seulement connecté)
+  if(me){
+    const mine=el("button",{class:"chip", "aria-pressed":String(mineOnly), text:tr("mine"),
+      onclick:()=>{ mineOnly=!mineOnly; mine.setAttribute("aria-pressed",String(mineOnly)); renderBoard(); }});
+    bar.appendChild(mine);
+  }
+  // 2e rangée : recherche · tri · bascule de vue
+  const row2=el("div",{class:"filters-row2"});
+  const search=el("input",{class:"search-inp", type:"search", placeholder:tr("searchPh"), value:searchQuery,
+    oninput:(e)=>{ searchQuery=e.target.value; renderBoard(); }});
+  row2.appendChild(search);
+  const sel=el("select",{class:"sort-sel", onchange:(e)=>{ sortBy=e.target.value; renderBoard(); }});
+  sel.appendChild(el("option",{value:"top", text:tr("sortTop")}));
+  sel.appendChild(el("option",{value:"new", text:tr("sortNew")}));
+  sel.value=sortBy; row2.appendChild(sel);
+  const viewBtn=el("button",{class:"chip", text:(viewMode==="list"?tr("viewRoadmap"):tr("viewList")),
+    onclick:()=>{ viewMode=(viewMode==="list"?"roadmap":"list"); buildFilters(); renderBoard(); }});
+  row2.appendChild(viewBtn);
+  bar.appendChild(row2);
+}
+function syncChips(){ (window.__filterChips||[]).forEach(b=> b.setAttribute("aria-pressed", String(b.dataset.key===filterTag))); }
+
+/* ---------- Chargement + rendu du tableau ---------- */
+let allPosts = [];
+async function loadBoard(){
+  const { data, error } = await byProduct(sb.from("posts")
+    .select("*, author:profiles!posts_author_id_fkey(pseudo,is_admin), votes(count), comments(count)"))
+    .order("pinned",{ascending:false}).order("created_at",{ascending:false});
+  if(error){ $("board").innerHTML=""; $("board").appendChild(el("p",{class:"empty", text:error.message})); return; }
+  allPosts = (data||[]).map(p=>({
+    ...p,
+    vote_count: (p.votes && p.votes[0] ? p.votes[0].count : 0),
+    comment_count: (p.comments && p.comments[0] ? p.comments[0].count : 0)
+  }))
+  // Demandes MASQUÉES (fil supprimé côté Discord → hidden=true via la synchro
+  // du bot). Filtre CLIENT volontairement : tant que la colonne n'existe pas
+  // en base, `p.hidden` vaut undefined et rien n'est filtré — l'ordre de
+  // déploiement (SQL avant ou après le site) est donc sans importance.
+  .filter(p=>!p.hidden);
+  renderBoard();
+  if(me) renderAccount();   // rafraîchit les stats du menu de compte
+}
+function renderBoard(){
+  const board=$("board"); board.textContent="";
+  let list = allPosts.slice();
+  if(filterTag!=="all") list=list.filter(p=>p.tag===filterTag);
+  if(mineOnly && me) list=list.filter(p=>p.author_id===me.id);
+  const q=searchQuery.trim().toLowerCase();
+  if(q) list=list.filter(p=> (p.title+" "+p.body).toLowerCase().includes(q));
+  list.sort((a,b)=>{
+    if(a.pinned!==b.pinned) return a.pinned?-1:1;
+    if(sortBy==="top" && b.vote_count!==a.vote_count) return b.vote_count-a.vote_count;
+    return new Date(b.created_at)-new Date(a.created_at);
+  });
+  if(viewMode==="roadmap"){ renderRoadmap(board, list); return; }
+  if(list.length===0){ board.appendChild(el("p",{class:"empty", text:tr("noPosts")})); return; }
+  list.forEach(p=> board.appendChild(renderPost(p)));
+}
+/* Feuille de route : colonnes Prévu / En cours / Terminé. */
+function renderRoadmap(board, list){
+  const grid=el("div",{class:"roadmap"});
+  ["prevu","encours","termine"].forEach(st=>{
+    const col=el("div",{class:"rm-col"});
+    col.appendChild(el("div",{class:"rm-col-title"}, el("span",{class:"statuschip st-"+st, text:T[lang()].statuses[st]})));
+    const items=list.filter(p=>p.status===st);
+    if(items.length===0) col.appendChild(el("p",{class:"rm-empty", text:tr("rmEmpty")}));
+    else items.forEach(p=> col.appendChild(renderPost(p)));
+    grid.appendChild(col);
+  });
+  board.appendChild(grid);
+}
+/* Modifier sa propre demande (ou n'importe laquelle en admin). */
+function openEditPost(p){ editingPostId=p.id; renderBoard(); }
+function renderEditCard(p){
+  const main=el("div",{class:"main"});
+  const tl=el("label",{class:"fld"}); tl.appendChild(el("span",{text:(lang()==="en"?"Title":"Titre")}));
+  const ti=el("input",{type:"text", maxlength:"140"}); ti.value=p.title; tl.appendChild(ti);
+  const bl=el("label",{class:"fld"}); bl.appendChild(el("span",{text:(lang()==="en"?"Details":"Détails")}));
+  const ta=el("textarea",{maxlength:"4000"}); ta.value=p.body; bl.appendChild(ta);
+  const gl=el("label",{class:"fld", style:"max-width:220px;"}); gl.appendChild(el("span",{text:(lang()==="en"?"Category":"Catégorie")}));
+  const sel=el("select"); fillTagSelect(sel); sel.value=p.tag; gl.appendChild(sel);
+  const save=el("button",{class:"btn primary sm", text:tr("save"), onclick:async()=>{
+    const title=ti.value.trim(), body=ta.value.trim(), tag=sel.value;
+    if(title.length<3 || body.length<1){ toast(lang()==="en"?"Add a title and details.":"Ajoute un titre et des détails."); return; }
+    save.disabled=true;
+    const { error } = await sb.from("posts").update({ title, body, tag }).eq("id", p.id);
+    save.disabled=false;
+    if(error){ toast(error.message); return; }
+    editingPostId=null; toast(tr("saved")); await loadBoard();
+  }});
+  const cancel=el("button",{class:"linklike", text:tr("cancel"), style:"margin-left:14px;",
+    onclick:()=>{ editingPostId=null; renderBoard(); }});
+  main.appendChild(tl); main.appendChild(bl); main.appendChild(gl);
+  main.appendChild(el("div",{style:"display:flex; align-items:center;"}, save, cancel));
+  return el("div",{class:"post"}, main);
+}
+function renderPost(p){
+  if(editingPostId===p.id) return renderEditCard(p);
+  const voted = myVotes.has(p.id);
+  const voteBtn = el("button",{class:"vote", "aria-pressed":String(voted), title:tr("all"),
+    onclick:()=>toggleVote(p)},
+    el("span",{class:"arrow", text:"▲"}), el("span",{class:"count", text:String(p.vote_count)}));
+  const title = el("h3",{class:"ptitle", text:p.title, onclick:()=>toggleDetail(p.id)});
+  const body = el("p",{class:"pbody", text:p.body});
+  const meta = el("div",{class:"meta"});
+  meta.appendChild(el("span",{class:"tagchip tag-"+p.tag, text:T[lang()].tags[p.tag]||p.tag}));
+  meta.appendChild(el("span",{class:"statuschip st-"+p.status, text:T[lang()].statuses[p.status]||p.status}));
+  const author = p.author ? p.author.pseudo : "?";
+  meta.appendChild(el("span",{}, tr("by")+" ", el("strong",{text:author}), " · "+fmtDate(p.created_at)));
+  const cbtn = el("button",{class:"linklike comments-n", onclick:()=>toggleDetail(p.id)}, "💬 "+T[lang()].commentsN(p.comment_count));
+  meta.appendChild(cbtn);
+  // Modifier / supprimer : l'auteur sur SA demande, l'admin sur toutes.
+  if(me && myProfile && (myProfile.is_admin || p.author_id===me.id)){
+    meta.appendChild(el("button",{class:"linklike", text:"✎ "+tr("edit"), onclick:(e)=>{ e.stopPropagation(); openEditPost(p); }}));
+    meta.appendChild(el("button",{class:"linklike", text:"🗑 "+tr("del"), onclick:(e)=>{ e.stopPropagation(); deletePost(p); }}));
+  }
+
+  const main = el("div",{class:"main"}, title, body, meta);
+  if (openPostId===p.id) main.appendChild(renderDetail(p));
+
+  const card = el("div",{class:"post"+(p.pinned?" pinned":""), id:"post-"+p.id}, voteBtn, main);
+  return card;
+}
+
+/* ---------- Vote ---------- */
+async function toggleVote(p){
+  if(!me){ toast(tr("needAccountVote")); openAuth("login"); return; }
+  const voted = myVotes.has(p.id);
+  try{
+    if(voted){ await sb.from("votes").delete().eq("post_id",p.id).eq("user_id",me.id); myVotes.delete(p.id); p.vote_count=Math.max(0,p.vote_count-1); }
+    else { await sb.from("votes").insert({ post_id:p.id, user_id:me.id }); myVotes.add(p.id); p.vote_count++; }
+    renderBoard();
+  }catch(e){ toast(tr("voteErr")); }
+}
+
+/* ---------- Suppression d'un post (auteur sur le sien, admin sur tous) ---------- */
+async function deletePost(p){
+  if(!confirm(tr("confirmDel"))) return;
+  const { error } = await sb.from("posts").delete().eq("id", p.id);
+  if(error){ toast(error.message); return; }
+  if(openPostId===p.id) openPostId=null;
+  toast("🗑"); await loadBoard();
+}
+
+/* ---------- Détail + commentaires ---------- */
+function toggleDetail(id){ openPostId = (openPostId===id? null : id); renderBoard(); if(openPostId===id) loadComments(id); }
+let commentsCache = {};
+async function loadComments(postId){
+  const { data } = await sb.from("comments").select("*, author:profiles!comments_author_id_fkey(pseudo,is_admin)").eq("post_id",postId).order("created_at",{ascending:true});
+  commentsCache[postId]=data||[]; renderBoard();
+}
+function renderDetail(p){
+  const wrap = el("div",{class:"detail"});
+  const list = commentsCache[p.id];
+  if(list){
+    list.forEach(c=>{
+      const dev = c.author && c.author.is_admin;
+      const canEdit = me && myProfile && (myProfile.is_admin || c.author_id===me.id);
+      // Mode édition inline de ce commentaire.
+      if(editingCommentId===c.id){
+        const ta = el("textarea",{maxlength:"4000", style:"min-height:70px;width:100%;"}); ta.value=c.body;
+        const save = el("button",{class:"btn primary sm", text:tr("save"), onclick:async()=>{
+          const b=ta.value.trim(); if(!b) return; save.disabled=true;
+          const { error } = await sb.from("comments").update({ body:b }).eq("id",c.id);
+          save.disabled=false; if(error){ toast(error.message); return; }
+          editingCommentId=null; toast(tr("saved")); await loadComments(p.id);
+        }});
+        const cancel = el("button",{class:"linklike", text:tr("cancel"), style:"margin-left:12px;",
+          onclick:()=>{ editingCommentId=null; renderBoard(); }});
+        wrap.appendChild(el("div",{class:"comment"+(dev?" dev":"")},
+          el("div",{style:"flex:1;min-width:0;"}, ta, el("div",{style:"margin-top:8px;"}, save, cancel))));
+        return;
+      }
+      const head = el("div",{class:"cwho"});
+      head.appendChild(document.createTextNode((c.author?c.author.pseudo:"?")));
+      if(dev) head.appendChild(el("span",{class:"badge-dev", text:tr("dev")}));
+      const cm = el("div",{class:"comment"+(dev?" dev":"")},
+        el("div",{style:"flex:1;min-width:0;"},
+          head,
+          el("div",{class:"cbody", text:c.body}),
+          el("div",{class:"cdate", text:fmtDate(c.created_at)})
+        ));
+      if(canEdit){
+        cm.appendChild(el("button",{class:"linklike", text:"✎ "+tr("edit"), onclick:()=>{ editingCommentId=c.id; renderBoard(); }}));
+        cm.appendChild(el("button",{class:"linklike", text:tr("del"), onclick:()=>delComment(c,p.id)}));
+      }
+      wrap.appendChild(cm);
+    });
+  } else {
+    wrap.appendChild(el("p",{class:"muted", text:"…"}));
+  }
+  // zone de réponse
+  if(me){
+    const ta = el("textarea",{placeholder: myProfile.is_admin? tr("yourReply"):tr("yourComment"), style:"min-height:70px;margin-top:10px;"});
+    const send = el("button",{class:"btn primary sm", text: myProfile.is_admin?tr("reply"):tr("send"), style:"margin-top:8px;",
+      onclick:async()=>{ const b=ta.value.trim(); if(!b) return; send.disabled=true;
+        const { error } = await sb.from("comments").insert({ post_id:p.id, author_id:me.id, body:b });
+        send.disabled=false; if(error){ toast(error.message); return; }
+        ta.value=""; toast(tr("replied")); await refreshCounts(); await loadComments(p.id); }});
+    wrap.appendChild(ta); wrap.appendChild(send);
+  } else {
+    wrap.appendChild(el("p",{class:"muted", text:tr("needAccountPost")}));
+  }
+  // contrôles admin
+  if(me && myProfile.is_admin){
+    const row = el("div",{class:"admin-row"});
+    const sel = el("select",{onchange:async(e)=>{ await sb.from("posts").update({status:e.target.value}).eq("id",p.id); p.status=e.target.value; toast("✓"); await refreshCounts(); }});
+    ["ouvert","prevu","encours","termine","refuse"].forEach(s=> sel.appendChild(el("option",{value:s, text:T[lang()].statuses[s]})));
+    sel.value=p.status;
+    const pin = el("button",{class:"btn ghost sm", text:(p.pinned?"📌 ✓":"📌"), onclick:async()=>{ await sb.from("posts").update({pinned:!p.pinned}).eq("id",p.id); p.pinned=!p.pinned; await refreshCounts(); }});
+    const del = el("button",{class:"linklike", text:tr("del"), onclick:async()=>{ if(!confirm(tr("confirmDel"))) return; await sb.from("posts").delete().eq("id",p.id); openPostId=null; toast("🗑"); await loadBoard(); }});
+    row.appendChild(sel); row.appendChild(pin); row.appendChild(del);
+    wrap.appendChild(row);
+  }
+  return wrap;
+}
+async function delComment(c, postId){
+  if(!confirm(tr("confirmDel"))) return;
+  await sb.from("comments").delete().eq("id",c.id);
+  await refreshCounts(); await loadComments(postId);
+}
+async function refreshCounts(){
+  // recharge les compteurs (votes/commentaires) sans perdre le détail ouvert
+  const { data } = await byProduct(sb.from("posts").select("id, status, pinned, votes(count), comments(count)"));
+  if(!data) return;
+  const map={}; data.forEach(d=> map[d.id]=d);
+  allPosts.forEach(p=>{ const d=map[p.id]; if(d){ p.status=d.status; p.pinned=d.pinned;
+    p.vote_count=d.votes&&d.votes[0]?d.votes[0].count:0; p.comment_count=d.comments&&d.comments[0]?d.comments[0].count:0; }});
+  renderBoard();
+}
+
+/* ---------- Re-rendu au changement de langue ---------- */
+window.__rerender = function(){
+  if(!configured) return;
+  renderAccount(); renderComposeVisibility();
+  if(document.getElementById("np-tag")) fillTagSelect($("np-tag"));
+  buildFilters(); renderBoard();
+};
+</script>
+</body>
+</html>
