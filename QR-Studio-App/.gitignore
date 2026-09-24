@@ -1,0 +1,9 @@
+# Secrets : jamais dans le dépôt
+Config/Secrets.xcconfig
+
+# Xcode
+xcuserdata/
+DerivedData/
+*.xcuserstate
+.build/
+.swiftpm/

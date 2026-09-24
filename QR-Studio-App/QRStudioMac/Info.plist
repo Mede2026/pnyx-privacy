@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>fr</string>
+	<key>CFBundleDisplayName</key>
+	<string>QR Studio</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>fr</string>
+	</array>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.utilities</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_qrstudio._tcp</string>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>La caméra sert uniquement à scanner les codes QR et les codes-barres. Aucune photo n’est prise.</string>
+	<key>NSCameraUseContinuityCameraDeviceType</key>
+	<true/>
+	<key>NSHumanReadableCopyright</key>
+	<string>QR Studio — gratuit, sans publicité ni collecte de données.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Pour recevoir les scans de votre iPhone appairé sur le même réseau.</string>
+	<key>SafeBrowsingAPIKey</key>
+	<string>$(SAFE_BROWSING_API_KEY)</string>
+</dict>
+</plist>

@@ -1,0 +1,117 @@
+{
+  "fill": {
+    "solid": "srgb:1.00000,0.94510,0.92549,1.00000"
+  },
+  "groups": [
+    {
+      "layers": [
+        {
+          "image-name": "4-barre.svg",
+          "name": "4-barre",
+          "fill-specializations": [
+            {
+              "value": {
+                "solid": "srgb:1.00000,0.27059,0.22745,1.00000"
+              }
+            }
+          ]
+        }
+      ],
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.5
+      },
+      "translucency": {
+        "enabled": true,
+        "value": 0.3
+      }
+    },
+    {
+      "layers": [
+        {
+          "image-name": "2-modules-sans-barre.svg",
+          "name": "2-modules-sans-barre",
+          "fill-specializations": [
+            {
+              "value": {
+                "solid": "srgb:0.22745,0.10196,0.07059,1.00000"
+              }
+            },
+            {
+              "appearance": "dark",
+              "value": {
+                "solid": "srgb:1.00000,0.76863,0.70196,1.00000"
+              }
+            },
+            {
+              "appearance": "tinted",
+              "value": {
+                "solid": "srgb:1.00000,1.00000,1.00000,1.00000"
+              }
+            }
+          ]
+        }
+      ],
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.5
+      },
+      "translucency": {
+        "enabled": true,
+        "value": 0.3
+      }
+    },
+    {
+      "layers": [],
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.5
+      },
+      "translucency": {
+        "enabled": true,
+        "value": 0.3
+      }
+    },
+    {
+      "layers": [
+        {
+          "image-name": "3-yeux.svg",
+          "name": "3-yeux",
+          "fill-specializations": [
+            {
+              "value": {
+                "solid": "srgb:0.22745,0.10196,0.07059,1.00000"
+              }
+            },
+            {
+              "appearance": "dark",
+              "value": {
+                "solid": "srgb:1.00000,0.76863,0.70196,1.00000"
+              }
+            },
+            {
+              "appearance": "tinted",
+              "value": {
+                "solid": "srgb:1.00000,1.00000,1.00000,1.00000"
+              }
+            }
+          ]
+        }
+      ],
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.5
+      },
+      "translucency": {
+        "enabled": true,
+        "value": 0.3
+      }
+    }
+  ],
+  "supported-platforms": {
+    "circles": [
+      "watchOS"
+    ],
+    "squares": "shared"
+  }
+}
