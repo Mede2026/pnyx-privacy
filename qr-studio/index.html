@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QR Studio — Scanner et créer des codes QR (iPhone, iPad, Mac, Apple Watch)</title>
+<meta name="description" content="QR Studio : scanner et créateur de codes QR et de codes-barres pour iPhone, iPad, Mac et Apple Watch. Scan sans bouton, codes personnalisés, historique iCloud, carte de fidélité au poignet. Gratuit, sans publicité, sans compte.">
+<meta property="og:title" content="QR Studio — Scanner et créer des codes QR">
+<meta property="og:description" content="Scannez, créez et personnalisez vos codes QR et codes-barres sur iPhone, iPad, Mac et Apple Watch. Gratuit, sans publicité, sans compte.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://mede2026.github.io/pnyx-privacy/qr-studio/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mede2026.github.io/pnyx-privacy/qr-studio/og-image.png">
+<meta property="og:url" content="https://mede2026.github.io/pnyx-privacy/qr-studio/">
+<meta property="og:site_name" content="QR Studio">
+<meta property="og:locale" content="fr_CA">
+<link rel="canonical" href="https://mede2026.github.io/pnyx-privacy/qr-studio/">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="icon-256.png">
+<link rel="apple-touch-icon" href="icon-256.png">
+<link rel="stylesheet" href="../theme.css">
+<link rel="stylesheet" href="../account.css">
+<style>
+  .hero { text-align: center; padding: 72px 0 56px; }
+  .hero .mark { width: 104px; height: 104px; border-radius: 24%; margin: 0 auto 22px; display: block; box-shadow: var(--card-shadow); }
+  .hero h1 { font-size: clamp(34px, 6vw, 56px); letter-spacing: -.03em; margin: 0 0 14px; line-height: 1.05; }
+  .hero p.lead { font-size: clamp(17px, 2.4vw, 21px); color: var(--sub); max-width: 640px; margin: 0 auto 30px; line-height: 1.5; }
+  .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; align-items: center; }
+  .cta img.badge { height: 48px; display: block; }
+  .dl-note { margin: 14px 0 0; color: var(--sub); font-size: 14px; }
+
+  section { padding: 56px 0; }
+  section h2 { font-size: clamp(24px, 3.6vw, 34px); letter-spacing: -.02em; margin: 0 0 10px; text-align: center; }
+  section p.sub { color: var(--sub); text-align: center; max-width: 640px; margin: 0 auto 36px; line-height: 1.6; }
+
+  .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 26px 24px; box-shadow: var(--card-shadow);
+  }
+  .card .ico { font-size: 26px; line-height: 1; margin-bottom: 12px; display: block; }
+  .card h3 { font-size: 18px; margin: 0 0 7px; letter-spacing: -.01em; }
+  .card p { margin: 0; color: var(--sub); line-height: 1.6; font-size: 15px; }
+
+  .band { background: var(--bg-alt); border-radius: var(--radius); padding: 44px 32px; margin: 8px 0; }
+  .band h2 { text-align: left; }
+  .band p.sub { text-align: left; margin-left: 0; }
+  .band ul { padding-left: 20px; margin: 0; }
+  .band li { color: var(--sub); line-height: 1.7; margin: 8px 0; }
+  .band li strong { color: var(--ink); }
+
+  .shots { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); align-items: start; }
+  .shots figure { margin: 0; }
+  .shots img {
+    width: 100%; height: auto; display: block; border-radius: 22px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, .18); background: #f2f2f7;
+  }
+  .shots figcaption { color: var(--sub); font-size: 14px; text-align: center; margin-top: 12px; line-height: 1.5; }
+  .shots .wide { grid-column: 1 / -1; }
+  .shots .wide img { border-radius: 18px; }
+
+  .split { display: grid; gap: 28px; grid-template-columns: 1fr; align-items: center; }
+  @media (min-width: 760px) { .split { grid-template-columns: 1.3fr 1fr; } }
+  .split img { width: 100%; max-width: 260px; margin: 0 auto; display: block; border-radius: 44px; box-shadow: 0 10px 40px rgba(0, 0, 0, .25); }
+
+  .privacy-note {
+    text-align: center; max-width: 640px; margin: 0 auto; color: var(--sub);
+    line-height: 1.65; font-size: 16px;
+  }
+  .privacy-note strong { color: var(--ink); }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "QR Studio",
+  "operatingSystem": "iOS 17, iPadOS 17, macOS 14, watchOS 10",
+  "applicationCategory": "UtilitiesApplication",
+  "description": "Scanner et créateur de codes QR et de codes-barres pour iPhone, iPad, Mac et Apple Watch.",
+  "url": "https://mede2026.github.io/pnyx-privacy/qr-studio/",
+  "image": "https://mede2026.github.io/pnyx-privacy/qr-studio/og-image.png",
+  "inLanguage": "fr",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "CAD"
+  }
+}
+</script>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a class="brand" href="index.html" aria-label="QR Studio — accueil">
+      <img src="icon-256.png" alt="" width="180" height="180">
+      QR Studio
+    </a>
+    <nav>
+      <a href="../apps/index.html" data-home-link>Applications</a>
+      <a href="index.html" class="current">Accueil</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="privacy-policy.html">Confidentialité</a>
+      <a href="support.html">Assistance</a>
+      <span id="nav-account" class="nav-account"></span>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <img class="mark" src="icon.png" alt="Icône de QR Studio" width="512" height="512">
+    <p class="kicker">iPhone · iPad · Mac · Apple Watch</p>
+    <h1>Pointez. C'est scanné.</h1>
+    <p class="lead">QR Studio lit tous les codes du quotidien dès qu'ils entrent dans le champ, sans bouton ni photo, et vous aide à créer les vôtres à votre image. Tout reste sur vos appareils.</p>
+    <div class="cta">
+      <!-- Remplacer par le lien App Store dès que l'app est publiée (voir apps/index.html). -->
+      <span class="btn primary" aria-disabled="true">Bientôt sur l'App Store</span>
+      <a class="btn ghost" href="support.html">Assistance</a>
+    </div>
+    <p class="dl-note">Gratuit · aucun achat intégré · aucune publicité · aucun compte</p>
+  </div>
+
+  <section>
+    <h2>Un scanner qui comprend ce qu'il lit</h2>
+    <p class="sub">Le contenu du code décide des actions proposées : pas de chaîne de caractères brute, mais une fiche claire et le bon bouton.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="ico">📶</span>
+        <h3>Wi-Fi en un geste</h3>
+        <p>Le code du restaurant ou de la maison connecte l'iPhone directement, sans taper le mot de passe.</p>
+      </div>
+      <div class="card">
+        <span class="ico">🛒</span>
+        <h3>Produits</h3>
+        <p>EAN, UPC et GS1 Digital Link : nom du produit, pays d'enregistrement, somme de contrôle et recherche sur vos sites.</p>
+      </div>
+      <div class="card">
+        <span class="ico">🛡️</span>
+        <h3>Liens vérifiés</h3>
+        <p>Le domaine s'affiche en grand, les caractères trompeurs et les liens raccourcis sont signalés, avec Google Safe Browsing en option.</p>
+      </div>
+      <div class="card">
+        <span class="ico">📦</span>
+        <h3>Mode lot</h3>
+        <p>Pour les inventaires : les codes s'empilent avec leur quantité, puis s'exportent en CSV vers Numbers ou Excel.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="shots">
+      <figure>
+        <img src="shots/shot-historique.jpg" alt="L'historique de QR Studio, groupé par jour, avec les vignettes des codes" width="600" height="1304" loading="lazy">
+        <figcaption>L'historique, groupé par jour, synchronisé par iCloud.</figcaption>
+      </figure>
+      <figure>
+        <img src="shots/shot-wifi.jpg" alt="Un code Wi-Fi personnalisé en bleu, aux modules arrondis" width="600" height="1304" loading="lazy">
+        <figcaption>Un code Wi-Fi à vos couleurs.</figcaption>
+      </figure>
+      <figure>
+        <img src="shots/shot-contact.jpg" alt="Une carte de visite en code QR violet avec des yeux ronds" width="600" height="1304" loading="lazy">
+        <figcaption>Votre carte de visite, prête à partager.</figcaption>
+      </figure>
+      <figure>
+        <img src="shots/shot-creer.jpg" alt="Le générateur : le code se redessine à chaque frappe et se relit tout seul" width="600" height="1304" loading="lazy">
+        <figcaption>Chaque code créé est relu : « Lisible ».</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="band">
+      <h2>Créer des codes à votre image</h2>
+      <p class="sub">13 types de contenu, sans jamais écrire de syntaxe : lien, texte, Wi-Fi, carte de visite, événement, lieu, courriel, SMS, téléphone, réseau social, cryptomonnaie, code-barres produit.</p>
+      <ul>
+        <li><strong>Couleurs et dégradés</strong> : unis, linéaires ou radiaux, fond transparent possible.</li>
+        <li><strong>Formes</strong> : modules carrés, arrondis, ronds, en losange ou liés ; yeux personnalisés séparément.</li>
+        <li><strong>Logo et cadre</strong> : une image ou un symbole au centre, une légende comme « Scannez-moi ».</li>
+        <li><strong>Toujours lisible</strong> : contraste vérifié, correction d'erreur ajustée, et relecture automatique du code avant de le proposer.</li>
+        <li><strong>Export</strong> : PNG, JPEG, PDF vectoriel et SVG jusqu'à 2048 pixels, ou une planche PDF de plusieurs codes.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="band split">
+      <div>
+        <h2>Votre carte de fidélité au poignet</h2>
+        <p class="sub">L'Apple Watch affiche vos codes favoris en plein écran, même sans l'iPhone à proximité. Une complication ouvre directement votre code principal.</p>
+        <ul>
+          <li><strong>Codes-barres d'origine</strong> : une carte en Code 128 ou EAN reste dans son format, pour que la caisse la lise.</li>
+          <li><strong>Codes denses</strong> : au-delà de ce qu'un écran de montre peut afficher, un avertissement plutôt qu'un code illisible.</li>
+        </ul>
+      </div>
+      <img src="shots/shot-montre.jpg" alt="Une carte de fidélité en Code 128 affichée sur l'Apple Watch" width="416" height="496" loading="lazy">
+    </div>
+  </section>
+
+  <section>
+    <h2>Sur iPad et sur Mac</h2>
+    <p class="sub">Une barre latérale de dossiers, la liste au centre, le code à droite. Sur Mac, glissez une image pour la lire, et un code vers le Finder pour l'exporter.</p>
+    <div class="shots">
+      <figure class="wide">
+        <img src="shots/shot-ipad.jpg" alt="QR Studio sur iPad : l'historique et un code Wi-Fi personnalisé" width="1400" height="1867" loading="lazy">
+        <figcaption>Sur iPad, avec l'historique et le détail côte à côte.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>Partout dans votre appareil</h2>
+    <p class="sub">QR Studio répond aussi quand l'app est fermée.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="ico">🎙️</span>
+        <h3>Siri et Raccourcis</h3>
+        <p>« Montre mon code Wi-Fi dans QR Studio », « Crée un QR avec QR Studio », « Quel était mon dernier scan ».</p>
+      </div>
+      <div class="card">
+        <span class="ico">🖥️</span>
+        <h3>L'iPhone, lecteur du Mac</h3>
+        <p>Chaque code scanné arrive sur le Mac appairé : dans le presse-papier, dans une liste, ou tapé directement dans votre tableur.</p>
+      </div>
+      <div class="card">
+        <span class="ico">✨</span>
+        <h3>Apple Intelligence</h3>
+        <p>Libellés et dossiers suggérés, recherche en langage naturel, explication d'un lien suspect. Tout est calculé sur l'appareil.</p>
+      </div>
+      <div class="card">
+        <span class="ico">🧩</span>
+        <h3>Widgets et partage</h3>
+        <p>Widgets, Spotlight, Intelligence visuelle, extension de partage et action dans Photos pour lire un code sans ouvrir l'app.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Rien ne sort de chez vous</h2>
+    <p class="privacy-note">
+      <strong>Aucune donnée n'est collectée par le développeur.</strong> Il n'existe aucun serveur.
+      Vos codes restent sur vos appareils et dans votre iCloud privé. Les seules connexions réseau sont celles que vous choisissez :
+      ouvrir un lien, afficher un aperçu, vérifier un lien avec Google Safe Browsing (option désactivée par défaut).
+      Pas de publicité, pas d'analytique, aucun compte à créer.
+      <br><br>
+      <a class="btn ghost" href="privacy-policy.html">Lire la politique de confidentialité</a>
+    </p>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="f-brand">
+    <img src="icon-256.png" alt="" width="180" height="180">
+    QR Studio
+  </div>
+  <div class="links">
+    <a href="index.html">Accueil</a>
+    <a href="privacy-policy.html">Confidentialité</a>
+    <a href="support.html">Assistance</a>
+    <a href="../apps/index.html">Toutes les apps</a>
+  </div>
+  <div>© 2026 Médéric Do · Tous droits réservés · <a href="mailto:dev.pnyx.appstore@gmail.com">dev.pnyx.appstore@gmail.com</a></div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../account.js"></script>
+</body>
+</html>

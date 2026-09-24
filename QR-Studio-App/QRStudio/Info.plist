@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>app.qrstudio.safebrowsing.refresh</string>
+	</array>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>fr</string>
+	<key>CFBundleDisplayName</key>
+	<string>QR Studio</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>fr</string>
+	</array>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>app.qrstudio</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>qrstudio</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>comgooglemaps</string>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_qrstudio._tcp</string>
+	</array>
+	<key>NSCalendarsWriteOnlyAccessUsageDescription</key>
+	<string>Pour ajouter un événement scanné à votre calendrier.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>La caméra sert uniquement à scanner les codes QR et les codes-barres. Aucune photo n’est prise.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Pour ajouter un contact scanné à vos contacts.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Pour envoyer vos scans au Mac appairé sur le même réseau.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Pour enregistrer le lieu d’un scan, seulement si vous activez cette option.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Pour enregistrer les codes que vous créez dans Photos.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Pour choisir une image contenant un code à analyser.</string>
+	<key>SafeBrowsingAPIKey</key>
+	<string>$(SAFE_BROWSING_API_KEY)</string>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>qrcode.viewfinder</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Scanner un code</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>app.qrstudio.scan</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>plus.square.on.square</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Créer un code</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>app.qrstudio.create</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>clock.arrow.circlepath</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Dernier scan</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>app.qrstudio.last</string>
+		</dict>
+	</array>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+		<string>fetch</string>
+	</array>
+	<key>UILaunchScreen</key>
+	<dict/>
+	<key>UIRequiresFullScreen</key>
+	<false/>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+</dict>
+</plist>

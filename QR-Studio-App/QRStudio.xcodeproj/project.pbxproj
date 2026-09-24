@@ -1,0 +1,2664 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0028A81BAF0025BFB2529458 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 2789E82B6BB322BD16BBCE1E /* PrivacyInfo.xcprivacy */; };
+		00B35274A7BB0D70D801F1E0 /* CSVImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77E540FF3AC43794A7E8E3 /* CSVImport.swift */; };
+		01416D029C469F15F0C52566 /* PresetStrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F751FA9B9002B4866762B /* PresetStrip.swift */; };
+		0158F1ECE751C8A40C21AE9E /* CodeLabelSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8972C2910ACD7C5C515B3134 /* CodeLabelSuggestion.swift */; };
+		01C1D06A175BCD2DFA9A8C6E /* SmartSearchCriteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34925F40524504B8B14348BE /* SmartSearchCriteria.swift */; };
+		02A5E706BDF5A70FB5D6E835 /* LiveCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADB7F12BEAECD7C2FA8AE2E /* LiveCode.swift */; };
+		047A69C1E20A4B8EAFADF17B /* QRStudioWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 1CF3FE83A1046040273087DF /* QRStudioWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		06E901C10786576417E1E33C /* TestDataSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B292EC1715436BD97B9BF86 /* TestDataSeeder.swift */; };
+		07CFE1AB7644318AFA8BA251 /* ReadabilityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1D9275C626508FBECCDECC /* ReadabilityIndicator.swift */; };
+		07D3216742F4BAADE43AFF78 /* ShowVisualSearchResultsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10382849CE441FADD9248E5B /* ShowVisualSearchResultsIntent.swift */; };
+		0811FAC7F8832EEE54859E44 /* SafeBrowsingGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EE5389D6CC1E2AD459D166 /* SafeBrowsingGate.swift */; };
+		084B6AC1495403FF7717E5CB /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B9533EC45AA72B4E08EAB4 /* AppSettings.swift */; };
+		08811742590AC6146BB0C060 /* ActionPresentations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E52D551160F833863A8A24 /* ActionPresentations.swift */; };
+		08F216C65DAF4322C0BF7E30 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EADDEACC299A30F77A2C86 /* SafariView.swift */; };
+		0C918228B0B8400EF4F577C5 /* QRCore in Frameworks */ = {isa = PBXBuildFile; productRef = D9D37E3AC8D42D514CF21EBD /* QRCore */; };
+		0CC634C6CF57D3C66E04986F /* FieldKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E312DA7E7C19FA8A34990B /* FieldKeyboard.swift */; };
+		0D490BFD0E0C5216364D428A /* Pause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F48E0F76645CE43B4E04C /* Pause.swift */; };
+		0D638E1822220F6383076CA3 /* SmartSearchCriteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34925F40524504B8B14348BE /* SmartSearchCriteria.swift */; };
+		0DADB88DF802B12303CF70A9 /* ContentDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5691772DD81E84CEB08B00 /* ContentDetailCard.swift */; };
+		0E6D195CE53A6FBEE16D9A95 /* QRStudioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F1FD02D40967B0837359A1 /* QRStudioApp.swift */; };
+		0E8484168305E9A39EE08A9C /* LogoTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CCF1FA0911BCF6967C2C86 /* LogoTab.swift */; };
+		0F009E84EB9AB93A1CA6432D /* AlertHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B7B7357D256428F1BEE75 /* AlertHost.swift */; };
+		0FF90BAC89874D2353E831B6 /* AutoOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919C72F57E01D4AA912F8DA3 /* AutoOpener.swift */; };
+		103BCDE9BAF3EA8DF56F1891 /* ShowCodeIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8827BDFF5D437CAD227C6D5 /* ShowCodeIntent.swift */; };
+		1048A7D9240BAD23D94CC2DC /* PhoneForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBD84A9032DC8937FDC53E8 /* PhoneForm.swift */; };
+		10BF85490EC496D5B4DD2CDD /* OptionalDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9801219FEA7EBAFD61F9C6 /* OptionalDatePicker.swift */; };
+		10FF2E2EE5CD9D3155181901 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F8A6BFAF39020BF321F47 /* ActionViewController.swift */; };
+		110FEB310F7A90C5BC089085 /* HistoryFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA891CC37FF3B8246B0466 /* HistoryFilter.swift */; };
+		114A9C85719C18478658AD5D /* LaunchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF80AA4007FACF20977546E /* LaunchTimer.swift */; };
+		11A1789260E8D3AC7B3707E7 /* BackupSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A968D70382D109A3EDB907 /* BackupSection.swift */; };
+		11AD902AAF78AE6712BDABE2 /* ScanMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D11283C919CC533710AE0A /* ScanMapView.swift */; };
+		11FBD9628DCA8AE67B59A948 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38BFFFAD549FE405E04EEE0 /* SwiftUI.framework */; };
+		1238A283653D90B362D8DCEC /* CodeThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92975EC56E1F9D95EE8FB092 /* CodeThumbnail.swift */; };
+		13A4817D4DCC4AE056172EAD /* CodeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4329E683BFF9BFE05596F7 /* CodeEntity.swift */; };
+		13ABA19EAA30A93D83BB64E3 /* LastScanIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FE7AAD3251475BC4945AAF /* LastScanIntent.swift */; };
+		1543708D776A5C253F5856B5 /* CameraUnavailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6CD61CD34918579EE0F704 /* CameraUnavailableView.swift */; };
+		1556B61D6152777313F7B687 /* ContentActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DD0BD37834B2A1895CBDC1 /* ContentActionsView.swift */; };
+		157BC9195BF60851104CEB3A /* LabelSuggestionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3F79E99C446F2030BECFD3 /* LabelSuggestionRow.swift */; };
+		159D23F2F3CB98D6F7FD18B5 /* ExportedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5682B414E4AC143E7EE4482 /* ExportedFile.swift */; };
+		1721F97F3D3B013E85F27E1B /* ShapeChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30865E8DAD11A9E1C6CFCA64 /* ShapeChooser.swift */; };
+		17D3C78AFD322A81546037DE /* SpotlightIndexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB951ACBA4966AF0943176CE /* SpotlightIndexer.swift */; };
+		188F58082189254C3E8014FB /* ScanResultSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A607544A8565C79BBACBD5 /* ScanResultSheet.swift */; };
+		1A6D7A46E5DB5FAF77E10362 /* PrimaryCodeWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C9882352DFC72AF99CE81D /* PrimaryCodeWidget.swift */; };
+		1AE34914DA50B188C0C41968 /* FolderEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE27697F973F06FCE5AF961 /* FolderEditor.swift */; };
+		1B4C8EAB6EDD236E2417EBF3 /* ViewfinderCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEA2ED9C30662EEAE29FD40 /* ViewfinderCorners.swift */; };
+		1B61E9A58B32F7D3CC7F08E0 /* SafeBrowsingWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2446F3850262966622C75F3B /* SafeBrowsingWarning.swift */; };
+		1C038B6B482584B43E16BCC4 /* HistoryFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA891CC37FF3B8246B0466 /* HistoryFilter.swift */; };
+		1C69488B275A511E99A9143E /* ExtensionRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8361A3ABF27F8114D6FB83 /* ExtensionRootView.swift */; };
+		1D091F563DA4A75AB1BF66E9 /* SymbolNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3E49F443BF15A85A172EB4 /* SymbolNames.swift */; };
+		1D5A93AFB85DFE59F7FB2B1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0E8B2A806432BF700B9F86F /* Assets.xcassets */; };
+		1D91CE310D548F18ECD44489 /* AutoOpenMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D0C866C0A578054B020E5A /* AutoOpenMode.swift */; };
+		1E28046663071A1B7F5A106A /* SocialForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBC8530F3AE1D6B480694BC /* SocialForm.swift */; };
+		1E3C017339BC54FBD9C87BFC /* BatchPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F7433A833EB79AED056A2B /* BatchPanel.swift */; };
+		1E8F6160DA2ACFAD0C6BC280 /* StaticProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44C7AC54A39E88BB5EC0603 /* StaticProvider.swift */; };
+		2166662FB40A89855DFB97FD /* AlertHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B7B7357D256428F1BEE75 /* AlertHost.swift */; };
+		22612AF61F685FA07646E92A /* StyleEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3243AC9607650F3A26A452 /* StyleEditorView.swift */; };
+		22AC56F4DC5F50C264370DEE /* HistoryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB938A3CAB824FA124BE25FC /* HistoryListModel.swift */; };
+		233F0511057E7C310E213AE6 /* CreateQRFromClipboardIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD61CCE2741567C416D6EB04 /* CreateQRFromClipboardIntent.swift */; };
+		23663D7A899510BF25705970 /* ReceivedScansStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D85EAEAC65B45FDF4FFA8B /* ReceivedScansStore.swift */; };
+		24E7FFDA849DA25385C911BC /* AppIconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC246FEAC9B3EDD5DEBFC3 /* AppIconPickerView.swift */; };
+		2642879F6AC2DE12153DCBD7 /* MacExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC354E89E91556C75D22D495 /* MacExport.swift */; };
+		270D4F696871F59FFB7CC6DD /* PrimaryCodeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D64026F1EFB2B6530EDFD4C /* PrimaryCodeProvider.swift */; };
+		27F67F8BB8BA9D8CA336D42B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 7AAD5A8A6E79D3CFC6EF13F0 /* PrivacyInfo.xcprivacy */; };
+		2898223A741BA32BE37AB804 /* CryptoForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC21539AA6D8926D7F06E1 /* CryptoForm.swift */; };
+		295D22DCD52EA38C16DE48D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0E8B2A806432BF700B9F86F /* Assets.xcassets */; };
+		2A2DC69FA07FB4140A65272E /* GeneratorFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F02995F8236CCF5D9C066C1 /* GeneratorFormModel.swift */; };
+		2A9105098D6B1C76437BE1B2 /* PrivacySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202BF4A554AA9398347403DA /* PrivacySection.swift */; };
+		2B06B7F6AB34CE4496FB92F1 /* TranslationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E353E1099256D84AC4C44F26 /* TranslationSheet.swift */; };
+		2D454ABE4493553180DB8CDD /* HistoryFilterSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA764AB15ED342C2053B7055 /* HistoryFilterSheet.swift */; };
+		2DFA5778AD943D14B2733D89 /* DangerZoneSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6FE00470C440576541F4EF /* DangerZoneSection.swift */; };
+		2E3F91B02E71D68AB9C5FA20 /* Pasteboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D9A49BB4DAC10535C5D956 /* Pasteboard.swift */; };
+		2ECFDEE23FA792080AC76497 /* OpenFoodFactsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52634EFD122B95506F4016D5 /* OpenFoodFactsClient.swift */; };
+		2F0E02D6D31FF235A5CC0BC9 /* AppIcon-Nuit.icon in Resources */ = {isa = PBXBuildFile; fileRef = E444BE752301C9C0494CDB40 /* AppIcon-Nuit.icon */; };
+		305C7A7313AAD8961752C29B /* ActionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6836E31A8FBBBCB25D5590CE /* ActionHandler.swift */; };
+		307CF989FF756C5B496469A7 /* EventForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D954F7D777DC48977AF0C653 /* EventForm.swift */; };
+		31808B8B3B833C4E20AB0468 /* EnterpriseWiFiForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A775E8D49BA33F5303110A /* EnterpriseWiFiForm.swift */; };
+		32046802A7C34BF273C13D57 /* MacHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A641A0642359808D52B9FACE /* MacHelpView.swift */; };
+		32CBACF8F24F6878ECF4B6C0 /* TestDataSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B292EC1715436BD97B9BF86 /* TestDataSeeder.swift */; };
+		330FFD0520121C5AB513EF24 /* QRCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6995F80CCF0CE91B61A98081 /* QRCore */; };
+		333CD23AB2FD3076B0BB8E55 /* DemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A96E15C1BD3218E7F92FDF /* DemoData.swift */; };
+		33AAC0618798FF4CD7AD209D /* ImageBarcodeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D7F1FD2D0C804A2201E3EB /* ImageBarcodeDetector.swift */; };
+		33FCADE830F43946BC02E750 /* SweepOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7854A1FFD5C0A4F80A9D6F /* SweepOverlay.swift */; };
+		340B035407BE7483C93000D1 /* MacSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF509F503344BEA98F699FBB /* MacSplitView.swift */; };
+		346491611C0456F1DBA1DACF /* AlertCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42C7EF2AEDB34A00B61C7F0 /* AlertCenter.swift */; };
+		3481D2CBC8445208B5191B36 /* ScanMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D11283C919CC533710AE0A /* ScanMapView.swift */; };
+		34F59B86975A73B547297FD3 /* CreateQRFromClipboardIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD61CCE2741567C416D6EB04 /* CreateQRFromClipboardIntent.swift */; };
+		35B9965B7C15A5D8870733C0 /* AppIcon-Menthe.icon in Resources */ = {isa = PBXBuildFile; fileRef = F4F5FDE3378FA7CEB05CEDDA /* AppIcon-Menthe.icon */; };
+		37226EB52512FFBF9703E1AB /* TorchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0574FF4C452B1EF2C05E0B /* TorchController.swift */; };
+		382215D8A4BE06BF4A3C7EA9 /* NSItemProvider+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D05AC0098B16B5148A9837 /* NSItemProvider+Data.swift */; };
+		385236416AD4539A1569E89C /* OpenCodeIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80936DB6297CEF63CFA478F4 /* OpenCodeIntent.swift */; };
+		3BBBCFD86B82D3267B286EA5 /* ScannerControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438E791A72952C73F50F8DC /* ScannerControls.swift */; };
+		3CAF2DAC6D9A71D67C877483 /* DetailEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4403D502DD198B3788F43F44 /* DetailEditor.swift */; };
+		3F57A423BD73AB8E7D499A89 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D4FD1B6952FAF8B6295CB3 /* SettingsView.swift */; };
+		3F8F1FD550CD6B1AAA2998CA /* FieldContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CA5CDB79D9D6DC15288D7 /* FieldContent.swift */; };
+		3FAC1C52E6A6AEADC6AC3528 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = ACFCC3DC3F0FD30501D9A280 /* PrivacyInfo.xcprivacy */; };
+		40373311E691D1A7D67C0943 /* CopyableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A3D39D4FBE9B1390C90038 /* CopyableRow.swift */; };
+		405DBBC109B78FD5E3E23D47 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9A78D7AA1CF9346AA58793 /* LocationService.swift */; };
+		41452D2447A7BD1A1DF113CF /* ShowWiFiIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9192CDE22E38015406AF3301 /* ShowWiFiIntent.swift */; };
+		41A2535790544C924A3114BD /* BatchSymbologyPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4A39ECF2285C3026AC9831 /* BatchSymbologyPreset.swift */; };
+		4224F89885183E34179B367E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443FF438FC4D0AD7B206A74 /* AppDelegate.swift */; };
+		42E0B5913B1D4509CE170959 /* DangerZoneSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6FE00470C440576541F4EF /* DangerZoneSection.swift */; };
+		4320301B29208D283AC668D6 /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D06FD86A54E9C2015966F71 /* DeepLink.swift */; };
+		435E55E63A5332430817804A /* ProductDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51CAF083CDAE62A0A174F67 /* ProductDetailCard.swift */; };
+		43D69A0A3034F8D13B1C688B /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F56231812DED7ABE5564779 /* PrivacyPolicyView.swift */; };
+		447A41B2912E93E8A85DE555 /* BatchSymbologiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F39A0F153EE5113CAE2A33 /* BatchSymbologiesView.swift */; };
+		4481E311C1468C7EA6DFFFBB /* MacLinkSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6EA3EE1381B11164ED85F1 /* MacLinkSection.swift */; };
+		45221737165EFB29B5C2369A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B770CA967DAD6871AD0BD14A /* PrivacyInfo.xcprivacy */; };
+		453D2DCD361798EB7A5CE26E /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EA03357FA32CA3E0600170 /* ScannerView.swift */; };
+		468EBFE8A9041D2D1A1B4A49 /* CircleControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AEB8D1B861260D5248DD85 /* CircleControl.swift */; };
+		479C0D1CB3632B834FDDD6C5 /* Pasteboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D9A49BB4DAC10535C5D956 /* Pasteboard.swift */; };
+		47AE996B220C2049FBDD4202 /* OpenFoodFactsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52634EFD122B95506F4016D5 /* OpenFoodFactsClient.swift */; };
+		497F029EC32F2AE17A3FA43B /* Glass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAFD7C4BDE0621F14B96EE0 /* Glass.swift */; };
+		4A8CF2B42974AD45251B1032 /* WiFiForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A496D799BC58C7AFD8084FF8 /* WiFiForm.swift */; };
+		4AE2385C33F3F3D48113E29B /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA64619449BF09F879EEB034 /* ToastView.swift */; };
+		4CBF9BFE7316A017FC1FF5A0 /* PlaceCodesSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CD4CF3AE77F6DD3BF40E6 /* PlaceCodesSheet.swift */; };
+		4E13BDFD773995836B48EC29 /* MainCodeWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2CE3879CF4EFAD90997FA8 /* MainCodeWidget.swift */; };
+		4E79BED1F4CCFE828483E5AA /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6F3C459B5FAE24A34059EA /* ExportService.swift */; };
+		4EB3E0B64EFACB8BB8ACD5E5 /* CreateQRFromTextIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79403D3576DBAE1D001D13E9 /* CreateQRFromTextIntent.swift */; };
+		4F81C235C0C1D123A2BB8142 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809ED68B5A9421959A6C6B96 /* ShareViewController.swift */; };
+		4F8E3AF152BE48D0A72D2858 /* QRStudioShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD959D474EF1BFA3A29E8860 /* QRStudioShortcuts.swift */; };
+		503B651E8312432B65E13BEF /* HistoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364EE970DCAFF69D2FA6096F /* HistoryListView.swift */; };
+		50511D28570556CA043F117D /* CodeSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291E1A4A093B2A9FF550A5D7 /* CodeSnippetView.swift */; };
+		519DE2E9A3CC508541AD2FA9 /* CodeEntry+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE295839BA4CACCCD64AFA47 /* CodeEntry+Preview.swift */; };
+		5206740B5D506BD40FBC2BEB /* CardSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B0684B33D403B87E6B6084 /* CardSection.swift */; };
+		52272CE7B2871B640CE056B5 /* PresetStrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50F751FA9B9002B4866762B /* PresetStrip.swift */; };
+		5319D6ECC0088AD4E7D5F4B1 /* LastScanIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FE7AAD3251475BC4945AAF /* LastScanIntent.swift */; };
+		531E731F091E1751F009B8E2 /* MacDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B5D39A75F989710335E4C7 /* MacDetailView.swift */; };
+		543288B21DE7E469F1F32091 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81D5DA02A4AA9B7890C66A5 /* Platform.swift */; };
+		5486B5517ED21142160EF051 /* Announcer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80085595FFACC9BE7E796109 /* Announcer.swift */; };
+		548AD5A48682998FC7EE69B9 /* SafeBrowsingWarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66693699F73E4E8651DC3F50 /* SafeBrowsingWarningView.swift */; };
+		54D7C7A540842A96A1488453 /* MacCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906D6EC48BAA2EEAA4CFEAFA /* MacCommands.swift */; };
+		54EB3F8019413BC85B45CC6F /* QRCore in Frameworks */ = {isa = PBXBuildFile; productRef = 641718233336EEF4003363D7 /* QRCore */; };
+		54ECB24A7BC500EA31BE0751 /* GeneratorTypePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D45FEFEA18391E3432A7F34 /* GeneratorTypePickerView.swift */; };
+		5571A25924134AAB23EF42F1 /* DecodedCodeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E557A77F65074BBF871B89B8 /* DecodedCodeRow.swift */; };
+		557DB02A85A3346466F98998 /* CryptoForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC21539AA6D8926D7F06E1 /* CryptoForm.swift */; };
+		55A10958DBF8DF33AF840C9F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 19FC06F0FC60D8A4D1E24449 /* PrivacyInfo.xcprivacy */; };
+		56A41BB68D842FFD58906E57 /* BackupFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827D810041C77E05A4109015 /* BackupFile.swift */; };
+		571219840D4F93BB36C163DD /* QRStudioAction.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C3C7D5D9F459BB987062A9E6 /* QRStudioAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		575AEF9F99A0C46DAF755415 /* AppIcon-Corail.icon in Resources */ = {isa = PBXBuildFile; fileRef = D01FBDFF1183A18D17DF1748 /* AppIcon-Corail.icon */; };
+		576112A272AB555A2349F2B3 /* OptionalColorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6D610AF97A388AC93B354A /* OptionalColorRow.swift */; };
+		58FB98FC8D4341629F2CD0B3 /* MacScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2091B04B1231027B8C5EC26 /* MacScanResult.swift */; };
+		597D5238EF721C2C25390786 /* MacHistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8747753D82CFD8F54F544AEC /* MacHistoryList.swift */; };
+		59EDD1F277881DACDC5CBF19 /* ContentActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DD0BD37834B2A1895CBDC1 /* ContentActionsView.swift */; };
+		5A69ABC59635540894878D66 /* OnDeviceIntelligence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C655F040C24C584EEBE0FA1C /* OnDeviceIntelligence.swift */; };
+		5ACED176F53BE7215BA5AEF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0E8B2A806432BF700B9F86F /* Assets.xcassets */; };
+		5AF7B064BE66AC853EDF2998 /* ContactEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EAD0F86799FB13441E699B /* ContactEditor.swift */; };
+		5B496E3973CCF3A11DD30E97 /* AdvancedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78983E9970C611FEC633F966 /* AdvancedTab.swift */; };
+		5BC0D4BDD9D5EC58051E55D0 /* ReceivedScansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5521EB7C0AAC9799744352 /* ReceivedScansView.swift */; };
+		5C176E1B36DA5AE05F123C32 /* GeneratorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F2ABE9C031258370791A43 /* GeneratorScreen.swift */; };
+		5FBDD798E56128C94C0F8760 /* QRCore in Frameworks */ = {isa = PBXBuildFile; productRef = 554522E0AAA2F56F1AF593BD /* QRCore */; };
+		5FF70883EE36B4A0E4E92DA8 /* KeyboardTyper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EEA19DC1F4A9748DF35122 /* KeyboardTyper.swift */; };
+		5FFCC1F4465729BCEBA19929 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 9D1FA0BFA58CD84FAEB238F7 /* AppIcon.icon */; };
+		5FFE6088E62664377A0053BA /* QRStudioWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C182D4468C1BF8ABEE72F0EA /* QRStudioWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		61282D7E2460FBF855C80837 /* SMSForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78CFF76D1592013FFC949C /* SMSForm.swift */; };
+		61DDBB0911A9522DC71C29A8 /* Quad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD5B6055B9BED4B4182C842 /* Quad.swift */; };
+		6484DFDBD7385C58A4DFF1B1 /* IntentSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0E650ADF734467B136889F /* IntentSupport.swift */; };
+		64C5A9E624BB04B25DAF57A4 /* TopBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93882DB2AE7C85921C9573F /* TopBarModifier.swift */; };
+		64C770F9671673B5D040C577 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AF80EB982EA36B40D93A53 /* SidebarView.swift */; };
+		65817D5AFC7F5776AEAFA319 /* CodeSnippetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291E1A4A093B2A9FF550A5D7 /* CodeSnippetView.swift */; };
+		66E90CDA9142235E95E6857B /* CopyableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A3D39D4FBE9B1390C90038 /* CopyableRow.swift */; };
+		690D8DD64CA35871F470F013 /* AdvancedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78983E9970C611FEC633F966 /* AdvancedTab.swift */; };
+		6962F8EA71AF044A1BF2DDBA /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = A652149D25B26AAEDD844851 /* Feedback.swift */; };
+		6C09B91F3B8066737F85E53E /* LocationDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5942FA38D786711A53E5E60 /* LocationDetailCard.swift */; };
+		6C890B8B9B08D03AE7CD3BE9 /* Announcer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80085595FFACC9BE7E796109 /* Announcer.swift */; };
+		6CA99F429516FF18B9D193DF /* PrimaryCodeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B27CA0938D1A5E8AD7628 /* PrimaryCodeEntry.swift */; };
+		6E4C4CAF88100B02A4BDE012 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38BFFFAD549FE405E04EEE0 /* SwiftUI.framework */; };
+		6ECE13EB446589CEAF909CBE /* QRStudioMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD4926B26B8E0BF545222F3 /* QRStudioMacApp.swift */; };
+		6F3E17D481D13C9DCCFB8B56 /* ScanMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7DDB7EB9F8A5B28683D448 /* ScanMode.swift */; };
+		6F8D1AC15BAB13D84D55BC5E /* WatchCodeDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AC0E4452C2192578219120 /* WatchCodeDisplayView.swift */; };
+		70291F9366375ACC8F37C0CD /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0F2B59DC23D265ADC585DE6B /* Localizable.xcstrings */; };
+		716AA04F7A3B9D177C771906 /* MacScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337E3611E07D39C0F276A124 /* MacScannerView.swift */; };
+		723DF7ED5B736AA5D2C6EC5F /* RegularRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898AC266A95B931BDB1838E8 /* RegularRootView.swift */; };
+		7323092CF151B464221FFF2A /* CodeEntry+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE295839BA4CACCCD64AFA47 /* CodeEntry+Preview.swift */; };
+		74917FE183F95368C32677D4 /* BackupFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827D810041C77E05A4109015 /* BackupFile.swift */; };
+		76CDCC3D672B28FC66F107F2 /* AutoOpenBannerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DED8F8240B1AEC01EA83EA /* AutoOpenBannerState.swift */; };
+		7808FBD7B9D07CF3D8E10C54 /* CardSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B0684B33D403B87E6B6084 /* CardSection.swift */; };
+		780AF1BB9D2E847AFA96EB8C /* CodeEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0545302C19EC6D039E3B9A /* CodeEntityQuery.swift */; };
+		79C47A426E7326C358BA1896 /* SheetHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AD39CCED33A267AE78DA4B /* SheetHeight.swift */; };
+		7AC888BF419EF272F958866D /* ScannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6756A5922F2CB585B279C9EF /* ScannerModel.swift */; };
+		7BF7E1548AA2FC9A86CFEABE /* PayloadIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFF3D1C1F67C8A2E4B22902 /* PayloadIndex.swift */; };
+		7C92287CA31CA5F4D9D33A84 /* ShowWiFiIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9192CDE22E38015406AF3301 /* ShowWiFiIntent.swift */; };
+		7CB3D7020E1D27A092F2F760 /* CodeIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39744E7C3F1348A871F48B1 /* CodeIntents.swift */; };
+		7CEAB470FC9D8971EA658EE5 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D87EE6A999B62D8E77EE63 /* MessageComposer.swift */; };
+		7EB60A048DD803DC9D249BE2 /* ColorsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C966478A4E4DC272F0A5089 /* ColorsTab.swift */; };
+		7F4EAC6F7B2A4B8A86EF57A1 /* ProductForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3DDA20A491209EE62AFCCC /* ProductForm.swift */; };
+		7F528E579415F68AED12E04B /* ExportEntriesSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9CD6C87329909BDC319067 /* ExportEntriesSheet.swift */; };
+		7FACEACAF4F822CD8A00592B /* DropZoneModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BC16B8AEB1660E9227C4B2 /* DropZoneModifier.swift */; };
+		7FFE6057EF1901B481991F5D /* HistoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F086CDACEDD832765D0E733 /* HistoryScreen.swift */; };
+		801D6F102C04141F53AA2D16 /* SecurityScoped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B694EFFA022F469C01493D4 /* SecurityScoped.swift */; };
+		804D093E435A92E5610203AD /* AutoOpenMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D0C866C0A578054B020E5A /* AutoOpenMode.swift */; };
+		807C4FBCC08EDDFE63937457 /* ContactForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ABB943B3D92D0F91CBA5DA /* ContactForm.swift */; };
+		80C6991A67DBDC9443894454 /* SearchSiteEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD57197EE95E4A6B630353 /* SearchSiteEditor.swift */; };
+		819673DE0D836698D953DF05 /* WatchComplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FA42D8CDC64F7CFA97DB18 /* WatchComplication.swift */; };
+		81B499D12566D9FC805B4ED0 /* DetailEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4403D502DD198B3788F43F44 /* DetailEditor.swift */; };
+		836C1D380D0E6CCBC636FB07 /* AutoOpenBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256E21ADEE0080CACC212A5 /* AutoOpenBannerView.swift */; };
+		853C58C228260DC65E4651F2 /* PrimaryCodeWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE374525D153D450366F0310 /* PrimaryCodeWidgetView.swift */; };
+		86A3552529D6799F1F5405A0 /* CodeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4329E683BFF9BFE05596F7 /* CodeEntity.swift */; };
+		8778D94A0EA021959954A392 /* VisualIntelligenceIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD99753AF7A3332F09E03EF /* VisualIntelligenceIntents.swift */; };
+		87BB2E4256F06264358731B8 /* AppIconChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B85DB01F43C65A37048909 /* AppIconChoice.swift */; };
+		881789C303BFE481F901492E /* URLDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95AEB7A1E1C0AF88139C61 /* URLDetailCard.swift */; };
+		8BC7C4730B7B0A055EE3A64A /* CodeEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0545302C19EC6D039E3B9A /* CodeEntityQuery.swift */; };
+		8BCBE4BF6DEFA8FF0E4C5F81 /* LocationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9054EC06B2DB8B174980DDDC /* LocationForm.swift */; };
+		8CA63841D36DC6AADD89962B /* OptionalDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9801219FEA7EBAFD61F9C6 /* OptionalDatePicker.swift */; };
+		8CF993563438CCE6534F9845 /* EventEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D943D6992C4B4B752D6FA77F /* EventEditor.swift */; };
+		8D62DF53624C9CCE57950C95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0E8B2A806432BF700B9F86F /* Assets.xcassets */; };
+		8DC35EFB4E71F678A04CA34B /* MacImageImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1430385860F0764D717A30 /* MacImageImporter.swift */; };
+		8E0CBAA672C5A89E406FC535 /* FolderPickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA823A1AF85A5C479A6283DB /* FolderPickerSheet.swift */; };
+		8E43F01D4695054D8C3FCEB2 /* QRCore in Frameworks */ = {isa = PBXBuildFile; productRef = 9546710C2FA919DDD28E7241 /* QRCore */; };
+		906883EB532F5F4ECAAC6B88 /* FolderEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE27697F973F06FCE5AF961 /* FolderEditor.swift */; };
+		90B6182CAF2CCEA3C52F37D3 /* SMSForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78CFF76D1592013FFC949C /* SMSForm.swift */; };
+		91A15DF654576A3E4327C2A6 /* AppIcon-Ocean.icon in Resources */ = {isa = PBXBuildFile; fileRef = 3BF4BF14701EA57DA31BA455 /* AppIcon-Ocean.icon */; };
+		928DD28A486071363303DDC1 /* QRCore in Frameworks */ = {isa = PBXBuildFile; productRef = D70DFBD615D7C9AA9912F03E /* QRCore */; };
+		928F5DB0B7A7586A4CCDF48C /* WebhookSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533F85C39F28FF96CC8CF1A /* WebhookSender.swift */; };
+		92CF7561D21B555E49460CC4 /* WatchDemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BBC8E152A709EA625C52E /* WatchDemoData.swift */; };
+		935D0C6678DE4F525CEFE070 /* WatchCodeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41C5B78B7409B3771C57129 /* WatchCodeListView.swift */; };
+		938D31686316197EA0C59919 /* URLForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309E328C0C098E2E6C64E58 /* URLForm.swift */; };
+		93B54FE96977227249A54843 /* AppSmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C45777F2F76F7CE2260FF8 /* AppSmokeTests.swift */; };
+		96E1B1689BC34DB8F6EAA7BF /* ExtensionRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8361A3ABF27F8114D6FB83 /* ExtensionRootView.swift */; };
+		96EEF20E63226854DB65BCDC /* PhoneForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBD84A9032DC8937FDC53E8 /* PhoneForm.swift */; };
+		971FEA9A5A4B8796526DE361 /* ProductDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51CAF083CDAE62A0A174F67 /* ProductDetailCard.swift */; };
+		973CD41CD087D73B1B7F2934 /* ExtensionHostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0DF333988E3411AFA5CB93 /* ExtensionHostController.swift */; };
+		9748398AF7529C5583852DB3 /* QRStudioWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE27D6B75822396DB44959AA /* QRStudioWidgets.swift */; };
+		9B0DBA4814CC6C41D2F12EF9 /* SweepBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEF67D3A1E7A13960D4B5B3 /* SweepBar.swift */; };
+		9B0EE31F90D555EE3CE90D51 /* BatchTranslationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE8972632CE0B32C6D5D024 /* BatchTranslationSheet.swift */; };
+		9B20C6DD64EC393C43EE6010 /* SyncSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746741CB0E444543D7CC370B /* SyncSection.swift */; };
+		9C3389B94A118985DF63F938 /* MacLinkSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E7A1E2293852CAE6B1FCE /* MacLinkSettingsView.swift */; };
+		9CA2CB16BD2C9532E55F4AE6 /* FolderManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C8344C381EA99BFE855D2 /* FolderManagerView.swift */; };
+		9CE9A1112F8F041BAAD3519C /* HistoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B811EAC76F2B061223802D /* HistoryRow.swift */; };
+		9DF920BB1B7A9EF625349441 /* MapDateRangeSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE84463D1F75301CA28B94 /* MapDateRangeSheet.swift */; };
+		9DFAC869884FD07F8679BEC2 /* EntryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F456802355317A6D98B8CDF4 /* EntryStore.swift */; };
+		9F90228E8E39BD50C775C430 /* CompactRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E95E2BF088250C1E56E14FF /* CompactRootView.swift */; };
+		A0285A126CEF02A29920ACFA /* EntryStyleEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD063885491F2D9C24DBB706 /* EntryStyleEditor.swift */; };
+		A0C78337C4DF8F99F5516009 /* DetailMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370FABAEE403D69078992396 /* DetailMetadata.swift */; };
+		A1581E112145671ACC04929E /* CodeIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39744E7C3F1348A871F48B1 /* CodeIntents.swift */; };
+		A1592296F4E71CFCF8895384 /* CodePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67710A18C171C903633A7662 /* CodePreview.swift */; };
+		A1B1F774599BDA8DA80B2C55 /* FolderPickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA823A1AF85A5C479A6283DB /* FolderPickerSheet.swift */; };
+		A1EF21690BDD1E6786329CD7 /* ExportSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C017798F8A5847EACDF3AC /* ExportSheet.swift */; };
+		A321C93B7FD1034B9E03FE13 /* MultipleCodesSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9C7A558BDD576384B0425 /* MultipleCodesSheet.swift */; };
+		A333247A8C608FF90D28F6D0 /* EntryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F456802355317A6D98B8CDF4 /* EntryStore.swift */; };
+		A3BFD56ADF22873C0E9FA54B /* MacExportSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5EA3C3C7822674769FA48A /* MacExportSheet.swift */; };
+		A3CEAF8A34E157DD68D737A6 /* AlertCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42C7EF2AEDB34A00B61C7F0 /* AlertCenter.swift */; };
+		A4F99C43C4730D01F531EADD /* WebhookSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDAF6AEEA055CDE96E09A34 /* WebhookSection.swift */; };
+		A631F9EB8585479AFA005509 /* PresentedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFB7D4B747FB46AB59F24A /* PresentedAction.swift */; };
+		A682B314D46C30321BF20597 /* SecurityScoped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B694EFFA022F469C01493D4 /* SecurityScoped.swift */; };
+		A6B50BB7A9D5B8D764F37EA1 /* BatchSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EB5D98279D8FDA64F7315 /* BatchSession.swift */; };
+		A749B3AC380DE7ACBB488D25 /* EntryStyleEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD063885491F2D9C24DBB706 /* EntryStyleEditor.swift */; };
+		A7537BE77A2D77F0BB78721C /* QRStudioShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 75C9EE9584CD2373506EE496 /* QRStudioShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A79D641A20941440883D13E5 /* TextForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FD990915E2046F728F88A /* TextForm.swift */; };
+		A877390B4813CDBD0085B961 /* MacSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440EE4E79D755CAA2F5B3EB0 /* MacSidebar.swift */; };
+		A98774A5D4639552CE06747C /* ReadabilityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1D9275C626508FBECCDECC /* ReadabilityIndicator.swift */; };
+		A987B66E64A6730603A887EF /* HistoryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB938A3CAB824FA124BE25FC /* HistoryListModel.swift */; };
+		A9AAD8C725DB122F81ABE8CB /* ShapesTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0248BE86EE221BD23C3917 /* ShapesTab.swift */; };
+		AA8D5582247C5E9AF9EEE85A /* ShapeChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30865E8DAD11A9E1C6CFCA64 /* ShapeChooser.swift */; };
+		AB66D99EC510E88A98F3A422 /* EnterpriseWiFiForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A775E8D49BA33F5303110A /* EnterpriseWiFiForm.swift */; };
+		AC21C70B195A0ABB9CE365E5 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 9D1FA0BFA58CD84FAEB238F7 /* AppIcon.icon */; };
+		AC4BCD7C8C9B09BA2B1E48BB /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0F2B59DC23D265ADC585DE6B /* Localizable.xcstrings */; };
+		AC7F32410C4DE588A724D425 /* DemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A96E15C1BD3218E7F92FDF /* DemoData.swift */; };
+		AC8175F9FB6BE7B4B5C604D3 /* DraggableCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF437024CE096B6EA65CF3C /* DraggableCode.swift */; };
+		AC85B45FC8CD11B41F0E2AEC /* SharedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E084612E27CC551790759 /* SharedTextView.swift */; };
+		AC9DD5E4E097CEF57F6729D4 /* LogoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76542EC6B30D847ECBD2AC08 /* LogoImage.swift */; };
+		AD56040DF34EA02190358FD4 /* DecodedCodeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E557A77F65074BBF871B89B8 /* DecodedCodeRow.swift */; };
+		AD8164066B2F184CC8E478CA /* MacRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62B3A0273E3D6DCD341049F /* MacRouter.swift */; };
+		ADBE19047391AADE7A5A07ED /* ExtensionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A643755C2615B1A4E2EBAB5 /* ExtensionModel.swift */; };
+		AE241B949146B098C46BED7A /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87507C41D98710DFDDA385B /* RootTabView.swift */; };
+		AEC974D266063B0AA1284FF5 /* SweepValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FD4FFA42638A229F79D185 /* SweepValues.swift */; };
+		AEDADB1BAB6FAFFFF19E0A97 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 378194AAA9A897CD67C4E06A /* PrivacyInfo.xcprivacy */; };
+		AF3E74E2D4CA8502ABE32BED /* TranslationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E353E1099256D84AC4C44F26 /* TranslationSheet.swift */; };
+		AF981F03263818703D3A04AA /* GeneratorFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40138885995A7667D56EE32 /* GeneratorFormView.swift */; };
+		B0B37383F081B925358CBA74 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81D5DA02A4AA9B7890C66A5 /* Platform.swift */; };
+		B0CB13C6EA30B1713EC7121F /* HistoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B811EAC76F2B061223802D /* HistoryRow.swift */; };
+		B0CF9C2A524638CD0A73518E /* ExportFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B6653DFAC3C79590B20271 /* ExportFormat.swift */; };
+		B1111A387F3AE6682015B2C8 /* ScanWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1A8BEE19ED0C13395798DC /* ScanWidget.swift */; };
+		B2268EE25A0B189DDC49342A /* SpotlightIndexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB951ACBA4966AF0943176CE /* SpotlightIndexer.swift */; };
+		B22D6D9B68683A581B06B245 /* FullScreenCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C811E8DD26A42BFF6C45A8 /* FullScreenCodeView.swift */; };
+		B340857E1655FE25C9A6DEA2 /* SharedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E084612E27CC551790759 /* SharedTextView.swift */; };
+		B3AF9DB2AE920B5BCC8134FA /* ActionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6BCAD75F0E50EAB3F89665 /* ActionHandler.swift */; };
+		B405D8DB047AF54563D0D174 /* QRCore in Frameworks */ = {isa = PBXBuildFile; productRef = 82AE91A50385AE21FD9DC0AB /* QRCore */; };
+		B50B69634A7C5380FE13D997 /* TextForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FD990915E2046F728F88A /* TextForm.swift */; };
+		B61F35C2239A192FF5E28BC7 /* CaptureScannerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1F3016011F446A7C9AE29 /* CaptureScannerRepresentable.swift */; };
+		B65DD0B964D763D4C5D24533 /* PinnedPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E17BCA7D562562B3D4AF6 /* PinnedPreview.swift */; };
+		B721BEDA0968C7E0C76B93B4 /* WatchCodeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C77E104247F8F749346E75 /* WatchCodeImage.swift */; };
+		B7BB283F5E8D24F9F241FDAB /* MacGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0978D025522DCEA502521C18 /* MacGeneratorView.swift */; };
+		B7D8C538665F8F6CF271FAFE /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 6DE2D68ED1FAA12A6419139B /* InfoPlist.xcstrings */; };
+		B8F87996909A4342CEB90722 /* AppServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D4B731C9E11F4DEE84E201 /* AppServices.swift */; };
+		B976B58132F76AD403297415 /* MainCodeWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB0CDCF32F5B533AC7E5708 /* MainCodeWidgetView.swift */; };
+		B9C383DF13E9201647664ECE /* NSItemProvider+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D05AC0098B16B5148A9837 /* NSItemProvider+Data.swift */; };
+		B9F1DD5CCCBACB780330F04C /* LogoTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CCF1FA0911BCF6967C2C86 /* LogoTab.swift */; };
+		BB4CFC3EAF4AED05CE82A488 /* ScanWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1715240BCFB1B1F568133E3D /* ScanWidgetView.swift */; };
+		BDBBBDAAEC41E17BFB14822B /* BatchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226767F8AF3B465173015FA /* BatchRow.swift */; };
+		BE75D2FF941D4D3F82BB5369 /* SymbolNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3E49F443BF15A85A172EB4 /* SymbolNames.swift */; };
+		BE9877D4149DB962C69A716B /* LocationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9054EC06B2DB8B174980DDDC /* LocationForm.swift */; };
+		BF2BC6BD8446234234EE43CC /* BatchSymbologyPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4A39ECF2285C3026AC9831 /* BatchSymbologyPreset.swift */; };
+		C03BC7554618E97A15C73073 /* BackupSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A968D70382D109A3EDB907 /* BackupSection.swift */; };
+		C04E127F45DC6F3A06233F1D /* LabelSuggestionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3F79E99C446F2030BECFD3 /* LabelSuggestionRow.swift */; };
+		C107F6894910D4AE9F6BD173 /* LabelField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2853E730FD472929CBBFBA22 /* LabelField.swift */; };
+		C137F3951110E4B29B052E39 /* SearchFocus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24140219F888024A9C3F7039 /* SearchFocus.swift */; };
+		C3CA7F92CB6BBB954D42569E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7B2634FA66C5876A9EF11C8 /* WidgetKit.framework */; };
+		C3CD9FE5E6FEC0C1BC9A8459 /* CodeThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92975EC56E1F9D95EE8FB092 /* CodeThumbnail.swift */; };
+		C3D5237FC5CFC77138EE6FB9 /* StyleEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3243AC9607650F3A26A452 /* StyleEditorView.swift */; };
+		C496D07ACE81A44A8284BD45 /* ExtensionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A643755C2615B1A4E2EBAB5 /* ExtensionModel.swift */; };
+		C4DB0EC1305FD0FB91C9CF75 /* ContactForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ABB943B3D92D0F91CBA5DA /* ContactForm.swift */; };
+		C4F19009F7C4303DB3D82F85 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 9D1FA0BFA58CD84FAEB238F7 /* AppIcon.icon */; };
+		C5B35C1EF669D0140910B651 /* LinkPreviewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9010C202156A4BCBE8E7501 /* LinkPreviewRow.swift */; };
+		C6055BA7F7E81AB72899E3A6 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B9533EC45AA72B4E08EAB4 /* AppSettings.swift */; };
+		C643A38FF54325ED2FE0DC3D /* FolderManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C8344C381EA99BFE855D2 /* FolderManagerView.swift */; };
+		C7058C2B6C7E2FEDC0C020FD /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7B2634FA66C5876A9EF11C8 /* WidgetKit.framework */; };
+		C74D161DC714C677E91F61DE /* EventDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FB45F72BFDFA4873907E2F /* EventDetailCard.swift */; };
+		C7B52DE62AE337D96E43AEB0 /* DraggableCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF437024CE096B6EA65CF3C /* DraggableCode.swift */; };
+		C7D152B55F40C44F2123E49A /* LabelField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2853E730FD472929CBBFBA22 /* LabelField.swift */; };
+		C838FB0581AB6A092FEA9C75 /* ShowCodeIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8827BDFF5D437CAD227C6D5 /* ShowCodeIntent.swift */; };
+		C86D0C4C72017E661EADD3BF /* SearchSitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4851B9CA3EC1F129711A8B53 /* SearchSitesView.swift */; };
+		C946857AE0286A3E5734D168 /* LinkPreviewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9010C202156A4BCBE8E7501 /* LinkPreviewRow.swift */; };
+		C9CA07A16EAF71374087E73C /* ShortcutParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6090DCB8FF1685D86257F90A /* ShortcutParameters.swift */; };
+		CA9F9DAC1D8009948F976C01 /* DataScannerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB6C53D299C3D840052883 /* DataScannerRepresentable.swift */; };
+		CB0F0DF4D149A5C6A05F6A0E /* QRCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8A84D17638DDF340327250EB /* QRCore */; };
+		CB982E9D41F0A106C65FF2E6 /* ThumbnailCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E96607DE432CBBDB8B3D7D /* ThumbnailCache.swift */; };
+		CBF18701505F79F2FB9554AF /* ModeSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7521ED36BC2BECD38D9234F8 /* ModeSwitcher.swift */; };
+		CC18A536A3CE2BB42F9B33CA /* URLForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309E328C0C098E2E6C64E58 /* URLForm.swift */; };
+		CC18F6AB22CF5452093EE7D2 /* GlassGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D41220B4A8FD5A6FD1BF63 /* GlassGroup.swift */; };
+		CC6463ACBCD6D8AD989D4B0C /* QuadFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D65EF1B2D78A4CFC8EB369 /* QuadFrame.swift */; };
+		CCB1A7375F103BEEFCDC595A /* AppServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBABE9972EAED2C7D056FC5 /* AppServices.swift */; };
+		CCF150F6F218F4B12F3D7562 /* ExtensionHostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0DF333988E3411AFA5CB93 /* ExtensionHostController.swift */; };
+		CD0F9DD33D83158A367742CA /* CodeLabelSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8972C2910ACD7C5C515B3134 /* CodeLabelSuggestion.swift */; };
+		CD8B339850F916C528AF3926 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D94A0A6BFDF97E7A04D01EC6 /* PrivacyInfo.xcprivacy */; };
+		CE1D0CD44DF65DB5D2C401F8 /* SheetHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AD39CCED33A267AE78DA4B /* SheetHeight.swift */; };
+		CE54260ED4AF972C8E192FA5 /* NSItemProvider+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D05AC0098B16B5148A9837 /* NSItemProvider+Data.swift */; };
+		CE7B6CE910A11429962510AE /* EventDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FB45F72BFDFA4873907E2F /* EventDetailCard.swift */; };
+		CF53D28F941ACCC93D605CE5 /* Glass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAFD7C4BDE0621F14B96EE0 /* Glass.swift */; };
+		CF84512348A530EC68A154F0 /* PinnedPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E17BCA7D562562B3D4AF6 /* PinnedPreview.swift */; };
+		D047B13DBFF82D1890801F30 /* EmailForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F3F671C486B9754925DED1 /* EmailForm.swift */; };
+		D0ED4B62D7E283D03F0219D0 /* MainAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF24E7E751E9557FCF888DF /* MainAppView.swift */; };
+		D1159F90138BC9D6430D1382 /* OpenCodeIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80936DB6297CEF63CFA478F4 /* OpenCodeIntent.swift */; };
+		D218B6796A48E8A201425BC9 /* QRStudioShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD959D474EF1BFA3A29E8860 /* QRStudioShortcuts.swift */; };
+		D38A14024E6D461AB36BB8A6 /* MapDateRangeSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE84463D1F75301CA28B94 /* MapDateRangeSheet.swift */; };
+		D474B65C03B88156CFAC3B59 /* ColorsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C966478A4E4DC272F0A5089 /* ColorsTab.swift */; };
+		D5103A6D1793C989A4C021A6 /* QRStudioWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53536A5B48373B396724D6CD /* QRStudioWatchApp.swift */; };
+		D510F0B230FB7BC0B2D23F32 /* SyncSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746741CB0E444543D7CC370B /* SyncSection.swift */; };
+		D5325F68D1EE907C21C4435F /* OnDeviceIntelligence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C655F040C24C584EEBE0FA1C /* OnDeviceIntelligence.swift */; };
+		D619AD4A30E1A01AED1165AC /* EmailForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F3F671C486B9754925DED1 /* EmailForm.swift */; };
+		D624D3648097861FD75144B2 /* FieldKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E312DA7E7C19FA8A34990B /* FieldKeyboard.swift */; };
+		D64940CD1F2359A7547EA5C3 /* EventForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D954F7D777DC48977AF0C653 /* EventForm.swift */; };
+		D69612AEC59070F3D4A03525 /* CodeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C18A21BF0DC20B37707CEDE /* CodeDetailView.swift */; };
+		D737826B40A6534FB89823F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58275C72A5E0825C3F716744 /* SceneDelegate.swift */; };
+		D85B67D37B3C1CB413EFC0E8 /* DetailMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370FABAEE403D69078992396 /* DetailMetadata.swift */; };
+		D9A6BB2C86DE2DD06D0777F9 /* HistoryListView+Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B078023E9B50BDF1A9C52B13 /* HistoryListView+Toolbar.swift */; };
+		DA3B00B0072CD01D5B6AEDB0 /* CSVImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77E540FF3AC43794A7E8E3 /* CSVImport.swift */; };
+		DA632A892306DC74412724D2 /* MacSafeBrowsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E253BA13CFEE4D9D264BF1 /* MacSafeBrowsing.swift */; };
+		DAB6EB3A75881BE460EF04DB /* LastScanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC03266760ABF116D92801B0 /* LastScanButton.swift */; };
+		DADB57D00F12A0FDF6137EC0 /* Sweep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CBB6DE7B12D0E8554563AC /* Sweep.swift */; };
+		DBF501699166A5F8F0A91F7E /* CreateQRFromTextIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79403D3576DBAE1D001D13E9 /* CreateQRFromTextIntent.swift */; };
+		DF785706EF6393DDE0C09202 /* MainCodeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4624CD647DC9D38BED7F73 /* MainCodeProvider.swift */; };
+		E00B5CDC7C1CD41512BB8E5F /* MainCodeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7C68D323B2335B7E7866F1 /* MainCodeEntry.swift */; };
+		E0CF4D91BE02337AA2D58060 /* MacSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAB2408A3CFDF22EA392C0D /* MacSettingsView.swift */; };
+		E1895CEB6E4864985995A79D /* GlassGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D41220B4A8FD5A6FD1BF63 /* GlassGroup.swift */; };
+		E22AE27FDDC10C63B822F351 /* FieldContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57CA5CDB79D9D6DC15288D7 /* FieldContent.swift */; };
+		E463921D0055960CE38D5EF1 /* QRStudioWatchWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8B789976D8C246283177AD79 /* QRStudioWatchWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E707E275634EE637813E4EC8 /* ShortcutParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6090DCB8FF1685D86257F90A /* ShortcutParameters.swift */; };
+		E81EAB1F94172EEB20DC9F3E /* GeneratorFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F02995F8236CCF5D9C066C1 /* GeneratorFormModel.swift */; };
+		E87B104A03ACAE7784FC5B12 /* MacConnectionChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8FAE004B4784AD717EE6BC /* MacConnectionChip.swift */; };
+		E887C15CB09A1A1C72E262CE /* MacLinkServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23EA98CDD1E3C32126C7D7A /* MacLinkServer.swift */; };
+		E8E3943D562AC69FE3172C62 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF6101B7F4EF4B73AC340C1 /* CameraPreview.swift */; };
+		E93119EDE2BA7D8ADD985C25 /* LocationDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5942FA38D786711A53E5E60 /* LocationDetailCard.swift */; };
+		EA869EB6F44F83B9ECB66082 /* SearchSiteEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD57197EE95E4A6B630353 /* SearchSiteEditor.swift */; };
+		EBC83E74A1EE9C3D1DDABC05 /* LogoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76542EC6B30D847ECBD2AC08 /* LogoImage.swift */; };
+		ECED9FAF667DA4F2FBE5E6E4 /* ZoomSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FC7DD27A142B0E44AA626B /* ZoomSelector.swift */; };
+		ED14D2A70053164D3E890617 /* ContentDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5691772DD81E84CEB08B00 /* ContentDetailCard.swift */; };
+		EE2BC3BB9537908537849552 /* URLDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95AEB7A1E1C0AF88139C61 /* URLDetailCard.swift */; };
+		EEBD946AC0600AEA0A992CB9 /* SocialForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBC8530F3AE1D6B480694BC /* SocialForm.swift */; };
+		EF6D0C2FBFD841F53FCE4DA1 /* MacLinkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15E70ED93F50A851FFA2503 /* MacLinkClient.swift */; };
+		EFB7F29248D4E8D103B850DF /* TorchControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E63EE11C2C60E609A3F47F6 /* TorchControl.swift */; };
+		F03D69ED9A0533C2F350BE39 /* TopBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93882DB2AE7C85921C9573F /* TopBarModifier.swift */; };
+		F0B95A83C717190C0D183817 /* OptionalColorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6D610AF97A388AC93B354A /* OptionalColorRow.swift */; };
+		F0EC1165FFF44BBCB73F62B9 /* HistoryFilterSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA764AB15ED342C2053B7055 /* HistoryFilterSheet.swift */; };
+		F418284655902F9F172632B5 /* CameraAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1C762A8AE80139504A0EFA /* CameraAvailability.swift */; };
+		F451C86034B559B55720DCFD /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F56231812DED7ABE5564779 /* PrivacyPolicyView.swift */; };
+		F54F218EF2417DF478CA2C36 /* PrimaryAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C203A6F0791A5057BA662084 /* PrimaryAction.swift */; };
+		F74E9C9DBD60285A05A5A98B /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE63E9A00995F1A3D9B8EA65 /* AppRouter.swift */; };
+		F914D6F1465E53B5369DD93B /* ThumbnailCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E96607DE432CBBDB8B3D7D /* ThumbnailCache.swift */; };
+		F9609BE2AAB15288EBEFB6DA /* SearchSitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4851B9CA3EC1F129711A8B53 /* SearchSitesView.swift */; };
+		F98C2D951DE4C802CE8C5F14 /* CodePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67710A18C171C903633A7662 /* CodePreview.swift */; };
+		FA7EE26029010E3EC4A58DF5 /* ProductForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3DDA20A491209EE62AFCCC /* ProductForm.swift */; };
+		FAD5154C1FB16BEBCF9D08C9 /* WiFiForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A496D799BC58C7AFD8084FF8 /* WiFiForm.swift */; };
+		FBDB4E3495ECF2A42EF4E070 /* ShapesTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0248BE86EE221BD23C3917 /* ShapesTab.swift */; };
+		FD32ADA3DDD0A3D4E8F22E41 /* PlaceCodesSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CD4CF3AE77F6DD3BF40E6 /* PlaceCodesSheet.swift */; };
+		FF3CE23495261F5D0EB9123A /* MacListExportSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415EA1844EEF6D7222261EE5 /* MacListExportSheet.swift */; };
+		FF4ACF7338F9547C35BD868A /* IntentSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0E650ADF734467B136889F /* IntentSupport.swift */; };
+		FF540BE091189A8D1BC4617F /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0F2B59DC23D265ADC585DE6B /* Localizable.xcstrings */; };
+		FFACDC32CB7BDAE4C7EA2783 /* Pause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F48E0F76645CE43B4E04C /* Pause.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2E6C5FA57F9623698E2DEF8C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F9CE7F170DFB3AD3034B2B9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5979F90DFEF77537D4C7483;
+			remoteInfo = QRStudioAction;
+		};
+		3D6ADA0B264F42F6C150A44A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F9CE7F170DFB3AD3034B2B9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EAFA9A907817A59AFE3675FF;
+			remoteInfo = QRStudioWidgets;
+		};
+		46C9391F0F04066094D35662 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F9CE7F170DFB3AD3034B2B9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AAA8D18390DCB036DCF3D519;
+			remoteInfo = QRStudio;
+		};
+		63E34C724E446C8305AFEF02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F9CE7F170DFB3AD3034B2B9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB1023483E0FCB5313D7E15C;
+			remoteInfo = QRStudioWatchWidgets;
+		};
+		ABD72AEFEC86432EB1C1008D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F9CE7F170DFB3AD3034B2B9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8009C2AE1919BE2BCC87B72E;
+			remoteInfo = QRStudioShare;
+		};
+		F944FEEC1BCE718D629333D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F9CE7F170DFB3AD3034B2B9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 19D467694B24422E26F0B324;
+			remoteInfo = QRStudioWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		471B400CE0C90757AF501711 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E463921D0055960CE38D5EF1 /* QRStudioWatchWidgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C18829E133A75DF756CC06A /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				047A69C1E20A4B8EAFADF17B /* QRStudioWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		969EE099C07CBF26427F666C /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A7537BE77A2D77F0BB78721C /* QRStudioShare.appex in Embed Foundation Extensions */,
+				571219840D4F93BB36C163DD /* QRStudioAction.appex in Embed Foundation Extensions */,
+				5FFE6088E62664377A0053BA /* QRStudioWidgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		03F39A0F153EE5113CAE2A33 /* BatchSymbologiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchSymbologiesView.swift; sourceTree = "<group>"; };
+		06A607544A8565C79BBACBD5 /* ScanResultSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultSheet.swift; sourceTree = "<group>"; };
+		09134E620FCABB17FCA54944 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0978D025522DCEA502521C18 /* MacGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacGeneratorView.swift; sourceTree = "<group>"; };
+		0CFC21539AA6D8926D7F06E1 /* CryptoForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoForm.swift; sourceTree = "<group>"; };
+		0D06FD86A54E9C2015966F71 /* DeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
+		0DAFD7C4BDE0621F14B96EE0 /* Glass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glass.swift; sourceTree = "<group>"; };
+		0F2B59DC23D265ADC585DE6B /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		0FEA2ED9C30662EEAE29FD40 /* ViewfinderCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewfinderCorners.swift; sourceTree = "<group>"; };
+		10382849CE441FADD9248E5B /* ShowVisualSearchResultsIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowVisualSearchResultsIntent.swift; sourceTree = "<group>"; };
+		10D7F1FD2D0C804A2201E3EB /* ImageBarcodeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBarcodeDetector.swift; sourceTree = "<group>"; };
+		10FC246FEAC9B3EDD5DEBFC3 /* AppIconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconPickerView.swift; sourceTree = "<group>"; };
+		1119431C3AD2EB6D7F86E43C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		11F1FD02D40967B0837359A1 /* QRStudioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRStudioApp.swift; sourceTree = "<group>"; };
+		13C811E8DD26A42BFF6C45A8 /* FullScreenCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCodeView.swift; sourceTree = "<group>"; };
+		14C0077B0DE24EDCDDC7E2E1 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		14CCF1FA0911BCF6967C2C86 /* LogoTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoTab.swift; sourceTree = "<group>"; };
+		14EEA19DC1F4A9748DF35122 /* KeyboardTyper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardTyper.swift; sourceTree = "<group>"; };
+		154899F0584F80002E1920B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1671DD890F5B7093F937839A /* QRStudioTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = QRStudioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1715240BCFB1B1F568133E3D /* ScanWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanWidgetView.swift; sourceTree = "<group>"; };
+		19FC06F0FC60D8A4D1E24449 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		1CB0CDCF32F5B533AC7E5708 /* MainCodeWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCodeWidgetView.swift; sourceTree = "<group>"; };
+		1CF3FE83A1046040273087DF /* QRStudioWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRStudioWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CF6101B7F4EF4B73AC340C1 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		1D4FD990915E2046F728F88A /* TextForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextForm.swift; sourceTree = "<group>"; };
+		1DD5B6055B9BED4B4182C842 /* Quad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quad.swift; sourceTree = "<group>"; };
+		1FAA891CC37FF3B8246B0466 /* HistoryFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryFilter.swift; sourceTree = "<group>"; };
+		202BF4A554AA9398347403DA /* PrivacySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacySection.swift; sourceTree = "<group>"; };
+		20E96607DE432CBBDB8B3D7D /* ThumbnailCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailCache.swift; sourceTree = "<group>"; };
+		227CD4CF3AE77F6DD3BF40E6 /* PlaceCodesSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCodesSheet.swift; sourceTree = "<group>"; };
+		22AE84463D1F75301CA28B94 /* MapDateRangeSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDateRangeSheet.swift; sourceTree = "<group>"; };
+		2309E328C0C098E2E6C64E58 /* URLForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLForm.swift; sourceTree = "<group>"; };
+		24140219F888024A9C3F7039 /* SearchFocus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFocus.swift; sourceTree = "<group>"; };
+		2446F3850262966622C75F3B /* SafeBrowsingWarning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeBrowsingWarning.swift; sourceTree = "<group>"; };
+		2789E82B6BB322BD16BBCE1E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		27C77E104247F8F749346E75 /* WatchCodeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCodeImage.swift; sourceTree = "<group>"; };
+		2853E730FD472929CBBFBA22 /* LabelField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelField.swift; sourceTree = "<group>"; };
+		291E1A4A093B2A9FF550A5D7 /* CodeSnippetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSnippetView.swift; sourceTree = "<group>"; };
+		29B5D39A75F989710335E4C7 /* MacDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacDetailView.swift; sourceTree = "<group>"; };
+		2D45FEFEA18391E3432A7F34 /* GeneratorTypePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorTypePickerView.swift; sourceTree = "<group>"; };
+		2E8361A3ABF27F8114D6FB83 /* ExtensionRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionRootView.swift; sourceTree = "<group>"; };
+		30167EA3FBA7E2780568EAF2 /* QRStudioShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QRStudioShare.entitlements; sourceTree = "<group>"; };
+		30865E8DAD11A9E1C6CFCA64 /* ShapeChooser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeChooser.swift; sourceTree = "<group>"; };
+		32C9882352DFC72AF99CE81D /* PrimaryCodeWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryCodeWidget.swift; sourceTree = "<group>"; };
+		32FC7DD27A142B0E44AA626B /* ZoomSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomSelector.swift; sourceTree = "<group>"; };
+		337E3611E07D39C0F276A124 /* MacScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacScannerView.swift; sourceTree = "<group>"; };
+		34925F40524504B8B14348BE /* SmartSearchCriteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartSearchCriteria.swift; sourceTree = "<group>"; };
+		364EE970DCAFF69D2FA6096F /* HistoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListView.swift; sourceTree = "<group>"; };
+		366E12BE04730F9EA068A830 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		370FABAEE403D69078992396 /* DetailMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMetadata.swift; sourceTree = "<group>"; };
+		378194AAA9A897CD67C4E06A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		380D21233542133A6C8A3B2F /* QRStudioWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QRStudioWidgets.entitlements; sourceTree = "<group>"; };
+		39D0C866C0A578054B020E5A /* AutoOpenMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoOpenMode.swift; sourceTree = "<group>"; };
+		3A643755C2615B1A4E2EBAB5 /* ExtensionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionModel.swift; sourceTree = "<group>"; };
+		3ADB7F12BEAECD7C2FA8AE2E /* LiveCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCode.swift; sourceTree = "<group>"; };
+		3BD99753AF7A3332F09E03EF /* VisualIntelligenceIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualIntelligenceIntents.swift; sourceTree = "<group>"; };
+		3BF4BF14701EA57DA31BA455 /* AppIcon-Ocean.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = "AppIcon-Ocean.icon"; sourceTree = "<group>"; };
+		3C95AEB7A1E1C0AF88139C61 /* URLDetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLDetailCard.swift; sourceTree = "<group>"; };
+		3CAB2408A3CFDF22EA392C0D /* MacSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSettingsView.swift; sourceTree = "<group>"; };
+		3E95E2BF088250C1E56E14FF /* CompactRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactRootView.swift; sourceTree = "<group>"; };
+		415EA1844EEF6D7222261EE5 /* MacListExportSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacListExportSheet.swift; sourceTree = "<group>"; };
+		43D87EE6A999B62D8E77EE63 /* MessageComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
+		43F2ABE9C031258370791A43 /* GeneratorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorScreen.swift; sourceTree = "<group>"; };
+		4403D502DD198B3788F43F44 /* DetailEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEditor.swift; sourceTree = "<group>"; };
+		440EE4E79D755CAA2F5B3EB0 /* MacSidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSidebar.swift; sourceTree = "<group>"; };
+		44D05AC0098B16B5148A9837 /* NSItemProvider+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSItemProvider+Data.swift"; sourceTree = "<group>"; };
+		451E17BCA7D562562B3D4AF6 /* PinnedPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinnedPreview.swift; sourceTree = "<group>"; };
+		4851B9CA3EC1F129711A8B53 /* SearchSitesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSitesView.swift; sourceTree = "<group>"; };
+		48ABB943B3D92D0F91CBA5DA /* ContactForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactForm.swift; sourceTree = "<group>"; };
+		49EADDEACC299A30F77A2C86 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		4A0545302C19EC6D039E3B9A /* CodeEntityQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEntityQuery.swift; sourceTree = "<group>"; };
+		4C3C8344C381EA99BFE855D2 /* FolderManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderManagerView.swift; sourceTree = "<group>"; };
+		4C4F8A6BFAF39020BF321F47 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		4D0574FF4C452B1EF2C05E0B /* TorchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorchController.swift; sourceTree = "<group>"; };
+		4F086CDACEDD832765D0E733 /* HistoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryScreen.swift; sourceTree = "<group>"; };
+		4F6F3C459B5FAE24A34059EA /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportService.swift; sourceTree = "<group>"; };
+		4F7854A1FFD5C0A4F80A9D6F /* SweepOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweepOverlay.swift; sourceTree = "<group>"; };
+		52634EFD122B95506F4016D5 /* OpenFoodFactsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFoodFactsClient.swift; sourceTree = "<group>"; };
+		53536A5B48373B396724D6CD /* QRStudioWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRStudioWatchApp.swift; sourceTree = "<group>"; };
+		53C45777F2F76F7CE2260FF8 /* AppSmokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSmokeTests.swift; sourceTree = "<group>"; };
+		54A96E15C1BD3218E7F92FDF /* DemoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoData.swift; sourceTree = "<group>"; };
+		54B6653DFAC3C79590B20271 /* ExportFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportFormat.swift; sourceTree = "<group>"; };
+		58275C72A5E0825C3F716744 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		584B7B7357D256428F1BEE75 /* AlertHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHost.swift; sourceTree = "<group>"; };
+		58CBB6DE7B12D0E8554563AC /* Sweep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sweep.swift; sourceTree = "<group>"; };
+		5B7DDB7EB9F8A5B28683D448 /* ScanMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanMode.swift; sourceTree = "<group>"; };
+		5BE27697F973F06FCE5AF961 /* FolderEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderEditor.swift; sourceTree = "<group>"; };
+		5C18A21BF0DC20B37707CEDE /* CodeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeDetailView.swift; sourceTree = "<group>"; };
+		5E5EA3C3C7822674769FA48A /* MacExportSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacExportSheet.swift; sourceTree = "<group>"; };
+		5F1D9275C626508FBECCDECC /* ReadabilityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadabilityIndicator.swift; sourceTree = "<group>"; };
+		6090DCB8FF1685D86257F90A /* ShortcutParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutParameters.swift; sourceTree = "<group>"; };
+		62B9533EC45AA72B4E08EAB4 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		64BC16B8AEB1660E9227C4B2 /* DropZoneModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropZoneModifier.swift; sourceTree = "<group>"; };
+		64E312DA7E7C19FA8A34990B /* FieldKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldKeyboard.swift; sourceTree = "<group>"; };
+		65AEB8D1B861260D5248DD85 /* CircleControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleControl.swift; sourceTree = "<group>"; };
+		65CD2721BF2D1D4DD372B722 /* QRStudio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QRStudio.entitlements; sourceTree = "<group>"; };
+		66693699F73E4E8651DC3F50 /* SafeBrowsingWarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeBrowsingWarningView.swift; sourceTree = "<group>"; };
+		6756A5922F2CB585B279C9EF /* ScannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerModel.swift; sourceTree = "<group>"; };
+		67710A18C171C903633A7662 /* CodePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodePreview.swift; sourceTree = "<group>"; };
+		6836E31A8FBBBCB25D5590CE /* ActionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionHandler.swift; sourceTree = "<group>"; };
+		6B4624CD647DC9D38BED7F73 /* MainCodeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCodeProvider.swift; sourceTree = "<group>"; };
+		6B694EFFA022F469C01493D4 /* SecurityScoped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityScoped.swift; sourceTree = "<group>"; };
+		6B6D610AF97A388AC93B354A /* OptionalColorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalColorRow.swift; sourceTree = "<group>"; };
+		6B820F3D3C608D43F0494D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6BDAF6AEEA055CDE96E09A34 /* WebhookSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookSection.swift; sourceTree = "<group>"; };
+		6D095A3FA3D71A9E30BB40D7 /* QRStudioMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRStudioMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D77E540FF3AC43794A7E8E3 /* CSVImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVImport.swift; sourceTree = "<group>"; };
+		6DE2D68ED1FAA12A6419139B /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		6E63EE11C2C60E609A3F47F6 /* TorchControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorchControl.swift; sourceTree = "<group>"; };
+		6F3243AC9607650F3A26A452 /* StyleEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleEditorView.swift; sourceTree = "<group>"; };
+		6F56231812DED7ABE5564779 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		7443FF438FC4D0AD7B206A74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		746741CB0E444543D7CC370B /* SyncSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncSection.swift; sourceTree = "<group>"; };
+		750EB5D98279D8FDA64F7315 /* BatchSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchSession.swift; sourceTree = "<group>"; };
+		7521ED36BC2BECD38D9234F8 /* ModeSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSwitcher.swift; sourceTree = "<group>"; };
+		75A3D39D4FBE9B1390C90038 /* CopyableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableRow.swift; sourceTree = "<group>"; };
+		75C9EE9584CD2373506EE496 /* QRStudioShare.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = QRStudioShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		76542EC6B30D847ECBD2AC08 /* LogoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoImage.swift; sourceTree = "<group>"; };
+		7706B9616E31A189A4375932 /* QRCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = QRCore; path = QRCore; sourceTree = SOURCE_ROOT; };
+		777E13C7F5911888CCBB284B /* QRStudioAction.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QRStudioAction.entitlements; sourceTree = "<group>"; };
+		78983E9970C611FEC633F966 /* AdvancedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedTab.swift; sourceTree = "<group>"; };
+		79403D3576DBAE1D001D13E9 /* CreateQRFromTextIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateQRFromTextIntent.swift; sourceTree = "<group>"; };
+		7A0DF333988E3411AFA5CB93 /* ExtensionHostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionHostController.swift; sourceTree = "<group>"; };
+		7A3E084612E27CC551790759 /* SharedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTextView.swift; sourceTree = "<group>"; };
+		7AAD5A8A6E79D3CFC6EF13F0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		7B6CD61CD34918579EE0F704 /* CameraUnavailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraUnavailableView.swift; sourceTree = "<group>"; };
+		7CC8E928DE4E5589C3536C62 /* QRStudioMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QRStudioMac.entitlements; sourceTree = "<group>"; };
+		7D64026F1EFB2B6530EDFD4C /* PrimaryCodeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryCodeProvider.swift; sourceTree = "<group>"; };
+		7DF437024CE096B6EA65CF3C /* DraggableCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableCode.swift; sourceTree = "<group>"; };
+		7E09F2A9940524114C0C8667 /* QRStudio.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = QRStudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F5521EB7C0AAC9799744352 /* ReceivedScansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedScansView.swift; sourceTree = "<group>"; };
+		80085595FFACC9BE7E796109 /* Announcer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcer.swift; sourceTree = "<group>"; };
+		80936DB6297CEF63CFA478F4 /* OpenCodeIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCodeIntent.swift; sourceTree = "<group>"; };
+		809ED68B5A9421959A6C6B96 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		81E253BA13CFEE4D9D264BF1 /* MacSafeBrowsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSafeBrowsing.swift; sourceTree = "<group>"; };
+		8256E21ADEE0080CACC212A5 /* AutoOpenBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoOpenBannerView.swift; sourceTree = "<group>"; };
+		827D810041C77E05A4109015 /* BackupFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupFile.swift; sourceTree = "<group>"; };
+		8747753D82CFD8F54F544AEC /* MacHistoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacHistoryList.swift; sourceTree = "<group>"; };
+		87EAD0F86799FB13441E699B /* ContactEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEditor.swift; sourceTree = "<group>"; };
+		87FB45F72BFDFA4873907E2F /* EventDetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailCard.swift; sourceTree = "<group>"; };
+		88C017798F8A5847EACDF3AC /* ExportSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportSheet.swift; sourceTree = "<group>"; };
+		8972C2910ACD7C5C515B3134 /* CodeLabelSuggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeLabelSuggestion.swift; sourceTree = "<group>"; };
+		898AC266A95B931BDB1838E8 /* RegularRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularRootView.swift; sourceTree = "<group>"; };
+		89E52D551160F833863A8A24 /* ActionPresentations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionPresentations.swift; sourceTree = "<group>"; };
+		8A7F48E0F76645CE43B4E04C /* Pause.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pause.swift; sourceTree = "<group>"; };
+		8B292EC1715436BD97B9BF86 /* TestDataSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataSeeder.swift; sourceTree = "<group>"; };
+		8B789976D8C246283177AD79 /* QRStudioWatchWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QRStudioWatchWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C966478A4E4DC272F0A5089 /* ColorsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsTab.swift; sourceTree = "<group>"; };
+		9054EC06B2DB8B174980DDDC /* LocationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationForm.swift; sourceTree = "<group>"; };
+		906D6EC48BAA2EEAA4CFEAFA /* MacCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacCommands.swift; sourceTree = "<group>"; };
+		9192CDE22E38015406AF3301 /* ShowWiFiIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowWiFiIntent.swift; sourceTree = "<group>"; };
+		919C72F57E01D4AA912F8DA3 /* AutoOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoOpener.swift; sourceTree = "<group>"; };
+		91D4B731C9E11F4DEE84E201 /* AppServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServices.swift; sourceTree = "<group>"; };
+		92975EC56E1F9D95EE8FB092 /* CodeThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeThumbnail.swift; sourceTree = "<group>"; };
+		95D65EF1B2D78A4CFC8EB369 /* QuadFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadFrame.swift; sourceTree = "<group>"; };
+		97D85EAEAC65B45FDF4FFA8B /* ReceivedScansStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedScansStore.swift; sourceTree = "<group>"; };
+		98D9A49BB4DAC10535C5D956 /* Pasteboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pasteboard.swift; sourceTree = "<group>"; };
+		98F3F671C486B9754925DED1 /* EmailForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailForm.swift; sourceTree = "<group>"; };
+		9A1430385860F0764D717A30 /* MacImageImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacImageImporter.swift; sourceTree = "<group>"; };
+		9A5691772DD81E84CEB08B00 /* ContentDetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailCard.swift; sourceTree = "<group>"; };
+		9B4A39ECF2285C3026AC9831 /* BatchSymbologyPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchSymbologyPreset.swift; sourceTree = "<group>"; };
+		9D1FA0BFA58CD84FAEB238F7 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = AppIcon.icon; sourceTree = "<group>"; };
+		9F02995F8236CCF5D9C066C1 /* GeneratorFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorFormModel.swift; sourceTree = "<group>"; };
+		9F6FE00470C440576541F4EF /* DangerZoneSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangerZoneSection.swift; sourceTree = "<group>"; };
+		9FD4926B26B8E0BF545222F3 /* QRStudioMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRStudioMacApp.swift; sourceTree = "<group>"; };
+		A023B309DD1283657EFEC6A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A2091B04B1231027B8C5EC26 /* MacScanResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacScanResult.swift; sourceTree = "<group>"; };
+		A2EA03357FA32CA3E0600170 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		A38BFFFAD549FE405E04EEE0 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A3CD57197EE95E4A6B630353 /* SearchSiteEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSiteEditor.swift; sourceTree = "<group>"; };
+		A496D799BC58C7AFD8084FF8 /* WiFiForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiForm.swift; sourceTree = "<group>"; };
+		A4AC0E4452C2192578219120 /* WatchCodeDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCodeDisplayView.swift; sourceTree = "<group>"; };
+		A5942FA38D786711A53E5E60 /* LocationDetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailCard.swift; sourceTree = "<group>"; };
+		A641A0642359808D52B9FACE /* MacHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacHelpView.swift; sourceTree = "<group>"; };
+		A652149D25B26AAEDD844851 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		A6AD39CCED33A267AE78DA4B /* SheetHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetHeight.swift; sourceTree = "<group>"; };
+		A7AF80EB982EA36B40D93A53 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		A87507C41D98710DFDDA385B /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		AA7B27CA0938D1A5E8AD7628 /* PrimaryCodeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryCodeEntry.swift; sourceTree = "<group>"; };
+		AB951ACBA4966AF0943176CE /* SpotlightIndexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightIndexer.swift; sourceTree = "<group>"; };
+		ABBD84A9032DC8937FDC53E8 /* PhoneForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneForm.swift; sourceTree = "<group>"; };
+		ACFCC3DC3F0FD30501D9A280 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		AD063885491F2D9C24DBB706 /* EntryStyleEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryStyleEditor.swift; sourceTree = "<group>"; };
+		AD7C68D323B2335B7E7866F1 /* MainCodeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCodeEntry.swift; sourceTree = "<group>"; };
+		AD9801219FEA7EBAFD61F9C6 /* OptionalDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalDatePicker.swift; sourceTree = "<group>"; };
+		ADA6F7BB68E0586CA51BBBBE /* QRStudioWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QRStudioWatch.entitlements; sourceTree = "<group>"; };
+		ADE9C7A558BDD576384B0425 /* MultipleCodesSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleCodesSheet.swift; sourceTree = "<group>"; };
+		AF6EA3EE1381B11164ED85F1 /* MacLinkSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacLinkSection.swift; sourceTree = "<group>"; };
+		AFF24E7E751E9557FCF888DF /* MainAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppView.swift; sourceTree = "<group>"; };
+		B078023E9B50BDF1A9C52B13 /* HistoryListView+Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoryListView+Toolbar.swift"; sourceTree = "<group>"; };
+		B1DD0BD37834B2A1895CBDC1 /* ContentActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentActionsView.swift; sourceTree = "<group>"; };
+		B3502E34C80FA8E83885A181 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B35BBC8E152A709EA625C52E /* WatchDemoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDemoData.swift; sourceTree = "<group>"; };
+		B39744E7C3F1348A871F48B1 /* CodeIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeIntents.swift; sourceTree = "<group>"; };
+		B3FE7AAD3251475BC4945AAF /* LastScanIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastScanIntent.swift; sourceTree = "<group>"; };
+		B51211C1DD8DC1490E8768F3 /* QRStudioWatchWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QRStudioWatchWidgets.entitlements; sourceTree = "<group>"; };
+		B770CA967DAD6871AD0BD14A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		B7B2634FA66C5876A9EF11C8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		B81D5DA02A4AA9B7890C66A5 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		B8CB6C53D299C3D840052883 /* DataScannerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataScannerRepresentable.swift; sourceTree = "<group>"; };
+		B8FA42D8CDC64F7CFA97DB18 /* WatchComplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchComplication.swift; sourceTree = "<group>"; };
+		B9D41220B4A8FD5A6FD1BF63 /* GlassGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassGroup.swift; sourceTree = "<group>"; };
+		BA764AB15ED342C2053B7055 /* HistoryFilterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryFilterSheet.swift; sourceTree = "<group>"; };
+		BA8FAE004B4784AD717EE6BC /* MacConnectionChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacConnectionChip.swift; sourceTree = "<group>"; };
+		BB1C762A8AE80139504A0EFA /* CameraAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAvailability.swift; sourceTree = "<group>"; };
+		BD959D474EF1BFA3A29E8860 /* QRStudioShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRStudioShortcuts.swift; sourceTree = "<group>"; };
+		BF1A8BEE19ED0C13395798DC /* ScanWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanWidget.swift; sourceTree = "<group>"; };
+		BF509F503344BEA98F699FBB /* MacSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSplitView.swift; sourceTree = "<group>"; };
+		BFF80AA4007FACF20977546E /* LaunchTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchTimer.swift; sourceTree = "<group>"; };
+		C182D4468C1BF8ABEE72F0EA /* QRStudioWidgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = QRStudioWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C19E7A1E2293852CAE6B1FCE /* MacLinkSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacLinkSettingsView.swift; sourceTree = "<group>"; };
+		C1EE5389D6CC1E2AD459D166 /* SafeBrowsingGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeBrowsingGate.swift; sourceTree = "<group>"; };
+		C203A6F0791A5057BA662084 /* PrimaryAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryAction.swift; sourceTree = "<group>"; };
+		C3C7D5D9F459BB987062A9E6 /* QRStudioAction.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = QRStudioAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C40138885995A7667D56EE32 /* GeneratorFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorFormView.swift; sourceTree = "<group>"; };
+		C62B3A0273E3D6DCD341049F /* MacRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacRouter.swift; sourceTree = "<group>"; };
+		C655F040C24C584EEBE0FA1C /* OnDeviceIntelligence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnDeviceIntelligence.swift; sourceTree = "<group>"; };
+		C6B85DB01F43C65A37048909 /* AppIconChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconChoice.swift; sourceTree = "<group>"; };
+		CA64619449BF09F879EEB034 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		CC3F79E99C446F2030BECFD3 /* LabelSuggestionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSuggestionRow.swift; sourceTree = "<group>"; };
+		CCBC8530F3AE1D6B480694BC /* SocialForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialForm.swift; sourceTree = "<group>"; };
+		CE374525D153D450366F0310 /* PrimaryCodeWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryCodeWidgetView.swift; sourceTree = "<group>"; };
+		CF3DDA20A491209EE62AFCCC /* ProductForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductForm.swift; sourceTree = "<group>"; };
+		CF3E49F443BF15A85A172EB4 /* SymbolNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolNames.swift; sourceTree = "<group>"; };
+		D01FBDFF1183A18D17DF1748 /* AppIcon-Corail.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = "AppIcon-Corail.icon"; sourceTree = "<group>"; };
+		D226767F8AF3B465173015FA /* BatchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchRow.swift; sourceTree = "<group>"; };
+		D23EA98CDD1E3C32126C7D7A /* MacLinkServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacLinkServer.swift; sourceTree = "<group>"; };
+		D4D4FD1B6952FAF8B6295CB3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D533F85C39F28FF96CC8CF1A /* WebhookSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookSender.swift; sourceTree = "<group>"; };
+		D7B0684B33D403B87E6B6084 /* CardSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSection.swift; sourceTree = "<group>"; };
+		D93882DB2AE7C85921C9573F /* TopBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarModifier.swift; sourceTree = "<group>"; };
+		D943D6992C4B4B752D6FA77F /* EventEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEditor.swift; sourceTree = "<group>"; };
+		D94A0A6BFDF97E7A04D01EC6 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		D954F7D777DC48977AF0C653 /* EventForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventForm.swift; sourceTree = "<group>"; };
+		D9A968D70382D109A3EDB907 /* BackupSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupSection.swift; sourceTree = "<group>"; };
+		D9F7433A833EB79AED056A2B /* BatchPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchPanel.swift; sourceTree = "<group>"; };
+		D9FD4FFA42638A229F79D185 /* SweepValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweepValues.swift; sourceTree = "<group>"; };
+		DA823A1AF85A5C479A6283DB /* FolderPickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderPickerSheet.swift; sourceTree = "<group>"; };
+		DC03266760ABF116D92801B0 /* LastScanButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastScanButton.swift; sourceTree = "<group>"; };
+		DD61CCE2741567C416D6EB04 /* CreateQRFromClipboardIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateQRFromClipboardIntent.swift; sourceTree = "<group>"; };
+		DDBABE9972EAED2C7D056FC5 /* AppServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServices.swift; sourceTree = "<group>"; };
+		DF9CD6C87329909BDC319067 /* ExportEntriesSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportEntriesSheet.swift; sourceTree = "<group>"; };
+		E353E1099256D84AC4C44F26 /* TranslationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationSheet.swift; sourceTree = "<group>"; };
+		E41C5B78B7409B3771C57129 /* WatchCodeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCodeListView.swift; sourceTree = "<group>"; };
+		E42C7EF2AEDB34A00B61C7F0 /* AlertCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCenter.swift; sourceTree = "<group>"; };
+		E438E791A72952C73F50F8DC /* ScannerControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerControls.swift; sourceTree = "<group>"; };
+		E444BE752301C9C0494CDB40 /* AppIcon-Nuit.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = "AppIcon-Nuit.icon"; sourceTree = "<group>"; };
+		E44C7AC54A39E88BB5EC0603 /* StaticProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticProvider.swift; sourceTree = "<group>"; };
+		E4D11283C919CC533710AE0A /* ScanMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanMapView.swift; sourceTree = "<group>"; };
+		E50F751FA9B9002B4866762B /* PresetStrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetStrip.swift; sourceTree = "<group>"; };
+		E51CAF083CDAE62A0A174F67 /* ProductDetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailCard.swift; sourceTree = "<group>"; };
+		E557A77F65074BBF871B89B8 /* DecodedCodeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodedCodeRow.swift; sourceTree = "<group>"; };
+		E6A775E8D49BA33F5303110A /* EnterpriseWiFiForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterpriseWiFiForm.swift; sourceTree = "<group>"; };
+		E7DED8F8240B1AEC01EA83EA /* AutoOpenBannerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoOpenBannerState.swift; sourceTree = "<group>"; };
+		EB9A78D7AA1CF9346AA58793 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		EC2CE3879CF4EFAD90997FA8 /* MainCodeWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCodeWidget.swift; sourceTree = "<group>"; };
+		EC354E89E91556C75D22D495 /* MacExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacExport.swift; sourceTree = "<group>"; };
+		EE27D6B75822396DB44959AA /* QRStudioWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRStudioWidgets.swift; sourceTree = "<group>"; };
+		EE295839BA4CACCCD64AFA47 /* CodeEntry+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodeEntry+Preview.swift"; sourceTree = "<group>"; };
+		EEE8972632CE0B32C6D5D024 /* BatchTranslationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchTranslationSheet.swift; sourceTree = "<group>"; };
+		EF78CFF76D1592013FFC949C /* SMSForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSForm.swift; sourceTree = "<group>"; };
+		EFFF3D1C1F67C8A2E4B22902 /* PayloadIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadIndex.swift; sourceTree = "<group>"; };
+		F0D1F3016011F446A7C9AE29 /* CaptureScannerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureScannerRepresentable.swift; sourceTree = "<group>"; };
+		F0E8B2A806432BF700B9F86F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F15E70ED93F50A851FFA2503 /* MacLinkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacLinkClient.swift; sourceTree = "<group>"; };
+		F456802355317A6D98B8CDF4 /* EntryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryStore.swift; sourceTree = "<group>"; };
+		F4B811EAC76F2B061223802D /* HistoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRow.swift; sourceTree = "<group>"; };
+		F4EFB7D4B747FB46AB59F24A /* PresentedAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentedAction.swift; sourceTree = "<group>"; };
+		F4F5FDE3378FA7CEB05CEDDA /* AppIcon-Menthe.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = "AppIcon-Menthe.icon"; sourceTree = "<group>"; };
+		F5682B414E4AC143E7EE4482 /* ExportedFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportedFile.swift; sourceTree = "<group>"; };
+		F57CA5CDB79D9D6DC15288D7 /* FieldContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldContent.swift; sourceTree = "<group>"; };
+		F8827BDFF5D437CAD227C6D5 /* ShowCodeIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCodeIntent.swift; sourceTree = "<group>"; };
+		F9010C202156A4BCBE8E7501 /* LinkPreviewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkPreviewRow.swift; sourceTree = "<group>"; };
+		FAEF67D3A1E7A13960D4B5B3 /* SweepBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweepBar.swift; sourceTree = "<group>"; };
+		FB0248BE86EE221BD23C3917 /* ShapesTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesTab.swift; sourceTree = "<group>"; };
+		FB4329E683BFF9BFE05596F7 /* CodeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEntity.swift; sourceTree = "<group>"; };
+		FB938A3CAB824FA124BE25FC /* HistoryListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListModel.swift; sourceTree = "<group>"; };
+		FD0E650ADF734467B136889F /* IntentSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentSupport.swift; sourceTree = "<group>"; };
+		FE63E9A00995F1A3D9B8EA65 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		FE6BCAD75F0E50EAB3F89665 /* ActionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionHandler.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0C7E0C6221D9D0EE422DAC22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E43F01D4695054D8C3FCEB2 /* QRCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		789EEABDAC2297225B439DBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C918228B0B8400EF4F577C5 /* QRCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9BD0F94DFE1DDB06B2C1CFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54EB3F8019413BC85B45CC6F /* QRCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA3ECCB055EB76E168494FC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B405D8DB047AF54563D0D174 /* QRCore in Frameworks */,
+				C7058C2B6C7E2FEDC0C020FD /* WidgetKit.framework in Frameworks */,
+				11FBD9628DCA8AE67B59A948 /* SwiftUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1D82FC797050B8C61134D81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				330FFD0520121C5AB513EF24 /* QRCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4B7475FDCDFB2ADB3D97A7A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB0F0DF4D149A5C6A05F6A0E /* QRCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAD2FE34EAC0BC4B1AB98427 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				928DD28A486071363303DDC1 /* QRCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6571FCF36C4AADFE3EE6526 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FBDD798E56128C94C0F8760 /* QRCore in Frameworks */,
+				C3CA7F92CB6BBB954D42569E /* WidgetKit.framework in Frameworks */,
+				6E4C4CAF88100B02A4BDE012 /* SwiftUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		074D799F39AD648629E218AC /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				7706B9616E31A189A4375932 /* QRCore */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		2DDBAA21DC9C8ACBE7F5B464 /* Forms */ = {
+			isa = PBXGroup;
+			children = (
+				48ABB943B3D92D0F91CBA5DA /* ContactForm.swift */,
+				0CFC21539AA6D8926D7F06E1 /* CryptoForm.swift */,
+				98F3F671C486B9754925DED1 /* EmailForm.swift */,
+				E6A775E8D49BA33F5303110A /* EnterpriseWiFiForm.swift */,
+				D954F7D777DC48977AF0C653 /* EventForm.swift */,
+				9054EC06B2DB8B174980DDDC /* LocationForm.swift */,
+				ABBD84A9032DC8937FDC53E8 /* PhoneForm.swift */,
+				CF3DDA20A491209EE62AFCCC /* ProductForm.swift */,
+				EF78CFF76D1592013FFC949C /* SMSForm.swift */,
+				CCBC8530F3AE1D6B480694BC /* SocialForm.swift */,
+				1D4FD990915E2046F728F88A /* TextForm.swift */,
+				2309E328C0C098E2E6C64E58 /* URLForm.swift */,
+				A496D799BC58C7AFD8084FF8 /* WiFiForm.swift */,
+			);
+			path = Forms;
+			sourceTree = "<group>";
+		};
+		32044F8535CB1ECC106E8C60 /* QRStudioWatch */ = {
+			isa = PBXGroup;
+			children = (
+				366E12BE04730F9EA068A830 /* Info.plist */,
+				B770CA967DAD6871AD0BD14A /* PrivacyInfo.xcprivacy */,
+				ADA6F7BB68E0586CA51BBBBE /* QRStudioWatch.entitlements */,
+				53536A5B48373B396724D6CD /* QRStudioWatchApp.swift */,
+				A4AC0E4452C2192578219120 /* WatchCodeDisplayView.swift */,
+				27C77E104247F8F749346E75 /* WatchCodeImage.swift */,
+				E41C5B78B7409B3771C57129 /* WatchCodeListView.swift */,
+				B35BBC8E152A709EA625C52E /* WatchDemoData.swift */,
+			);
+			path = QRStudioWatch;
+			sourceTree = "<group>";
+		};
+		356C82EE420B9C5D628686BA /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				FE6BCAD75F0E50EAB3F89665 /* ActionHandler.swift */,
+				89E52D551160F833863A8A24 /* ActionPresentations.swift */,
+				D7B0684B33D403B87E6B6084 /* CardSection.swift */,
+				87EAD0F86799FB13441E699B /* ContactEditor.swift */,
+				B1DD0BD37834B2A1895CBDC1 /* ContentActionsView.swift */,
+				9A5691772DD81E84CEB08B00 /* ContentDetailCard.swift */,
+				75A3D39D4FBE9B1390C90038 /* CopyableRow.swift */,
+				87FB45F72BFDFA4873907E2F /* EventDetailCard.swift */,
+				D943D6992C4B4B752D6FA77F /* EventEditor.swift */,
+				F9010C202156A4BCBE8E7501 /* LinkPreviewRow.swift */,
+				A5942FA38D786711A53E5E60 /* LocationDetailCard.swift */,
+				43D87EE6A999B62D8E77EE63 /* MessageComposer.swift */,
+				52634EFD122B95506F4016D5 /* OpenFoodFactsClient.swift */,
+				F4EFB7D4B747FB46AB59F24A /* PresentedAction.swift */,
+				E51CAF083CDAE62A0A174F67 /* ProductDetailCard.swift */,
+				49EADDEACC299A30F77A2C86 /* SafariView.swift */,
+				2446F3850262966622C75F3B /* SafeBrowsingWarning.swift */,
+				66693699F73E4E8651DC3F50 /* SafeBrowsingWarningView.swift */,
+				CA64619449BF09F879EEB034 /* ToastView.swift */,
+				E353E1099256D84AC4C44F26 /* TranslationSheet.swift */,
+				3C95AEB7A1E1C0AF88139C61 /* URLDetailCard.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		3C2F28D271B5CB5950BC7015 /* Export */ = {
+			isa = PBXGroup;
+			children = (
+				DF9CD6C87329909BDC319067 /* ExportEntriesSheet.swift */,
+				54B6653DFAC3C79590B20271 /* ExportFormat.swift */,
+				4F6F3C459B5FAE24A34059EA /* ExportService.swift */,
+				88C017798F8A5847EACDF3AC /* ExportSheet.swift */,
+			);
+			path = Export;
+			sourceTree = "<group>";
+		};
+		3C47F2485DF8B7F6B461967C /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				14C0077B0DE24EDCDDC7E2E1 /* Secrets.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		428DFF0665E8CE27404B1857 /* QRStudioTests */ = {
+			isa = PBXGroup;
+			children = (
+				53C45777F2F76F7CE2260FF8 /* AppSmokeTests.swift */,
+			);
+			path = QRStudioTests;
+			sourceTree = "<group>";
+		};
+		575D6D25B529934D09F9C5FD /* QRStudioMac */ = {
+			isa = PBXGroup;
+			children = (
+				6836E31A8FBBBCB25D5590CE /* ActionHandler.swift */,
+				DDBABE9972EAED2C7D056FC5 /* AppServices.swift */,
+				1CF6101B7F4EF4B73AC340C1 /* CameraPreview.swift */,
+				64BC16B8AEB1660E9227C4B2 /* DropZoneModifier.swift */,
+				F5682B414E4AC143E7EE4482 /* ExportedFile.swift */,
+				09134E620FCABB17FCA54944 /* Info.plist */,
+				14EEA19DC1F4A9748DF35122 /* KeyboardTyper.swift */,
+				906D6EC48BAA2EEAA4CFEAFA /* MacCommands.swift */,
+				29B5D39A75F989710335E4C7 /* MacDetailView.swift */,
+				EC354E89E91556C75D22D495 /* MacExport.swift */,
+				5E5EA3C3C7822674769FA48A /* MacExportSheet.swift */,
+				0978D025522DCEA502521C18 /* MacGeneratorView.swift */,
+				A641A0642359808D52B9FACE /* MacHelpView.swift */,
+				8747753D82CFD8F54F544AEC /* MacHistoryList.swift */,
+				9A1430385860F0764D717A30 /* MacImageImporter.swift */,
+				D23EA98CDD1E3C32126C7D7A /* MacLinkServer.swift */,
+				C19E7A1E2293852CAE6B1FCE /* MacLinkSettingsView.swift */,
+				415EA1844EEF6D7222261EE5 /* MacListExportSheet.swift */,
+				C62B3A0273E3D6DCD341049F /* MacRouter.swift */,
+				81E253BA13CFEE4D9D264BF1 /* MacSafeBrowsing.swift */,
+				337E3611E07D39C0F276A124 /* MacScannerView.swift */,
+				A2091B04B1231027B8C5EC26 /* MacScanResult.swift */,
+				3CAB2408A3CFDF22EA392C0D /* MacSettingsView.swift */,
+				440EE4E79D755CAA2F5B3EB0 /* MacSidebar.swift */,
+				BF509F503344BEA98F699FBB /* MacSplitView.swift */,
+				378194AAA9A897CD67C4E06A /* PrivacyInfo.xcprivacy */,
+				7CC8E928DE4E5589C3536C62 /* QRStudioMac.entitlements */,
+				9FD4926B26B8E0BF545222F3 /* QRStudioMacApp.swift */,
+				97D85EAEAC65B45FDF4FFA8B /* ReceivedScansStore.swift */,
+				7F5521EB7C0AAC9799744352 /* ReceivedScansView.swift */,
+				24140219F888024A9C3F7039 /* SearchFocus.swift */,
+			);
+			path = QRStudioMac;
+			sourceTree = "<group>";
+		};
+		5FBD286F9396D11CF3809D4C /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				FB4329E683BFF9BFE05596F7 /* CodeEntity.swift */,
+				4A0545302C19EC6D039E3B9A /* CodeEntityQuery.swift */,
+				B39744E7C3F1348A871F48B1 /* CodeIntents.swift */,
+				291E1A4A093B2A9FF550A5D7 /* CodeSnippetView.swift */,
+				DD61CCE2741567C416D6EB04 /* CreateQRFromClipboardIntent.swift */,
+				79403D3576DBAE1D001D13E9 /* CreateQRFromTextIntent.swift */,
+				FD0E650ADF734467B136889F /* IntentSupport.swift */,
+				B3FE7AAD3251475BC4945AAF /* LastScanIntent.swift */,
+				80936DB6297CEF63CFA478F4 /* OpenCodeIntent.swift */,
+				BD959D474EF1BFA3A29E8860 /* QRStudioShortcuts.swift */,
+				6090DCB8FF1685D86257F90A /* ShortcutParameters.swift */,
+				F8827BDFF5D437CAD227C6D5 /* ShowCodeIntent.swift */,
+				10382849CE441FADD9248E5B /* ShowVisualSearchResultsIntent.swift */,
+				9192CDE22E38015406AF3301 /* ShowWiFiIntent.swift */,
+				3BD99753AF7A3332F09E03EF /* VisualIntelligenceIntents.swift */,
+			);
+			path = Intents;
+			sourceTree = "<group>";
+		};
+		6178E24D42CB73D4A15FF9FE /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				4C4F8A6BFAF39020BF321F47 /* ActionViewController.swift */,
+				B3502E34C80FA8E83885A181 /* Info.plist */,
+				7AAD5A8A6E79D3CFC6EF13F0 /* PrivacyInfo.xcprivacy */,
+				777E13C7F5911888CCBB284B /* QRStudioAction.entitlements */,
+			);
+			name = Action;
+			path = Extensions/Action;
+			sourceTree = "<group>";
+		};
+		628BF4072529B07A6D1BAD3B /* Styling */ = {
+			isa = PBXGroup;
+			children = (
+				78983E9970C611FEC633F966 /* AdvancedTab.swift */,
+				8C966478A4E4DC272F0A5089 /* ColorsTab.swift */,
+				AD063885491F2D9C24DBB706 /* EntryStyleEditor.swift */,
+				76542EC6B30D847ECBD2AC08 /* LogoImage.swift */,
+				14CCF1FA0911BCF6967C2C86 /* LogoTab.swift */,
+				6B6D610AF97A388AC93B354A /* OptionalColorRow.swift */,
+				E50F751FA9B9002B4866762B /* PresetStrip.swift */,
+				30865E8DAD11A9E1C6CFCA64 /* ShapeChooser.swift */,
+				FB0248BE86EE221BD23C3917 /* ShapesTab.swift */,
+				6F3243AC9607650F3A26A452 /* StyleEditorView.swift */,
+			);
+			path = Styling;
+			sourceTree = "<group>";
+		};
+		7BCC6474AF14FE0F872FE9C1 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				A023B309DD1283657EFEC6A5 /* Info.plist */,
+				D94A0A6BFDF97E7A04D01EC6 /* PrivacyInfo.xcprivacy */,
+				30167EA3FBA7E2780568EAF2 /* QRStudioShare.entitlements */,
+				809ED68B5A9421959A6C6B96 /* ShareViewController.swift */,
+			);
+			name = Share;
+			path = Extensions/Share;
+			sourceTree = "<group>";
+		};
+		7CCC85609E18A0ABBD9F1F8C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D01FBDFF1183A18D17DF1748 /* AppIcon-Corail.icon */,
+				F4F5FDE3378FA7CEB05CEDDA /* AppIcon-Menthe.icon */,
+				E444BE752301C9C0494CDB40 /* AppIcon-Nuit.icon */,
+				3BF4BF14701EA57DA31BA455 /* AppIcon-Ocean.icon */,
+				9D1FA0BFA58CD84FAEB238F7 /* AppIcon.icon */,
+				F0E8B2A806432BF700B9F86F /* Assets.xcassets */,
+				6DE2D68ED1FAA12A6419139B /* InfoPlist.xcstrings */,
+				0F2B59DC23D265ADC585DE6B /* Localizable.xcstrings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		860B09D3692A542D784F066A /* QRStudioWatchWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				6B820F3D3C608D43F0494D53 /* Info.plist */,
+				AA7B27CA0938D1A5E8AD7628 /* PrimaryCodeEntry.swift */,
+				7D64026F1EFB2B6530EDFD4C /* PrimaryCodeProvider.swift */,
+				32C9882352DFC72AF99CE81D /* PrimaryCodeWidget.swift */,
+				CE374525D153D450366F0310 /* PrimaryCodeWidgetView.swift */,
+				2789E82B6BB322BD16BBCE1E /* PrivacyInfo.xcprivacy */,
+				B51211C1DD8DC1490E8768F3 /* QRStudioWatchWidgets.entitlements */,
+				B8FA42D8CDC64F7CFA97DB18 /* WatchComplication.swift */,
+			);
+			path = QRStudioWatchWidgets;
+			sourceTree = "<group>";
+		};
+		8E56D630372A53A97F834113 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7443FF438FC4D0AD7B206A74 /* AppDelegate.swift */,
+				FE63E9A00995F1A3D9B8EA65 /* AppRouter.swift */,
+				91D4B731C9E11F4DEE84E201 /* AppServices.swift */,
+				62B9533EC45AA72B4E08EAB4 /* AppSettings.swift */,
+				39D0C866C0A578054B020E5A /* AutoOpenMode.swift */,
+				9B4A39ECF2285C3026AC9831 /* BatchSymbologyPreset.swift */,
+				0D06FD86A54E9C2015966F71 /* DeepLink.swift */,
+				AFF24E7E751E9557FCF888DF /* MainAppView.swift */,
+				11F1FD02D40967B0837359A1 /* QRStudioApp.swift */,
+				58275C72A5E0825C3F716744 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		90CE89311E782C9A4618CF75 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A38BFFFAD549FE405E04EEE0 /* SwiftUI.framework */,
+				B7B2634FA66C5876A9EF11C8 /* WidgetKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9427AF88DEF68E037685F8F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E09F2A9940524114C0C8667 /* QRStudio.app */,
+				C3C7D5D9F459BB987062A9E6 /* QRStudioAction.appex */,
+				6D095A3FA3D71A9E30BB40D7 /* QRStudioMac.app */,
+				75C9EE9584CD2373506EE496 /* QRStudioShare.appex */,
+				1671DD890F5B7093F937839A /* QRStudioTests.xctest */,
+				1CF3FE83A1046040273087DF /* QRStudioWatch.app */,
+				8B789976D8C246283177AD79 /* QRStudioWatchWidgets.appex */,
+				C182D4468C1BF8ABEE72F0EA /* QRStudioWidgets.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A99398D31C4A1267B4FD0FA1 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C6B85DB01F43C65A37048909 /* AppIconChoice.swift */,
+				10FC246FEAC9B3EDD5DEBFC3 /* AppIconPickerView.swift */,
+				827D810041C77E05A4109015 /* BackupFile.swift */,
+				D9A968D70382D109A3EDB907 /* BackupSection.swift */,
+				03F39A0F153EE5113CAE2A33 /* BatchSymbologiesView.swift */,
+				9F6FE00470C440576541F4EF /* DangerZoneSection.swift */,
+				AF6EA3EE1381B11164ED85F1 /* MacLinkSection.swift */,
+				6F56231812DED7ABE5564779 /* PrivacyPolicyView.swift */,
+				202BF4A554AA9398347403DA /* PrivacySection.swift */,
+				A3CD57197EE95E4A6B630353 /* SearchSiteEditor.swift */,
+				4851B9CA3EC1F129711A8B53 /* SearchSitesView.swift */,
+				6B694EFFA022F469C01493D4 /* SecurityScoped.swift */,
+				D4D4FD1B6952FAF8B6295CB3 /* SettingsView.swift */,
+				746741CB0E444543D7CC370B /* SyncSection.swift */,
+				6BDAF6AEEA055CDE96E09A34 /* WebhookSection.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		AD2F42B7427961C0CF1DCC65 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				E42C7EF2AEDB34A00B61C7F0 /* AlertCenter.swift */,
+				584B7B7357D256428F1BEE75 /* AlertHost.swift */,
+				80085595FFACC9BE7E796109 /* Announcer.swift */,
+				EE295839BA4CACCCD64AFA47 /* CodeEntry+Preview.swift */,
+				8972C2910ACD7C5C515B3134 /* CodeLabelSuggestion.swift */,
+				67710A18C171C903633A7662 /* CodePreview.swift */,
+				92975EC56E1F9D95EE8FB092 /* CodeThumbnail.swift */,
+				6D77E540FF3AC43794A7E8E3 /* CSVImport.swift */,
+				54A96E15C1BD3218E7F92FDF /* DemoData.swift */,
+				7DF437024CE096B6EA65CF3C /* DraggableCode.swift */,
+				F456802355317A6D98B8CDF4 /* EntryStore.swift */,
+				A652149D25B26AAEDD844851 /* Feedback.swift */,
+				F57CA5CDB79D9D6DC15288D7 /* FieldContent.swift */,
+				64E312DA7E7C19FA8A34990B /* FieldKeyboard.swift */,
+				0DAFD7C4BDE0621F14B96EE0 /* Glass.swift */,
+				B9D41220B4A8FD5A6FD1BF63 /* GlassGroup.swift */,
+				CC3F79E99C446F2030BECFD3 /* LabelSuggestionRow.swift */,
+				BFF80AA4007FACF20977546E /* LaunchTimer.swift */,
+				EB9A78D7AA1CF9346AA58793 /* LocationService.swift */,
+				F15E70ED93F50A851FFA2503 /* MacLinkClient.swift */,
+				C655F040C24C584EEBE0FA1C /* OnDeviceIntelligence.swift */,
+				98D9A49BB4DAC10535C5D956 /* Pasteboard.swift */,
+				8A7F48E0F76645CE43B4E04C /* Pause.swift */,
+				EFFF3D1C1F67C8A2E4B22902 /* PayloadIndex.swift */,
+				B81D5DA02A4AA9B7890C66A5 /* Platform.swift */,
+				C1EE5389D6CC1E2AD459D166 /* SafeBrowsingGate.swift */,
+				A6AD39CCED33A267AE78DA4B /* SheetHeight.swift */,
+				34925F40524504B8B14348BE /* SmartSearchCriteria.swift */,
+				AB951ACBA4966AF0943176CE /* SpotlightIndexer.swift */,
+				CF3E49F443BF15A85A172EB4 /* SymbolNames.swift */,
+				8B292EC1715436BD97B9BF86 /* TestDataSeeder.swift */,
+				20E96607DE432CBBDB8B3D7D /* ThumbnailCache.swift */,
+				D93882DB2AE7C85921C9573F /* TopBarModifier.swift */,
+				D533F85C39F28FF96CC8CF1A /* WebhookSender.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		C4EA1C1DFC23F95C4A92FA09 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				E7DED8F8240B1AEC01EA83EA /* AutoOpenBannerState.swift */,
+				8256E21ADEE0080CACC212A5 /* AutoOpenBannerView.swift */,
+				919C72F57E01D4AA912F8DA3 /* AutoOpener.swift */,
+				D9F7433A833EB79AED056A2B /* BatchPanel.swift */,
+				D226767F8AF3B465173015FA /* BatchRow.swift */,
+				750EB5D98279D8FDA64F7315 /* BatchSession.swift */,
+				EEE8972632CE0B32C6D5D024 /* BatchTranslationSheet.swift */,
+				BB1C762A8AE80139504A0EFA /* CameraAvailability.swift */,
+				7B6CD61CD34918579EE0F704 /* CameraUnavailableView.swift */,
+				F0D1F3016011F446A7C9AE29 /* CaptureScannerRepresentable.swift */,
+				65AEB8D1B861260D5248DD85 /* CircleControl.swift */,
+				B8CB6C53D299C3D840052883 /* DataScannerRepresentable.swift */,
+				10D7F1FD2D0C804A2201E3EB /* ImageBarcodeDetector.swift */,
+				2853E730FD472929CBBFBA22 /* LabelField.swift */,
+				DC03266760ABF116D92801B0 /* LastScanButton.swift */,
+				3ADB7F12BEAECD7C2FA8AE2E /* LiveCode.swift */,
+				BA8FAE004B4784AD717EE6BC /* MacConnectionChip.swift */,
+				7521ED36BC2BECD38D9234F8 /* ModeSwitcher.swift */,
+				ADE9C7A558BDD576384B0425 /* MultipleCodesSheet.swift */,
+				C203A6F0791A5057BA662084 /* PrimaryAction.swift */,
+				1DD5B6055B9BED4B4182C842 /* Quad.swift */,
+				95D65EF1B2D78A4CFC8EB369 /* QuadFrame.swift */,
+				5B7DDB7EB9F8A5B28683D448 /* ScanMode.swift */,
+				E438E791A72952C73F50F8DC /* ScannerControls.swift */,
+				6756A5922F2CB585B279C9EF /* ScannerModel.swift */,
+				A2EA03357FA32CA3E0600170 /* ScannerView.swift */,
+				06A607544A8565C79BBACBD5 /* ScanResultSheet.swift */,
+				58CBB6DE7B12D0E8554563AC /* Sweep.swift */,
+				FAEF67D3A1E7A13960D4B5B3 /* SweepBar.swift */,
+				4F7854A1FFD5C0A4F80A9D6F /* SweepOverlay.swift */,
+				D9FD4FFA42638A229F79D185 /* SweepValues.swift */,
+				6E63EE11C2C60E609A3F47F6 /* TorchControl.swift */,
+				4D0574FF4C452B1EF2C05E0B /* TorchController.swift */,
+				0FEA2ED9C30662EEAE29FD40 /* ViewfinderCorners.swift */,
+				32FC7DD27A142B0E44AA626B /* ZoomSelector.swift */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
+		D5E4F8378802E6EC27CBFA56 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				5C18A21BF0DC20B37707CEDE /* CodeDetailView.swift */,
+				4403D502DD198B3788F43F44 /* DetailEditor.swift */,
+				370FABAEE403D69078992396 /* DetailMetadata.swift */,
+				5BE27697F973F06FCE5AF961 /* FolderEditor.swift */,
+				4C3C8344C381EA99BFE855D2 /* FolderManagerView.swift */,
+				DA823A1AF85A5C479A6283DB /* FolderPickerSheet.swift */,
+				13C811E8DD26A42BFF6C45A8 /* FullScreenCodeView.swift */,
+				1FAA891CC37FF3B8246B0466 /* HistoryFilter.swift */,
+				BA764AB15ED342C2053B7055 /* HistoryFilterSheet.swift */,
+				FB938A3CAB824FA124BE25FC /* HistoryListModel.swift */,
+				364EE970DCAFF69D2FA6096F /* HistoryListView.swift */,
+				B078023E9B50BDF1A9C52B13 /* HistoryListView+Toolbar.swift */,
+				F4B811EAC76F2B061223802D /* HistoryRow.swift */,
+				4F086CDACEDD832765D0E733 /* HistoryScreen.swift */,
+				22AE84463D1F75301CA28B94 /* MapDateRangeSheet.swift */,
+				AD9801219FEA7EBAFD61F9C6 /* OptionalDatePicker.swift */,
+				227CD4CF3AE77F6DD3BF40E6 /* PlaceCodesSheet.swift */,
+				E4D11283C919CC533710AE0A /* ScanMapView.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		D7DAF9BE233E2C90E7DE0EDE = {
+			isa = PBXGroup;
+			children = (
+				6178E24D42CB73D4A15FF9FE /* Action */,
+				3C47F2485DF8B7F6B461967C /* Config */,
+				074D799F39AD648629E218AC /* Packages */,
+				F84BC3A9E9384AA78355860F /* QRStudio */,
+				575D6D25B529934D09F9C5FD /* QRStudioMac */,
+				428DFF0665E8CE27404B1857 /* QRStudioTests */,
+				32044F8535CB1ECC106E8C60 /* QRStudioWatch */,
+				860B09D3692A542D784F066A /* QRStudioWatchWidgets */,
+				F1E482F5E0EF79739D6A3B90 /* QRStudioWidgets */,
+				7CCC85609E18A0ABBD9F1F8C /* Resources */,
+				7BCC6474AF14FE0F872FE9C1 /* Share */,
+				E492C5C6E1B69F02C8D7AF24 /* Shared */,
+				90CE89311E782C9A4618CF75 /* Frameworks */,
+				9427AF88DEF68E037685F8F4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D814DBE5EA1E28D2A37935A3 /* Generator */ = {
+			isa = PBXGroup;
+			children = (
+				2DDBAA21DC9C8ACBE7F5B464 /* Forms */,
+				9F02995F8236CCF5D9C066C1 /* GeneratorFormModel.swift */,
+				C40138885995A7667D56EE32 /* GeneratorFormView.swift */,
+				43F2ABE9C031258370791A43 /* GeneratorScreen.swift */,
+				2D45FEFEA18391E3432A7F34 /* GeneratorTypePickerView.swift */,
+				451E17BCA7D562562B3D4AF6 /* PinnedPreview.swift */,
+				5F1D9275C626508FBECCDECC /* ReadabilityIndicator.swift */,
+			);
+			path = Generator;
+			sourceTree = "<group>";
+		};
+		E492C5C6E1B69F02C8D7AF24 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				E557A77F65074BBF871B89B8 /* DecodedCodeRow.swift */,
+				7A0DF333988E3411AFA5CB93 /* ExtensionHostController.swift */,
+				3A643755C2615B1A4E2EBAB5 /* ExtensionModel.swift */,
+				2E8361A3ABF27F8114D6FB83 /* ExtensionRootView.swift */,
+				44D05AC0098B16B5148A9837 /* NSItemProvider+Data.swift */,
+				7A3E084612E27CC551790759 /* SharedTextView.swift */,
+			);
+			name = Shared;
+			path = Extensions/Shared;
+			sourceTree = "<group>";
+		};
+		F1E482F5E0EF79739D6A3B90 /* QRStudioWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				1119431C3AD2EB6D7F86E43C /* Info.plist */,
+				AD7C68D323B2335B7E7866F1 /* MainCodeEntry.swift */,
+				6B4624CD647DC9D38BED7F73 /* MainCodeProvider.swift */,
+				EC2CE3879CF4EFAD90997FA8 /* MainCodeWidget.swift */,
+				1CB0CDCF32F5B533AC7E5708 /* MainCodeWidgetView.swift */,
+				ACFCC3DC3F0FD30501D9A280 /* PrivacyInfo.xcprivacy */,
+				380D21233542133A6C8A3B2F /* QRStudioWidgets.entitlements */,
+				EE27D6B75822396DB44959AA /* QRStudioWidgets.swift */,
+				BF1A8BEE19ED0C13395798DC /* ScanWidget.swift */,
+				1715240BCFB1B1F568133E3D /* ScanWidgetView.swift */,
+				E44C7AC54A39E88BB5EC0603 /* StaticProvider.swift */,
+			);
+			path = QRStudioWidgets;
+			sourceTree = "<group>";
+		};
+		F84BC3A9E9384AA78355860F /* QRStudio */ = {
+			isa = PBXGroup;
+			children = (
+				356C82EE420B9C5D628686BA /* Actions */,
+				8E56D630372A53A97F834113 /* App */,
+				3C2F28D271B5CB5950BC7015 /* Export */,
+				D814DBE5EA1E28D2A37935A3 /* Generator */,
+				D5E4F8378802E6EC27CBFA56 /* History */,
+				5FBD286F9396D11CF3809D4C /* Intents */,
+				C4EA1C1DFC23F95C4A92FA09 /* Scanner */,
+				A99398D31C4A1267B4FD0FA1 /* Settings */,
+				AD2F42B7427961C0CF1DCC65 /* Shared */,
+				628BF4072529B07A6D1BAD3B /* Styling */,
+				3E95E2BF088250C1E56E14FF /* CompactRootView.swift */,
+				154899F0584F80002E1920B0 /* Info.plist */,
+				19FC06F0FC60D8A4D1E24449 /* PrivacyInfo.xcprivacy */,
+				65CD2721BF2D1D4DD372B722 /* QRStudio.entitlements */,
+				898AC266A95B931BDB1838E8 /* RegularRootView.swift */,
+				A87507C41D98710DFDDA385B /* RootTabView.swift */,
+				A7AF80EB982EA36B40D93A53 /* SidebarView.swift */,
+			);
+			path = QRStudio;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		19D467694B24422E26F0B324 /* QRStudioWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37307F6AD5410B65EAC47872 /* Build configuration list for PBXNativeTarget "QRStudioWatch" */;
+			buildPhases = (
+				C6A50CBE83B4B1B38069A0A3 /* Sources */,
+				F1E1AD49FF69D012E0435584 /* Resources */,
+				789EEABDAC2297225B439DBA /* Frameworks */,
+				471B400CE0C90757AF501711 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				41DFBCD041D66F4125E258AD /* PBXTargetDependency */,
+			);
+			name = QRStudioWatch;
+			packageProductDependencies = (
+				D9D37E3AC8D42D514CF21EBD /* QRCore */,
+			);
+			productName = QRStudioWatch;
+			productReference = 1CF3FE83A1046040273087DF /* QRStudioWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6B7999C2D5F6A2E2CACB301D /* QRStudioMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC15B9A94D4010BDBD93E98C /* Build configuration list for PBXNativeTarget "QRStudioMac" */;
+			buildPhases = (
+				508927C8803F004727DD08FA /* Sources */,
+				2FDA75DCF77A509E7B136A62 /* Resources */,
+				B9BD0F94DFE1DDB06B2C1CFD /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QRStudioMac;
+			packageProductDependencies = (
+				641718233336EEF4003363D7 /* QRCore */,
+			);
+			productName = QRStudioMac;
+			productReference = 6D095A3FA3D71A9E30BB40D7 /* QRStudioMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		745FEFF123266A69652149E1 /* QRStudioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A90555C237C4E7AD9727F35 /* Build configuration list for PBXNativeTarget "QRStudioTests" */;
+			buildPhases = (
+				6E0907F64BE17DB909E7B937 /* Sources */,
+				D4B7475FDCDFB2ADB3D97A7A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				342427B1D3ADC25EAB66FD4A /* PBXTargetDependency */,
+			);
+			name = QRStudioTests;
+			packageProductDependencies = (
+				8A84D17638DDF340327250EB /* QRCore */,
+			);
+			productName = QRStudioTests;
+			productReference = 1671DD890F5B7093F937839A /* QRStudioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8009C2AE1919BE2BCC87B72E /* QRStudioShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAA1F7AFA9A0AFB061E1323B /* Build configuration list for PBXNativeTarget "QRStudioShare" */;
+			buildPhases = (
+				B34EFF1A09220B8618FFA82A /* Sources */,
+				7247C04E998E1DED8E721C7F /* Resources */,
+				DAD2FE34EAC0BC4B1AB98427 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QRStudioShare;
+			packageProductDependencies = (
+				D70DFBD615D7C9AA9912F03E /* QRCore */,
+			);
+			productName = QRStudioShare;
+			productReference = 75C9EE9584CD2373506EE496 /* QRStudioShare.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		AAA8D18390DCB036DCF3D519 /* QRStudio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F52BCDD5DF16C4A28BA01EBC /* Build configuration list for PBXNativeTarget "QRStudio" */;
+			buildPhases = (
+				FE798AE6E09158B0D0E5C2C6 /* Sources */,
+				EE42121B1F5BE49034F7935A /* Resources */,
+				D1D82FC797050B8C61134D81 /* Frameworks */,
+				969EE099C07CBF26427F666C /* Embed Foundation Extensions */,
+				6C18829E133A75DF756CC06A /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D435D3482B70174268529667 /* PBXTargetDependency */,
+				B940D2B0055F8FDA5859C1C1 /* PBXTargetDependency */,
+				FCDB12D442199AD2D0D59EB1 /* PBXTargetDependency */,
+				E5E76F98B76C89D08A726F53 /* PBXTargetDependency */,
+			);
+			name = QRStudio;
+			packageProductDependencies = (
+				6995F80CCF0CE91B61A98081 /* QRCore */,
+			);
+			productName = QRStudio;
+			productReference = 7E09F2A9940524114C0C8667 /* QRStudio.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CB1023483E0FCB5313D7E15C /* QRStudioWatchWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1BB9BD022F5ABC919C63E98C /* Build configuration list for PBXNativeTarget "QRStudioWatchWidgets" */;
+			buildPhases = (
+				D8A118A8DCC358DED9D6CE31 /* Sources */,
+				DB5443229BA4F4EA62C1E96D /* Resources */,
+				CA3ECCB055EB76E168494FC4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QRStudioWatchWidgets;
+			packageProductDependencies = (
+				82AE91A50385AE21FD9DC0AB /* QRCore */,
+			);
+			productName = QRStudioWatchWidgets;
+			productReference = 8B789976D8C246283177AD79 /* QRStudioWatchWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		D5979F90DFEF77537D4C7483 /* QRStudioAction */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AD5732822D49177B167BA6F /* Build configuration list for PBXNativeTarget "QRStudioAction" */;
+			buildPhases = (
+				A3E7A96C6556193DA362AD4A /* Sources */,
+				9F445CC602B59FD20DC5173C /* Resources */,
+				0C7E0C6221D9D0EE422DAC22 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QRStudioAction;
+			packageProductDependencies = (
+				9546710C2FA919DDD28E7241 /* QRCore */,
+			);
+			productName = QRStudioAction;
+			productReference = C3C7D5D9F459BB987062A9E6 /* QRStudioAction.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		EAFA9A907817A59AFE3675FF /* QRStudioWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CA13A6C0B17D49195362D75 /* Build configuration list for PBXNativeTarget "QRStudioWidgets" */;
+			buildPhases = (
+				70007C043816AE7A76E6279D /* Sources */,
+				E2E1944FCAD3098F037E43D9 /* Resources */,
+				F6571FCF36C4AADFE3EE6526 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QRStudioWidgets;
+			packageProductDependencies = (
+				554522E0AAA2F56F1AF593BD /* QRCore */,
+			);
+			productName = QRStudioWidgets;
+			productReference = C182D4468C1BF8ABEE72F0EA /* QRStudioWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0F9CE7F170DFB3AD3034B2B9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					19D467694B24422E26F0B324 = {
+						DevelopmentTeam = 38NNMCM5TA;
+						ProvisioningStyle = Automatic;
+					};
+					6B7999C2D5F6A2E2CACB301D = {
+						DevelopmentTeam = 38NNMCM5TA;
+						ProvisioningStyle = Automatic;
+					};
+					745FEFF123266A69652149E1 = {
+						DevelopmentTeam = 38NNMCM5TA;
+						ProvisioningStyle = Automatic;
+					};
+					8009C2AE1919BE2BCC87B72E = {
+						DevelopmentTeam = 38NNMCM5TA;
+						ProvisioningStyle = Automatic;
+					};
+					AAA8D18390DCB036DCF3D519 = {
+						DevelopmentTeam = 38NNMCM5TA;
+						ProvisioningStyle = Automatic;
+					};
+					CB1023483E0FCB5313D7E15C = {
+						DevelopmentTeam = 38NNMCM5TA;
+						ProvisioningStyle = Automatic;
+					};
+					D5979F90DFEF77537D4C7483 = {
+						DevelopmentTeam = 38NNMCM5TA;
+						ProvisioningStyle = Automatic;
+					};
+					EAFA9A907817A59AFE3675FF = {
+						DevelopmentTeam = 38NNMCM5TA;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = ADCD60567CCFB183E8B1BCD4 /* Build configuration list for PBXProject "QRStudio" */;
+			developmentRegion = fr;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				fr,
+			);
+			mainGroup = D7DAF9BE233E2C90E7DE0EDE;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				92CFD30014AD873E1DF7C42C /* XCLocalSwiftPackageReference "QRCore" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 9427AF88DEF68E037685F8F4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAA8D18390DCB036DCF3D519 /* QRStudio */,
+				8009C2AE1919BE2BCC87B72E /* QRStudioShare */,
+				D5979F90DFEF77537D4C7483 /* QRStudioAction */,
+				6B7999C2D5F6A2E2CACB301D /* QRStudioMac */,
+				19D467694B24422E26F0B324 /* QRStudioWatch */,
+				CB1023483E0FCB5313D7E15C /* QRStudioWatchWidgets */,
+				EAFA9A907817A59AFE3675FF /* QRStudioWidgets */,
+				745FEFF123266A69652149E1 /* QRStudioTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2FDA75DCF77A509E7B136A62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4F19009F7C4303DB3D82F85 /* AppIcon.icon in Resources */,
+				8D62DF53624C9CCE57950C95 /* Assets.xcassets in Resources */,
+				AC4BCD7C8C9B09BA2B1E48BB /* Localizable.xcstrings in Resources */,
+				AEDADB1BAB6FAFFFF19E0A97 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7247C04E998E1DED8E721C7F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD8B339850F916C528AF3926 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F445CC602B59FD20DC5173C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27F67F8BB8BA9D8CA336D42B /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB5443229BA4F4EA62C1E96D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0028A81BAF0025BFB2529458 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2E1944FCAD3098F037E43D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5ACED176F53BE7215BA5AEF5 /* Assets.xcassets in Resources */,
+				3FAC1C52E6A6AEADC6AC3528 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE42121B1F5BE49034F7935A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				575AEF9F99A0C46DAF755415 /* AppIcon-Corail.icon in Resources */,
+				35B9965B7C15A5D8870733C0 /* AppIcon-Menthe.icon in Resources */,
+				2F0E02D6D31FF235A5CC0BC9 /* AppIcon-Nuit.icon in Resources */,
+				91A15DF654576A3E4327C2A6 /* AppIcon-Ocean.icon in Resources */,
+				5FFCC1F4465729BCEBA19929 /* AppIcon.icon in Resources */,
+				295D22DCD52EA38C16DE48D9 /* Assets.xcassets in Resources */,
+				B7D8C538665F8F6CF271FAFE /* InfoPlist.xcstrings in Resources */,
+				70291F9366375ACC8F37C0CD /* Localizable.xcstrings in Resources */,
+				55A10958DBF8DF33AF840C9F /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1E1AD49FF69D012E0435584 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC21C70B195A0ABB9CE365E5 /* AppIcon.icon in Resources */,
+				1D5A93AFB85DFE59F7FB2B1B /* Assets.xcassets in Resources */,
+				FF540BE091189A8D1BC4617F /* Localizable.xcstrings in Resources */,
+				45221737165EFB29B5C2369A /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		508927C8803F004727DD08FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				305C7A7313AAD8961752C29B /* ActionHandler.swift in Sources */,
+				5B496E3973CCF3A11DD30E97 /* AdvancedTab.swift in Sources */,
+				A3CEAF8A34E157DD68D737A6 /* AlertCenter.swift in Sources */,
+				0F009E84EB9AB93A1CA6432D /* AlertHost.swift in Sources */,
+				6C890B8B9B08D03AE7CD3BE9 /* Announcer.swift in Sources */,
+				CCB1A7375F103BEEFCDC595A /* AppServices.swift in Sources */,
+				C6055BA7F7E81AB72899E3A6 /* AppSettings.swift in Sources */,
+				804D093E435A92E5610203AD /* AutoOpenMode.swift in Sources */,
+				56A41BB68D842FFD58906E57 /* BackupFile.swift in Sources */,
+				11A1789260E8D3AC7B3707E7 /* BackupSection.swift in Sources */,
+				BF2BC6BD8446234234EE43CC /* BatchSymbologyPreset.swift in Sources */,
+				DA3B00B0072CD01D5B6AEDB0 /* CSVImport.swift in Sources */,
+				E8E3943D562AC69FE3172C62 /* CameraPreview.swift in Sources */,
+				7808FBD7B9D07CF3D8E10C54 /* CardSection.swift in Sources */,
+				86A3552529D6799F1F5405A0 /* CodeEntity.swift in Sources */,
+				8BC7C4730B7B0A055EE3A64A /* CodeEntityQuery.swift in Sources */,
+				7323092CF151B464221FFF2A /* CodeEntry+Preview.swift in Sources */,
+				A1581E112145671ACC04929E /* CodeIntents.swift in Sources */,
+				CD0F9DD33D83158A367742CA /* CodeLabelSuggestion.swift in Sources */,
+				A1592296F4E71CFCF8895384 /* CodePreview.swift in Sources */,
+				50511D28570556CA043F117D /* CodeSnippetView.swift in Sources */,
+				C3CD9FE5E6FEC0C1BC9A8459 /* CodeThumbnail.swift in Sources */,
+				D474B65C03B88156CFAC3B59 /* ColorsTab.swift in Sources */,
+				807C4FBCC08EDDFE63937457 /* ContactForm.swift in Sources */,
+				1556B61D6152777313F7B687 /* ContentActionsView.swift in Sources */,
+				0DADB88DF802B12303CF70A9 /* ContentDetailCard.swift in Sources */,
+				40373311E691D1A7D67C0943 /* CopyableRow.swift in Sources */,
+				34F59B86975A73B547297FD3 /* CreateQRFromClipboardIntent.swift in Sources */,
+				4EB3E0B64EFACB8BB8ACD5E5 /* CreateQRFromTextIntent.swift in Sources */,
+				557DB02A85A3346466F98998 /* CryptoForm.swift in Sources */,
+				42E0B5913B1D4509CE170959 /* DangerZoneSection.swift in Sources */,
+				333CD23AB2FD3076B0BB8E55 /* DemoData.swift in Sources */,
+				81B499D12566D9FC805B4ED0 /* DetailEditor.swift in Sources */,
+				D85B67D37B3C1CB413EFC0E8 /* DetailMetadata.swift in Sources */,
+				C7B52DE62AE337D96E43AEB0 /* DraggableCode.swift in Sources */,
+				7FACEACAF4F822CD8A00592B /* DropZoneModifier.swift in Sources */,
+				D047B13DBFF82D1890801F30 /* EmailForm.swift in Sources */,
+				AB66D99EC510E88A98F3A422 /* EnterpriseWiFiForm.swift in Sources */,
+				A333247A8C608FF90D28F6D0 /* EntryStore.swift in Sources */,
+				A749B3AC380DE7ACBB488D25 /* EntryStyleEditor.swift in Sources */,
+				CE7B6CE910A11429962510AE /* EventDetailCard.swift in Sources */,
+				D64940CD1F2359A7547EA5C3 /* EventForm.swift in Sources */,
+				159D23F2F3CB98D6F7FD18B5 /* ExportedFile.swift in Sources */,
+				3F8F1FD550CD6B1AAA2998CA /* FieldContent.swift in Sources */,
+				D624D3648097861FD75144B2 /* FieldKeyboard.swift in Sources */,
+				906883EB532F5F4ECAAC6B88 /* FolderEditor.swift in Sources */,
+				C643A38FF54325ED2FE0DC3D /* FolderManagerView.swift in Sources */,
+				A1B1F774599BDA8DA80B2C55 /* FolderPickerSheet.swift in Sources */,
+				E81EAB1F94172EEB20DC9F3E /* GeneratorFormModel.swift in Sources */,
+				CF53D28F941ACCC93D605CE5 /* Glass.swift in Sources */,
+				E1895CEB6E4864985995A79D /* GlassGroup.swift in Sources */,
+				1C038B6B482584B43E16BCC4 /* HistoryFilter.swift in Sources */,
+				F0EC1165FFF44BBCB73F62B9 /* HistoryFilterSheet.swift in Sources */,
+				A987B66E64A6730603A887EF /* HistoryListModel.swift in Sources */,
+				B0CB13C6EA30B1713EC7121F /* HistoryRow.swift in Sources */,
+				6484DFDBD7385C58A4DFF1B1 /* IntentSupport.swift in Sources */,
+				5FF70883EE36B4A0E4E92DA8 /* KeyboardTyper.swift in Sources */,
+				C107F6894910D4AE9F6BD173 /* LabelField.swift in Sources */,
+				C04E127F45DC6F3A06233F1D /* LabelSuggestionRow.swift in Sources */,
+				13ABA19EAA30A93D83BB64E3 /* LastScanIntent.swift in Sources */,
+				C5B35C1EF669D0140910B651 /* LinkPreviewRow.swift in Sources */,
+				E93119EDE2BA7D8ADD985C25 /* LocationDetailCard.swift in Sources */,
+				BE9877D4149DB962C69A716B /* LocationForm.swift in Sources */,
+				EBC83E74A1EE9C3D1DDABC05 /* LogoImage.swift in Sources */,
+				0E8484168305E9A39EE08A9C /* LogoTab.swift in Sources */,
+				54D7C7A540842A96A1488453 /* MacCommands.swift in Sources */,
+				531E731F091E1751F009B8E2 /* MacDetailView.swift in Sources */,
+				2642879F6AC2DE12153DCBD7 /* MacExport.swift in Sources */,
+				A3BFD56ADF22873C0E9FA54B /* MacExportSheet.swift in Sources */,
+				B7BB283F5E8D24F9F241FDAB /* MacGeneratorView.swift in Sources */,
+				32046802A7C34BF273C13D57 /* MacHelpView.swift in Sources */,
+				597D5238EF721C2C25390786 /* MacHistoryList.swift in Sources */,
+				8DC35EFB4E71F678A04CA34B /* MacImageImporter.swift in Sources */,
+				E887C15CB09A1A1C72E262CE /* MacLinkServer.swift in Sources */,
+				9C3389B94A118985DF63F938 /* MacLinkSettingsView.swift in Sources */,
+				FF3CE23495261F5D0EB9123A /* MacListExportSheet.swift in Sources */,
+				AD8164066B2F184CC8E478CA /* MacRouter.swift in Sources */,
+				DA632A892306DC74412724D2 /* MacSafeBrowsing.swift in Sources */,
+				58FB98FC8D4341629F2CD0B3 /* MacScanResult.swift in Sources */,
+				716AA04F7A3B9D177C771906 /* MacScannerView.swift in Sources */,
+				E0CF4D91BE02337AA2D58060 /* MacSettingsView.swift in Sources */,
+				A877390B4813CDBD0085B961 /* MacSidebar.swift in Sources */,
+				340B035407BE7483C93000D1 /* MacSplitView.swift in Sources */,
+				D38A14024E6D461AB36BB8A6 /* MapDateRangeSheet.swift in Sources */,
+				B9C383DF13E9201647664ECE /* NSItemProvider+Data.swift in Sources */,
+				5A69ABC59635540894878D66 /* OnDeviceIntelligence.swift in Sources */,
+				D1159F90138BC9D6430D1382 /* OpenCodeIntent.swift in Sources */,
+				2ECFDEE23FA792080AC76497 /* OpenFoodFactsClient.swift in Sources */,
+				F0B95A83C717190C0D183817 /* OptionalColorRow.swift in Sources */,
+				10BF85490EC496D5B4DD2CDD /* OptionalDatePicker.swift in Sources */,
+				2E3F91B02E71D68AB9C5FA20 /* Pasteboard.swift in Sources */,
+				FFACDC32CB7BDAE4C7EA2783 /* Pause.swift in Sources */,
+				96EEF20E63226854DB65BCDC /* PhoneForm.swift in Sources */,
+				B65DD0B964D763D4C5D24533 /* PinnedPreview.swift in Sources */,
+				FD32ADA3DDD0A3D4E8F22E41 /* PlaceCodesSheet.swift in Sources */,
+				543288B21DE7E469F1F32091 /* Platform.swift in Sources */,
+				01416D029C469F15F0C52566 /* PresetStrip.swift in Sources */,
+				43D69A0A3034F8D13B1C688B /* PrivacyPolicyView.swift in Sources */,
+				971FEA9A5A4B8796526DE361 /* ProductDetailCard.swift in Sources */,
+				FA7EE26029010E3EC4A58DF5 /* ProductForm.swift in Sources */,
+				6ECE13EB446589CEAF909CBE /* QRStudioMacApp.swift in Sources */,
+				D218B6796A48E8A201425BC9 /* QRStudioShortcuts.swift in Sources */,
+				A98774A5D4639552CE06747C /* ReadabilityIndicator.swift in Sources */,
+				23663D7A899510BF25705970 /* ReceivedScansStore.swift in Sources */,
+				5BC0D4BDD9D5EC58051E55D0 /* ReceivedScansView.swift in Sources */,
+				90B6182CAF2CCEA3C52F37D3 /* SMSForm.swift in Sources */,
+				11AD902AAF78AE6712BDABE2 /* ScanMapView.swift in Sources */,
+				C137F3951110E4B29B052E39 /* SearchFocus.swift in Sources */,
+				EA869EB6F44F83B9ECB66082 /* SearchSiteEditor.swift in Sources */,
+				F9609BE2AAB15288EBEFB6DA /* SearchSitesView.swift in Sources */,
+				801D6F102C04141F53AA2D16 /* SecurityScoped.swift in Sources */,
+				AA8D5582247C5E9AF9EEE85A /* ShapeChooser.swift in Sources */,
+				A9AAD8C725DB122F81ABE8CB /* ShapesTab.swift in Sources */,
+				79C47A426E7326C358BA1896 /* SheetHeight.swift in Sources */,
+				C9CA07A16EAF71374087E73C /* ShortcutParameters.swift in Sources */,
+				C838FB0581AB6A092FEA9C75 /* ShowCodeIntent.swift in Sources */,
+				7C92287CA31CA5F4D9D33A84 /* ShowWiFiIntent.swift in Sources */,
+				0D638E1822220F6383076CA3 /* SmartSearchCriteria.swift in Sources */,
+				EEBD946AC0600AEA0A992CB9 /* SocialForm.swift in Sources */,
+				17D3C78AFD322A81546037DE /* SpotlightIndexer.swift in Sources */,
+				C3D5237FC5CFC77138EE6FB9 /* StyleEditorView.swift in Sources */,
+				BE75D2FF941D4D3F82BB5369 /* SymbolNames.swift in Sources */,
+				9B20C6DD64EC393C43EE6010 /* SyncSection.swift in Sources */,
+				06E901C10786576417E1E33C /* TestDataSeeder.swift in Sources */,
+				A79D641A20941440883D13E5 /* TextForm.swift in Sources */,
+				F914D6F1465E53B5369DD93B /* ThumbnailCache.swift in Sources */,
+				F03D69ED9A0533C2F350BE39 /* TopBarModifier.swift in Sources */,
+				AF3E74E2D4CA8502ABE32BED /* TranslationSheet.swift in Sources */,
+				881789C303BFE481F901492E /* URLDetailCard.swift in Sources */,
+				CC18A536A3CE2BB42F9B33CA /* URLForm.swift in Sources */,
+				FAD5154C1FB16BEBCF9D08C9 /* WiFiForm.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E0907F64BE17DB909E7B937 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93B54FE96977227249A54843 /* AppSmokeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70007C043816AE7A76E6279D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E00B5CDC7C1CD41512BB8E5F /* MainCodeEntry.swift in Sources */,
+				DF785706EF6393DDE0C09202 /* MainCodeProvider.swift in Sources */,
+				4E13BDFD773995836B48EC29 /* MainCodeWidget.swift in Sources */,
+				B976B58132F76AD403297415 /* MainCodeWidgetView.swift in Sources */,
+				9748398AF7529C5583852DB3 /* QRStudioWidgets.swift in Sources */,
+				B1111A387F3AE6682015B2C8 /* ScanWidget.swift in Sources */,
+				BB4CFC3EAF4AED05CE82A488 /* ScanWidgetView.swift in Sources */,
+				1E8F6160DA2ACFAD0C6BC280 /* StaticProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3E7A96C6556193DA362AD4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10FF2E2EE5CD9D3155181901 /* ActionViewController.swift in Sources */,
+				5571A25924134AAB23EF42F1 /* DecodedCodeRow.swift in Sources */,
+				973CD41CD087D73B1B7F2934 /* ExtensionHostController.swift in Sources */,
+				ADBE19047391AADE7A5A07ED /* ExtensionModel.swift in Sources */,
+				1C69488B275A511E99A9143E /* ExtensionRootView.swift in Sources */,
+				382215D8A4BE06BF4A3C7EA9 /* NSItemProvider+Data.swift in Sources */,
+				B340857E1655FE25C9A6DEA2 /* SharedTextView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B34EFF1A09220B8618FFA82A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD56040DF34EA02190358FD4 /* DecodedCodeRow.swift in Sources */,
+				CCF150F6F218F4B12F3D7562 /* ExtensionHostController.swift in Sources */,
+				C496D07ACE81A44A8284BD45 /* ExtensionModel.swift in Sources */,
+				96E1B1689BC34DB8F6EAA7BF /* ExtensionRootView.swift in Sources */,
+				CE54260ED4AF972C8E192FA5 /* NSItemProvider+Data.swift in Sources */,
+				4F81C235C0C1D123A2BB8142 /* ShareViewController.swift in Sources */,
+				AC85B45FC8CD11B41F0E2AEC /* SharedTextView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6A50CBE83B4B1B38069A0A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5103A6D1793C989A4C021A6 /* QRStudioWatchApp.swift in Sources */,
+				6F8D1AC15BAB13D84D55BC5E /* WatchCodeDisplayView.swift in Sources */,
+				B721BEDA0968C7E0C76B93B4 /* WatchCodeImage.swift in Sources */,
+				935D0C6678DE4F525CEFE070 /* WatchCodeListView.swift in Sources */,
+				92CF7561D21B555E49460CC4 /* WatchDemoData.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8A118A8DCC358DED9D6CE31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CA99F429516FF18B9D193DF /* PrimaryCodeEntry.swift in Sources */,
+				270D4F696871F59FFB7CC6DD /* PrimaryCodeProvider.swift in Sources */,
+				1A6D7A46E5DB5FAF77E10362 /* PrimaryCodeWidget.swift in Sources */,
+				853C58C228260DC65E4651F2 /* PrimaryCodeWidgetView.swift in Sources */,
+				819673DE0D836698D953DF05 /* WatchComplication.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE798AE6E09158B0D0E5C2C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3AF9DB2AE920B5BCC8134FA /* ActionHandler.swift in Sources */,
+				08811742590AC6146BB0C060 /* ActionPresentations.swift in Sources */,
+				690D8DD64CA35871F470F013 /* AdvancedTab.swift in Sources */,
+				346491611C0456F1DBA1DACF /* AlertCenter.swift in Sources */,
+				2166662FB40A89855DFB97FD /* AlertHost.swift in Sources */,
+				5486B5517ED21142160EF051 /* Announcer.swift in Sources */,
+				4224F89885183E34179B367E /* AppDelegate.swift in Sources */,
+				87BB2E4256F06264358731B8 /* AppIconChoice.swift in Sources */,
+				24E7FFDA849DA25385C911BC /* AppIconPickerView.swift in Sources */,
+				F74E9C9DBD60285A05A5A98B /* AppRouter.swift in Sources */,
+				B8F87996909A4342CEB90722 /* AppServices.swift in Sources */,
+				084B6AC1495403FF7717E5CB /* AppSettings.swift in Sources */,
+				76CDCC3D672B28FC66F107F2 /* AutoOpenBannerState.swift in Sources */,
+				836C1D380D0E6CCBC636FB07 /* AutoOpenBannerView.swift in Sources */,
+				1D91CE310D548F18ECD44489 /* AutoOpenMode.swift in Sources */,
+				0FF90BAC89874D2353E831B6 /* AutoOpener.swift in Sources */,
+				74917FE183F95368C32677D4 /* BackupFile.swift in Sources */,
+				C03BC7554618E97A15C73073 /* BackupSection.swift in Sources */,
+				1E3C017339BC54FBD9C87BFC /* BatchPanel.swift in Sources */,
+				BDBBBDAAEC41E17BFB14822B /* BatchRow.swift in Sources */,
+				A6B50BB7A9D5B8D764F37EA1 /* BatchSession.swift in Sources */,
+				447A41B2912E93E8A85DE555 /* BatchSymbologiesView.swift in Sources */,
+				41A2535790544C924A3114BD /* BatchSymbologyPreset.swift in Sources */,
+				9B0EE31F90D555EE3CE90D51 /* BatchTranslationSheet.swift in Sources */,
+				00B35274A7BB0D70D801F1E0 /* CSVImport.swift in Sources */,
+				F418284655902F9F172632B5 /* CameraAvailability.swift in Sources */,
+				1543708D776A5C253F5856B5 /* CameraUnavailableView.swift in Sources */,
+				B61F35C2239A192FF5E28BC7 /* CaptureScannerRepresentable.swift in Sources */,
+				5206740B5D506BD40FBC2BEB /* CardSection.swift in Sources */,
+				468EBFE8A9041D2D1A1B4A49 /* CircleControl.swift in Sources */,
+				D69612AEC59070F3D4A03525 /* CodeDetailView.swift in Sources */,
+				13A4817D4DCC4AE056172EAD /* CodeEntity.swift in Sources */,
+				780AF1BB9D2E847AFA96EB8C /* CodeEntityQuery.swift in Sources */,
+				519DE2E9A3CC508541AD2FA9 /* CodeEntry+Preview.swift in Sources */,
+				7CB3D7020E1D27A092F2F760 /* CodeIntents.swift in Sources */,
+				0158F1ECE751C8A40C21AE9E /* CodeLabelSuggestion.swift in Sources */,
+				F98C2D951DE4C802CE8C5F14 /* CodePreview.swift in Sources */,
+				65817D5AFC7F5776AEAFA319 /* CodeSnippetView.swift in Sources */,
+				1238A283653D90B362D8DCEC /* CodeThumbnail.swift in Sources */,
+				7EB60A048DD803DC9D249BE2 /* ColorsTab.swift in Sources */,
+				9F90228E8E39BD50C775C430 /* CompactRootView.swift in Sources */,
+				5AF7B064BE66AC853EDF2998 /* ContactEditor.swift in Sources */,
+				C4DB0EC1305FD0FB91C9CF75 /* ContactForm.swift in Sources */,
+				59EDD1F277881DACDC5CBF19 /* ContentActionsView.swift in Sources */,
+				ED14D2A70053164D3E890617 /* ContentDetailCard.swift in Sources */,
+				66E90CDA9142235E95E6857B /* CopyableRow.swift in Sources */,
+				233F0511057E7C310E213AE6 /* CreateQRFromClipboardIntent.swift in Sources */,
+				DBF501699166A5F8F0A91F7E /* CreateQRFromTextIntent.swift in Sources */,
+				2898223A741BA32BE37AB804 /* CryptoForm.swift in Sources */,
+				2DFA5778AD943D14B2733D89 /* DangerZoneSection.swift in Sources */,
+				CA9F9DAC1D8009948F976C01 /* DataScannerRepresentable.swift in Sources */,
+				4320301B29208D283AC668D6 /* DeepLink.swift in Sources */,
+				AC7F32410C4DE588A724D425 /* DemoData.swift in Sources */,
+				3CAF2DAC6D9A71D67C877483 /* DetailEditor.swift in Sources */,
+				A0C78337C4DF8F99F5516009 /* DetailMetadata.swift in Sources */,
+				AC8175F9FB6BE7B4B5C604D3 /* DraggableCode.swift in Sources */,
+				D619AD4A30E1A01AED1165AC /* EmailForm.swift in Sources */,
+				31808B8B3B833C4E20AB0468 /* EnterpriseWiFiForm.swift in Sources */,
+				9DFAC869884FD07F8679BEC2 /* EntryStore.swift in Sources */,
+				A0285A126CEF02A29920ACFA /* EntryStyleEditor.swift in Sources */,
+				C74D161DC714C677E91F61DE /* EventDetailCard.swift in Sources */,
+				8CF993563438CCE6534F9845 /* EventEditor.swift in Sources */,
+				307CF989FF756C5B496469A7 /* EventForm.swift in Sources */,
+				7F528E579415F68AED12E04B /* ExportEntriesSheet.swift in Sources */,
+				B0CF9C2A524638CD0A73518E /* ExportFormat.swift in Sources */,
+				4E79BED1F4CCFE828483E5AA /* ExportService.swift in Sources */,
+				A1EF21690BDD1E6786329CD7 /* ExportSheet.swift in Sources */,
+				6962F8EA71AF044A1BF2DDBA /* Feedback.swift in Sources */,
+				E22AE27FDDC10C63B822F351 /* FieldContent.swift in Sources */,
+				0CC634C6CF57D3C66E04986F /* FieldKeyboard.swift in Sources */,
+				1AE34914DA50B188C0C41968 /* FolderEditor.swift in Sources */,
+				9CA2CB16BD2C9532E55F4AE6 /* FolderManagerView.swift in Sources */,
+				8E0CBAA672C5A89E406FC535 /* FolderPickerSheet.swift in Sources */,
+				B22D6D9B68683A581B06B245 /* FullScreenCodeView.swift in Sources */,
+				2A2DC69FA07FB4140A65272E /* GeneratorFormModel.swift in Sources */,
+				AF981F03263818703D3A04AA /* GeneratorFormView.swift in Sources */,
+				5C176E1B36DA5AE05F123C32 /* GeneratorScreen.swift in Sources */,
+				54ECB24A7BC500EA31BE0751 /* GeneratorTypePickerView.swift in Sources */,
+				497F029EC32F2AE17A3FA43B /* Glass.swift in Sources */,
+				CC18F6AB22CF5452093EE7D2 /* GlassGroup.swift in Sources */,
+				110FEB310F7A90C5BC089085 /* HistoryFilter.swift in Sources */,
+				2D454ABE4493553180DB8CDD /* HistoryFilterSheet.swift in Sources */,
+				22AC56F4DC5F50C264370DEE /* HistoryListModel.swift in Sources */,
+				D9A6BB2C86DE2DD06D0777F9 /* HistoryListView+Toolbar.swift in Sources */,
+				503B651E8312432B65E13BEF /* HistoryListView.swift in Sources */,
+				9CE9A1112F8F041BAAD3519C /* HistoryRow.swift in Sources */,
+				7FFE6057EF1901B481991F5D /* HistoryScreen.swift in Sources */,
+				33AAC0618798FF4CD7AD209D /* ImageBarcodeDetector.swift in Sources */,
+				FF4ACF7338F9547C35BD868A /* IntentSupport.swift in Sources */,
+				C7D152B55F40C44F2123E49A /* LabelField.swift in Sources */,
+				157BC9195BF60851104CEB3A /* LabelSuggestionRow.swift in Sources */,
+				DAB6EB3A75881BE460EF04DB /* LastScanButton.swift in Sources */,
+				5319D6ECC0088AD4E7D5F4B1 /* LastScanIntent.swift in Sources */,
+				114A9C85719C18478658AD5D /* LaunchTimer.swift in Sources */,
+				C946857AE0286A3E5734D168 /* LinkPreviewRow.swift in Sources */,
+				02A5E706BDF5A70FB5D6E835 /* LiveCode.swift in Sources */,
+				6C09B91F3B8066737F85E53E /* LocationDetailCard.swift in Sources */,
+				8BCBE4BF6DEFA8FF0E4C5F81 /* LocationForm.swift in Sources */,
+				405DBBC109B78FD5E3E23D47 /* LocationService.swift in Sources */,
+				AC9DD5E4E097CEF57F6729D4 /* LogoImage.swift in Sources */,
+				B9F1DD5CCCBACB780330F04C /* LogoTab.swift in Sources */,
+				E87B104A03ACAE7784FC5B12 /* MacConnectionChip.swift in Sources */,
+				EF6D0C2FBFD841F53FCE4DA1 /* MacLinkClient.swift in Sources */,
+				4481E311C1468C7EA6DFFFBB /* MacLinkSection.swift in Sources */,
+				D0ED4B62D7E283D03F0219D0 /* MainAppView.swift in Sources */,
+				9DF920BB1B7A9EF625349441 /* MapDateRangeSheet.swift in Sources */,
+				7CEAB470FC9D8971EA658EE5 /* MessageComposer.swift in Sources */,
+				CBF18701505F79F2FB9554AF /* ModeSwitcher.swift in Sources */,
+				A321C93B7FD1034B9E03FE13 /* MultipleCodesSheet.swift in Sources */,
+				D5325F68D1EE907C21C4435F /* OnDeviceIntelligence.swift in Sources */,
+				385236416AD4539A1569E89C /* OpenCodeIntent.swift in Sources */,
+				47AE996B220C2049FBDD4202 /* OpenFoodFactsClient.swift in Sources */,
+				576112A272AB555A2349F2B3 /* OptionalColorRow.swift in Sources */,
+				8CA63841D36DC6AADD89962B /* OptionalDatePicker.swift in Sources */,
+				479C0D1CB3632B834FDDD6C5 /* Pasteboard.swift in Sources */,
+				0D490BFD0E0C5216364D428A /* Pause.swift in Sources */,
+				7BF7E1548AA2FC9A86CFEABE /* PayloadIndex.swift in Sources */,
+				1048A7D9240BAD23D94CC2DC /* PhoneForm.swift in Sources */,
+				CF84512348A530EC68A154F0 /* PinnedPreview.swift in Sources */,
+				4CBF9BFE7316A017FC1FF5A0 /* PlaceCodesSheet.swift in Sources */,
+				B0B37383F081B925358CBA74 /* Platform.swift in Sources */,
+				A631F9EB8585479AFA005509 /* PresentedAction.swift in Sources */,
+				52272CE7B2871B640CE056B5 /* PresetStrip.swift in Sources */,
+				F54F218EF2417DF478CA2C36 /* PrimaryAction.swift in Sources */,
+				F451C86034B559B55720DCFD /* PrivacyPolicyView.swift in Sources */,
+				2A9105098D6B1C76437BE1B2 /* PrivacySection.swift in Sources */,
+				435E55E63A5332430817804A /* ProductDetailCard.swift in Sources */,
+				7F4EAC6F7B2A4B8A86EF57A1 /* ProductForm.swift in Sources */,
+				0E6D195CE53A6FBEE16D9A95 /* QRStudioApp.swift in Sources */,
+				4F8E3AF152BE48D0A72D2858 /* QRStudioShortcuts.swift in Sources */,
+				61DDBB0911A9522DC71C29A8 /* Quad.swift in Sources */,
+				CC6463ACBCD6D8AD989D4B0C /* QuadFrame.swift in Sources */,
+				07CFE1AB7644318AFA8BA251 /* ReadabilityIndicator.swift in Sources */,
+				723DF7ED5B736AA5D2C6EC5F /* RegularRootView.swift in Sources */,
+				AE241B949146B098C46BED7A /* RootTabView.swift in Sources */,
+				61282D7E2460FBF855C80837 /* SMSForm.swift in Sources */,
+				08F216C65DAF4322C0BF7E30 /* SafariView.swift in Sources */,
+				0811FAC7F8832EEE54859E44 /* SafeBrowsingGate.swift in Sources */,
+				1B61E9A58B32F7D3CC7F08E0 /* SafeBrowsingWarning.swift in Sources */,
+				548AD5A48682998FC7EE69B9 /* SafeBrowsingWarningView.swift in Sources */,
+				3481D2CBC8445208B5191B36 /* ScanMapView.swift in Sources */,
+				6F3E17D481D13C9DCCFB8B56 /* ScanMode.swift in Sources */,
+				188F58082189254C3E8014FB /* ScanResultSheet.swift in Sources */,
+				3BBBCFD86B82D3267B286EA5 /* ScannerControls.swift in Sources */,
+				7AC888BF419EF272F958866D /* ScannerModel.swift in Sources */,
+				453D2DCD361798EB7A5CE26E /* ScannerView.swift in Sources */,
+				D737826B40A6534FB89823F9 /* SceneDelegate.swift in Sources */,
+				80C6991A67DBDC9443894454 /* SearchSiteEditor.swift in Sources */,
+				C86D0C4C72017E661EADD3BF /* SearchSitesView.swift in Sources */,
+				A682B314D46C30321BF20597 /* SecurityScoped.swift in Sources */,
+				3F57A423BD73AB8E7D499A89 /* SettingsView.swift in Sources */,
+				1721F97F3D3B013E85F27E1B /* ShapeChooser.swift in Sources */,
+				FBDB4E3495ECF2A42EF4E070 /* ShapesTab.swift in Sources */,
+				CE1D0CD44DF65DB5D2C401F8 /* SheetHeight.swift in Sources */,
+				E707E275634EE637813E4EC8 /* ShortcutParameters.swift in Sources */,
+				103BCDE9BAF3EA8DF56F1891 /* ShowCodeIntent.swift in Sources */,
+				07D3216742F4BAADE43AFF78 /* ShowVisualSearchResultsIntent.swift in Sources */,
+				41452D2447A7BD1A1DF113CF /* ShowWiFiIntent.swift in Sources */,
+				64C770F9671673B5D040C577 /* SidebarView.swift in Sources */,
+				01C1D06A175BCD2DFA9A8C6E /* SmartSearchCriteria.swift in Sources */,
+				1E28046663071A1B7F5A106A /* SocialForm.swift in Sources */,
+				B2268EE25A0B189DDC49342A /* SpotlightIndexer.swift in Sources */,
+				22612AF61F685FA07646E92A /* StyleEditorView.swift in Sources */,
+				DADB57D00F12A0FDF6137EC0 /* Sweep.swift in Sources */,
+				9B0DBA4814CC6C41D2F12EF9 /* SweepBar.swift in Sources */,
+				33FCADE830F43946BC02E750 /* SweepOverlay.swift in Sources */,
+				AEC974D266063B0AA1284FF5 /* SweepValues.swift in Sources */,
+				1D091F563DA4A75AB1BF66E9 /* SymbolNames.swift in Sources */,
+				D510F0B230FB7BC0B2D23F32 /* SyncSection.swift in Sources */,
+				32CBACF8F24F6878ECF4B6C0 /* TestDataSeeder.swift in Sources */,
+				B50B69634A7C5380FE13D997 /* TextForm.swift in Sources */,
+				CB982E9D41F0A106C65FF2E6 /* ThumbnailCache.swift in Sources */,
+				4AE2385C33F3F3D48113E29B /* ToastView.swift in Sources */,
+				64C5A9E624BB04B25DAF57A4 /* TopBarModifier.swift in Sources */,
+				EFB7F29248D4E8D103B850DF /* TorchControl.swift in Sources */,
+				37226EB52512FFBF9703E1AB /* TorchController.swift in Sources */,
+				2B06B7F6AB34CE4496FB92F1 /* TranslationSheet.swift in Sources */,
+				EE2BC3BB9537908537849552 /* URLDetailCard.swift in Sources */,
+				938D31686316197EA0C59919 /* URLForm.swift in Sources */,
+				1B4C8EAB6EDD236E2417EBF3 /* ViewfinderCorners.swift in Sources */,
+				8778D94A0EA021959954A392 /* VisualIntelligenceIntents.swift in Sources */,
+				A4F99C43C4730D01F531EADD /* WebhookSection.swift in Sources */,
+				928F5DB0B7A7586A4CCDF48C /* WebhookSender.swift in Sources */,
+				4A8CF2B42974AD45251B1032 /* WiFiForm.swift in Sources */,
+				ECED9FAF667DA4F2FBE5E6E4 /* ZoomSelector.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		342427B1D3ADC25EAB66FD4A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AAA8D18390DCB036DCF3D519 /* QRStudio */;
+			targetProxy = 46C9391F0F04066094D35662 /* PBXContainerItemProxy */;
+		};
+		41DFBCD041D66F4125E258AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB1023483E0FCB5313D7E15C /* QRStudioWatchWidgets */;
+			targetProxy = 63E34C724E446C8305AFEF02 /* PBXContainerItemProxy */;
+		};
+		B940D2B0055F8FDA5859C1C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5979F90DFEF77537D4C7483 /* QRStudioAction */;
+			targetProxy = 2E6C5FA57F9623698E2DEF8C /* PBXContainerItemProxy */;
+		};
+		D435D3482B70174268529667 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8009C2AE1919BE2BCC87B72E /* QRStudioShare */;
+			targetProxy = ABD72AEFEC86432EB1C1008D /* PBXContainerItemProxy */;
+		};
+		E5E76F98B76C89D08A726F53 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EAFA9A907817A59AFE3675FF /* QRStudioWidgets */;
+			targetProxy = 3D6ADA0B264F42F6C150A44A /* PBXContainerItemProxy */;
+		};
+		FCDB12D442199AD2D0D59EB1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 19D467694B24422E26F0B324 /* QRStudioWatch */;
+			targetProxy = F944FEEC1BCE718D629333D4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2421EB23F500493562C688CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.qrstudio.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QRStudio.app/QRStudio";
+			};
+			name = Release;
+		};
+		244510AB9278BA20DF815E5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = QRStudioWatch/QRStudioWatch.entitlements;
+				INFOPLIST_FILE = QRStudioWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = app.qrstudio.watchkitapp;
+				PRODUCT_NAME = QRStudioWatch;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		38A3770566F63E7876BD977C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extensions/Share/QRStudioShare.entitlements;
+				INFOPLIST_FILE = Extensions/Share/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.qrstudio.share;
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		476FCC428B8047984F2C5F0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 38NNMCM5TA;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
+				SWIFT_VERSION = 6.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		5142AA7DC558E44639E9EF82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14C0077B0DE24EDCDDC7E2E1 /* Secrets.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QRStudioMac/QRStudioMac.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = QRStudioMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.qrstudio;
+				PRODUCT_NAME = "QR Studio";
+				SDKROOT = macosx;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+			};
+			name = Debug;
+		};
+		53127CB96BEA135468EE3F3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14C0077B0DE24EDCDDC7E2E1 /* Secrets.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon-Nuit AppIcon-Ocean AppIcon-Menthe AppIcon-Corail";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QRStudio/QRStudio.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = QRStudio/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.qrstudio;
+				PRODUCT_NAME = QRStudio;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5C12885DB7214292F6470C76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.qrstudio.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QRStudio.app/QRStudio";
+			};
+			name = Debug;
+		};
+		62A6B5EAA422FB97436F8B22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = QRStudioWatch/QRStudioWatch.entitlements;
+				INFOPLIST_FILE = QRStudioWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = app.qrstudio.watchkitapp;
+				PRODUCT_NAME = QRStudioWatch;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		6546D6F3090D9649BA3070E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QRStudioWidgets/QRStudioWidgets.entitlements;
+				INFOPLIST_FILE = QRStudioWidgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.qrstudio.widgets;
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6EFA14C296827E9FA97E2988 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = QRStudioWatchWidgets/QRStudioWatchWidgets.entitlements;
+				INFOPLIST_FILE = QRStudioWatchWidgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.qrstudio.watchkitapp.widgets;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		72F96C28F1A68A42DC760E9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14C0077B0DE24EDCDDC7E2E1 /* Secrets.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon-Nuit AppIcon-Ocean AppIcon-Menthe AppIcon-Corail";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QRStudio/QRStudio.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = QRStudio/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.qrstudio;
+				PRODUCT_NAME = QRStudio;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8836667566F41AF0256BACC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QRStudioWidgets/QRStudioWidgets.entitlements;
+				INFOPLIST_FILE = QRStudioWidgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.qrstudio.widgets;
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		97C7A648B057D20DB4818EE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = QRStudioWatchWidgets/QRStudioWatchWidgets.entitlements;
+				INFOPLIST_FILE = QRStudioWatchWidgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.qrstudio.watchkitapp.widgets;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		9F2FB7C242601E2AAE49A3CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extensions/Action/QRStudioAction.entitlements;
+				INFOPLIST_FILE = Extensions/Action/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.qrstudio.action;
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A8BEB8703103C4A97BE9ED8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extensions/Action/QRStudioAction.entitlements;
+				INFOPLIST_FILE = Extensions/Action/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.qrstudio.action;
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C1F54C7DC7B48B8AB2FB3CB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14C0077B0DE24EDCDDC7E2E1 /* Secrets.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QRStudioMac/QRStudioMac.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = QRStudioMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.qrstudio;
+				PRODUCT_NAME = "QR Studio";
+				SDKROOT = macosx;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+			};
+			name = Release;
+		};
+		C318B0CF8A53111728721E7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 38NNMCM5TA;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
+				SWIFT_VERSION = 6.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		CC9148A2433A0D7B57031600 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extensions/Share/QRStudioShare.entitlements;
+				INFOPLIST_FILE = Extensions/Share/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.qrstudio.share;
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1BB9BD022F5ABC919C63E98C /* Build configuration list for PBXNativeTarget "QRStudioWatchWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EFA14C296827E9FA97E2988 /* Debug */,
+				97C7A648B057D20DB4818EE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2AD5732822D49177B167BA6F /* Build configuration list for PBXNativeTarget "QRStudioAction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8BEB8703103C4A97BE9ED8E /* Debug */,
+				9F2FB7C242601E2AAE49A3CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		37307F6AD5410B65EAC47872 /* Build configuration list for PBXNativeTarget "QRStudioWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62A6B5EAA422FB97436F8B22 /* Debug */,
+				244510AB9278BA20DF815E5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		3CA13A6C0B17D49195362D75 /* Build configuration list for PBXNativeTarget "QRStudioWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6546D6F3090D9649BA3070E3 /* Debug */,
+				8836667566F41AF0256BACC2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7A90555C237C4E7AD9727F35 /* Build configuration list for PBXNativeTarget "QRStudioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C12885DB7214292F6470C76 /* Debug */,
+				2421EB23F500493562C688CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AAA1F7AFA9A0AFB061E1323B /* Build configuration list for PBXNativeTarget "QRStudioShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC9148A2433A0D7B57031600 /* Debug */,
+				38A3770566F63E7876BD977C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		ADCD60567CCFB183E8B1BCD4 /* Build configuration list for PBXProject "QRStudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C318B0CF8A53111728721E7D /* Debug */,
+				476FCC428B8047984F2C5F0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CC15B9A94D4010BDBD93E98C /* Build configuration list for PBXNativeTarget "QRStudioMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5142AA7DC558E44639E9EF82 /* Debug */,
+				C1F54C7DC7B48B8AB2FB3CB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F52BCDD5DF16C4A28BA01EBC /* Build configuration list for PBXNativeTarget "QRStudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72F96C28F1A68A42DC760E9D /* Debug */,
+				53127CB96BEA135468EE3F3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		92CFD30014AD873E1DF7C42C /* XCLocalSwiftPackageReference "QRCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = QRCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		554522E0AAA2F56F1AF593BD /* QRCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = QRCore;
+		};
+		641718233336EEF4003363D7 /* QRCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = QRCore;
+		};
+		6995F80CCF0CE91B61A98081 /* QRCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = QRCore;
+		};
+		82AE91A50385AE21FD9DC0AB /* QRCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = QRCore;
+		};
+		8A84D17638DDF340327250EB /* QRCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = QRCore;
+		};
+		9546710C2FA919DDD28E7241 /* QRCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = QRCore;
+		};
+		D70DFBD615D7C9AA9912F03E /* QRCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = QRCore;
+		};
+		D9D37E3AC8D42D514CF21EBD /* QRCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = QRCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 0F9CE7F170DFB3AD3034B2B9 /* Project object */;
+}
